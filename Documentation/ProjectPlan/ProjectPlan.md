@@ -6,13 +6,14 @@ Created by:
 - Niklas Mezynski
 - Joel Sebastian Delgado
 
-## Contents
+[//]: <> (Contents)
 ....
 
-## Glossary and list of abbreviations
-...
+[//]: <> (Glossary and list of abbreviations)
+@@include[Glossary.md](./Glossary.md)
 
-## 1.	Introduction
+[//]: <> (Introduction)
+@@include[Introduction.md](./Introduction.md)
 
 This document is meant to provide a project plan that will define the guidelines for the realization of a GHG-Emissions application for the company Pharox.
 

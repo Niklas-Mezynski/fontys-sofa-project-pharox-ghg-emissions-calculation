@@ -1,4 +1,4 @@
-# 4. Assignment
+## 3. Assignment
 
 The assignment for this project is to build a modular application within Google Firebase that helps Pharox’s clients to:
 

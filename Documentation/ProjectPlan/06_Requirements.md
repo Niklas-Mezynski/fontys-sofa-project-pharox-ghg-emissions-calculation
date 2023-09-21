@@ -1,10 +1,9 @@
-# Requirements
+## 6. Requirements
 The requirements of the project will be described in this document. There are 2 categories of requirements, these are functional and non-functional. 
 The functional requirements are the ones that describe the functionality of the program, and the non-functional requirements are the ones that describe the technologies used performance requirements. 
 
-## Functional requirements
+### 6.1. Functional requirements
 This section of the document will introduce the functional requirements (FR) of the program. These will be separated into 3 categories (Must have, should have, and could have) 
-
 
 <table>
   <tr>
@@ -25,8 +24,6 @@ This section of the document will introduce the functional requirements (FR) of 
   </tr>
 </table>
 
-
-
 <table>
   <tr>
     <th>ID</th>
@@ -45,7 +42,6 @@ This section of the document will introduce the functional requirements (FR) of 
     <td>The calculations of all the maritime emissions produced should be implemented </td>
   </tr>
 </table>
-
 
 <table>
   <tr>
@@ -66,7 +62,6 @@ This section of the document will introduce the functional requirements (FR) of 
   </tr>
 </table>
 
-
 <table>
   <tr>
     <th>ID</th>
@@ -85,7 +80,6 @@ This section of the document will introduce the functional requirements (FR) of 
     <td>The calculations of all the emissions produced by air transportation should be implemented </td>
   </tr>
 </table>
-
 
 <table>
   <tr>
@@ -106,7 +100,6 @@ This section of the document will introduce the functional requirements (FR) of 
   </tr>
 </table>
 
-
 <table>
   <tr>
     <th>ID</th>
@@ -125,7 +118,6 @@ This section of the document will introduce the functional requirements (FR) of 
     <td>The calculation of all emissions related to Scope 2 as defined in the GLEC framework must be implemented. </td>
   </tr>
 </table>
-
 
 <table>
   <tr>
@@ -146,7 +138,6 @@ This section of the document will introduce the functional requirements (FR) of 
   </tr>
 </table>
 
-
 <table>
   <tr>
     <th>ID</th>
@@ -165,7 +156,6 @@ This section of the document will introduce the functional requirements (FR) of 
     <td>The calculations for each Scope must specify a set of minimum required data to make the calculation of emissions possible. Furthermore, it shall specify a set of optional data that will enhance the precision of the calculation. </td>
   </tr>
 </table>
-
 
 <table>
   <tr>
@@ -205,7 +195,6 @@ This section of the document will introduce the functional requirements (FR) of 
   </tr>
 </table>
 
-
 <table>
   <tr>
     <th>ID</th>
@@ -225,8 +214,7 @@ This section of the document will introduce the functional requirements (FR) of 
   </tr>
 </table>
 
-
-## Non-functional requirements
+## 6.2. Non-functional requirements
 This section of the document will introduce the non-functional requirements (NFR) of the program. 
 
 <table>

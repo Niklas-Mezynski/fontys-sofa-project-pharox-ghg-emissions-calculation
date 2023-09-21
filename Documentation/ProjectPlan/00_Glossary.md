@@ -1,3 +1,5 @@
+
+
 ## Glossary and abbreviations
 |Term|Definition|
 |:----|:----|

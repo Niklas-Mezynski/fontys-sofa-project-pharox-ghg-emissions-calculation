@@ -1,8 +1,4 @@
-# 2. Context
-
-Pharox is active in optimization of supply chains by digitisation with different technologies, like IoT, Planningstool, RPA and AI. Their IT landscape is based on full cloud serverless environment, cloud functions and they use amongst others Google Firebase, React, Stencil, Flutter, NodeJS for their solutions.
-
-# 3. Problem
+## 2. Problem
 
 Pharox’ clients include big multinationals such as Walmart, Hema, and BASF. All these companies have the need to ship their goods. These shipments have a massive impact on GHG-Emissions like CO2. Transport contributes 14% to the emissions globally.  (CBS, 2023)
 

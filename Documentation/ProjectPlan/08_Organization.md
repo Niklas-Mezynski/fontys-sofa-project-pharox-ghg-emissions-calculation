@@ -1,8 +1,8 @@
-# 9. Organization
+## 8. Organization
 
 In the following chapter the methodologies and tools used to make this assignment possible will be described as well as the work environment.
 
-## 9.1 Methodologies
+### 8.1 Methodologies
 
 The team will use the Agile Scrum methodology will be used as a project management method. Scrum is a way of to get work done, as a team, in small pieces at a time. The team consists of the Product Owner Joris Tenhagen, the Scrum Master Patrick van Leipsig and the Developers. The Product Owner is responsible for ensuring the team is delivering the most valuable products while the Scrum Master helps the team to get organized effectively.
 
@@ -14,7 +14,7 @@ Furthermore, there will be at least one weekly meeting with Pharox to discuss fu
 
 Atlassian Jira is used to manage the project and keep track of the progress. The backlog contains all the requirements and tasks that need to be done to complete the project. Also, it will be used to estimate the complexity of tasks, plan and track the different sprints, and assign tasks to the team members.
 
-## 9.2 Work Environment
+### 8.2 Work Environment
 
 The work environment is built upon Google’s Firebase services. The backend with all calculations will be implemented in Firebase Cloud Functions. Pharox provides a separate Firebase project for the group to work with during the project. The source code and other artifacts will be stored in the FontysVenlo GitHub repository. After completion of the project the source code all related documents will be hand over to Pharox.
 

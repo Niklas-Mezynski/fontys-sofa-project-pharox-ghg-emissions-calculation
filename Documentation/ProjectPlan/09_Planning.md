@@ -1,4 +1,4 @@
-# 11. Planning
+# 9. Planning
 
 According to the SoFa’s workload, the team will be available for 20h/week during the duration of the semester 7 and academic holidays will be respected. Therefore, the team will be available from September to the end of December with the exceptions of weeks 42, 51 and 52.
 

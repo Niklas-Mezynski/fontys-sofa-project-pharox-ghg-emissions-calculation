@@ -1,4 +1,4 @@
-# 10. Stakeholders
+## 10. Stakeholders
 
 The following persons are stakeholders in this project:
 
