@@ -22,6 +22,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: docker://pandoc/core:2.9
-        with:
-          args: "./Documentation/ProjectPlan/ProjectPlan.md > ProjectPlan.pdf" # gets appended to pandoc command
+      - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            path: main
+      - name: Covert files
+          uses: docker://pandoc/core:2.9
+            with:
+              args: "./Documentation/ProjectPlan/ProjectPlan.md > ProjectPlan.pdf" # gets appended to pandoc command
