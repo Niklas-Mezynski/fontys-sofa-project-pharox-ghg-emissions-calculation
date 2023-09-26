@@ -24,7 +24,7 @@
 <tr>
 <td>
 
-Name
+**Name**
 
 </td>
 <td>
@@ -36,7 +36,7 @@ Name
 <tr>
 <td>
 
-Description
+**Description**
 
 </td>
 <td>
@@ -48,7 +48,7 @@ Description
 <tr>
 <td>
 
-Actors
+**Actors**
 
 </td>
 <td>
@@ -60,7 +60,7 @@ Actors
 <tr>
 <td>
 
-Pre-Conditions
+**Pre-Conditions**
 
 </td>
 <td>
@@ -72,7 +72,7 @@ Pre-Conditions
 <tr>
 <td>
 
-Scenario
+**Scenario**
 
 </td>
 <td>
@@ -88,7 +88,7 @@ Scenario
 <tr>
 <td>
 
-Results
+**Results**
 
 </td>
 <td>
@@ -100,7 +100,7 @@ Results
 <tr>
 <td>
 
-Exceptions (Optional)
+**Exceptions (Optional)**
 
 </td>
 <td>
@@ -112,7 +112,7 @@ Exceptions (Optional)
 <tr>
 <td>
 
-Extensions (Optional)
+**Extensions (Optional)**
 
 </td>
 <td>
