@@ -27,7 +27,7 @@ Calculate Scope 3 Emissions
 </td>
 <td>
 
-The software calculates Scope 3, the Supply chain emissions, based on the GLEC Framework.The company is not directly responsible for them, but they are part of the company's value chain.
+The software calculates Scope 3, the Supply chain emissions, based on the GLEC Framework. The company is not directly responsible for them, but they are part of the company's value chain.
 
 </td>
 </tr>
@@ -63,7 +63,7 @@ Users have access to relevant data sources or databases.
 </td>
 <td>
 
-1. The Software User initiates the emissions calculation process through the software.
+1. The Software User initiates the emission calculation process through the software.
 2. The user specifies the minimum set required data. This is required per transport mode and includes:
    - The type of transport (Transport mode)
    - The fuel in `kg` used during transport
@@ -111,7 +111,7 @@ The software generates accurate greenhouse gas emissions calculations based on t
 
 - Extension 2.1: More data may be added to the software to improve the accuracy of the calculations.
   - The user may provide its own emission factors for the calculation process.
-  - The user provides a more precise distance in `km` the goods are transported. In best case, this is the *Actual distance*.
+  - The user provides a more precise distance in `km` the goods are transported. In the best case, this is the *Actual distance*.
   - The user already has the CO2-equivalent intensity factor available for the fuel used during transport.
     - This scenario would only require the tonne kilometers to calculate the total emissions.
 
