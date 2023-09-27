@@ -67,10 +67,11 @@ User logged in.
    - The type of transport (Transport mode)
    - The fuel in `kg` or `l` used during transport
    - The type of fuel used during transport
+   - Emission type (Well-to-Tank, Tank-to-Wheel, Well-to-Wheel)
 2. User requests Scope 1 emissions calculation
 3. System checks if enough informations has been provided
 4. System performs calculation
-5. System sends result to the User in `kg of CO2-equivalents`
+5. System sends result to the User in `kg of CO2-equivalent`
 
 </td>
 </tr>
