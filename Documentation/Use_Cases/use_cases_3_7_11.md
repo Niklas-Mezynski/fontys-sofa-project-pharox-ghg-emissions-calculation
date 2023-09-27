@@ -27,7 +27,7 @@ Calculate Scope 3 Emissions
 </td>
 <td>
 
-The software calculates Scope 3, the Supply chain emissions, based on the GLEC Framework. The company is not directly responsible for them, but they are part of the company's value chain.
+As a user I want to calculate Scope 3, the Supply chain emissions, based on the GLEC Framework. These are the emissions the company is not directly responsible for them, but they are part of the company's value chain.
 
 </td>
 </tr>
@@ -39,7 +39,7 @@ The software calculates Scope 3, the Supply chain emissions, based on the GLEC F
 </td>
 <td>
 
-Individuals, organizations or regulatory authorities that want to calculate their emissions.
+User
 
 </td>
 </tr>
@@ -50,8 +50,8 @@ Individuals, organizations or regulatory authorities that want to calculate thei
 
 </td>
 <td>
-
-Users have access to relevant data sources or databases.
+- User is authenticated.
+- Users has the relevant data available.
 
 </td>
 </tr>
@@ -96,8 +96,15 @@ The software generates accurate greenhouse gas emissions calculations based on t
 </td>
 <td>
 
-1. Insufficient or inaccurate data may lead to incomplete or inaccurate emissions calculations.
-2. Technical issues or errors during data input or calculation processes.
+2. 1
+- The user provides insufficient data.
+- The software returns an error message to the user.
+3. 1
+- The system cannot find the correct emission factors for the calculation.
+- The system returns an error message to the user.
+3. 2
+- System encounters and error while performing the calculation.
+- The system returns an error message to the user.
 
 </td>
 </tr>
@@ -109,11 +116,15 @@ The software generates accurate greenhouse gas emissions calculations based on t
 </td>
 <td>
 
-- Extension 2.1: More data may be added to the software to improve the accuracy of the calculations.
-  - The user may provide its own emission factors for the calculation process.
-  - The user provides a more precise distance in `km` the goods are transported. In the best case, this is the *Actual distance*.
-  - The user already has the CO2-equivalent intensity factor available for the fuel used during transport.
-    - This scenario would only require the tonne kilometers to calculate the total emissions.
+2. 1
+- The user provides a more precise distance in `km` the goods are transported. In the best case, this is the *Actual distance*.
+- The system calculates more accurate emissions.
+2. 2
+- The user provides the CO2-equivalent intensity factor for the fuel used during transport.
+- The system calculates the total emissions based on the provided intensity factor and the tonne kilometers.
+2. 3
+- The user provides its own emission factors for the calculation process.
+- The system calculates the total emissions based on the provided emission factors.
 
 </td>
 </tr>
@@ -152,7 +163,8 @@ User wants to read emission factors
 </td>
 <td>
 
-As there are many emission factors, for different transport modes and fuels, the user wants to read the emission factors used by the software.
+As a user I want to read the emission factors used by the software.
+As an administrator I want to read the emission factors used by the software in order to maintain them.
 
 </td>
 </tr>
@@ -164,8 +176,8 @@ As there are many emission factors, for different transport modes and fuels, the
 </td>
 <td>
 
-- Individuals, organizations or regulatory authorities that want to calculate their emissions.
-- Administrators that want to manage and maintain the emission factors.
+- Users
+- Administrators
 
 </td>
 </tr>
@@ -177,7 +189,7 @@ As there are many emission factors, for different transport modes and fuels, the
 </td>
 <td>
 
-- The user is authenticated and has access to the software.
+- The user is authenticated.
 - The user has access to the emission factors.
 
 </td>
@@ -192,7 +204,7 @@ As there are many emission factors, for different transport modes and fuels, the
 
 1. The user makes a request to read the emission factors.
 2. The software returns the emission factors to the user.
-3. The user reviews the emission factors.
+3. The user can read the list of emission factors.
 
 </td>
 </tr>
@@ -216,8 +228,12 @@ The user gains insights into the emission factors used by the software.
 </td>
 <td>
 
-- Extension 1.1: The user may request to read the emission factors for a specific transport mode.
-- Extension 1.2: The user may request to read the emission factors for a specific fuel.
+1. 1
+- The user requests to read the emission factors for a specific transport mode.
+- The system returns the emission factors for the specific transport mode.
+1. 2
+- The user requests to read the emission factors for a specific fuel.
+- The system returns the emission factors for the specific fuel.
 
 </td>
 </tr>
@@ -256,9 +272,7 @@ User wants to manage the previously stored emission calculations.
 </td>
 <td>
 
-The user wants to manage the previously stored emission calculations. This includes:
-- Editing the previously stored emission calculations.
-- Deleting the previously stored emission calculations.
+As a User I want to manage the previously stored emission calculations. This includes deleting calculations and editing calculation's metadata.
 
 </td>
 </tr>
@@ -270,8 +284,8 @@ The user wants to manage the previously stored emission calculations. This inclu
 </td>
 <td>
 
-- Customers that own the emission calculation data.
-- Administrators that want to manage and maintain the emission calculations.
+- Users
+- Administrators
 
 </td>
 </tr>
@@ -283,7 +297,7 @@ The user wants to manage the previously stored emission calculations. This inclu
 </td>
 <td>
 
-- The user is authenticated and has access to the software.
+- The user is authenticated.
 - The user has access to the emission calculations.
 - The user has the rights to manage the emission calculations.
 
@@ -297,13 +311,11 @@ The user wants to manage the previously stored emission calculations. This inclu
 </td>
 <td>
 
-1. The user makes a request to manage the emission calculations.
-2. The software returns the emission calculations to the user. (See UC 10)
-3. The user reviews the emission calculations.
-4. The user may choose to edit or delete the emission calculations.
-5. The user may choose to save the edited emission calculations.
-6. The user may choose to delete the emission calculations.
-7. The software processes the request and returns the results to the user.
+1. The user requests to manage a certain previously stored emission calculation.
+2. The system returns the previously stored emission calculation.
+3. The user edits the metadata of the emission calculation.
+4. The user saves the changes.
+5. The system updates the previously stored emission calculation.
 
 </td>
 </tr>
@@ -316,6 +328,34 @@ The user wants to manage the previously stored emission calculations. This inclu
 <td>
 
 The previously stored emission calculations are updated to the user's preferences.
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Exceptions**
+
+</td>
+<td>
+
+1. 1
+- The requested emission calculation does not exist.
+- The system returns an error message to the user.
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Extensions**
+
+</td>
+<td>
+
+3. 1
+- The user requests to delete the previously stored emission calculation.
+- The system deletes the previously stored emission calculation.
 
 </td>
 </tr>
