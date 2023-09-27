@@ -66,7 +66,7 @@ The emission factor is not longer available in the system
 </td>
 <td>
 
-System error when trying to delete a non existing emission factor
+Verify that System returns an error when trying to delete a non existing emission factor
 
 </td>
 </tr>

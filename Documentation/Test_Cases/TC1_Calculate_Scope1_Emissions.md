@@ -126,7 +126,7 @@ The `kg of CO2-equivalent` produced by the fuel consumption by each of the vehic
 </td>
 <td>
 
-System returns an error when any of the required information fields are missing, which are:
+Verify that System returns an error when any of the required information fields are missing, which are:
   - The type of transport (Transport mode)
   - The fuel in `kg` or `l` used during transport
   - The type of fuel used during transport
@@ -182,7 +182,7 @@ System error informing of missing data during the calculation
 </td>
 <td>
 
-System returns an error when calculation can't be performed
+Verify that System returns an error when calculation can't be performed
 
 </td>
 </tr>
