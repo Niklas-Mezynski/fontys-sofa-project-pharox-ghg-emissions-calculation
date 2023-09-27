@@ -155,8 +155,8 @@
     <td>Scenario</td>
     <td>
     <ol>
-        <li>Actor navigates to the page containing the information about the API</li>
-        <li>The information is being displayed</li>
+        <li>Actor invokes the API call to get the information about the API</li>
+        <li>The information is returned in a specified format</li>
     </ol>
     </td>
   </tr>
