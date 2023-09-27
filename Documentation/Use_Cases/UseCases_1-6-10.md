@@ -63,12 +63,14 @@ User logged in.
 </td>
 <td>
 
-1. User provides necessary information to perform the Scope 1 emissions calculation
+1. User provides necessary information to perform the Scope 1 emissions calculation. The minimum information needed consists of:
+   - The type of transport (Transport mode)
+   - The fuel in `kg` or `l` used during transport
+   - The type of fuel used during transport
 2. User requests Scope 1 emissions calculation
 3. System checks if enough informations has been provided
-4. System looks up for all the parameters needed for the calculation
-5. System performs calculation
-6. System sends result to the User
+4. System performs calculation
+5. System sends result to the User in `kg of CO2-equivalents`
 
 </td>
 </tr>
@@ -92,12 +94,14 @@ User gets the desired Scope 1 emissions calculation
 </td>
 <td>
 
-3.a. System doesn't have enough information to perform calculation
-3.b. System informs User and ends request
-4.a. System can't find the parameters needed for the calculation
-4.b. System informs User and ends request
-5.a. System encounters errors while performing the calculation
-5.b. System informs User and ends request
+3.
+    a. System doesn't have enough information to perform calculation
+3.
+    b. System informs User and ends request
+4.
+    a. System encounters errors while performing the calculation
+4.
+    b. System informs User and ends request
 
 </td>
 </tr>
@@ -109,8 +113,15 @@ User gets the desired Scope 1 emissions calculation
 </td>
 <td>
 
-1.a. User provides detailed information to perform Scope 1 emissions calculation
-5.a. System performs a detailed GHG emissions calculation
+1.
+    a. User provides detailed information to perform Scope 1 emissions calculation, which can consist of:
+    - The different vehicle types
+    - The amount of fuel used by each vehicle in `kg` or `l`
+    - The fuel type used by each vehicle
+1.
+    b. Continue with scenario until step 4
+4.
+    a. System performs a detailed GHG emissions calculation which is described per vehicle used
 
 </td>
 </tr>
@@ -183,10 +194,9 @@ User logged in with admin credentials.
 <td>
 
 1. User requests to remove a certain emission factor
-2. System checks if User has the right permissions
-3. System checks if given emission factor exists
-4. System removes the desired emission factor
-5. System notifies the User
+2. System checks if given emission factor exists
+3. System removes the desired emission factor
+4. System notifies the User
 
 </td>
 </tr>
@@ -210,10 +220,10 @@ The emission factor is removed from the System
 </td>
 <td>
 
-2.a. User is not authorize to perform such action
-3.b. System informs User and ends request
-4.a. System can't find the given emission factor
-4.b. System informs User and ends request
+2.
+    a. System can't find the given emission factor
+2.
+    b. System informs User and ends request
 
 </td>
 </tr>
@@ -306,26 +316,15 @@ User gets the requested past GHG emissions calculations
 <tr>
 <td>
 
-**Exceptions**
-
-</td>
-<td>
-
-2.a. System doesn't find past emissions calculations
-2.b. System returns an empty list
-
-</td>
-</tr>
-<tr>
-<td>
-
 **Extensions**
 
 </td>
 <td>
 
-1.a. User provides information to filter past emissions calculations
-2. System checks for past emissions calculation applying the given filter conditions
+1.
+    a. User provides information to filter past emissions calculations
+1.
+    b. Continues scenario from step 2
 
 
 </td>
