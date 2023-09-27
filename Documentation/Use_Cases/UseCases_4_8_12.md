@@ -1,4 +1,10 @@
 <table>
+  <thead>
+<tr>
+<th>#</th>
+<th>4</th>
+</tr>
+</thead>
 <tbody>
   <tr>
     <td>Name</td>
@@ -9,7 +15,7 @@
   <tr>
     <td>Description</td>
     <td>
-    Add/edit/delete emission factors
+    Edit emission factors
     </td>
   </tr>
   <tr>
@@ -28,16 +34,15 @@
     <td>Scenario</td>
     <td>
     <ol>
-        <li>Actor navigates to the emissions factors page of the app</li>
-        <li>Actor selects the emission factor to be added/edited/deleted</li>
-        <li>If the emission factor is being added/edited the actor should input a new value</li>
+        <li>Actor invokes the API call to edit emission factor and provides the new value</li>
+        <li>System sends the request with the provided value</li>
     </ol>
     </td>
   </tr>
   <tr>
     <td>Results</td>
     <td>
-    Emission factor has been added/edited/deleted
+    Emission factor has been edited
     </td>
   </tr>
 </tbody>
@@ -51,6 +56,12 @@
 
 
 <table>
+  <thead>
+<tr>
+<th>#</th>
+<th>8</th>
+</tr>
+</thead>
 <tbody>
   <tr>
     <td>Name</td>
@@ -80,8 +91,8 @@
     <td>Scenario</td>
     <td>
     <ol>
-        <li>Actor navigates to the authentication page</li>
-        <li>Actor provides the required authentication credentials</li>
+        <li>Actor invokes the authentication API call and provides credentials</li>
+        <li>System sends the API call and checks the credentials</li>
     </ol>
     </td>
   </tr>
@@ -109,6 +120,12 @@
 
 
 <table>
+  <thead>
+<tr>
+<th>#</th>
+<th>12</th>
+</tr>
+</thead>
 <tbody>
   <tr>
     <td>Name</td>
@@ -138,8 +155,8 @@
     <td>Scenario</td>
     <td>
     <ol>
-        <li>Actor navigates to the page containing the information about the API</li>
-        <li>The information is being displayed</li>
+        <li>Actor invokes the API call to get the information about the API</li>
+        <li>The information is returned in a specified format</li>
     </ol>
     </td>
   </tr>
