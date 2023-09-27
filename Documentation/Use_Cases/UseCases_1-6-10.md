@@ -225,7 +225,7 @@ The emission factor is removed from the System
 <thead>
 <tr>
 <th>#</th>
-<th>1</th>
+<th>10</th>
 </tr>
 </thead>
 <tbody>
@@ -237,7 +237,7 @@ The emission factor is removed from the System
 </td>
 <td>
 
-Calculate GLEC Framework Scope 1 emissions
+Check for past GHG emissions calculations
 
 </td>
 </tr>
@@ -249,7 +249,7 @@ Calculate GLEC Framework Scope 1 emissions
 </td>
 <td>
 
-As a user I would like to calculate the GHG emissions produced by the assets owned or controlled by the company I work for
+As a User, I would like to view past GHG emissions calculations
 
 </td>
 </tr>
@@ -273,7 +273,7 @@ User
 </td>
 <td>
 
-User logged in.
+User logged in
 
 </td>
 </tr>
@@ -285,12 +285,9 @@ User logged in.
 </td>
 <td>
 
-1. User provides necessary information to perform the Scope 1 emissions calculation
-2. User requests Scope 1 emissions calculation
-3. System checks if enough informations has been provided
-4. System looks up for all the parameters needed for the calculation
-5. System performs calculation
-6. System sends result to the User
+1. User requests to view past emissions calculations
+2. System checks for emissions calculations belonging to the User
+3. System returns the past emissions calculations
 
 </td>
 </tr>
@@ -302,37 +299,34 @@ User logged in.
 </td>
 <td>
 
-User gets the desired Scope 1 emissions calculation
+User gets the requested past GHG emissions calculations
 
 </td>
 </tr>
 <tr>
 <td>
 
-**Exceptions (Optional)**
+**Exceptions**
 
 </td>
 <td>
 
-3.a. System doesn't have enough information to perform calculation
-3.b. System informs User
-4.a. System can't find the parameters needed for the calculation
-4.b. System informs User
-5.a. System encounters errors while performing the calculation
-5.b. System informs User
+2.a. System doesn't find past emissions calculations
+2.b. System returns an empty list
 
 </td>
 </tr>
 <tr>
 <td>
 
-**Extensions (Optional)**
+**Extensions**
 
 </td>
 <td>
 
-1.a. User provides detailed information to perform Scope 1 emissions calculation
-5.a. System performs a detailed GHG emissions calculation
+1.a. User provides information to filter past emissions calculations
+2. System checks for past emissions calculation applying the given filter conditions
+
 
 </td>
 </tr>
