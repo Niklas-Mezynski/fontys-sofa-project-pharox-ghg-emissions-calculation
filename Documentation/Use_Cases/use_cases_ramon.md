@@ -1,4 +1,10 @@
 <table>
+  <thead>
+<tr>
+<th>#</th>
+<th>-4</th>
+</tr>
+</thead>
 <tbody>
   <tr>
     <td>Name</td>
@@ -50,6 +56,12 @@
 
 
 <table>
+  <thead>
+<tr>
+<th>#</th>
+<th>-8</th>
+</tr>
+</thead>
 <tbody>
   <tr>
     <td>Name</td>
@@ -108,6 +120,12 @@
 
 
 <table>
+  <thead>
+<tr>
+<th>#</th>
+<th>-12</th>
+</tr>
+</thead>
 <tbody>
   <tr>
     <td>Name</td>
