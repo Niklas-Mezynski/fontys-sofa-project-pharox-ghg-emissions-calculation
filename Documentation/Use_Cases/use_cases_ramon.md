@@ -2,7 +2,7 @@
   <thead>
 <tr>
 <th>#</th>
-<th>-4</th>
+<th>4</th>
 </tr>
 </thead>
 <tbody>
@@ -59,7 +59,7 @@
   <thead>
 <tr>
 <th>#</th>
-<th>-8</th>
+<th>8</th>
 </tr>
 </thead>
 <tbody>
@@ -123,7 +123,7 @@
   <thead>
 <tr>
 <th>#</th>
-<th>-12</th>
+<th>12</th>
 </tr>
 </thead>
 <tbody>
