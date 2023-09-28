@@ -40,7 +40,7 @@ Actors
 </td>
 <td>
 
-Regular User
+User
 
 </td>
 </tr>
