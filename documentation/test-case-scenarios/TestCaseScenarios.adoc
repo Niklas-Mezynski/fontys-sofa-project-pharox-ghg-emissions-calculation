@@ -1,4 +1,4 @@
-= Use case scenarios
+= Test case scenarios
 Created by: Patrick van Leipsig, Ramon Zalmai Masodi, Niklas Mezynski, Joel Sebastian Delgado
 
 include::sections/TC1_Calculate_Scope1_Emissions.adoc[]
