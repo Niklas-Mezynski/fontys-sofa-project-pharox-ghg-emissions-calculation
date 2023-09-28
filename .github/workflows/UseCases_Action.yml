@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: HTML document
-          path: ../Documentation/Use_Cases/useCases.html
+          path: useCases.html
 
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: PDF document
-          path: ../Documentation/Use_Cases/useCases.pdf
+          path: useCases.pdf
