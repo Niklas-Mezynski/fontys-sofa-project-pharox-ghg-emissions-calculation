@@ -25,6 +25,8 @@ jobs:
         run: |
           git config --global user.email "j.sebastian@student.fontys.nl"
           git config --global user.name "Joel"
+          git fetch
+          git pull
           git add documentation/test-case-scenarios/TestCaseScenarios.pdf
           git commit -a -m "Update Test Case Scenarios PDF"
           git push

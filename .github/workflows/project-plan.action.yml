@@ -25,6 +25,8 @@ jobs:
         run: |
           git config --global user.email "j.sebastian@student.fontys.nl"
           git config --global user.name "Joel"
+          git fetch
+          git pull
           git add documentation/project-plan/ProjectPlan.pdf
           git commit -a -m "Update Project Plan PDF"
           git push
