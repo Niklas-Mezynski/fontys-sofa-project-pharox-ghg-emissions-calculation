@@ -1,0 +1,61 @@
+=== UC9: Store emission calculation results
+
+[[UC9_TC1]]
+
+[cols="1,3"]
+|===
+|Test case ID | UC9_TC1
+
+|Description | Verify that the User can successfully store the result of their calculation for later use and/or review.
+
+|Test Steps a|
+1. Authenticate as a User.
+2. Complete an emission calculation.
+3. See the result of the calculation.
+4. Send a request to the system to save the calculation.
+5. Verify that the system processes the request.
+6. Check if the system stores the calculation result.
+7. Confirm that the system returns a success message to the User.
+
+|Expected Result | The calculation result should be successfully stored within the application, and the User should receive a success message.
+
+|===
+
+[[UC9_TC2]]
+
+[cols="1,3"]
+|===
+|Test case ID | UC9_TC2
+
+|Description | Verify that the system handles a scenario where the calculation fails, and the User attempts to store the result.
+
+|Test Steps a|
+1. Authenticate as a User.
+2. Start an emission calculation that fails
+3. Attempt to save the result of the failed calculation.
+4. Verify that the system detects the calculation failure.
+5. Check if the system provides an appropriate error message to the User.
+
+|Expected Result | The system should detect the calculation failure and provide an error message to the User.
+
+|===
+
+[[UC9_TC3]]
+
+[cols="1,3"]
+|===
+|Test case ID | UC9_TC3
+
+|Description | Verify that the system handles a scenario where communication to the database fails when the User attempts to store a calculation result.
+
+|Test Steps a|
+1. Authenticate as a User.
+2. Complete an emission calculation successfully.
+3. See the result of the calculation.
+4. Send a request to the system to save the calculation.
+5. Simulate a database communication failure during the storage process.
+6. Verify that the system appropriately handles the database communication failure.
+
+|Expected Result | The system should handle the database communication failure gracefully and provide an error message or notification to the User indicating the failure to store the calculation result.
+
+|===

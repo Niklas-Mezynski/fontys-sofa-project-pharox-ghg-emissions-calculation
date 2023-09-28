@@ -1,31 +1,14 @@
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC3_TC1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+=== UC3: Calculate Scope 3 emissions
 
-**Description**
+[[UC3_TC1]]
 
-</td>
-<td>
+[cols="1,3"]
+|===
+|Test case ID | UC3_TC1
 
-Verify that the system can successfully calculate GLEC Framework Scope 3 Emissions when all general information is provided
+|Description | Verify that the system can successfully calculate GLEC Framework Scope 3 Emissions when all general information is provided
 
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests Scope 3 emission calculation using the following information from a road transport:
   - Vehicles using a Diesel/Biodiesel Blend consumed `374,285l` of fuel
   - Vehicles using a Gasoline/Ethanol Blend consumed `85,364l` of fuel
@@ -37,162 +20,60 @@ Verify that the system can successfully calculate GLEC Framework Scope 3 Emissio
   - Emissions by second vehicle type `42,682 kg of CO2-equivalent`
   - Total of `278,482 kg of CO2-equivalent` emissions
 
-</td>
-</tr>
-<tr>
-<td>
+|Expected Result | The `kg of CO2-equivalent` produced by the fuel consumption given by the User
 
-**Expected Result**
+|===
 
-</td>
-<td>
+[[UC3_TC2]]
 
-The `kg of CO2-equivalent` produced by the fuel consumption given by the User
+[cols="1,3"]
+|===
+|Test case ID | UC3_TC2
 
-</td>
-</tr>
-</tbody>
-</table>
-
-----
-
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC3_TC2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that the system can handle missing information when any of the required information fields are missing, which are:
+|Description | Verify that the system can handle missing information when any of the required information fields are missing, which are:
   - The type of transport (Transport mode)
   - The fuel in `kg` or `l` used during transport
   - The type of fuel used during transport
   - Emission type (Well-to-Tank, Tank-to-Wheel, Well-to-Wheel)
 
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests Scope 3 emission calculation using the following information from a road transport:
   - Vehicles consumed `187,000l` of fuel
 2. User sends the request to the application
 3. System detects that fuel type is missing
 4. System responds with an error message indicating that fuel type is missing
 
-</td>
-</tr>
-<tr>
-<td>
+|Expected Result | An error informing the user what information is missing
 
-**Expected Result**
+|===
 
-</td>
-<td>
+[[UC3_TC3]]
 
-An error informing the user what information is missing
+[cols="1,3"]
+|===
+|Test case ID | UC3_TC3
 
-</td>
-</tr>
-</tbody>
-</table>
+|Description | Verify that System returns an error when there is no corresponding emission factor for the provided information
 
-----
-
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC3_TC3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that System returns an error when there is no corresponding emission factor for the provided information
-
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests Scope 3 emission calculation providing a consumption of 374285 `l` of rainbow blend 95/5 during a Tank-to-Wheel road transportation activity
 2. User sends the request to the application
 3. System detects that there is no emission factor for the provided fuel type
 4. System responds with an error message indicating that there is no emission factor for the provided fuel type
 
-</td>
-</tr>
-<tr>
-<td>
+|Expected Result | System error informing of missing emission factor for the provided fuel type
 
-**Expected Result**
+|===
 
-</td>
-<td>
+[[UC3_TC4]]
 
-System error informing of missing emission factor for the provided fuel type
+[cols="1,3"]
+|===
+|Test case ID | UC3_TC4
 
-</td>
-</tr>
-</tbody>
-</table>
+|Description | Verify that System can perform calculations using other possible input data
 
-----
-
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC3_TC4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that System can perform calculations using other possible input data
-
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests Scope 3 emission calculation using the following information from an air transport activity:
   - Plane using Jet Fuel A assuming a standard emission intensity of `0.702 kg CO2e/tkm`
   - The total tonne-kilometers of the transport is `1,301 tkm`
@@ -202,19 +83,6 @@ Verify that System can perform calculations using other possible input data
 5. System responds with the following information:
   - Total emissions of that transport activity `913 kg of CO2-equivalent`
 
-</td>
-</tr>
-<tr>
-<td>
+|Expected Result | The `kg of CO2-equivalent` produced by the fuel consumption given by the User
 
-**Expected Result**
-
-</td>
-<td>
-
-The `kg of CO2-equivalent` produced by the fuel consumption given by the User
-
-</td>
-</tr>
-</tbody>
-</table>
+|===

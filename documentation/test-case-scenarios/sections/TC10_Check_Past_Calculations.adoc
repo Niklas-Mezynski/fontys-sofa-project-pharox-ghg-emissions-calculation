@@ -1,203 +1,69 @@
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC10_TC1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+=== UC10: Check for past GHG emissions calculations
 
-**Description**
+[[UC10_TC1]]
 
-</td>
-<td>
+[cols="1,3"]
+|===
+|Test case ID | UC10_TC1
 
-Verify that the system can successfully provide all the past emissions calculations belonging to a certain user
+|Description | Verify that the system can successfully provide all the past emissions calculations belonging to a certain user
 
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests to view past emissions calculations
 2. System finds past emissions calculations belonging to the User
 3. System returns all the past emissions calculations that has found
-   
-</td>
-</tr>
-<tr>
-<td>
 
-**Expected Result**
+|Expected Result | All the past emissions calculations belonging to the User
 
-</td>
-<td>
+|===
 
-All the past emissions calculations belonging to the User
+[[UC10_TC2]]
 
-</td>
-</tr>
-</tbody>
-</table>
+[cols="1,3"]
+|===
+|Test case ID | UC10_TC2
 
-----
+|Description | Verify that the system returns empty list when no past emissions calculations exist for a certain user
 
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC10_TC2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that the system returns empty list when no past emissions calculations exist for a certain user
-
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests to view past emissions calculations with or without providing filter options
 2. System can't find past emissions calculations belonging to the User
 3. System returns an empty list
-   
-</td>
-</tr>
-<tr>
-<td>
 
-**Expected Result**
+|Expected Result | Empty list
 
-</td>
-<td>
+|===
 
-Empty list
+[[UC10_TC3]]
 
-</td>
-</tr>
-</tbody>
-</table>
+[cols="1,3"]
+|===
+|Test case ID | UC10_TC3
 
-----
+|Description | Verify that the system returns past emissions calculations, matching certain filter conditions, belonging to a certain user
 
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC10_TC3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that the system returns past emissions calculations, matching certain filter conditions, belonging to a certain user
-
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests to view past emissions calculations providing valid filter options like calculation dates or period
 2. System finds past emissions calculations matching filter conditions and belonging to the User
 3. System returns the found past emissions calculations
-   
-</td>
-</tr>
-<tr>
-<td>
 
-**Expected Result**
+|Expected Result | The found past emissions calculations belonging to the User
 
-</td>
-<td>
+|===
 
-The found past emissions calculations belonging to the User
+[[UC10_TC4]]
 
-</td>
-</tr>
-</tbody>
-</table>
+[cols="1,3"]
+|===
+|Test case ID | UC10_TC4
 
-----
+|Description | Verify that System returns an error when an invalid filter is provided
 
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC10_TC4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that System returns an error when an invalid filter is provided
-
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests to view past emissions calculations providing invalid filter options like invalid dates
 2. System can't parse the provided filter
 3. System returns invalid filter error
-   
-</td>
-</tr>
-<tr>
-<td>
 
-**Expected Result**
+|Expected Result | System error informing of an invalid filter provided
 
-</td>
-<td>
-
-System error informing of an invalid filter provided
-
-</td>
-</tr>
-</tbody>
-</table>
-
-----
+|===

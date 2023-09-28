@@ -7,9 +7,9 @@ include::sections/TC2_Calculate_Scope2_Emissions.adoc[]
 
 include::sections/TC3_Calculate_Scope3_Emissions.adoc[]
 
-include::sections/TC4_Admin_Manage_Emisson_Factors.adoc[]
+include::sections/TC4_Edit_Emisson_Factors.adoc[]
 
-include::sections/TC5_Admin_Add_Emission_Factors.adoc[]
+include::sections/TC5_Add_Emission_Factors.adoc[]
 
 include::sections/TC6_Remove_Emission_Factors.adoc[]
 
@@ -17,7 +17,7 @@ include::sections/TC7_Read_Emission_Factors.adoc[]
 
 include::sections/TC8_User_Authentication.adoc[]
 
-include::sections/TC9_User_Store_Result_Of_Calculation.adoc[]
+include::sections/TC9_Store_Result_Of_Calculation.adoc[]
 
 include::sections/TC10_Check_Past_Calculations.adoc[]
 

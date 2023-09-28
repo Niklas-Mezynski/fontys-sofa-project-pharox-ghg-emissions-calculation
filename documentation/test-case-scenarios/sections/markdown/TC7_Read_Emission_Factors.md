@@ -2,7 +2,7 @@
 <thead>
 <tr>
 <th>Test Case ID</th>
-<th>UC6_TC1</th>
+<th>UC7_TC1</th>
 </tr>
 </thead>
 <tbody>
@@ -53,7 +53,7 @@ The system returns all emission factors
 <thead>
 <tr>
 <th>Test Case ID</th>
-<th>UC6_TC2</th>
+<th>UC7_TC2</th>
 </tr>
 </thead>
 <tbody>

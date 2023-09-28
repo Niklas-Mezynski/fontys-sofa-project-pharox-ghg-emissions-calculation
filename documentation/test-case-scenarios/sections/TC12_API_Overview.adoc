@@ -1,30 +1,20 @@
-<table>
-  <thead>
-    <tr>
-      <th>Test Case ID</th>
-      <th>UC12_TC1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Description</td>
-      <td>Verify that the API overview has been sent</td>
-    </tr>
-    <tr>
-      <td>Test Steps</td>
-      <td>
-        <ol>
-          <li>Authenticate as a User of the system (Administrator/User)</li>
-          <li>Send a request to view the API overview</li>
-          <li>Verify that the system processes the request</li>
-          <li>Check if the system returns the API overveiw</li>
-          <li>Confirm that the User receives a success message</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td>Expected Result</td>
-      <td>The API overview has been sent to the user</td>
-    </tr>
-  </tbody>
-</table>
+=== UC12: API overview
+
+[[UC12_TC1]]
+
+[cols="1,3"]
+|===
+|Test case ID | UC12_TC1
+
+|Description | Verify that the API overview has been sent
+
+|Test Steps a|
+1. Authenticate as a User of the system (Administrator/User)
+2. Send a request to view the API overview
+3. Verify that the system processes the request
+4. Check if the system returns the API overveiw
+5. Confirm that the User receives a success message
+
+|Expected Result | The API overview has been sent to the user
+
+|===

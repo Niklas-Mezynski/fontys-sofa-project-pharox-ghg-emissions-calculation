@@ -1,100 +1,36 @@
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC6_TC1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
+=== UC6: Remove emission factors
 
-**Description**
+[[UC6_TC1]]
 
-</td>
-<td>
+[cols="1,3"]
+|===
+|Test case ID | UC6_TC1
 
-Verify that the system can successfully remove emission factors
+|Description | Verify that the system can successfully remove emission factors
 
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests to remove a certain emission factor by providing valid indormation such as the ID
 2. System find the emission factor the User refers to
 3. System removes the emission factor
 4. System responds with a operation successful message
-   
-</td>
-</tr>
-<tr>
-<td>
 
-**Expected Result**
+|Expected Result | The emission factor is not longer available in the system
 
-</td>
-<td>
+|===
 
-The emission factor is not longer available in the system
+[[UC6_TC2]]
 
-</td>
-</tr>
-</tbody>
-</table>
+[cols="1,3"]
+|===
+|Test case ID | UC6_TC2
 
-----
+|Description | Verify that System returns an error when trying to delete a non existing emission factor
 
-<table>
-<thead>
-<tr>
-<th>Test Case ID</th>
-<th>UC6_TC2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-**Description**
-
-</td>
-<td>
-
-Verify that System returns an error when trying to delete a non existing emission factor
-
-</td>
-</tr>
-<tr>
-<td>
-
-**Test Steps**
-
-</td>
-<td>
-
+|Test Steps a|
 1. User requests to remove a certain emission factor by providing valid indormation such as the ID
 2. System can't find the emission factor the User refers to
 3. System responds with a cannot find the given emission factor error or not possible to delete such emission factor error
-   
-</td>
-</tr>
-<tr>
-<td>
 
-**Expected Result**
+|Expected Result | System returns an error when is not possible to remove an emission factor
 
-</td>
-<td>
-
-System returns an error when is not possible to remove an emission factor
-
-</td>
-</tr>
-</tbody>
-</table>
+|===
