@@ -1,0 +1,168 @@
+== Requirements
+
+The requirements of the project will be described in this document. There are 2 categories of requirements, these are functional and non-functional. The functional requirements are the ones that describe the functionality of the program, and the non-functional requirements are the ones that describe the technologies used performance requirements.
+
+=== Functional Requirements
+
+This section of the document will introduce the functional requirements (FR) of the program. These will be separated into 3 categories (Must have, should have, and could have).
+
+[cols="2,2"]
+|===
+| ID | FR1
+
+| Title | Calculation of Road transportation emissions
+
+| Priority | Must have
+
+| Description | The calculations of all the emissions produced by transportation on roads should be implemented
+|===
+
+[cols="2,2"]
+|===
+| ID | FR2
+
+| Title | Calculation of Maritime transportation emissions
+
+| Priority | Must have
+
+| Description | The calculations of all the maritime emissions produced should be implemented
+|===
+
+[cols="2,2"]
+|===
+| ID | FR3
+
+| Title | Calculation of Rail transportation emissions
+
+| Priority | Should have
+
+| Description | The calculations of all the emissions produced by transportation on railways should be implemented
+|===
+
+[cols="2,2"]
+|===
+| ID | FR4
+
+| Title | Calculation of Air transportation emissions
+
+| Priority | Could have
+
+| Description | The calculations of all the emissions produced by air transportation should be implemented
+|===
+
+[cols="2,2"]
+|===
+| ID | FR5
+
+| Title | Calculation of Scope 1 Emissions
+
+| Priority | Must have
+
+| Description | The calculation of all emissions related to Scope 1 as defined in the GLEC framework must be implemented.
+|===
+
+[cols="2,2"]
+|===
+| ID | FR6
+
+| Title | Calculation of Scope 2 Emissions
+
+| Priority | Must have
+
+| Description | The calculation of all emissions related to Scope 2 as defined in the GLEC framework must be implemented.
+|===
+
+[cols="2,2"]
+|===
+| ID | FR7
+
+| Title | Calculation of Scope 3 Emissions
+
+| Priority | Must have
+
+| Description | The calculation of all emissions related to Scope 3 as defined in the GLEC framework must be implemented. The implementation should be able to
+|===
+
+[cols="2,2"]
+|===
+| ID | FR8
+
+| Title | Specify all possible sets of input data
+
+| Priority | Must have
+
+| Description | The calculations for each Scope must specify a set of minimum required data to make the calculation of emissions possible. Furthermore, it shall specify a set of optional data that will enhance the precision of the calculation.
+|===
+
+[cols="2,2"]
+|===
+| ID | FR9
+
+| Title | Calculation of expected emissions
+
+| Priority | Should have
+
+| Description | This function will calculate the expected amount of emissions that will be produced during the transportation beforehand.
+|===
+
+[cols="2,2"]
+|===
+| ID | FR10
+
+| Title | Displaying of emission data
+
+| Priority | Could have
+
+| Description | After the calculation is finished, the result of this calculation should be displayed in the UI together with the input data which was used for the calculation.
+|===
+
+[cols="2,2"]
+|===
+| ID | FR11
+
+| Title | Displaying of the expected emissions data
+
+| Priority | Could have
+
+| Description | After the calculation of expected emissions is finished, the result of this calculation should be displayed together with the input parameters that were used for the calculation.
+|===
+
+=== Non-Functional Requirements
+
+This section of the document will introduce the non-functional requirements (NFR) of the program.
+
+[cols="2,2"]
+|===
+| ID | NFR1
+
+| Title | Back-end
+
+| Description | The backend should be created within a Firebase environment. It shall consist of a Firebase Database and Firebase cloud functions. Such functions shall be modular.
+|===
+
+[cols="2,2"]
+|===
+| ID | NFR2
+
+| Title | Database
+
+| Description | The database will be a Firebase Realtime Database
+|===
+
+[cols="2,2"]
+|===
+| ID | NFR3
+
+| Title | Firebase Plan
+
+| Description | We will require that the Firebase Project is upgraded to the Blaze (Paid) plan so we can leverage the full functionality of the Cloud Functions
+|===
+
+[cols="2,2"]
+|===
+| ID | NFR4
+
+| Title | Calculations validations
+
+| Description | The Climatiq API can be used to compare and validate the outcome of the calculations obtained by using the implemented tool.
+|===

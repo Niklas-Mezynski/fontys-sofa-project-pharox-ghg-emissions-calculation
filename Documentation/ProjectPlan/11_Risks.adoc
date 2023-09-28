@@ -1,0 +1,43 @@
+== Risks
+The above described project comes with certain risks. These are mentioned and evaluated in the following table 1. In order to define the risk level, the risk matrix in the Appendix A has been used.
+
+[cols="1,2,1,1,1,2"]
+|====
+| Risk | Description | Probability | Impact | Risk Level | Countermeasures
+
+| Pharox environment permissions | During the implementation phase, the development team will need access to some of the existing software developed by Pharox. For that, access permissions may be required.
+| 5
+| 2
+| High
+a|
+- Discuss with Pharox, in advance, what existing software can be used for this project.
+- Ask for access permissions before starting the implementation phase.
+
+| Data availability
+| In order to perform GHG emissions calculations, both customer and application data are needed. It may be that such data has not been uploaded to the databases and therefore is not available.
+| 2
+| 4
+| Moderate
+a|
+- Provide the system with default data to be able to perform estimations.
+- Inform the user that data is not available and therefore accurate calculations cannot be done.
+
+| Pharox stakeholders' availability
+| Pharox stakeholders' availability is needed on a weekly basis to ensure the project adapts to their necessities and to solve any questions or issues that might appear. Availability can be limited due to other projects.
+| 1
+| 1
+| Very low
+a|
+- Set up periodic sprint review meetings, where deliveries can be made, and feedback can be given.
+- Set up a weekly meeting where all parties are available to discuss the actual status and address any issues.
+
+| Calculation exceptions
+| As mentioned in the GLEC framework and in alignment with end user’s needs, special considerations may have to be taken into account while performing GHG emissions calculations. It may be that such considerations are not possible to apply at the moment of the calculation.
+| 2
+| 4
+| Medium
+a|
+- Perform an extensive requirements assessment before starting the implementation.
+- Build a scalable solution where exceptions can be added to the GHG emissions calculations functions.
+
+|====

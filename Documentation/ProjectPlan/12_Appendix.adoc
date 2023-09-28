@@ -1,0 +1,4 @@
+== Appendix
+=== A. Risk Matrix
+
+image::./resources/RiskMatrix.png[alt="Risk Management Matrix (Safety Culture, 2023)", title="Figure 1: Risk management matrix (Safety Culture, 2023)", align="left"]
