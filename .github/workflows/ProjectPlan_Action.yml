@@ -19,7 +19,7 @@ jobs:
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor-pdf -a allow-uri-read -D Documentation/ProjectPlan/ Documentation/ProjectPlan/ProjectPlan.adoc"
+          program: "asciidoctor-pdf -a allow-uri-read -D . Documentation/ProjectPlan/ProjectPlan.adoc"
 
       - name: Upload PDF Artifact
         uses: actions/upload-artifact@v2
