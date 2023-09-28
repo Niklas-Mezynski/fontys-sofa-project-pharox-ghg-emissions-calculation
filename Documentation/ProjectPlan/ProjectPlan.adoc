@@ -1,4 +1,5 @@
 = Project Plan
+Created by: Patrick van Leipsig, Ramon Zalmai Masodi, Niklas Mezynski, Joel Sebastian Delgado
 
 include::00_Glossary.adoc[]
 
