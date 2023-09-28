@@ -19,7 +19,7 @@ jobs:
     name: Build Asciidoc
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # - name: Build HTML
       #   uses: avattathil/asciidoctor-action@master
@@ -35,10 +35,9 @@ jobs:
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor-pdf -a allow-uri-read -D Documentation/Use_Cases/ Documentation/Use_Cases/useCases.adoc"
+          program: "asciidoctor-pdf Documentation/Use_Cases/useCases.adoc -o Documentation/Use_Cases/useCases.pdf"
 
       - name: Upload PDF Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: PDF document
-          path: useCases.pdf
+          path: Documentation/Use_Cases/useCases.pdf
