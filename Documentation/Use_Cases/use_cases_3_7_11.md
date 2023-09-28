@@ -50,6 +50,7 @@ User
 
 </td>
 <td>
+
 - User is authenticated.
 - Users has the relevant data available.
 
