@@ -90,8 +90,8 @@ Exceptions
 </td>
 <td>
 
-1. The emission factor already exists
-2. The Administrator inserts an invalid value
+2.a. The emission factor already exists
+1.a. The Administrator inserts an invalid value
 
 </td>
 </tr>

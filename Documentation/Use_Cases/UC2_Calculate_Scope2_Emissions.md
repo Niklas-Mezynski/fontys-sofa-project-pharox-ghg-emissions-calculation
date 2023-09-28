@@ -40,7 +40,7 @@ Actors
 </td>
 <td>
 
-Regular User
+User
 
 </td>
 </tr>
@@ -91,7 +91,7 @@ Exceptions
 </td>
 <td>
 
-1. The user does not give all the necessary information
+1. a. The user does not give all the necessary information
 
 </td>
 </tr>
