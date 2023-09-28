@@ -1,0 +1,28 @@
+[[UC5]]
+=== UC5: Add emission factor
+
+[cols="1,3"]
+|===
+|Name | Add emission factor
+
+|Description | Admin wants to add an emission factor
+
+|Actors | Admin
+
+|Pre-Conditions a|
+    - User is authenticated
+    - User has admin permissions
+
+|Scenario a|
+1. The Administrator sends a request to add an emission factor
+2. The system processes the request
+3. The system adds the emission factor
+4. The Administrator gets a success message
+
+|Results | The emission factor has been added to the application
+
+|Exceptions a|
+1. a. The Administrator inserts an invalid value
+2. a. The emission factor already exists
+
+|===

@@ -1,0 +1,22 @@
+[[UC4]]
+=== UC4: Edit emission factors
+
+[cols="1,3"]
+|===
+|Name | Edit emission factors
+
+|Description | Admin wants to edit emission factors
+
+|Actors | Admin
+
+|Pre-Conditions a|
+    - User is authenticated
+    - User has admin permissions
+
+|Scenario a|
+1. Actor invokes the API call to edit emission factor and provides the new value
+2. System sends the request with the provided value
+
+|Results | Emission factor has been edited
+
+|===

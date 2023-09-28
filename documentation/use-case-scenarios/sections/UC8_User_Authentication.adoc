@@ -1,0 +1,24 @@
+[[UC8]]
+=== UC8: User authentication
+
+[cols="1,3"]
+|===
+|Name | User authentication
+
+|Description | User wants to authenticate themselves
+
+|Actors | User
+
+|Pre-Conditions | -
+
+|Scenario a|
+1. Actor invokes the authentication API call and provides credentials
+2. System checks credentials
+3. System authenticates user
+
+|Results | Actor has been authenticated
+
+|Exceptions a|
+2. Authentication credentials were invalid 
+
+|===

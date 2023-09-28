@@ -457,7 +457,7 @@ The above described project comes with certain risks. These are mentioned and ev
 # 12. Appendix
 ### A. Risk matrix
 <figure>
-    <img src="./resources/RiskMatrix.png"
+    <img src="./resources/risk-matrix.png"
          alt="Albuquerque, New Mexico">
     <figcaption style="text-align: center">Figure 1: Risk management matrix (Safety Culture, 2023)</figcaption>
 </figure>

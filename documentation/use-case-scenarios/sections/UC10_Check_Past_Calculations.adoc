@@ -1,0 +1,29 @@
+[[UC10]]
+=== UC10: Check for past GHG emissions calculations
+
+[cols="1,3"]
+|===
+|Name | Check for past GHG emissions calculations
+
+|Description | The users wish to store the result of their calculation for later use and/or review
+
+|Actors | User
+
+|Pre-Conditions a|
+    - The Actor has been authenticated
+    - The Actor has completed an emission calculation
+
+|Scenario a|
+1. The Actor sees the result of their calculation
+2. The Actor sends a request to the system to save the calculation
+3. The system processes the request
+4. The system stores the request
+5. The system returns a success message to the Actor
+
+|Results | The calculation result has been stored within the application
+
+|Exceptions a|
+1.
+    a. The calculation failed
+
+|===

@@ -1,0 +1,30 @@
+name: build ProjectPlan asciidoc to pdf
+
+on:
+  push:
+    paths:
+      - documentation/project-plan/**
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  asciidoc_build:
+    runs-on: ubuntu-latest
+    name: Build Asciidoc
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build PDF
+        uses: avattathil/asciidoctor-action@master
+        with:
+          program: "asciidoctor-pdf documentation/project-plan/ProjectPlan.adoc -o documentation/project-plan/ProjectPlan.pdf"
+
+      - name: Commit PDF
+        run: |
+          git config --global user.email "j.sebastian@student.fontys.nl"
+          git config --global user.name "Joel"
+          git add documentation/project-plan/ProjectPlan.pdf
+          git commit -a -m "Update Project Plan PDF"
+          git push

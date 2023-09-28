@@ -1,0 +1,30 @@
+name: build TestCaseScenarios asciidoc to pdf
+
+on:
+  push:
+    paths:
+      - documentation/test-case-scenarios/**
+
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  asciidoc_build:
+    runs-on: ubuntu-latest
+    name: Build Asciidoc
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build PDF
+        uses: avattathil/asciidoctor-action@master
+        with:
+          program: "asciidoctor-pdf documentation/test-case-scenarios/TestCaseScenarios.adoc -o documentation/test-case-scenarios/TestCaseScenarios.pdf"
+
+      - name: Commit PDF
+        run: |
+          git config --global user.email "j.sebastian@student.fontys.nl"
+          git config --global user.name "Joel"
+          git add documentation/test-case-scenarios/TestCaseScenarios.pdf
+          git commit -a -m "Update Test Case Scenarios PDF"
+          git push

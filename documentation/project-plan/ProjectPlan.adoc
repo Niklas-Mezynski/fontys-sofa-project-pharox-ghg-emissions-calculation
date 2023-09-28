@@ -1,0 +1,31 @@
+= Project Plan
+Created by: Patrick van Leipsig, Ramon Zalmai Masodi, Niklas Mezynski, Joel Sebastian Delgado
+
+include::sections/00_Glossary.adoc[]
+
+:sectnums:
+include::sections/01_Introduction.adoc[]
+
+include::sections/02_Problem.adoc[]
+
+include::sections/03_Assignment.adoc[]
+
+include::sections/04_Activities.adoc[]
+
+include::sections/05_Scope.adoc[]
+
+include::sections/06_Requirements.adoc[]
+
+include::sections/07_Results.adoc[]
+
+include::sections/08_Organization.adoc[]
+
+include::sections/09_Planning.adoc[]
+
+include::sections/10_Stakeholders.adoc[]
+
+include::sections/11_Risks.adoc[]
+
+include::sections/12_Appendix.adoc[]
+
+include::sections/99_Bibliography.adoc[]

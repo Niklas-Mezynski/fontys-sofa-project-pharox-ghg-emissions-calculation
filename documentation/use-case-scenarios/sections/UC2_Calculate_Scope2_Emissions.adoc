@@ -1,0 +1,27 @@
+[[UC2]]
+=== UC2: Calculate Scope 2 Emissions
+
+[cols="1,3"]
+|===
+|Name | Calculate Scope 2 Emissions
+
+|Description | The user wishes to calculate the Scope 2 Emissions from the GLEC-Framework
+
+|Actors | User
+
+|Pre-Conditions | User has been authenticated
+
+|Scenario a|
+1. User enters basic information
+2. User sends request to the application
+3. System processes request
+4. System sends result back to the User
+
+|Results | The system should calculate and return the correct Scope 2 Emissions value.
+
+|Exceptions a|
+1. a. The user does not give all the necessary information
+
+|Extensions | Additional information to improve and return a more detailed calculation
+
+|===

@@ -1,0 +1,28 @@
+[[UC6]]
+=== UC6: Remove an emission factor
+
+[cols="1,3"]
+|===
+|Name | Remove an emission factor
+
+|Description | As an Admin, I would like to remove any unused or wrong emission factor from the available dataset
+
+|Actors | Admin
+
+|Pre-Conditions a|
+    - User is authenticated
+    - User has admin permissions
+
+|Scenario a|
+1. User requests to remove a certain emission factor
+2. System checks if given emission factor exists
+3. System removes the desired emission factor
+4. System notifies the User
+
+|Results | The emission factor is removed from the System
+
+|Exceptions a|
+2. a. System can't find the given emission factor
+2. b. System informs User and ends request
+
+|===
