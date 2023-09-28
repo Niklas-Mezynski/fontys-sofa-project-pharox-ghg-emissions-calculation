@@ -91,7 +91,7 @@ Exceptions
 </td>
 <td>
 
-1. The calculation failed
+1.a. The calculation failed
 
 </td>
 </tr>
