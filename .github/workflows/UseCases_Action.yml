@@ -21,16 +21,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build HTML
-        uses: avattathil/asciidoctor-action@master
-        with:
-          program: "asciidoctor -D . --backend=html5 Documentation/Use_Cases/useCases.adoc"
+      # - name: Build HTML
+      #   uses: avattathil/asciidoctor-action@master
+      #   with:
+      #     program: "asciidoctor -D . --backend=html5 Documentation/Use_Cases/useCases.adoc"
 
-      - name: Upload HTML Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: HTML document
-          path: useCases.html
+      # - name: Upload HTML Artifact
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: HTML document
+      #     path: useCases.html
 
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
