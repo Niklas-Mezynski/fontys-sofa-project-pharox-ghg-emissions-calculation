@@ -1,4 +1,5 @@
 = Use case scenarios
+
 Created by: Patrick van Leipsig, Ramon Zalmai Masodi, Niklas Mezynski, Joel Sebastian Delgado
 
 include::sections/UC1_Calculate_Scope1_Emissions.adoc[]
