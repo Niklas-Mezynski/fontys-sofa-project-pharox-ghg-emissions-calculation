@@ -80,7 +80,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Priority | Must have
 
-| Description | The calculation of all emissions related to Scope 3 as defined in the GLEC framework must be implemented. The implementation should be able to
+| Description | The calculation of all emissions related to Scope 3 as defined in the GLEC framework must be implemented.
 |===
 
 [cols="2,2"]
@@ -98,6 +98,17 @@ This section of the document will introduce the functional requirements (FR) of 
 |===
 | ID | FR9
 
+| Title | Batch calculation of multiple transport activities
+
+| Priority | Must have
+
+| Description | Calculation of GHG emissions for multiple transport activities shall be possible for any of the 3 GLEC Scopes in one batch.
+|===
+
+[cols="2,2"]
+|===
+| ID | FR10
+
 | Title | Calculation of expected emissions
 
 | Priority | Should have
@@ -107,7 +118,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 [cols="2,2"]
 |===
-| ID | FR10
+| ID | FR11
 
 | Title | Displaying of emission data
 
@@ -118,7 +129,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 [cols="2,2"]
 |===
-| ID | FR11
+| ID | FR12
 
 | Title | Displaying of the expected emissions data
 

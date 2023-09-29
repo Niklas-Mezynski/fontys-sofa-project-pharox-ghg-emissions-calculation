@@ -1,0 +1,29 @@
+[[UC13]]
+=== UC13: Batch calculations
+
+[cols="1,3"]
+|===
+|Name | Batch calculations
+
+|Description | As a User, I would like to calculate the GHG emissions produced by multiple transport activities from different scopes in one batch
+
+|Actors | User
+
+|Pre-Conditions | User logged in.
+
+|Scenario a|
+1. User provides all necessary information to perform any of the calculations in the use cases [underline]#UC1, UC2 and UC3#
+2. User requests batch calculation
+3. System checks if enough information has been provided
+4. System performs calculation
+5. System sends result to the User in `kg of CO2-equivalent` and detailed results obtained for each calculation
+
+|Results | User gets the desired batch calculation report
+
+|Exceptions a|
+3. a. System doesn't have enough information to perform calculations
+3. b. System informs User and ends request
+4. a. System encounters errors while performing the calculations
+4. b. System informs User and ends request
+
+|===

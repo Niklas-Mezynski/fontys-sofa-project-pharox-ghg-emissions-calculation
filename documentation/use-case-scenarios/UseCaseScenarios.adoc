@@ -47,3 +47,7 @@ include::sections/UC11_Manage_Past_Calculations.adoc[]
 <<<
 
 include::sections/UC12_API_Overview.adoc[]
+
+<<<
+
+include::sections/UC13_Batch_Calculations.adoc[]
