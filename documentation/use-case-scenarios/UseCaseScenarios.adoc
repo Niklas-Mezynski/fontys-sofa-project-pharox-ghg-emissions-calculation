@@ -3,24 +3,46 @@ Created by: Patrick van Leipsig, Ramon Zalmai Masodi, Niklas Mezynski, Joel Seba
 
 include::sections/UC1_Calculate_Scope1_Emissions.adoc[]
 
+<<<
+
 include::sections/UC2_Calculate_Scope2_Emissions.adoc[]
+
+<<<
 
 include::sections/UC3_Calculate_Scope3_Emissions.adoc[]
 
+<<<
+
 include::sections/UC4_Edit_Emisson_Factors.adoc[]
+
+<<<
 
 include::sections/UC5_Add_Emission_Factors.adoc[]
 
+<<<
+
 include::sections/UC6_Remove_Emission_Factors.adoc[]
+
+<<<
 
 include::sections/UC7_Read_Emission_Factors.adoc[]
 
+<<<
+
 include::sections/UC8_User_Authentication.adoc[]
+
+<<<
 
 include::sections/UC9_Store_Result_Of_Calculation.adoc[]
 
+<<<
+
 include::sections/UC10_Check_Past_Calculations.adoc[]
 
+<<<
+
 include::sections/UC11_Manage_Past_Calculations.adoc[]
+
+<<<
 
 include::sections/UC12_API_Overview.adoc[]
