@@ -1,9 +1,9 @@
 [[UC1]]
-=== UC1: Calculate GLEC Framework Scope 1 emissions
+=== UC1: Calculate Scope 1 emissions
 
 [cols="1,3"]
 |===
-|Name | Calculate GLEC Framework Scope 1 emissions
+|Name | Calculate Scope 1 emissions
 
 |Description | As a User, I would like to calculate the GHG emissions produced by the assets owned or controlled by the company I work for
 
@@ -25,14 +25,10 @@
 |Results | User gets the desired Scope 1 emissions calculation
 
 |Exceptions a|
-3.
-    a. System doesn't have enough information to perform calculation
-3.
-    b. System informs User and ends request
-4.
-    a. System encounters errors while performing the calculation
-4.
-    b. System informs User and ends request
+3. a. System doesn't have enough information to perform calculation
+3. b. System informs User and ends request
+4. a. System encounters errors while performing the calculation
+4. b. System informs User and ends request
 
 |Extensions a|
 1. a. User provides detailed information to perform Scope 1 emissions calculation, which can consist of:

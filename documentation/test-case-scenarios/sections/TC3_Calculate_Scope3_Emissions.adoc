@@ -30,7 +30,8 @@
 |===
 |Test case ID | UC3_TC2
 
-|Description | Verify that the system can handle missing information when any of the required information fields are missing, which are:
+|Description a| Verify that the system can handle missing information when any of the required information fields are missing, which are:
+
   - The type of transport (Transport mode)
   - The fuel in `kg` or `l` used during transport
   - The type of fuel used during transport

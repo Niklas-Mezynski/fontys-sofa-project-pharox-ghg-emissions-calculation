@@ -10,17 +10,17 @@
 
 |Test Steps a|
 1. User requests Scope 1 emission calculation providing the following information during a Well-to-Wheel road transportation activity:
-  - Gasoline Van using Gasoline/Ethanol 95/5 Blend and consuming 85364 `l`
-  - 7.5 t Diesel Truck using Diesel/Biodiesel Blend 95/5 and consuming 127257 `l`
-  - 40 t/Class 8 Truck using Diesel/Biodiesel Blend 95/5 and consuming 7486 `l`
+  - Gasoline Van using Gasoline/Ethanol 95/5 Blend and consuming `85,364l`
+  - 7.5 t Diesel Truck using Diesel/Biodiesel Blend 95/5 and consuming `127,257l`
+  - 40 t/Class 8 Truck using Diesel/Biodiesel Blend 95/5 and consuming `7,486l`
 2. User sends the request to the application
 3. System accepts the request
 4. System performs calculation
 5. System responds with the following information:
   - Total of 666153 `kg of CO2-equivalent` emissions
-  - Gasoline Van total of 239019 `kg of CO2-equivalent` emissions
-  - 7.5 t Diesel Truck total of 403404 `kg of CO2-equivalent` emissions
-  - 40 t/Class 8 Truck total of 23730 `kg of CO2-equivalent` emissions
+  - Gasoline Van total of `239,019kg of CO2-equivalent` emissions
+  - 7.5 t Diesel Truck total of `403,404kg of CO2-equivalent` emissions
+  - 40 t/Class 8 Truck total of `23,730kg of CO2-equivalent` emissions
 
 |Expected Result | The `kg of CO2-equivalent` produced by the fuel consumption given by the User
 
@@ -35,7 +35,7 @@
 |Description | Verify that the system can successfully calculate more detailed GLEC Framework Scope 1 Emissions when all detailed information is provided
 
 |Test Steps a|
-1. User requests Scope 1 emission calculation providing a consumption of 374285 `l` of diesel-biodiesel blend 95/5 during a a Tank-to-Wheel activity
+1. User requests Scope 1 emission calculation providing a consumption of `374,285l` of diesel-biodiesel blend 95/5 during a a Tank-to-Wheel activity
 2. User sends the request to the application
 3. System detects that transportation type is missing
 4. System responds with a missing transportation type
@@ -75,7 +75,7 @@
 |Description | Verify that System returns an error when calculation can't be performed
 
 |Test Steps a|
-1. User requests Scope 1 emission calculation providing a consumption of 374285 `l` of orange juice blend 95/5 during a Tank-to-Wheel road transportation activity
+1. User requests Scope 1 emission calculation providing a consumption of `374,285l` of orange juice blend 95/5 during a Tank-to-Wheel road transportation activity
 2. User sends the request to the application
 3. System accepts the request
 4. System tries to perform such calculation but provided data is not correct
