@@ -1,5 +1,5 @@
 [[UC12]]
-=== UC1: API overview
+=== UC12: API overview
 
 [cols="1,3"]
 |===

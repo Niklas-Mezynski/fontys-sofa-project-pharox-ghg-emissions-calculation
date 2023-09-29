@@ -1,5 +1,5 @@
 [[UC9]]
-=== UC1: Store emission calculation results
+=== UC9: Store emission calculation results
 
 [cols="1,3"]
 |===
