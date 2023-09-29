@@ -18,7 +18,7 @@ Some links to folders or files inside the repository are provided in order to fa
     - link:./documentation/project-plan/ProjectPlan.pdf[Project plan]
 //    - link:<./documentation/use-case-diagram/UseCaseDiagram.svg>[Use case diagram]
     - link:./documentation/use-case-scenarios/UseCaseScenarios.pdf[Use case scenarios]
-    - link:./documentation/test-case-scenarios/UseCaseScenarios.pdf[Test case scenarios]
+    - link:./documentation/test-case-scenarios/TestCaseScenarios.pdf[Test case scenarios]
 
 ==== Design phase
 
