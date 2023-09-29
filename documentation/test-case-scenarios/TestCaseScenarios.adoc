@@ -24,3 +24,5 @@ include::sections/TC10_Check_Past_Calculations.adoc[]
 include::sections/TC11_Manage_Past_Calculations.adoc[]
 
 include::sections/TC12_API_Overview.adoc[]
+
+include::sections/TC13_Batch_Calculations.adoc[]
