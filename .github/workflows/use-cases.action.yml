@@ -19,7 +19,7 @@ jobs:
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor-pdf documentation/use-case-scenarios/UseCaseScenarios.adoc -o documentation/use-case-scenarios/UseCaseScenarios.pdf"
+          program: "asciidoctor-pdf documentation/use-case-scenarios/UseCaseScenarios.adoc -o documentation/use-cases/UseCases.pdf"
 
       - name: Commit PDF
         run: |
@@ -27,6 +27,6 @@ jobs:
           git config --global user.name "Joel"
           git fetch
           git pull
-          git add documentation/use-case-scenarios/UseCaseScenarios.pdf
-          git commit -a -m "Update Use Case Scenarios PDF"
+          git add documentation/use-cases/UseCases.pdf
+          git commit -a -m "Update Use Cases PDF"
           git push
