@@ -14,7 +14,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Priority | Must have
 
-| Description | The calculations of all the emissions produced by transportation on roads should be implemented
+| Description | The calculations of all the emissions produced by transportation on roads shall be implemented
 |===
 
 [cols="2,2"]
@@ -25,7 +25,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Priority | Must have
 
-| Description | The calculations of all the maritime emissions produced should be implemented
+| Description | The calculations of all the maritime, including both ocean and inland waterways transportation activities, emissions produced shall be implemented
 |===
 
 [cols="2,2"]
@@ -34,9 +34,9 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Title | Calculation of Rail transportation emissions
 
-| Priority | Should have
+| Priority | Must have
 
-| Description | The calculations of all the emissions produced by transportation on railways should be implemented
+| Description | The calculations of all the emissions produced by transportation on railways shall be implemented
 |===
 
 [cols="2,2"]
@@ -45,9 +45,9 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Title | Calculation of Air transportation emissions
 
-| Priority | Could have
+| Priority | Must have
 
-| Description | The calculations of all the emissions produced by air transportation should be implemented
+| Description | The calculations of all the emissions produced by air transportation shall be implemented
 |===
 
 [cols="2,2"]
@@ -58,7 +58,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Priority | Must have
 
-| Description | The calculation of all emissions related to Scope 1 as defined in the GLEC framework must be implemented.
+| Description | The calculation of all emissions related to Scope 1 as defined in the GLEC framework shall be implemented.
 |===
 
 [cols="2,2"]
@@ -69,7 +69,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Priority | Must have
 
-| Description | The calculation of all emissions related to Scope 2 as defined in the GLEC framework must be implemented.
+| Description | The calculation of all emissions related to Scope 2 as defined in the GLEC framework shall be implemented.
 |===
 
 [cols="2,2"]
@@ -80,7 +80,7 @@ This section of the document will introduce the functional requirements (FR) of 
 
 | Priority | Must have
 
-| Description | The calculation of all emissions related to Scope 3 as defined in the GLEC framework must be implemented.
+| Description | The calculation of all emissions related to Scope 3 as defined in the GLEC framework shall be implemented.
 |===
 
 [cols="2,2"]
