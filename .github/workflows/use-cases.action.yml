@@ -3,7 +3,7 @@ name: build UseCaseScenarios asciidoc to pdf
 on:
   push:
     paths:
-      - documentation/use-case-scenarios/**
+      - documentation/use-cases/**
 
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,7 +19,7 @@ jobs:
       - name: Build PDF
         uses: avattathil/asciidoctor-action@master
         with:
-          program: "asciidoctor-pdf documentation/use-case-scenarios/UseCaseScenarios.adoc -o documentation/use-cases/UseCases.pdf"
+          program: "asciidoctor-pdf documentation/use-cases/UseCases.adoc -o documentation/use-cases/UseCases.pdf"
 
       - name: Commit PDF
         run: |
