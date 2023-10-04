@@ -17,7 +17,7 @@ $json = ConvertFrom-Json $($response.Content)
 $pagesNum = [int]$json.last_page
 
 # Init the output file
-"[" | Out-File "..\assets\emission-factors\emission-factors.json" -Force
+"[" | Out-File "..\assets\emission-factors.json" -Force
 
 # Do as many queries as pages and add to JSON file
 while($queryPage -le $pagesNum)
@@ -28,20 +28,23 @@ while($queryPage -le $pagesNum)
     $response = Invoke-WebRequest -Uri $uri -Method $method -Headers $headers
     $json = ConvertFrom-Json $($response.Content)
 
-    # Save Emission factors to a new JSON file
-    $fileName = '..\assets\emission-factors\emission-factors.json'
+    # Remove [] from JSON array
+    $fileName = '..\assets\emission-factors.json'
     $emissionFactors = $json.results | ConvertTo-Json -depth 100 
     $emissionFactors = $emissionFactors.Substring(1, $emissionFactors.length - 4)
 
+    # Add comma if not last page (Append following pages)
     if (($pagesNum - $queryPage) -gt 0) {
         $emissionFactors = $emissionFactors + ","
     }
 
+    # Append fetched results to the existing emission factors file
     $emissionFactors | Out-File $fileName -Append -NoNewline
 
     # Next page
     $queryPage++
 }
 
-$fileContent = Get-Content "..\assets\emission-factors\emission-factors.json" -Raw
-"`n]" | Out-File "..\assets\emission-factors\emission-factors.json" -Append -NoNewline
+# Close the new generated JSON Array
+$fileContent = Get-Content "..\assets\emission-factors.json" -Raw
+"`n]" | Out-File "..\assets\emission-factors.json" -Append -NoNewline
