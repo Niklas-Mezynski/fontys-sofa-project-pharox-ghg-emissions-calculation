@@ -33,7 +33,14 @@ Some links to folders or files inside the repository are provided in order to fa
     - link:https://niklas-mezynski-fontys.atlassian.net/jira/software/projects/SOFA/boards/1[Jira Project Board]
 
 === Firebase instructions
+First time setup
+[source,bash]
+----
+npm install -g firebase-tools
+firebase login
+----
 To run firebase cloud functions locally, run the following command in the `functions/` directory of the project:
+
 [source,bash]
 ----
 npm run serve
