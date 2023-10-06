@@ -19,4 +19,7 @@
 **/typings/
 
 # Node files
-**/node_modules
+**/node_modules/
+
+# Test coverage
+**/coverage/
