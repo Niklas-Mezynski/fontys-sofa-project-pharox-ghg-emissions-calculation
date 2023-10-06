@@ -1,0 +1,32 @@
+name: Build and run tests for Cloud functions
+
+on: [push]
+
+# Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch: 
+
+jobs:
+    strategy:
+        matrix:
+            node-version: ["18.x", "20.x"]
+    build:
+        runs-on: ubuntu-latest
+        name: Build and test cloud functions
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Use Node.js
+              uses: actions/setup-node@v3
+
+            - name: Change directory
+              run: cd functions
+
+            - name: Install packages
+              run: npm install
+
+            - name: Build project
+              run: npm run build
+
+            - name: Run tests
+              run: npm test
