@@ -39,6 +39,8 @@ jobs:
 
             - name: Jest coverage report                
               uses: ArtiomTr/jest-coverage-report-action@v2.2.5
+              with:
+                working-directory: functions
               # give the id for the step, to access outputs in another step.
               id: coverage
               with:
