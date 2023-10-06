@@ -10,6 +10,7 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "jest",
+    "test-build": "jest lib/tests",
     "test-coverage": "jest --coverage",
     "test-watch": "jest --watchAll",
     "test-watch-coverage": "jest --watchAll --coverage"
