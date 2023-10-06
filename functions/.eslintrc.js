@@ -23,6 +23,7 @@ module.exports={
     "/dist",
     "/node_modules",
     ".eslintrc.js",
+    "jest.config.ts"
   ],
   "plugins": [
     "@typescript-eslint",
