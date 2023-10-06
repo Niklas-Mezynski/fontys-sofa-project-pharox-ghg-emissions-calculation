@@ -1,8 +1,0 @@
-To create a new function:
-
-1. `firebase init functions`
-2. Choose "Initialize"
-3. Enter the name
-4. When asked for the subdirectory, type: `functions/<NAME OF YOUR FUNCTION>`
-5. TypScript
-6. Yes
