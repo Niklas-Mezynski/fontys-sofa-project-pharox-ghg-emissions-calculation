@@ -20,13 +20,22 @@ module.exports = {
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
   ],
-  plugins: [
-    "@typescript-eslint",
-    "import",
-  ],
+  plugins: ["@typescript-eslint", "import"],
   rules: {
-    "quotes": ["error", "double"],
+    quotes: ["error", "double"],
     "import/no-unresolved": 0,
-    "indent": ["error", 2],
+    indent: ["error", 2],
+    // Use TypeScript's built-in type-checking instead
+    "@typescript-eslint/adjacent-overload-signatures": "error",
+
+    // Use TypeScript's built-in type-checking instead
+    "@typescript-eslint/no-namespace": "error",
+
+    // Use TypeScript's built-in type-checking instead
+    "@typescript-eslint/triple-slash-reference": "error",
+
+    // Use TypeScript's built-in type-checking instead
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
   },
+  defaultSeverity: "error",
 };
