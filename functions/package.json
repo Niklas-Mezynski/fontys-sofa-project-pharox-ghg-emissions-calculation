@@ -4,7 +4,8 @@
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "build-watch": "tsc --watch",
-    "serve": "npm run build && firebase emulators:start --only functions",
+    "serve": "npm run build-watch | firebase emulators:start --only functions",
+    "serve-all": "npm run build-watch | firebase emulators:start",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
@@ -20,8 +21,10 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "firebase-admin": "^11.8.0",
+    "axios": "^1.5.1",
+    "firebase-admin": "^11.11.0",
     "firebase-functions": "^4.3.1",
+    "zod": "^3.22.4",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {

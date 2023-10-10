@@ -80,7 +80,7 @@ module.exports={
 
     // Empty blocks are almost never needed. Allow the one general exception: empty catch blocks.
     "no-empty": ["error", { "allowEmptyCatch": true }],
-    
+
     // Functions must either be handled directly (e.g. with a catch() handler) or returned to another function.
     // This is a major source of errors in Cloud Functions and the team strongly recommends leaving this rule on.
     "@typescript-eslint/no-floating-promises": 2,

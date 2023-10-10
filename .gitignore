@@ -23,3 +23,5 @@
 
 # Test coverage
 **/coverage/
+
+**/.env
