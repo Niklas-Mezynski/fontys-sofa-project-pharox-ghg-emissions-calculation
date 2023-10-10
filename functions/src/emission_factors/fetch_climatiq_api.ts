@@ -1,13 +1,12 @@
 import axios from "axios";
-import { defineSecret } from "firebase-functions/params";
 import { onRequest } from "firebase-functions/v2/https";
 import { db } from "..";
+import { env } from "./env";
 import {
   ClimatiqEmissionFactorResponse,
   climatiqEmissionFactorResponseSchema,
 } from "./utils";
-
-const climatiqApiKey = defineSecret("CLIMATIQ_API_KEY");
+import * as logger from "firebase-functions/logger";
 
 const dataVersion = "^0";
 const source = "GLEC";
@@ -16,7 +15,7 @@ const resultsPage = "100";
 export const fetchClimatiq = onRequest(async (request, response) => {
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${climatiqApiKey.value()}`,
+    Authorization: `Bearer ${env.climatiqApiKey.value()}`,
   };
   let queryPage = 1;
 
@@ -38,6 +37,10 @@ export const fetchClimatiq = onRequest(async (request, response) => {
   }
 
   await saveInDatabase(data);
+
+  logger.info("Saved emission factors from the Climatiq API to the database.", {
+    count: data.length,
+  });
 
   response.json({
     status: "success",

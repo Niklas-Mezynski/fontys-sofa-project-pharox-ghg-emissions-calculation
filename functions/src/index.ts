@@ -16,4 +16,5 @@ export const helloWorld = onRequest((request, response) => {
   response.send("Hello world!");
 });
 
-export * from "./emission_factors/scrape_climatiq_api";
+export * from "./emission_factors/fetch_climatiq_api";
+export * from "./emission_factors/get_emission_factors";
