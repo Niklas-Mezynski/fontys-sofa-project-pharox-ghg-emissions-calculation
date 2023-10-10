@@ -137,6 +137,8 @@ module.exports={
     "comma-dangle": 1,
 
     // Not force to add new line after end of function or class
-    "eol-last": 0
+    "eol-last": 0,
+
+    "max-len": 0,
   }
 }

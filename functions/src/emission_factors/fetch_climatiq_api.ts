@@ -1,7 +1,6 @@
 import axios from "axios";
 import {onRequest} from "firebase-functions/v2/https";
 import {db} from "..";
-import {env} from "./env";
 import {
   ClimatiqEmissionFactorResponse,
   climatiqEmissionFactorResponseSchema,
@@ -15,7 +14,7 @@ const resultsPage = "100";
 export const fetchClimatiq = onRequest(async (request, response) => {
   const headers = {
     "Content-Type": "application/json",
-    "Authorization": `Bearer ${env.climatiqApiKey.value()}`,
+    "Authorization": `Bearer ${process.env.CLIMATIQ_API_KEY}`,
   };
   let queryPage = 1;
 
