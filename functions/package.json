@@ -19,7 +19,7 @@
   "engines": {
     "node": "18"
   },
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "dependencies": {
     "axios": "^1.5.1",
     "firebase-admin": "^11.11.0",
