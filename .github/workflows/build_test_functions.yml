@@ -1,0 +1,59 @@
+name: Build and run tests for Cloud functions
+
+on: push
+
+# on:
+#   pull_request:
+#       branches:
+#           - main
+#           - development
+
+# # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build and test cloud functions
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Use Node.js
+              uses: actions/setup-node@v3
+
+            # - name: Install packages
+            #   run: |
+            #     cd functions
+            #     npm install
+
+            # - name: Build project
+            #   run: |
+            #     cd functions
+            #     npm run build
+
+            # - name: Run tests
+            #   run: |
+            #     cd functions
+            #     npm run test-build
+
+            - name: Jest coverage report                
+              uses: ArtiomTr/jest-coverage-report-action@v2.2.5
+              # give the id for the step, to access outputs in another step.
+              id: coverage
+              with:
+                working-directory: functions
+                # tell to the action to not attach comment.
+                output: report-markdown
+            
+            - name: Create coverage report
+              uses: DamianReeves/write-file-action@master
+              with:
+                path: ./coverage.md
+                contents: ${{ steps.coverage.outputs.report }}
+                write-mode: append
+
+            - uses: actions/upload-artifact@v3
+              with:
+                name: coverage
+                path: ./coverage.md

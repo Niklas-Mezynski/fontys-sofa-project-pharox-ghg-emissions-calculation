@@ -1,7 +1,8 @@
-import { HttpStatusCode } from "axios";
-import { onRequest } from "firebase-functions/v2/https";
-import { z } from "zod";
-import { db } from "..";
+import {HttpStatusCode} from "axios";
+import {onRequest} from "firebase-functions/v2/https";
+import {z} from "zod";
+import {db} from "..";
+import {parseZodError} from "./utils";
 
 export const getEmissionFactors = onRequest(async (request, response) => {
   const factors = await db.collection("emission_factors").get();
@@ -25,7 +26,7 @@ export const getEmissionFactorByActivity = onRequest(
       return;
     }
 
-    const { activityId } = parseResult.data;
+    const {activityId} = parseResult.data;
 
     const factor = await db
       .collection("emission_factors")
@@ -43,12 +44,3 @@ export const getEmissionFactorByActivity = onRequest(
     response.json(factor.data());
   }
 );
-
-function parseZodError(issues: z.ZodIssue[]) {
-  return issues.map((issue) => {
-    return {
-      inputField: issue.path.join("."),
-      error: issue.message,
-    };
-  });
-}
