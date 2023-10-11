@@ -1,4 +1,4 @@
-import {z} from "zod";
+import { z } from "zod";
 
 const constituentGasesSchema = z.object({
   co2e_total: z.number().nullable(),
@@ -39,17 +39,3 @@ export const climatiqEmissionFactorResponseSchema = z.array(
 export type ClimatiqEmissionFactorResponse = z.infer<
   typeof climatiqEmissionFactorResponseSchema
 >;
-
-/**
- * Parses the Zod error into a more readable format.
- * @param {z.ZodIssue[]} issues the issues from the Zod safe parser.
- * @return {object[]} an array of objects with the input field and the error.
- */
-export function parseZodError(issues: z.ZodIssue[]) {
-  return issues.map((issue) => {
-    return {
-      inputField: issue.path.join("."),
-      error: issue.message,
-    };
-  });
-}

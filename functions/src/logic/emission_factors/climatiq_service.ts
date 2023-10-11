@@ -1,17 +1,16 @@
 import axios from "axios";
-import {onRequest} from "firebase-functions/v2/https";
-import {db} from "..";
-import {
-  ClimatiqEmissionFactorResponse,
-  climatiqEmissionFactorResponseSchema,
-} from "./utils";
 import * as logger from "firebase-functions/logger";
+import { db } from "../..";
+import { ClimatiqEmissionFactorResponse, climatiqEmissionFactorResponseSchema } from "../../models/emission_factors";
 
 const dataVersion = "^0";
 const source = "GLEC";
 const resultsPage = "100";
 
-export const fetchClimatiq = onRequest(async (request, response) => {
+/**
+ * Fetches the emission factors from the Climatiq API and saves them in the database.
+ */
+async function fetchClimatiqApi() {
   const headers = {
     "Content-Type": "application/json",
     "Authorization": `Bearer ${process.env.CLIMATIQ_API_KEY}`,
@@ -25,7 +24,7 @@ export const fetchClimatiq = onRequest(async (request, response) => {
   while (queryPage <= pagesNum) {
     const uri = `https://beta4.api.climatiq.io/search?source=${source}&data_version=${dataVersion}&page=${queryPage}&results_per_page=${resultsPage}`;
 
-    const climatiqResponse = await axios.get(uri, {headers});
+    const climatiqResponse = await axios.get(uri, { headers });
     const json = climatiqResponse.data;
 
     const parsed = climatiqEmissionFactorResponseSchema.parse(json.results);
@@ -41,11 +40,8 @@ export const fetchClimatiq = onRequest(async (request, response) => {
     count: data.length,
   });
 
-  response.json({
-    status: "success",
-    message: `Saved ${data.length} emission factors to the database.`,
-  });
-});
+  return data;
+}
 
 /**
  * Fetches the number of pages from the Climatiq API.
@@ -54,7 +50,7 @@ export const fetchClimatiq = onRequest(async (request, response) => {
  */
 async function fetchClimatiqPages(headers: object) {
   const initialUri = `https://beta4.api.climatiq.io/search?source=${source}&data_version=${dataVersion}&results_per_page=${resultsPage}`;
-  const response = await axios.get(initialUri, {headers});
+  const response = await axios.get(initialUri, { headers });
   const json = response.data;
   return json.last_page as number;
 }
@@ -72,3 +68,7 @@ async function saveInDatabase(emissionFactors: ClimatiqEmissionFactorResponse) {
     })
   );
 }
+
+export const ClimatiqService = {
+  fetchClimatiqApi,
+};

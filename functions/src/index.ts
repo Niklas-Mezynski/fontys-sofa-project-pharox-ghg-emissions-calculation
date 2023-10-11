@@ -1,7 +1,7 @@
-import {initializeApp} from "firebase-admin/app";
-import {getFirestore} from "firebase-admin/firestore";
+import { initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
 import * as logger from "firebase-functions/logger";
-import {onRequest} from "firebase-functions/v2/https";
+import { onRequest } from "firebase-functions/v2/https";
 
 initializeApp();
 
@@ -13,8 +13,8 @@ export const helloWorld = onRequest((request, response) => {
       withAnotherKey: "text",
     },
   });
+
   response.send("Hello world!");
 });
 
-export * from "./emission_factors";
-export * from "./simple_emission_calculation";
+export * from "./endpoints";
