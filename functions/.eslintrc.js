@@ -140,5 +140,6 @@ module.exports={
     "eol-last": 0,
 
     "max-len": 0,
+    "object-curly-spacing": 0,
   }
 }

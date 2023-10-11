@@ -1,13 +1,13 @@
-import {HttpStatusCode} from "axios";
-import {onRequest} from "firebase-functions/v2/https";
-import {z} from "zod";
-import {db} from "..";
-import {parseZodError} from "./utils";
+import { HttpStatusCode } from "axios";
+import { onRequest } from "firebase-functions/v2/https";
+import { z } from "zod";
+import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
+import { parseZodError } from "../../utils/functions";
 
 export const getEmissionFactors = onRequest(async (request, response) => {
-  const factors = await db.collection("emission_factors").get();
+  const factors = await EmissionFactorService.getAll();
 
-  response.json(factors.docs.map((doc) => doc.data()));
+  response.json(factors);
 });
 
 const queryInputSchema = z.object({
@@ -26,14 +26,11 @@ export const getEmissionFactorByActivity = onRequest(
       return;
     }
 
-    const {activityId} = parseResult.data;
+    const { activityId } = parseResult.data;
 
-    const factor = await db
-      .collection("emission_factors")
-      .doc(activityId)
-      .get();
+    const factor = await EmissionFactorService.getByActivityId(activityId);
 
-    if (!factor.exists) {
+    if (!factor) {
       response.status(HttpStatusCode.NotFound).json({
         status: HttpStatusCode.NotFound,
         message: `Emission factor for activity ${activityId} not found.`,
@@ -41,6 +38,6 @@ export const getEmissionFactorByActivity = onRequest(
       return;
     }
 
-    response.json(factor.data());
+    response.json(factor);
   }
 );

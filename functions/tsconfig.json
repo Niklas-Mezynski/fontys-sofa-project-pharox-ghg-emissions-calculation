@@ -12,5 +12,6 @@
   "include": [
     "src",
     "tests",
+    "src/endpoints/emission_factors/fetch_climatiq_api.ts"
   ]
 }
