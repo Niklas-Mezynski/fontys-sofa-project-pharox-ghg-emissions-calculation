@@ -1,4 +1,4 @@
-name: build ProjectPlan asciidoc to pdf
+name: build Conventions asciidoc to pdf
 
 on:
   push:
