@@ -3,7 +3,7 @@ import { db } from "../..";
 import {
   ClimatiqEmissionFactorResponse,
   climatiqEmissionFactorResponseSchema,
-} from "../../models/emission_factors";
+} from "../../models/emission_factors/emission_factors";
 import { logger } from "../../utils/logger";
 import { parseZodError } from "../../utils/functions";
 

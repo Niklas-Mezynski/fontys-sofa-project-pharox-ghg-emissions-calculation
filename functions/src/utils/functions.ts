@@ -22,3 +22,28 @@ export function parseZodError(issues: z.ZodIssue[], message?: string) {
     errors: parsedIssues,
   });
 }
+
+/**
+ * Utility function that validates the input against the given schema or throws a CustomError.
+ * @param {unknown} input The input to validate
+ * @param {z.Schema<T>} schema The zod schema to validate the input against
+ * @param {string} message The error message to use if the input is invalid
+ * @return {T} The validated data that is guaranteed to be of type T
+ * @throws {CustomError} containing the validation error
+ */
+export function validateInput<T>(
+  input: unknown,
+  schema: z.Schema<T>,
+  message?: string
+) {
+  const parseResult = schema.safeParse(input);
+
+  if (!parseResult.success) {
+    throw parseZodError(
+      parseResult.error.issues,
+      message ?? "Invalid input data"
+    );
+  }
+
+  return parseResult.data;
+}

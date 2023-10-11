@@ -1,7 +1,7 @@
-import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
+import { getEmissionFactorQueryInput } from "../../models/emission_factors/emission_factors";
 import { onErrorHandledRequest } from "../../utils/errors";
-import { parseZodError } from "../../utils/functions";
+import { validateInput } from "../../utils/functions";
 
 export const getEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
@@ -11,19 +11,12 @@ export const getEmissionFactors = onErrorHandledRequest(
   }
 );
 
-const queryInputSchema = z.object({
-  activityId: z.string().min(1),
-});
-
 export const getEmissionFactorByActivity = onErrorHandledRequest(
   async (request, response) => {
-    const parseResult = queryInputSchema.safeParse(request.query);
-
-    if (!parseResult.success) {
-      throw parseZodError(parseResult.error.issues, "Invalid query input.");
-    }
-
-    const { activityId } = parseResult.data;
+    const { activityId } = validateInput(
+      request.query,
+      getEmissionFactorQueryInput
+    );
 
     const factor = await EmissionFactorService.getByActivityId(activityId);
 
