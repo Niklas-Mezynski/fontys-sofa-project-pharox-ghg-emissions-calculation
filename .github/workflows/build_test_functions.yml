@@ -43,17 +43,16 @@ jobs:
               id: coverage
               with:
                 working-directory: functions
-                # tell to the action to not attach comment.
-                output: report-markdown
+                output: report-markdown, comment
             
-            - name: Create coverage report
-              uses: DamianReeves/write-file-action@master
-              with:
-                path: ./coverage.md
-                contents: ${{ steps.coverage.outputs.report }}
-                write-mode: append
+            # - name: Create coverage report
+            #   uses: DamianReeves/write-file-action@master
+            #   with:
+            #     path: ./coverage.md
+            #     contents: ${{ steps.coverage.outputs.report }}
+            #     write-mode: append
 
-            - uses: actions/upload-artifact@v3
-              with:
-                name: coverage
-                path: ./coverage.md
+            # - uses: actions/upload-artifact@v3
+            #   with:
+            #     name: coverage
+            #     path: ./coverage.md
