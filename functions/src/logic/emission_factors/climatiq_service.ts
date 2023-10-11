@@ -1,7 +1,11 @@
 import axios from "axios";
-import * as logger from "firebase-functions/logger";
 import { db } from "../..";
-import { ClimatiqEmissionFactorResponse, climatiqEmissionFactorResponseSchema } from "../../models/emission_factors";
+import {
+  ClimatiqEmissionFactorResponse,
+  climatiqEmissionFactorResponseSchema,
+} from "../../models/emission_factors";
+import { logger } from "../../utils/logger";
+import { parseZodError } from "../../utils/functions";
 
 const dataVersion = "^0";
 const source = "GLEC";
@@ -13,13 +17,13 @@ const resultsPage = "100";
 async function fetchClimatiqApi() {
   const headers = {
     "Content-Type": "application/json",
-    "Authorization": `Bearer ${process.env.CLIMATIQ_API_KEY}`,
+    Authorization: `Bearer ${process.env.CLIMATIQ_API_KEY}`,
   };
   let queryPage = 1;
 
-  const pagesNum = await fetchClimatiqPages(headers);
+  const pagesNum = await getTotalPageNum(headers);
 
-  const data: ClimatiqEmissionFactorResponse = [];
+  const data = [];
 
   while (queryPage <= pagesNum) {
     const uri = `https://beta4.api.climatiq.io/search?source=${source}&data_version=${dataVersion}&page=${queryPage}&results_per_page=${resultsPage}`;
@@ -27,14 +31,20 @@ async function fetchClimatiqApi() {
     const climatiqResponse = await axios.get(uri, { headers });
     const json = climatiqResponse.data;
 
-    const parsed = climatiqEmissionFactorResponseSchema.parse(json.results);
-
-    data.push(...parsed);
+    data.push(...json.results);
 
     queryPage++;
   }
+  const parsed = climatiqEmissionFactorResponseSchema.safeParse(data);
 
-  await saveInDatabase(data);
+  if (!parsed.success) {
+    throw parseZodError(
+      parsed.error.issues,
+      "Invalid response from Climatiq API."
+    );
+  }
+
+  await saveInDatabase(parsed.data);
 
   logger.info("Saved emission factors from the Climatiq API to the database.", {
     count: data.length,
@@ -48,7 +58,7 @@ async function fetchClimatiqApi() {
  * @param {object} headers to be used in the request.
  * @return {number} the number of pages.
  */
-async function fetchClimatiqPages(headers: object) {
+async function getTotalPageNum(headers: object) {
   const initialUri = `https://beta4.api.climatiq.io/search?source=${source}&data_version=${dataVersion}&results_per_page=${resultsPage}`;
   const response = await axios.get(initialUri, { headers });
   const json = response.data;

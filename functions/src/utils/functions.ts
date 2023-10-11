@@ -1,14 +1,24 @@
 import { z } from "zod";
+import { CustomError } from "./errors";
+import { HttpStatusCode } from "axios";
+
 /**
- * Parses the Zod error into a more readable format.
+ * Throws a custom error with the parsed Zod error.
  * @param {z.ZodIssue[]} issues the issues from the Zod safe parser.
- * @return {object[]} an array of objects with the input field and the error.
+ * @param {string} message the message of the custom error.
+ * @return {CustomError} the custom error.
  */
-export function parseZodError(issues: z.ZodIssue[]) {
-  return issues.map((issue) => {
+export function parseZodError(issues: z.ZodIssue[], message?: string) {
+  const parsedIssues = issues.map((issue) => {
     return {
       inputField: issue.path.join("."),
       error: issue.message,
     };
+  });
+
+  return new CustomError({
+    status: HttpStatusCode.BadRequest,
+    message: message ?? "Invalid input data",
+    errors: parsedIssues,
   });
 }
