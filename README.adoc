@@ -23,6 +23,7 @@ Some links to folders or files inside the repository are provided in order to fa
 ==== Design phase
 
     - link:./documentation/flow-diagram[Flow diagrams]
+    - link:./documentation/sequence-diagram[Sequence diagrams]
     - link:./documentation/deployment-strategy/DeploymentStrategy.pdf[Deployment strategy]
     - link:./documentation/branching-strategy/BranchingStrategy.pdf[Branching strategy]
     - link:./documentation/conventions/Conventions.pdf[Code and naming conventions]
