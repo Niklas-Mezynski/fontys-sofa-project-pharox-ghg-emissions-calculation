@@ -3,6 +3,7 @@ import { simpleEmissionCalculationInput } from "../../models/emission_calculatio
 import { onErrorHandledRequest } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
 
+
 export const emissionCalculationSimple = onErrorHandledRequest(
   (request, response) => {
     const calculationInput = validateInput(
