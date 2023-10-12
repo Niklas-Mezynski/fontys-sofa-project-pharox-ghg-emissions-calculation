@@ -33,7 +33,7 @@ jobs:
             - name: Run tests
               run: |
                 cd functions
-                npm run test-build
+                npm run test-build-coverage
 
             # - name: Jest coverage report                
             #   uses: ArtiomTr/jest-coverage-report-action@v2.2.5
