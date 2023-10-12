@@ -4,7 +4,7 @@ import { logger } from "./logger";
 import { HttpsFunction, onRequest } from "firebase-functions/v2/https";
 
 /**
- * Custom error class for HTTP errors
+ * Custom error class for providing a consistent error handling.
  */
 export class CustomError extends Error {
   /**
@@ -45,7 +45,8 @@ export class CustomError extends Error {
 }
 
 /**
- * Handles an error by logging it and sending it to the client
+ * Error handler that sends the error to the client.
+ * **CustomError**s will be added with their payload and other errors will be sent with a *500 Internal Server Error*.
  * @param {Response} response The response object to send the error to
  * @param {unknown} error The error to handle
  */
@@ -61,7 +62,8 @@ export function handleError(response: Response, error: unknown) {
 }
 
 /**
- * Handles an HTTP request by catching errors and sending them to the client
+ * A wrapper for the firebase request handler that handles errors in a consistent way.
+ * Throw a **CustomError** anywhere in the handler to send it to the client.
  * @param {function} handler The request handler to wrap
  * @return {HttpsFunction} The firebase request handler
  */
