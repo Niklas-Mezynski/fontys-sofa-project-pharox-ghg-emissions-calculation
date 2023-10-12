@@ -39,3 +39,7 @@ export const climatiqEmissionFactorResponseSchema = z.array(
 export type ClimatiqEmissionFactorResponse = z.infer<
   typeof climatiqEmissionFactorResponseSchema
 >;
+
+export const getEmissionFactorQueryInput = z.object({
+  activityId: z.string().min(1),
+});

@@ -1,4 +1,6 @@
+import { HttpStatusCode } from "axios";
 import { db } from "../..";
+import { CustomError } from "../../utils/errors";
 
 /**
  * Fetches the emission factors from the Climatiq API and saves them in the database.
@@ -19,6 +21,14 @@ async function getByActivityId(activityId: string) {
     .collection("emission_factors")
     .doc(activityId)
     .get();
+
+  if (!document.exists) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: `Emission factor for activity ${activityId} not found.`,
+    });
+  }
+
   return document.data();
 }
 
