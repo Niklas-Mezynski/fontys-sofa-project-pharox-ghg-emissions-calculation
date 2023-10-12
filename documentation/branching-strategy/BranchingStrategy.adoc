@@ -1,4 +1,4 @@
-== Branching strategy
+== Branching Strategy
 
 - Each feature will be implemented in a sepparate branch.
 - Each feature branch will be made out of the Development branch.
