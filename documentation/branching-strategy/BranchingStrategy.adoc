@@ -1,1 +1,9 @@
 == Branching strategy
+
+- Each feature will be implemented in a sepparate branch.
+- Each feature branch will be made out of the Development branch.
+- Once a feature is finished, and has been reviewed by at least another team member, the branch where the implementation is, will be merged to the Development branch via a Pull Request.
+- The end of each sprint, and with the approval from Pharox, the Development branch will be merged into Main.
+- Development branch, is where the code can be tested together to make sure no bugs are present and that the application is stable.
+- Main branch, contains the production code implementation.
+- To prevent users from accidentally push to Main, it is protected and commits can only be done via Pull Request.
