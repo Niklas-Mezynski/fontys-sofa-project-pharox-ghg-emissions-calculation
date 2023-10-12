@@ -1,7 +1,5 @@
 name: Build and run tests for Cloud functions
 
-# on: push
-
 on:
     push:
       branches:
