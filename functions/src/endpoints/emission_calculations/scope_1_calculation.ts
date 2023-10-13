@@ -3,6 +3,7 @@ import { onRequest } from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
 import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
+import { SimpleCalculationService } from "../../logic/emission_calculations/simple_calculation_service";
 import { parseZodError } from "../../utils/functions";
 import fetch from 'node-fetch';
 
@@ -30,6 +31,15 @@ export const Scope1Calculation = onRequest(async (request, response) => {
 
   const factor = activity?.factor
 
+
+  const postData = {
+    usedFuel: usedFuel,
+    emissionFactor: factor
+  };
+  const result = SimpleCalculationService.simpleEmissionCalculation(postData)
+
+  response.status(200).send(result)
+/*
   const apiUrl = 'https://emissioncalculationsimple-u2tzkd7k6q-uc.a.run.app';
 
   const postData = {
@@ -61,6 +71,6 @@ export const Scope1Calculation = onRequest(async (request, response) => {
     .catch((error) => {
       console.error('Error:', error);
     });
-
+*/
 
 });
