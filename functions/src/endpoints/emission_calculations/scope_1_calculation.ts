@@ -10,7 +10,7 @@ import fetch from 'node-fetch';
 
 const queryInputSchema = z.object({
   usedFuel: z.coerce.number().min(1),
-  activityId: z.string().min(1)
+  activityId: z.coerce.string().min(1)
 });
 
 export const Scope1Calculation = onRequest(async (request, response) => {
