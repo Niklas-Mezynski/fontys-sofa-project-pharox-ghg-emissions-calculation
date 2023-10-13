@@ -1,0 +1,9 @@
+== Deployment strategy
+
+The deployment strategy goes as follows:
+
+- Test in feature branch locally
+- Test in Development locally
+- Deploy Development and test in online Development environment
+- Test Development with Production environment
+- Deploy to Main and run Online Production environment
