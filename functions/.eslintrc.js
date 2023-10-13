@@ -1,10 +1,10 @@
-module.exports={
-  "root": true,
-  "env": {
-    "es6": true,
-    "node": true
+module.exports = {
+  root: true,
+  env: {
+    es6: true,
+    node: true,
   },
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -12,27 +12,24 @@ module.exports={
     "google",
     "plugin:@typescript-eslint/recommended",
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": ["tsconfig.json", "tsconfig.dev.json"],
-    "tsconfigRootDir": __dirname,
-    "sourceType": "module"
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: ["tsconfig.json", "tsconfig.dev.json"],
+    tsconfigRootDir: __dirname,
+    sourceType: "module",
   },
-  "ignorePatterns": [
+  ignorePatterns: [
     "/lib/**/*", // Ignore built files.
     "/dist",
     "/node_modules",
     ".eslintrc.js",
-    "jest.config.ts"
+    "jest.config.ts",
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "import"
-  ],
-  "rules": {
-    "quotes": ["error", "double"],
+  plugins: ["@typescript-eslint", "import"],
+  rules: {
+    quotes: ["error", "double"],
     "import/no-unresolved": 0,
-    "indent": ["error", 2],
+    indent: ["error", 2],
     // -- Strict errors --
     // These lint rules are likely always a good idea.
 
@@ -79,7 +76,7 @@ module.exports={
     "no-shadow": 2,
 
     // Empty blocks are almost never needed. Allow the one general exception: empty catch blocks.
-    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-empty": ["error", { allowEmptyCatch: true }],
 
     // Functions must either be handled directly (e.g. with a catch() handler) or returned to another function.
     // This is a major source of errors in Cloud Functions and the team strongly recommends leaving this rule on.
@@ -103,7 +100,6 @@ module.exports={
     // Disallow duplicate imports in the same file.
     "no-duplicate-imports": 2,
 
-
     // -- Strong Warnings --
     // These rules should almost never be needed, but may be included due to legacy code.
     // They are left as a warning to avoid frustration with blocked deploys when the developer
@@ -117,7 +113,7 @@ module.exports={
     "no-var": 1,
 
     // Prefer === and !== over == and !=. The latter operators support overloads that are often accidental.
-    "eqeqeq": 1,
+    eqeqeq: 1,
 
     // -- Light Warnings --
     // These rules are intended to help developers use better style. Simpler code has fewer bugs. These would be "info"
@@ -141,5 +137,6 @@ module.exports={
 
     "max-len": 0,
     "object-curly-spacing": 0,
-  }
-}
+    "quote-props": 0,
+  },
+};
