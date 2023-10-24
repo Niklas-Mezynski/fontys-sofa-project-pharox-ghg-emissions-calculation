@@ -1,12 +1,9 @@
 import { HttpStatusCode } from "axios";
 import { onRequest } from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
 import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
 import { SimpleCalculationService } from "../../logic/emission_calculations/simple_calculation_service";
 import { parseZodError } from "../../utils/functions";
-import fetch from 'node-fetch';
-
 
 const queryInputSchema = z.object({
   usedFuel: z.coerce.number().min(1),
