@@ -2,9 +2,9 @@ name: Build and run tests for Cloud functions
 
 on:
     push:
-      branches:
-          - main
-          - development
+      # branches:
+      #     - main
+      #     - development
     pull_request:
         types: [opened, edited]
 
