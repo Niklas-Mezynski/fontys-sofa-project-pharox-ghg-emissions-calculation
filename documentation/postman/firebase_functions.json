@@ -26,21 +26,7 @@
 		},
 		{
 			"name": "emission_calculations",
-			"item": [
-				{
-					"name": "Test",
-					"id": "a0144c26-bb04-4a5c-8af8-1ba79f2f7dce",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{baseUrl}}/test"
-					},
-					"response": []
-				}
-			],
+			"item": [],
 			"id": "3c918d55-3226-44c5-b5fc-ea0d9373806c"
 		},
 		{
