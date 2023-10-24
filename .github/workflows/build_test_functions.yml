@@ -1,12 +1,9 @@
-name: Build and run tests for Cloud functions
+name: Build and run tests for Cloud functions in development
 
 on:
     push:
-      # branches:
-      #     - main
-      #     - development
-    pull_request:
-        types: [opened, edited]
+      branches:
+          - development
 
 # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
@@ -35,7 +32,7 @@ jobs:
             - name: Run tests
               run: |
                 cd functions
-                npm run test-build-coverage
+                npm run test
 
             # - name: Jest coverage report                
             #   uses: ArtiomTr/jest-coverage-report-action@v2.2.5
