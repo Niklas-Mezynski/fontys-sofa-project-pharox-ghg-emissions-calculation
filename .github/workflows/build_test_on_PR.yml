@@ -1,7 +1,6 @@
 name: Check for code coverage on PR
 
 on:
-    push:
     pull_request:
         types: [opened, edited]
 
