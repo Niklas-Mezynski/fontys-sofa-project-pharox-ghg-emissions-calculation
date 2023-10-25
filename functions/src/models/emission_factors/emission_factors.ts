@@ -1,5 +1,17 @@
 import { z } from "zod";
 
+// Emission factor input needed to find the right emission factor
+export const emissionFactorInput = z.union([
+  z.object({
+    activityId: z.string(),
+  }),
+  z.object({
+    activityType: z.string(),
+    vehicleType: z.string(),
+    fuelType: z.string(),
+  }),
+]);
+
 const constituentGasesSchema = z.object({
   co2e_total: z.number().nullable(),
   co2e_other: z.number().nullable(),

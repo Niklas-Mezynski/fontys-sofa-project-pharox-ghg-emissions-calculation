@@ -2,7 +2,7 @@ import { HttpStatusCode } from "axios";
 import { onRequest } from "firebase-functions/v2/https";
 import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
-import { SimpleCalculationService } from "../../logic/emission_calculations/simple_calculation_service";
+import { SimpleCalculationService } from "../../logic/emission_calculations/emission_calculator_service";
 import { parseZodError } from "../../utils/functions";
 
 const queryInputSchema = z.object({
