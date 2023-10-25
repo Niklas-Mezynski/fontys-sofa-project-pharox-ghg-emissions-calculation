@@ -24,6 +24,7 @@ module.exports = {
     "/node_modules",
     ".eslintrc.js",
     "jest.config.ts",
+    "docs/**/*",
   ],
   plugins: ["@typescript-eslint", "import"],
   rules: {
@@ -138,5 +139,7 @@ module.exports = {
     "max-len": 0,
     "object-curly-spacing": 0,
     "quote-props": 0,
+    "require-jsdoc": 0,
+    "valid-jsdoc": 0,
   },
 };

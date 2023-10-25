@@ -1,5 +1,47 @@
 import { SimpleEmissionCalculationInput } from "../../models/emission_calculations/simple_emission_calculation_model";
+import { EmissionFactor } from "../../models/emission_factors/climatiq_emission_factors";
+import {
+  EmissionFactorInput,
+  emissionFactorInput,
+} from "../../models/emission_factors/emission_factors";
+import { validateInput } from "../../utils/functions";
 import { logger } from "../../utils/logger";
+import { EmissionFactorService } from "../emission_factors/emission_factor_service";
+
+/**
+ * Calculates the emission based on the provided fuel and emission factor.
+ * @param {unknown} inputData the input object.
+ * @return {object} the response object.
+ */
+async function performEmissionCalculation(
+  inputData: EmissionFactorInput | unknown
+) {
+  // Check if emission factor and calculation input given
+
+  // Validate calculation input
+
+  // Validation of emission factor input to look for it in DB and check type of emission factor (custom or not)
+  const calculationInput = validateInput(inputData, emissionFactorInput);
+
+  let emissionFactor: EmissionFactor | null = null;
+  // Different types of fetching emission factor
+  if ("activityId" in calculationInput) {
+    // getEmissionFactorByID
+    emissionFactor = await EmissionFactorService.getByActivityId(
+      calculationInput.activityId
+    );
+  } else {
+    // getEmissionFactorByOtherFields
+  }
+
+  // Check calculation input units - Not good -> do conversion
+
+  // Calculate emission
+  return {
+    todo: "todo",
+    emissionFactor,
+  };
+}
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -28,4 +70,7 @@ function simpleEmissionCalculation(input: SimpleEmissionCalculationInput) {
   };
 }
 
-export const SimpleCalculationService = { simpleEmissionCalculation };
+export const SimpleCalculationService = {
+  simpleEmissionCalculation,
+  performEmissionCalculation,
+};

@@ -1,5 +1,5 @@
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
-import { getEmissionFactorQueryInput } from "../../models/emission_factors/emission_factors";
+import { getEmissionFactorQueryInput } from "../../models/emission_factors/climatiq_emission_factors";
 import { onErrorHandledRequest } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
 
