@@ -1,8 +1,8 @@
 import { SimpleEmissionCalculationInput } from "../../models/emission_calculations/simple_emission_calculation_model";
 import { EmissionFactor } from "../../models/emission_factors/climatiq_emission_factors";
 import {
-  EmissionFactorInput,
-  emissionFactorInput,
+  EmissionCalculatorInput,
+  emissionCalculatorInput,
 } from "../../models/emission_factors/emission_factors";
 import { validateInput } from "../../utils/functions";
 import { logger } from "../../utils/logger";
@@ -14,21 +14,28 @@ import { EmissionFactorService } from "../emission_factors/emission_factor_servi
  * @return {object} the response object.
  */
 async function performEmissionCalculation(
-  inputData: EmissionFactorInput | unknown
+  inputData: EmissionCalculatorInput | unknown
 ) {
   // Check if emission factor and calculation input given
-
   // Validate calculation input
-
   // Validation of emission factor input to look for it in DB and check type of emission factor (custom or not)
-  const calculationInput = validateInput(inputData, emissionFactorInput);
+  const { emissionDetails, calculationDetails } = validateInput(
+    inputData,
+    emissionCalculatorInput
+  );
+
+  logger.info(
+    "Received the following data for emission calculation",
+    emissionDetails,
+    calculationDetails
+  );
 
   let emissionFactor: EmissionFactor | null = null;
   // Different types of fetching emission factor
-  if ("activityId" in calculationInput) {
+  if ("activityId" in emissionDetails) {
     // getEmissionFactorByID
     emissionFactor = await EmissionFactorService.getByActivityId(
-      calculationInput.activityId
+      emissionDetails.activityId
     );
   } else {
     // getEmissionFactorByOtherFields

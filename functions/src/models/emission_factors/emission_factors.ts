@@ -14,4 +14,19 @@ export const emissionFactorInput = z.union([
   }),
 ]);
 
-export type EmissionFactorInput = z.infer<typeof emissionFactorInput>;
+/**
+ * Calculation data input needed to calculate the emissions.
+ */
+export const calculationDataInput = z.object({
+  resourceAmount: z.number().positive(),
+  unit: z.string(),
+});
+
+/**
+ * Emission calculator input needed to calculate the emissions.
+ */
+export const emissionCalculatorInput = z.object({
+  emissionDetails: emissionFactorInput,
+  calculationDetails: calculationDataInput,
+});
+export type EmissionCalculatorInput = z.infer<typeof emissionCalculatorInput>;
