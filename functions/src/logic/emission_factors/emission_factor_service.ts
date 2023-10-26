@@ -6,6 +6,7 @@ import {
 } from "../../models/emission_factors/climatiq_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
+import { query, where, collection } from "@firebase/firestore";
 
 /**
  * Fetches the emission factors from the Climatiq API and saves them in the database.
@@ -14,6 +15,40 @@ import { validateInput } from "../../utils/functions";
 async function getAll() {
   const factors = await db.collection("emission_factors").get();
   return factors.docs.map((doc) => doc.data());
+}
+
+/**
+ * Fetches the emission factor from the database based on the unitType
+ * @param {string} unitType
+ * @returns The emission factor.
+ */
+async function getByUnitType(unitType: string) {
+  const factors = await getAll();
+
+  var matchingFactors = [];
+
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
+  for (let i = 0; i < factors.length; i++) {
+    if (factors[i]["unit_type"] == unitType) {
+      // Get incorrect format?
+      const data = validateInput(
+        factors[i],
+        emissionFactorSchema,
+        "Received unexpected emissionFactor format from the database."
+      );
+
+      matchingFactors.push(data);
+    }
+  }
+
+  if (matchingFactors.length === 0) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: `Emission factor for unit type ${unitType} not found.`,
+    });
+  }
+
+  return matchingFactors;
 }
 
 /**
@@ -53,4 +88,5 @@ export const EmissionFactorService = {
   getAll,
   getByActivityId,
   saveEmissionFactor,
+  getByUnitType,
 };
