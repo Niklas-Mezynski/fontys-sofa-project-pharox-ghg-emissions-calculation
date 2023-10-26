@@ -74,7 +74,7 @@ module.exports = {
 
     // Disallows a variable definition in an inner scope from shadowing a variable in an outer scope. Developers should
     // instead use a separate variable name.
-    "no-shadow": 2,
+    "no-shadow": "off",
 
     // Empty blocks are almost never needed. Allow the one general exception: empty catch blocks.
     "no-empty": ["error", { allowEmptyCatch: true }],
