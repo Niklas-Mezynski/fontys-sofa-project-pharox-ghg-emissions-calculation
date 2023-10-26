@@ -1,17 +1,19 @@
+import { unitType } from "../../models/units/unit_types";
+
 const volumeUnits = ["ml", "l", "tsp", "tbsp"] as const;
-export type VolumeUnit = (typeof volumeUnits)[number];
+const weightUnits = ["g", "kg", "oz", "lb"] as const;
+const distanceUnits = ["km", "cm", "m", "in", "ft"] as const;
 
-const massUnits = ["g", "kg", "oz", "lb"] as const;
-export type MassUnit = (typeof massUnits)[number];
+export function classifyUnit(unit: string): unitType {
+  if ((volumeUnits as readonly string[]).includes(unit)) {
+    return unitType.Volume;
+  }
+  if ((weightUnits as readonly string[]).includes(unit)) {
+    return unitType.Weight;
+  }
+  if ((distanceUnits as readonly string[]).includes(unit)) {
+    return unitType.Distance;
+  }
 
-const lengthUnits = ["km", "cm", "m", "in", "ft"] as const;
-export type LengthUnit = (typeof lengthUnits)[number];
-
-export type Unit = "VolumeUnit" | "MassUnit" | "LengthUnit";
-
-export const classifyUnit = (unit: string): Unit | null => {
-  if (volumeUnits.includes(unit as VolumeUnit)) return "VolumeUnit";
-  if (massUnits.includes(unit as MassUnit)) return "MassUnit";
-  if (lengthUnits.includes(unit as LengthUnit)) return "LengthUnit";
-  return null;
-};
+  return unitType.UNKNOWN;
+}
