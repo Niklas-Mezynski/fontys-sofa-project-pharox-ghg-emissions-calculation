@@ -1,9 +1,9 @@
-import { onRequest } from "firebase-functions/v2/https";
-import { z } from "zod";
-import { validateInput } from "../../utils/functions";
 import { classifyUnitType } from "../../logic/units/unit_classification_service";
-import { UnitConversionService } from "../../logic/units/unit_conversion_service";
+import { CustomError, onErrorHandledRequest } from "../../utils/errors";
 import { HttpStatusCode } from "axios";
+import { UnitConversionService } from "../../logic/units/unit_conversion_service";
+import { validateInput } from "../../utils/functions";
+import { z } from "zod";
 
 const queryInputSchema = z.object({
   originalUnitType: z.string(), // e.g. m
@@ -12,50 +12,44 @@ const queryInputSchema = z.object({
 });
 
 /**
-    This endpoing converts a given unit to the desired one
+    This endpoint converts a given unit to the desired one
  */
-export const UnitConverter = onRequest(async (request, response) => {
-  const requestBody = validateInput(request.body, queryInputSchema);
+export const unitConverter = onErrorHandledRequest(
+  async (request, response) => {
+    const requestBody = validateInput(request.body, queryInputSchema);
 
-  // 1: Verify that: originalUnitType and targetUnitType are of the same classification (e.g. both are distances)
-  const originalUnitClassification = classifyUnitType(
-    requestBody.originalUnitType
-  );
-  const targetUnitClassification = classifyUnitType(requestBody.targetUnitType);
+    // Verify that: originalUnitType and targetUnitType are of the same classification (e.g. both are distances)
+    const originalUnitClassification = classifyUnitType(requestBody.originalUnitType);
+    const targetUnitClassification = classifyUnitType(requestBody.targetUnitType);
 
-  if (originalUnitClassification !== targetUnitClassification) {
-    response.status(HttpStatusCode.BadRequest).json({
-      status: HttpStatusCode.BadRequest,
-      message: "The originalUnitType and targetUnitType do not match.",
-    });
-    return;
+    if (originalUnitClassification !== targetUnitClassification) {
+      throw new CustomError({
+        status: HttpStatusCode.BadRequest,
+        message: `Conversion from ${requestBody.originalUnitType} to ${requestBody.targetUnitType} not possible. Not same unit classification.`,
+      });
+    }
+
+    // Verify that the targetUnitType and originalUnitType is a supported Unit. Otherwise they cannot be converted.
+    const targetUnitSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.targetUnitType);
+    const originalTargetSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.originalUnitType);
+
+    if (targetUnitSupported === false || originalTargetSupported === false) {
+      throw new CustomError({
+        status: HttpStatusCode.BadRequest,
+        message: "Either the Target Unit or the Original Unit is not supported.",
+      });
+    }
+
+    // Convert
+    const convertedUnit = UnitConversionService.convertUnits(
+      requestBody.originalUnitType,
+      requestBody.targetUnitType,
+      requestBody.value
+    );
+
+    response
+      .json({ convertedUnit: convertedUnit, unit: requestBody.targetUnitType })
+      .status(200)
+      .send();
   }
-
-  // Verify that the targetUnitType and originalUnitType is a supported Unit. Otherwise they cannot be converted.
-  const targetUnitSupported = UnitConversionService.verifyIfUnitIsSupporter(
-    requestBody.targetUnitType
-  );
-  const originalTargetSupported = UnitConversionService.verifyIfUnitIsSupporter(
-    requestBody.originalUnitType
-  );
-
-  if (targetUnitSupported === false || originalTargetSupported === false) {
-    response.status(HttpStatusCode.BadRequest).json({
-      status: HttpStatusCode.BadRequest,
-      message: "Either the Target Unit or the Original Unit is not supported.",
-    });
-    return;
-  }
-
-  // Convert
-  const convertedUnit = UnitConversionService.convertUnit(
-    requestBody.originalUnitType,
-    requestBody.targetUnitType,
-    requestBody.value
-  );
-
-  response
-    .json({ convertedUnit: convertedUnit, unit: requestBody.targetUnitType })
-    .status(200)
-    .send();
-});
+);
