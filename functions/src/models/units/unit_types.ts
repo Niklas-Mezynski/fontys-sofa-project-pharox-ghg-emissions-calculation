@@ -1,6 +1,6 @@
 export enum unitType {
-  Distance,
-  Weight,
-  Volume,
-  UNKNOWN,
+  Distance = "DISTANCE",
+  Weight = "WEIGHT",
+  Volume = "VOLUME",
+  UNKNOWN = "UNKNOWN",
 }

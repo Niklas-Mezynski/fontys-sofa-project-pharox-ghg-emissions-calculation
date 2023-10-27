@@ -31,6 +31,9 @@ async function getByUnitType(unitType: string) {
   for (let i = 0; i < factors.length; i++) {
     if (factors[i]["unit_type"] == unitType) {
       // Get incorrect format?
+
+      console.log(factors[i]);
+
       const data = validateInput(
         factors[i],
         emissionFactorSchema,
