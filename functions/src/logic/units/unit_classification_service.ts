@@ -23,11 +23,3 @@ export function classifyUnitType(unit: string): unitType {
 
   return unitType.UNKNOWN;
 }
-
-/**
- * Converts unit from Imperial to Metric
- * @returns The unit in the Metric system
- */
-function ConvertUnit() {
-  return null;
-}
