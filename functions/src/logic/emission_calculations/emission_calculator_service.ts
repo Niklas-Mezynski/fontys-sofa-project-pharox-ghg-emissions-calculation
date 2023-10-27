@@ -8,8 +8,10 @@ import {
 import { CustomError } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
 import { logger } from "../../utils/logger";
-import { Unit, classifyUnit } from "../../utils/units/unit_classifier";
 import { EmissionFactorService } from "../emission_factors/emission_factor_service";
+import { UnitType } from "../../models/units/unit_types";
+import { classifyUnitType } from "../units/unit_classification_service";
+import { UnitConversionService } from "../units/unit_conversion_service";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -28,13 +30,12 @@ async function performEmissionCalculation(
   );
 
   // Unit classification
-  // TODO: Change this to Patrick's unit classification
-  const unitClass = classifyUnit(calculationDetails.unit);
+  const unitClass = classifyUnitType(calculationDetails.unit);
 
-  if (!unitClass) {
+  if (unitClass === "UNKNOWN") {
     throw new CustomError({
       status: HttpStatusCode.BadRequest,
-      message: `Unit ${calculationDetails.unit} is not supported. Could not determine unit class.`,
+      message: `Unit '${calculationDetails.unit}' is not supported. Could not determine unit class`,
     });
   }
 
@@ -44,21 +45,28 @@ async function performEmissionCalculation(
   if (!emissionFactor) {
     throw new CustomError({
       status: HttpStatusCode.BadRequest,
-      message: "Could not find emission factor for given input.",
+      message: "Could not find emission factor for given input",
       emissionFactorInput: emissionDetails,
     });
   }
 
   // Check calculation input units - Not good -> do conversion
-  // TODO: Mocked right now, change this to Patrick's unit conversion
-  const conversionResult = calculationDetails;
+  const convertedCalculationDetails = {
+    ...calculationDetails,
+    resourceAmount: convertUnits(
+      calculationDetails.resourceAmount,
+      calculationDetails.unit,
+      emissionFactor.unit
+    ),
+    unit: emissionFactor.unit,
+  };
 
   // Calculate emission
   return {
-    result: conversionResult.resourceAmount * emissionFactor.factor,
+    result: convertedCalculationDetails.resourceAmount * emissionFactor.factor,
     calculationData: {
-      usedResourceAmount: conversionResult.resourceAmount,
-      usedUnit: conversionResult.unit,
+      usedResourceAmount: convertedCalculationDetails.resourceAmount,
+      usedUnit: convertedCalculationDetails.unit,
       emissionFactor: emissionFactor.factor,
     },
   };
@@ -68,12 +76,12 @@ async function performEmissionCalculation(
  * Gets the emission factor based on the provided emission details.
  * This function has to take care of the different types of user input it may receive
  * TODO: Add more ways to get emission factors
- * @param unitClass The type of unit. E.g. VolumeUnit, MassUnit, LengthUnit
+ * @param unitType The type of unit. E.g. VolumeUnit, MassUnit, LengthUnit
  * @param emissionDetails The emission details. E.g. activityId, activityType, vehicleType, fuelType.
  * @returns The emission factor if available.
  */
 async function getEmissionFactor(
-  unitClass: Unit,
+  unitType: UnitType,
   emissionDetails: EmissionCalculatorInput["emissionDetails"]
 ): Promise<EmissionFactor | null> {
   if ("activityId" in emissionDetails) {
@@ -84,6 +92,32 @@ async function getEmissionFactor(
   }
 
   return null;
+}
+
+/**
+ * Converts supported units from one to another
+ * @returns The value in the unit required by the GLEC-emission-factor
+ */
+function convertUnits(value: number, originalUnit: string, targetUnit: string) {
+  if (originalUnit === targetUnit) {
+    return value;
+  }
+
+  if (!UnitConversionService.verifyIfUnitIsSupporter(originalUnit)) {
+    throw new CustomError({
+      status: HttpStatusCode.BadRequest,
+      message: `Unit '${originalUnit}' is not supported. It cannot be converted to '${targetUnit}'`,
+    });
+  }
+
+  if (!UnitConversionService.verifyIfUnitIsSupporter(targetUnit)) {
+    throw new CustomError({
+      status: HttpStatusCode.BadRequest,
+      message: `Unit '${targetUnit}' is not supported. It cannot be converted from '${originalUnit}'`,
+    });
+  }
+
+  return UnitConversionService.convertUnit(originalUnit, targetUnit, value);
 }
 
 /**

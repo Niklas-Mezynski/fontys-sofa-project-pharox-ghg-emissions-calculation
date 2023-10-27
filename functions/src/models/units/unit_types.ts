@@ -1,6 +1,2 @@
-export enum unitType {
-  Distance = "DISTANCE",
-  Weight = "WEIGHT",
-  Volume = "VOLUME",
-  UNKNOWN = "UNKNOWN",
-}
+export const unitTypes = ["DISTANCE", "WEIGHT", "VOLUME", "UNKNOWN"] as const;
+export type UnitType = (typeof unitTypes)[number];

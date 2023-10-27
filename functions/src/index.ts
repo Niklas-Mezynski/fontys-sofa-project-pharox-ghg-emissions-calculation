@@ -1,6 +1,6 @@
 import { HttpStatusCode } from "axios";
 import { initializeApp } from "firebase-admin/app";
-import { getFirestore, Query } from "firebase-admin/firestore";
+import { getFirestore } from "firebase-admin/firestore";
 import { CustomError, onErrorHandledRequest } from "./utils/errors";
 
 initializeApp();

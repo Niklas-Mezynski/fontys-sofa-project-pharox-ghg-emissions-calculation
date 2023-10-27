@@ -6,7 +6,6 @@ import {
 } from "../../models/emission_factors/climatiq_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
-import { query, where, collection } from "@firebase/firestore";
 
 /**
  * Fetches the emission factors from the Climatiq API and saves them in the database.
@@ -25,11 +24,11 @@ async function getAll() {
 async function getByUnitType(unitType: string) {
   const factors = await getAll();
 
-  var matchingFactors = [];
+  const matchingFactors = [];
 
   // eslint-disable-next-line @typescript-eslint/prefer-for-of
   for (let i = 0; i < factors.length; i++) {
-    if (factors[i]["unit_type"] == unitType) {
+    if (factors[i]["unit_type"] === unitType) {
       // Get incorrect format?
 
       console.log(factors[i]);
