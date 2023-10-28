@@ -1,5 +1,5 @@
 import convert from "convert";
-import { SupportedUnits, supportedUnits } from "../../models/units/units";
+import { SupportedUnits, supportedUnits, units } from "../../models/units/units";
 import { HttpStatusCode } from "axios";
 import { CustomError } from "../../utils/errors";
 
@@ -38,7 +38,13 @@ function convertUnits( originalUnit: string, targetUnit: string, value: number )
  * @returns {boolean} - Whether the given unit is supported
  */
 function verifyIfUnitIsSupported(unit: string): boolean {
-  return supportedUnits.includes(unit as SupportedUnits);
+  for (const unitObject of units) {
+    if ((unitObject.units as readonly string[]).includes(unit)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 export const UnitConversionService = {
