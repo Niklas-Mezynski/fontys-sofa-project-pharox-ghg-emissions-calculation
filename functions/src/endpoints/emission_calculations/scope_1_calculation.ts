@@ -32,7 +32,7 @@ export const Scope1Calculation = onRequest(async (request, response) => {
     emissionFactor: factor,
   };
 
-  response.status(200);
+  response.status(200).send(postData);
 //   const result = SimpleCalculationService.simpleEmissionCalculation(postData);
 
 //   response.status(200).send(result);
