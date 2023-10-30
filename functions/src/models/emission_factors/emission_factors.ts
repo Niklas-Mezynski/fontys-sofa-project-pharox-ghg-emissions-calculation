@@ -31,6 +31,8 @@ export const emissionCalculatorInput = z.object({
 });
 export type EmissionCalculatorInput = z.infer<typeof emissionCalculatorInput>;
 
+/** FUEL EMISSION FACTOR MODELS */
+
 /**
  * Fuel model
  */
@@ -64,6 +66,8 @@ export const fuelEmissionFactorSchema = z.object({
   region: z.enum(["EU", "NA", "AF", "AS", "SA", "OC", "AN", "INTERNATIONAL"]).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
+
+/** INTENSITY EMISSION FACTOR MODELS */
 
 // TODO: define the model
 export const intensityEmissionFactorSchema = z.object({
