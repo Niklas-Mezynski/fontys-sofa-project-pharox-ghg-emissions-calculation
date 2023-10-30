@@ -24,6 +24,7 @@ module.exports = {
     "/node_modules",
     ".eslintrc.js",
     "jest.config.ts",
+    "docs/**/*",
   ],
   plugins: ["@typescript-eslint", "import"],
   rules: {
@@ -73,7 +74,7 @@ module.exports = {
 
     // Disallows a variable definition in an inner scope from shadowing a variable in an outer scope. Developers should
     // instead use a separate variable name.
-    "no-shadow": 2,
+    "no-shadow": "off",
 
     // Empty blocks are almost never needed. Allow the one general exception: empty catch blocks.
     "no-empty": ["error", { allowEmptyCatch: true }],
@@ -138,5 +139,7 @@ module.exports = {
     "max-len": 0,
     "object-curly-spacing": 0,
     "quote-props": 0,
+    "require-jsdoc": 0,
+    "valid-jsdoc": 0,
   },
 };

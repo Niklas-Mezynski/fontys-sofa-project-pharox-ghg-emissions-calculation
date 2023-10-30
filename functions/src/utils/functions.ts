@@ -10,10 +10,13 @@ import { HttpStatusCode } from "axios";
  */
 export function parseZodError(issues: z.ZodIssue[], message?: string) {
   const parsedIssues = issues.map((issue) => {
-    return {
-      inputField: issue.path.join("."),
-      error: issue.message,
-    };
+    if (issue.code === "invalid_type") {
+      return {
+        inputField: issue.path.join("."),
+        error: issue.message,
+      };
+    }
+    return issue;
   });
 
   return new CustomError({

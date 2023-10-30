@@ -1,10 +1,15 @@
 import { HttpStatusCode } from "axios";
 import { db } from "../..";
+import {
+  EmissionFactor,
+  emissionFactorSchema,
+} from "../../models/emission_factors/climatiq_emission_factors";
 import { CustomError } from "../../utils/errors";
+import { validateInput } from "../../utils/functions";
 
 /**
  * Fetches the emission factors from the Climatiq API and saves them in the database.
- * @return {Promise<FirebaseFirestore.DocumentData[]>} the emission factors.
+ * @returns The emission factors.
  */
 async function getAll() {
   const factors = await db.collection("emission_factors").get();
@@ -12,9 +17,46 @@ async function getAll() {
 }
 
 /**
+ * Fetches the emission factor from the database based on the unitType
+ * @param {string} unitType
+ * @returns The emission factor.
+ */
+async function getByUnitType(unitType: string) {
+  const factors = await getAll();
+
+  const matchingFactors = [];
+
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
+  for (let i = 0; i < factors.length; i++) {
+    if (factors[i]["unit_type"] === unitType) {
+      // Get incorrect format?
+
+      console.log(factors[i]);
+
+      const data = validateInput(
+        factors[i],
+        emissionFactorSchema,
+        "Received unexpected emissionFactor format from the database."
+      );
+
+      matchingFactors.push(data);
+    }
+  }
+
+  if (matchingFactors.length === 0) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: `Emission factor for unit type ${unitType} not found.`,
+    });
+  }
+
+  return matchingFactors;
+}
+
+/**
  * Fetches the emission factor from the Climatiq API and saves it in the database.
  * @param {string} activityId
- * @return {Promise<FirebaseFirestore.DocumentData>} the emission factor.
+ * @returns The emission factor.
  */
 async function getByActivityId(activityId: string) {
   const document = await db
@@ -29,10 +71,24 @@ async function getByActivityId(activityId: string) {
     });
   }
 
-  return document.data();
+  const data = validateInput(
+    document.data(),
+    emissionFactorSchema,
+    "Received unexpected emissionFactor format from the database."
+  );
+
+  return data;
+}
+
+async function saveEmissionFactor(factor: EmissionFactor) {
+  const docRef = db.collection("emission_factors").doc(factor.activityId);
+
+  await docRef.set(factor);
 }
 
 export const EmissionFactorService = {
   getAll,
   getByActivityId,
+  saveEmissionFactor,
+  getByUnitType,
 };
