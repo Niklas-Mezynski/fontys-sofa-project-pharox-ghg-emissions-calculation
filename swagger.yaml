@@ -27,6 +27,8 @@ tags:
     description: Functions related to operations regarding emission factors
   - name: units
     description: Functions related to operations regarding units being used in the system
+security:
+  - bearerAuth: []
 paths:
   /helloWorld:
     get:
