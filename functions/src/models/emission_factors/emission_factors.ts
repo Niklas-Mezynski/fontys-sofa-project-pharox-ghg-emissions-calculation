@@ -31,13 +31,19 @@ export const emissionCalculatorInput = z.object({
 });
 export type EmissionCalculatorInput = z.infer<typeof emissionCalculatorInput>;
 
+/**
+ * Fuel model
+ */
 export const fuel = z.object({
   code: z.string(),
   name: z.string(),
-  description: z.string(),
+  description: z.string().optional(),
 });
 export type Fuel = z.infer<typeof fuel>;
 
+/**
+ * Define the different fuel factors to be able to calculate emissions
+ */
 export const fuelFactor = z.object({
   unit: z.enum(["KG_CO2E_PER_KWH", "KG_CO2E_PER_KG", "KG_CO2E_PER_L"]),
   factor: z.object({
@@ -48,15 +54,24 @@ export const fuelFactor = z.object({
 });
 export type FuelFactor = z.infer<typeof fuelFactor>;
 
+/**
+ * The fuel emission factor model containin the info to perform emission calculations
+ */
 export const fuelEmissionFactor = z.object({
   id: z.string().uuid(),
   source: z.enum(["CUSTOM", "GLEC", "ISO"]).default("GLEC"),
   fuel: z.custom<Fuel>(),
-  factors: z.array<FuelFactor>(),
+  factors: z.custom<FuelFactor>().array().nonempty(),
+  region: z.enum(["EU", "NA", "AF", "AS", "SA", "OC", "AN", "INTERNATIONAL"]).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactor>;
 
+// TODO: define the model
 export const intensityEmissionFactor = z.object({
+  id: z.string().uuid(),
+  source: z.enum(["CUSTOM", "GLEC", "ISO"]).default("GLEC"),
+  freightType: z.enum(["AIR", "RAIL", "ROAD", "OCEAN", "INLAND_WATERWAY"]),
+  vehicleType: z.string(),
 
 });
 export type IntensityEmissionFactor = z.infer<typeof intensityEmissionFactor>;
