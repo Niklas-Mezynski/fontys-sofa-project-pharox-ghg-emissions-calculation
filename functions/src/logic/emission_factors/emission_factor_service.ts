@@ -80,11 +80,17 @@ async function getByActivityId(activityId: string) {
   return data;
 }
 
+/**
+ * Function save emission factors in the DB
+ * @param {EmissionFactor} factor - the emission factor to save
+ */
 async function saveEmissionFactor(factor: EmissionFactor) {
   const docRef = db.collection("emission_factors").doc(factor.activityId);
 
   await docRef.set(factor);
 }
+
+async function create()
 
 export const EmissionFactorService = {
   getAll,
