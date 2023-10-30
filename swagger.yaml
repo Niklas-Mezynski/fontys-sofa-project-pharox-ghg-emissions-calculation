@@ -4,12 +4,23 @@ info:
   description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
   version: 0.1.9
 servers:
-  - url: http://api.example.com/v1
-    description: Optional server description, e.g. Main (production) server
-  - url: http://staging-api.example.com
-    description: Optional server description, e.g. Internal staging server for testing
+  - url: http://127.0.0.1:{port}/pharox-sofa-project/us-central1
+    description: Local Development Server
+    variables:
+      port:
+        default: "5001"
+        description: Port where the local development server is running on
+  # - url: https://us-central1-pharox-sofa-project.cloudfunctions.net
+  #   description: Online Production Server
+tags:
+  - name: emission-calculations
+    description: Functions related to operations regarding calculation of emissions
+  - name: emission-factors
+    description: Functions related to operations regarding emission factors
+  - name: units
+    description: Functions related to operations regarding units being used in the system
 paths:
-  /users:
+  /helloWorld:
     get:
       summary: Returns a list of users.
       description: Optional extended description in CommonMark or HTML.
@@ -22,3 +33,80 @@ paths:
                 type: array
                 items: 
                   type: string
+  /fetchClimatiq:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
+  /getEmissionFactors:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
+  /getEmissionFactorByActivity:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
+  /emissionCalculator:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
+  /Scope1Calculation:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
+  /unitClassification:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
+  /unitConverter:
+    get:
+      summary: Returns amount of emission factors saved in the DB
+      description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+      responses:
+        "200":
+          description: A message saying the amount of emission factors saved
+          content:
+            application/json:
+              schema:
+                type: object
