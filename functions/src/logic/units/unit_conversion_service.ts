@@ -10,7 +10,11 @@ import { CustomError } from "../../utils/errors";
  * @param {string} value - The value that gets converted with the units
  * @returns {number} The unit in the Metric system
  */
-function convertUnits( originalUnit: string, targetUnit: string, value: number ): number {
+function convertUnits(
+  originalUnit: string,
+  targetUnit: string,
+  value: number
+): number {
   if (originalUnit === targetUnit) {
     return value;
   }
@@ -29,7 +33,8 @@ function convertUnits( originalUnit: string, targetUnit: string, value: number )
     });
   }
 
-  return convert(value, originalUnit as never).to(targetUnit as never).quantity;
+  const result = convert(value, originalUnit as never).to(targetUnit as never);
+  return result as never as number;
 }
 
 /**
