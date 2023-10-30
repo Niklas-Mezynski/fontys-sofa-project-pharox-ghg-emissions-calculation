@@ -36,7 +36,6 @@ export type EmissionCalculatorInput = z.infer<typeof emissionCalculatorInput>;
  */
 export const fuel = z.object({
   code: z.string(),
-  name: z.string(),
   description: z.string().optional(),
 });
 export type Fuel = z.infer<typeof fuel>;
@@ -47,9 +46,9 @@ export type Fuel = z.infer<typeof fuel>;
 export const fuelFactor = z.object({
   unit: z.enum(["KG_CO2E_PER_KWH", "KG_CO2E_PER_KG", "KG_CO2E_PER_L"]),
   factor: z.object({
-    WTT: z.number().lte(1).gte(0),
-    TTW: z.number().lte(1).gte(0),
-    WTW: z.number().lte(1).gte(0),
+    WTT: z.number().gte(0).nullable(),
+    TTW: z.number().gte(0).nullable(),
+    WTW: z.number().gte(0).nullable(),
   }),
 });
 export type FuelFactor = z.infer<typeof fuelFactor>;
@@ -59,9 +58,9 @@ export type FuelFactor = z.infer<typeof fuelFactor>;
  */
 export const fuelEmissionFactor = z.object({
   id: z.string().uuid(),
-  source: z.enum(["CUSTOM", "GLEC", "ISO"]).default("GLEC"),
-  fuel: z.custom<Fuel>(),
-  factors: z.custom<FuelFactor>().array().nonempty(),
+  source: z.enum(["CUSTOM", "GLEC"]).default("GLEC"),
+  fuel: fuel,
+  factors: z.array(fuelFactor).nonempty(),
   region: z.enum(["EU", "NA", "AF", "AS", "SA", "OC", "AN", "INTERNATIONAL"]).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactor>;

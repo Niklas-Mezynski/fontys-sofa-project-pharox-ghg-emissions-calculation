@@ -6,6 +6,7 @@ import {
 } from "../../models/emission_factors/climatiq_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
+import { FuelEmissionFactor, IntensityEmissionFactor, fuelEmissionFactor, intensityEmissionFactor } from "../../models/emission_factors/emission_factors";
 
 /**
  * Fetches the emission factors from the Climatiq API and saves them in the database.
@@ -90,7 +91,23 @@ async function saveEmissionFactor(factor: EmissionFactor) {
   await docRef.set(factor);
 }
 
-async function create()
+async function createFuelEmissionFactor(data: object): Promise<FuelEmissionFactor> {
+  validateInput(
+    data,
+    fuelEmissionFactor
+  );
+}
+
+/**
+ * 
+ * @param data 
+ */
+async function createIntensityEmissionFactor(data: object): Promise<IntensityEmissionFactor> {
+  validateInput(
+    data,
+    intensityEmissionFactor
+  );
+}
 
 export const EmissionFactorService = {
   getAll,
