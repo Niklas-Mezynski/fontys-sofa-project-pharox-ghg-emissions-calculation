@@ -12,6 +12,14 @@ servers:
         description: Port where the local development server is running on
   # - url: https://us-central1-pharox-sofa-project.cloudfunctions.net
   #   description: Online Production Server
+components:
+  securitySchemes:
+    authToken:
+      type: http
+      scheme: bearer
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
 tags:
   - name: emission-calculations
     description: Functions related to operations regarding calculation of emissions
