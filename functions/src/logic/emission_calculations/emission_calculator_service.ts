@@ -1,5 +1,4 @@
 import { HttpStatusCode } from "axios";
-import { SimpleEmissionCalculationInput } from "../../models/emission_calculations/simple_emission_calculation_model";
 import { EmissionFactor } from "../../models/emission_factors/climatiq_emission_factors";
 import {
   EmissionCalculatorInput,
@@ -7,15 +6,14 @@ import {
 } from "../../models/emission_factors/emission_factors";
 import { CustomError } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
-import { logger } from "../../utils/logger";
 import { EmissionFactorService } from "../emission_factors/emission_factor_service";
-import { UnitType } from "../../models/units/unit_types";
+import { UnitType } from "../../models/units/units";
 import { classifyUnitType } from "../units/unit_classification_service";
 import { UnitConversionService } from "../units/unit_conversion_service";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
- * @param {unknown} inputData the input object.
+ * @param {EmissionCalculatorInput | unknown} inputData the input object.
  * @return {object} the response object.
  */
 async function performEmissionCalculation(
@@ -53,10 +51,10 @@ async function performEmissionCalculation(
   // Check calculation input units - Not good -> do conversion
   const convertedCalculationDetails = {
     ...calculationDetails,
-    resourceAmount: convertUnits(
-      calculationDetails.resourceAmount,
+    resourceAmount: UnitConversionService.convertUnits(
       calculationDetails.unit,
-      emissionFactor.unit
+      emissionFactor.unit,
+      calculationDetails.resourceAmount,
     ),
     unit: emissionFactor.unit,
   };
@@ -76,9 +74,10 @@ async function performEmissionCalculation(
  * Gets the emission factor based on the provided emission details.
  * This function has to take care of the different types of user input it may receive
  * TODO: Add more ways to get emission factors
+ * @async
  * @param unitType The type of unit. E.g. VolumeUnit, MassUnit, LengthUnit
  * @param emissionDetails The emission details. E.g. activityId, activityType, vehicleType, fuelType.
- * @returns The emission factor if available.
+ * @returns {Promise<EmissionFactor | null>} The emission factor if available.
  */
 async function getEmissionFactor(
   unitType: UnitType,
@@ -94,61 +93,7 @@ async function getEmissionFactor(
   return null;
 }
 
-/**
- * Converts supported units from one to another
- * @returns The value in the unit required by the GLEC-emission-factor
- */
-function convertUnits(value: number, originalUnit: string, targetUnit: string) {
-  if (originalUnit === targetUnit) {
-    return value;
-  }
-
-  if (!UnitConversionService.verifyIfUnitIsSupporter(originalUnit)) {
-    throw new CustomError({
-      status: HttpStatusCode.BadRequest,
-      message: `Unit '${originalUnit}' is not supported. It cannot be converted to '${targetUnit}'`,
-    });
-  }
-
-  if (!UnitConversionService.verifyIfUnitIsSupporter(targetUnit)) {
-    throw new CustomError({
-      status: HttpStatusCode.BadRequest,
-      message: `Unit '${targetUnit}' is not supported. It cannot be converted from '${originalUnit}'`,
-    });
-  }
-
-  return UnitConversionService.convertUnit(originalUnit, targetUnit, value);
-}
-
-/**
- * Calculates the emission based on the provided fuel and emission factor.
- * @param {SimpleEmissionCalculationInput} input the input object.
- * @return {object} the response object.
- */
-function simpleEmissionCalculation(input: SimpleEmissionCalculationInput) {
-  const emission = input.usedFuel * input.emissionFactor;
-
-  logger.info(
-    "Calculated Emission: " +
-      emission +
-      "\n Provided Fuel: " +
-      input.usedFuel +
-      "\n Provided Emissions Factor: " +
-      input.emissionFactor
-  );
-
-  return {
-    status: 200,
-    result: emission,
-    calculationData: {
-      usedFuel: input.usedFuel,
-      emissionFactor: input.emissionFactor,
-    },
-  };
-}
-
-export const SimpleCalculationService = {
-  simpleEmissionCalculation,
+export const EmissionCalculatorService = {
   getEmissionFactor,
   performEmissionCalculation,
 };
