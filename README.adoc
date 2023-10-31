@@ -31,6 +31,7 @@ Some links to folders or files inside the repository are provided in order to fa
 === Implementation phase
 
     - link:./functions[Implementation]
+    - link:https://fontysvenlo.github.io/sofa-project-pharox-ghg-emissions-calculation/[API documentation]
 
 === Useful links
 

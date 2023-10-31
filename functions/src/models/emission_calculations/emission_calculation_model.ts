@@ -71,28 +71,28 @@ export type FreightEmissionCalculationInput = z.infer<
   typeof freightEmissionCalculationInputSchema
 >;
 
-function test(input: FreightEmissionCalculationInput) {
-  const vehicle = input.transportParts[0].vehicle;
+// function test(input: FreightEmissionCalculationInput) {
+//   const vehicle = input.transportParts[0].vehicle;
 
-  if ("modeOfTransport" in vehicle) {
-    vehicle.consumedFuel;
-    vehicle.consumedFuel.unit;
-    if (vehicle.modeOfTransport === "ROAD") {
-      vehicle.truckType;
-      vehicle.fuelType;
-    }
-    if (vehicle.modeOfTransport === "RAIL") {
-      vehicle.fuelType;
-    }
-    if (vehicle.modeOfTransport === "AIR") {
-      vehicle.aircraftModelId;
-    }
-    if (vehicle.modeOfTransport === "INLAND_WATER") {
-      vehicle.vesselType;
-    }
-    if (vehicle.modeOfTransport === "OCEAN") {
-      vehicle.vesselType;
-      vehicle.imoVesselNumber;
-    }
-  }
-}
+//   if ("modeOfTransport" in vehicle) {
+//     vehicle.consumedFuel;
+//     vehicle.consumedFuel.unit;
+//     if (vehicle.modeOfTransport === "ROAD") {
+//       vehicle.truckType;
+//       vehicle.fuelType;
+//     }
+//     if (vehicle.modeOfTransport === "RAIL") {
+//       vehicle.fuelType;
+//     }
+//     if (vehicle.modeOfTransport === "AIR") {
+//       vehicle.aircraftModelId;
+//     }
+//     if (vehicle.modeOfTransport === "INLAND_WATER") {
+//       vehicle.vesselType;
+//     }
+//     if (vehicle.modeOfTransport === "OCEAN") {
+//       vehicle.vesselType;
+//       vehicle.imoVesselNumber;
+//     }
+//   }
+// }
