@@ -28,14 +28,12 @@ tags:
   - name: units
     description: Functions related to operations regarding units being used in the system
 security:
-  - bearerAuth: []
+  - authToken: []
 paths:
   /helloWorld:
     get:
       summary: Returns a list of users.
       description: Optional extended description in CommonMark or HTML.
-      security:
-        - bearerAuth: []
       responses:
         '200':    # status code
           description: A JSON array of user names
@@ -49,8 +47,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -62,8 +58,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -75,8 +69,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -88,8 +80,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -101,8 +91,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -114,8 +102,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -127,8 +113,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -140,8 +124,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
@@ -153,8 +135,6 @@ paths:
     get:
       summary: Returns amount of emission factors saved in the DB
       description: Function that fetches the emission factors from Climatiq API and stores them in our DB
-      security:
-        - bearerAuth: []
       responses:
         "200":
           description: A message saying the amount of emission factors saved
