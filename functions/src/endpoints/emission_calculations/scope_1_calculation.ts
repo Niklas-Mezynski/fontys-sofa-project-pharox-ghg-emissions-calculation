@@ -2,7 +2,6 @@ import { HttpStatusCode } from "axios";
 import { onRequest } from "firebase-functions/v2/https";
 import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
-import { SimpleCalculationService } from "../../logic/emission_calculations/emission_calculator_service";
 import { parseZodError } from "../../utils/functions";
 
 const queryInputSchema = z.object({
@@ -32,9 +31,11 @@ export const Scope1Calculation = onRequest(async (request, response) => {
     usedFuel: usedFuel,
     emissionFactor: factor,
   };
-  const result = SimpleCalculationService.simpleEmissionCalculation(postData);
 
-  response.status(200).send(result);
+  response.status(200).send(postData);
+//   const result = SimpleCalculationService.simpleEmissionCalculation(postData);
+
+//   response.status(200).send(result);
   /*
   const apiUrl = 'https://emissioncalculationsimple-u2tzkd7k6q-uc.a.run.app';
 

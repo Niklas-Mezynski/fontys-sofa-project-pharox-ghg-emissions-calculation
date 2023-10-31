@@ -1,25 +1,18 @@
-import { UnitType } from "../../models/units/unit_types";
-
-const volumeUnits = ["ml", "l", "tsp", "tbsp"] as const;
-const weightUnits = ["g", "kg", "oz", "lb"] as const;
-const distanceUnits = ["km", "cm", "m", "in", "ft"] as const;
+import { UnitType, units } from "../../models/units/units";
 
 /**
- * Determine whether a unit is a Distance, Weight or Volume
- * @returns The type of unit
+ * Determine whether a unit is a Distance, Weight or Volume (Unknown if not known)
+ * @param {string} unit - The unit to classify
+ * @returns {UnitType} The unit type
  */
 export function classifyUnitType(unit: string): UnitType {
   console.log("Classification of: " + unit + "  Starting...");
 
-  if ((volumeUnits as readonly string[]).includes(unit)) {
-    return "VOLUME";
-  }
-  if ((weightUnits as readonly string[]).includes(unit)) {
-    return "WEIGHT";
-  }
-  if ((distanceUnits as readonly string[]).includes(unit)) {
-    return "DISTANCE";
+  for (const unitObject of units) {
+    if ((unitObject.units as readonly string[]).includes(unit)) {
+      return unitObject.unitType;
+    }
   }
 
-  return "UNKNOWN";
+  return "UNKNOWN" as UnitType;
 }
