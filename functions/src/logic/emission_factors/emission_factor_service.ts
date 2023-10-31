@@ -16,6 +16,7 @@ import { v4 as uuid } from "uuid";
 import { z } from "zod";
 
 /**
+ * @deprecated Use fuelEmissionFactors instead.
  * Fetches the emission factors from the Climatiq API and saves them in the database.
  * @returns The emission factors.
  */
@@ -25,6 +26,7 @@ async function getAll() {
 }
 
 /**
+ * @deprecated Use fuelEmissionFactors instead.
  * Fetches the emission factor from the database based on the unitType
  * @param {string} unitType
  * @returns The emission factor.
@@ -62,6 +64,7 @@ async function getByUnitType(unitType: string) {
 }
 
 /**
+ * @deprecated Use fuelEmissionFactors instead.
  * Fetches the emission factor from the Climatiq API and saves it in the database.
  * @param {string} activityId
  * @returns The emission factor.
@@ -89,6 +92,7 @@ async function getByActivityId(activityId: string) {
 }
 
 /**
+ * @deprecated Use fuelEmissionFactors instead.
  * Function save emission factors in the DB
  * @param {EmissionFactor} factor - the emission factor to save
  */
@@ -144,6 +148,42 @@ async function createFuelEmissionFactors(
   return factors;
 }
 
+async function getAllFuelEmissionFactors() {
+  const factors = (await db.collection("fuel_emission_factors").get()).docs.map(
+    (doc) => doc.data()
+  );
+
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected emissionFactor format from the database."
+  );
+
+  return validatedFactors;
+}
+
+async function getFuelEmissionFactorByDocumentId(documentId: string) {
+  const document = await db
+    .collection("fuel_emission_factors")
+    .doc(documentId)
+    .get();
+
+  if (!document.exists) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: `Emission factor for document ${documentId} not found.`,
+    });
+  }
+
+  const data = validateInput(
+    document.data(),
+    fuelEmissionFactorSchema,
+    "Received unexpected emissionFactor format from the database."
+  );
+
+  return data;
+}
+
 /**
  * Function to create a new intensity emission factor and store it in the DB
  * @param {object} data - The data to create a new intensity emission factor
@@ -163,11 +203,13 @@ async function createIntensityEmissionFactor(
 }
 
 export const EmissionFactorService = {
-  createFuelEmissionFactor,
-  createFuelEmissionFactors,
   createIntensityEmissionFactor,
   getAll,
   getByActivityId,
   getByUnitType,
   saveEmissionFactor,
+  createFuelEmissionFactor,
+  createFuelEmissionFactors,
+  getAllFuelEmissionFactors,
+  getFuelEmissionFactorByDocumentId,
 };
