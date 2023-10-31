@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { ZodTypeDef, z } from "zod";
 import { CustomError } from "./errors";
 import { HttpStatusCode } from "axios";
 
@@ -34,11 +34,11 @@ export function parseZodError(issues: z.ZodIssue[], message?: string) {
  * @return {T} The validated data that is guaranteed to be of type T
  * @throws {CustomError} containing the validation error
  */
-export function validateInput<T>(
-  input: unknown,
-  schema: z.Schema<T>,
-  message?: string
-) {
+export function validateInput<
+  Output = any,
+  Def extends ZodTypeDef = ZodTypeDef,
+  Input = Output,
+>(input: unknown, schema: z.Schema<Output, Def, Input>, message?: string) {
   const parseResult = schema.safeParse(input);
 
   if (!parseResult.success) {
