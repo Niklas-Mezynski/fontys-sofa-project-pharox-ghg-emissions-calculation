@@ -104,3 +104,18 @@ describe('testing_unit_unsupported', () => {
     
   });
 });
+
+describe('testing_unit_conversion', () => {
+  test('The unit and value provided should return the coresponding value in desired units', () => {
+
+    expect(UnitConversionService.convertUnits("km", "m", 1)).toBe(1000);
+    expect(UnitConversionService.convertUnits("kg", "g", 1)).toBe(1000);
+    //expect(UnitConversionService.convertUnits("m", "ft", 1)).toBe(3.2);
+    expect(UnitConversionService.convertUnits("ml", "l", 1000)).toBe(1);
+    //expect(UnitConversionService.convertUnits("oz", "g", 1)).toBe(28.3495);
+    //expect(UnitConversionService.convertUnits("mi", "km", 1)).toBe(1.60934);
+    //expect(UnitConversionService.convertUnits("km", "l", 1)).toBe(1000);
+
+
+  });
+});
