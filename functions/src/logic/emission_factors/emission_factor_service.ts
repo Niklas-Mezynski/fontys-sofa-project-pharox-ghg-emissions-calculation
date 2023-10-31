@@ -6,8 +6,14 @@ import {
 } from "../../models/emission_factors/climatiq_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
-import { FuelEmissionFactor, fuelEmissionFactorSchema, intensityEmissionFactorSchema } from "../../models/emission_factors/emission_factors";
+import {
+  FuelEmissionFactor,
+  IntensityEmissionFactor,
+  fuelEmissionFactorSchema,
+  intensityEmissionFactorSchema,
+} from "../../models/emission_factors/emission_factors";
 import { v4 as uuid } from "uuid";
+import { z } from "zod";
 
 /**
  * Fetches the emission factors from the Climatiq API and saves them in the database.
@@ -97,7 +103,9 @@ async function saveEmissionFactor(factor: EmissionFactor) {
  * @param {object} data - The multiple data to create a new fuel emission factor
  * @returns {Promise<Partial<FuelEmissionFactor>>} - The saved fuel emission factor in the DB
  */
-async function createFuelEmissionFactor(data: object): Promise<Partial<FuelEmissionFactor>> {
+async function createFuelEmissionFactor(
+  data: unknown
+): Promise<FuelEmissionFactor> {
   const factor = validateInput(
     data,
     fuelEmissionFactorSchema,
@@ -113,24 +121,23 @@ async function createFuelEmissionFactor(data: object): Promise<Partial<FuelEmiss
  * @param {object[]} data - The multiple data to create multiple new fuel emission factors
  * @returns {Promise<Partial<FuelEmissionFactor>[]>} - The saved fuel emission factors in the DB
  */
-async function createFuelEmissionFactors(data: object[]): Promise<Partial<FuelEmissionFactor>[]> {
+async function createFuelEmissionFactors(
+  data: unknown
+): Promise<FuelEmissionFactor[]> {
+  const validatedFactors = validateInput(
+    data,
+    z.array(fuelEmissionFactorSchema),
+    "Could not create a Fuel Emission Factor from the given data"
+  );
+
   const factors = [];
 
   const batch = db.batch();
 
-  for (const factor of data) {
-    const validatedFactor = validateInput(
-      factor,
-      fuelEmissionFactorSchema,
-      "Could not create a Fuel Emission Factor from the given data"
-    );
+  for (const factor of validatedFactors) {
+    batch.set(db.collection("fuel_emission_factors").doc(uuid()), factor);
 
-    batch.set(
-      db.collection("fuel_emission_factors").doc(uuid()),
-      validatedFactor
-    );
-
-    factors.push(validatedFactor);
+    factors.push(factor);
   }
 
   await batch.commit();
@@ -140,16 +147,19 @@ async function createFuelEmissionFactors(data: object[]): Promise<Partial<FuelEm
 /**
  * Function to create a new intensity emission factor and store it in the DB
  * @param {object} data - The data to create a new intensity emission factor
- * @returns {Promise<any>} - The saved intensity emission factor in the DB
+ * @returns {Promise<IntensityEmissionFactor>} - The saved intensity emission factor in the DB
  */
-async function createIntensityEmissionFactor(data: object): Promise<any> {
+async function createIntensityEmissionFactor(
+  data: object
+): Promise<IntensityEmissionFactor> {
   const factor = validateInput(
     data,
     intensityEmissionFactorSchema,
     "Could not create a Intensity Emission Factor from the given data"
   );
 
-  return (await db.collection("intensity_emission_factors").add(factor)).get();
+  await db.collection("intensity_emission_factors").doc(uuid()).set(factor);
+  return factor;
 }
 
 export const EmissionFactorService = {

@@ -63,7 +63,9 @@ export const fuelEmissionFactorSchema = z.object({
   source: z.enum(["CUSTOM", "GLEC"]).default("GLEC"),
   fuel: fuelSchema,
   factors: z.array(fuelFactorSchema).nonempty(),
-  region: z.enum(["EU", "NA", "AF", "AS", "SA", "OC", "AN", "INTERNATIONAL"]).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
+  region: z
+    .enum(["EU", "NA", "AF", "AS", "SA", "OC", "AN", "INTERNATIONAL"])
+    .default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
 
@@ -73,7 +75,11 @@ export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
 export const intensityEmissionFactorSchema = z.object({
   id: z.string().uuid(),
   source: z.enum(["CUSTOM", "GLEC", "ISO"]).default("GLEC"),
-  freightType: z.enum(["AIR", "RAIL", "ROAD", "OCEAN", "INLAND_WATERWAY"]).default("ROAD"),
+  freightType: z
+    .enum(["AIR", "RAIL", "ROAD", "OCEAN", "INLAND_WATERWAY"])
+    .default("ROAD"),
   vehicleType: z.string(),
 });
-export type IntensityEmissionFactor = z.infer<typeof intensityEmissionFactorSchema>;
+export type IntensityEmissionFactor = z.infer<
+  typeof intensityEmissionFactorSchema
+>;
