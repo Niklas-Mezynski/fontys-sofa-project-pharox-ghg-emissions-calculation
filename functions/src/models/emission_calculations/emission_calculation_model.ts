@@ -96,6 +96,11 @@ export type CalculationReport = {
       wellToTank: number | null;
       wellToWheel: number | null;
     };
+    emissionIntensity: {
+      tkm: number;
+      value: number;
+      unit: string;
+    };
     unit: string;
     usedEmissionFactor: unknown;
   }[];

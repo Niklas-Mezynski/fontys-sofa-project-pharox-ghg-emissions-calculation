@@ -33,16 +33,21 @@ async function performEmissionCalculation(
     calculationInput.transportParts.map(async (transportPart, index) => {
       try {
         // Get the emission factor
-        const { producedEmissions, factorToUse, mappedEmissionFactor } =
-          await calculateTransportActivity(transportPart);
+        const {
+          producedEmissions,
+          factorUsed,
+          mappedEmissionFactor,
+          emissionIntensity,
+        } = await calculateTransportActivity(transportPart);
 
         // Add the emission to the report
         calculationReport.transportActivities[index] = {
           producedEmissions,
-          unit: `${factorToUse.producedUnit} / ${factorToUse.perUnit}`,
+          emissionIntensity,
+          unit: `${factorUsed.producedUnit} / ${factorUsed.perUnit}`,
           usedEmissionFactor: {
             ...mappedEmissionFactor,
-            factors: factorToUse,
+            factors: factorUsed,
           },
         };
       } catch (error) {
@@ -111,7 +116,33 @@ async function calculateTransportActivity(
       ? convertedConsumedFuel.value * factorToUse.factor.WTW
       : null,
   };
-  return { producedEmissions, factorToUse, mappedEmissionFactor };
+
+  // --- Emission intensity calculation ---
+  // Calculate the tonne-kilometres (tkm) of the transport activity
+  const km = UnitConversionService.convertUnits(
+    transportPart.distance.unit,
+    "km",
+    transportPart.distance.value
+  ).value;
+  const tonnes = UnitConversionService.convertUnits(
+    transportPart.weight.unit,
+    "tonnes",
+    transportPart.weight.value
+  ).value;
+
+  const tkm = tonnes * km;
+  const emissionIntensity = (producedEmissions.wellToWheel ?? 0) / tkm;
+
+  return {
+    producedEmissions,
+    factorUsed: factorToUse,
+    mappedEmissionFactor,
+    emissionIntensity: {
+      tkm,
+      value: emissionIntensity,
+      unit: "kgCO2e/tkm",
+    },
+  };
 }
 
 /**
