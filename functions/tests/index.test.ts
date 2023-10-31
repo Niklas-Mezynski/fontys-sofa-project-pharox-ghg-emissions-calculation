@@ -1,6 +1,7 @@
 // import * as indexFunctions from "../src/index";
 
 import { classifyUnitType } from "../src/logic/units/unit_classification_service";
+import { UnitConversionService } from "../src/logic/units/unit_conversion_service";
 
 describe("Index - Hello World", () => {
   test("Hello World function returns 'Hello world!'", async () => {
@@ -67,5 +68,39 @@ describe('testing_unit_classification_service_Wrong_input', () => {
     expect(classifyUnitType("1111")).toBe("UNKNOWN");
     expect(classifyUnitType("")).toBe("UNKNOWN");
 
+  });
+});
+
+describe('testing_unit_supported', () => {
+  test('The unit provided should return "true"', () => {
+    
+    expect(UnitConversionService.verifyIfUnitIsSupported("ml")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("l")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("tsp")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("tbsp")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("g")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("kg")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("oz")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("lb")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("km")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("cm")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("m")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("in")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("ft")).toBe(true);
+    expect(UnitConversionService.verifyIfUnitIsSupported("mi")).toBe(true);
+
+  });
+});
+
+describe('testing_unit_unsupported', () => {
+  test('The unit provided should return "false"', () => {
+
+    expect(UnitConversionService.verifyIfUnitIsSupported("a")).toBe(false);
+    expect(UnitConversionService.verifyIfUnitIsSupported("h")).toBe(false);
+    expect(UnitConversionService.verifyIfUnitIsSupported("km2")).toBe(false);
+    expect(UnitConversionService.verifyIfUnitIsSupported("")).toBe(false);
+    expect(UnitConversionService.verifyIfUnitIsSupported("111")).toBe(false);
+    expect(UnitConversionService.verifyIfUnitIsSupported("st")).toBe(false);
+    
   });
 });
