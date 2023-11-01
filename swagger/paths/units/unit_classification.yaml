@@ -1,6 +1,6 @@
 post:
   summary: Classify the given unit
-  description: This endpoints attempts to classify whether a unit is Weight, Distance or Volume
+  description: Classify whether a unit is Weight, Distance or Volume
   tags:
     - Units
   parameters:
@@ -8,8 +8,8 @@ post:
       name: unit
       schema:
         type: string
+        example: km
       description: The unit to classify
-      example: km
   responses:
     "200":
       description: The unit classification

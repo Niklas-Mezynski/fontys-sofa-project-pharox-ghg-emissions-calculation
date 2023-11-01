@@ -1,18 +1,18 @@
 get:
-  summary: Classify the given unit
-  description: This endpoints attempts to classify whether a unit is Weight, Distance or Volume
+  summary: Convert a given unit to the desired one
+  description: Convert a given unit to the desired one
   tags:
     - Units
   parameters:
     - in : body
       schema:
         $ref: "../../schemas/units/units_converter_input.yaml"
+        example: {
+          originalUnitType: "km",
+          targetUnitType: "m",
+          value: 1
+        }
       description: The value and units to convert from and to
-      example: {
-        originalUnitType: "km",
-        targetUnitType: "m",
-        value: 1
-      }
   responses:
     "200":
       description: The converted units
