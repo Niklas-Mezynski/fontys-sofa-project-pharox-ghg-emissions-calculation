@@ -11,4 +11,4 @@ get:
           schema:
             type: array
             items:
-              $ref: "#/components/schemas/FuelEmissionFactor"
+              $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
