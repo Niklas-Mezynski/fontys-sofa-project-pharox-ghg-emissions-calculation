@@ -21,12 +21,12 @@ components:
     UnauthorizedError:
       description: Access token is missing or invalid
 tags:
-  - name: emission-calculations
-    description: Functions related to operations regarding calculation of emissions
-  - name: emission-factors
-    description: Functions related to operations regarding emission factors
-  - name: units
-    description: Functions related to operations regarding units being used in the system
+  - name: Emission calculations
+    description: Functions related to calculation of emissions
+  - name: Emission factors
+    description: Functions related to emission factors
+  - name: Units
+    description: Functions related units being used in the system
 security:
   - authToken: []
 paths:

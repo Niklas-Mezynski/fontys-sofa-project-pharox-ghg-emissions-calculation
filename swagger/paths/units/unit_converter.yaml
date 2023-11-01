@@ -2,7 +2,7 @@ get:
   summary: Returns amount of emission factors saved in the DB
   description: Function that fetches the emission factors from Climatiq API and stores them in our DB
   tags:
-    - units
+    - Units
   responses:
     "200":
       description: A message saying the amount of emission factors saved
