@@ -21,3 +21,4 @@ get:
                   items:
                     $ref: "#/components/schemas/FuelEmissionFactor"
                 - type: array
+                  example: []

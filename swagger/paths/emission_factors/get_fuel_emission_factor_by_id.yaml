@@ -19,5 +19,6 @@ get:
               - type:
                   $ref: "#/components/schemas/FuelEmissionFactor"
               - type: object
+                example: {}
               
               
