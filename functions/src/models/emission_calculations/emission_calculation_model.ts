@@ -1,3 +1,4 @@
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 import { commonModels } from "../common";
 import {
@@ -6,6 +7,8 @@ import {
   volumeUnits,
   weightUnits,
 } from "../units/units";
+
+extendZodWithOpenApi(z);
 
 // const roadFuelTypes = [
 //   "DIESEL",
@@ -35,53 +38,61 @@ export const freightEmissionCalculationInputSchema = z.object({
    * Any metadata that should be stored with the calculation
    */
   metadata: z.record(z.unknown()).optional().nullable(),
-  transportParts: z.array(
-    z.object({
-      distance: commonModels.valueWithUnitModel(distanceUnits),
-      weight: commonModels.valueWithUnitModel(weightUnits),
-      transportDetails:
-        // z.intersection(
-        z.object({
-          consumedFuel: commonModels.valueWithUnitModel([
-            ...volumeUnits,
-            ...weightUnits,
-            ...electricityUnits,
-          ]),
-          fuelCode: z.string(),
-        }),
-      // z.union([
-      //   z.object({
-      //     modeOfTransport: z.literal("ROAD"),
-      //     truckType: z.enum(roadTruckTypes),
-      //     fuelType: z.enum(roadFuelTypes),
-      //   }),
-      //   z.object({
-      //     modeOfTransport: z.literal("RAIL"),
-      //     fuelType: z.enum(railFuelTypes),
-      //   }),
-      //   z.object({
-      //     modeOfTransport: z.literal("AIR"),
-      //     aircraftModelId: z.string(),
-      //   }),
-      //   z.object({
-      //     modeOfTransport: z.literal("INLAND_WATER"),
-      //     vesselType: z.enum(inlandWaterVesselTypes),
-      //   }),
-      //   z.object({
-      //     modeOfTransport: z.literal("OCEAN"),
-      //     vesselType: z.enum(oceanVesselTypes),
-      //     imoVesselNumber: z.number(),
-      //   }),
-      //   z.object({
-      //     /**
-      //      * The unique vehicle identifier. Minimum requirement to identify an emission factor.
-      //      */
-      //     vehicleIdentifier: z.string(), // TODO: Add validation for all possible vehicle identifiers
-      //   }),
-      // ])
-      // ),
-    })
-  ),
+  transportParts: z
+    .array(
+      z.object({
+        distance: commonModels.valueWithUnitModel(distanceUnits),
+        weight: commonModels.valueWithUnitModel(weightUnits),
+        transportDetails:
+          // z.intersection(
+          z.object({
+            consumedFuel: commonModels.valueWithUnitModel([
+              ...volumeUnits,
+              ...weightUnits,
+              ...electricityUnits,
+            ]),
+            fuelCode: z.string().openapi({
+              description: "A unique code for the fuel used",
+            }),
+          }),
+        // TODO: Maybe use discriminated union instead of normal Union (https://github.com/colinhacks/zod#discriminated-unions)
+        // z.union([
+        //   z.object({
+        //     modeOfTransport: z.literal("ROAD"),
+        //     truckType: z.enum(roadTruckTypes),
+        //     fuelType: z.enum(roadFuelTypes),
+        //   }),
+        //   z.object({
+        //     modeOfTransport: z.literal("RAIL"),
+        //     fuelType: z.enum(railFuelTypes),
+        //   }),
+        //   z.object({
+        //     modeOfTransport: z.literal("AIR"),
+        //     aircraftModelId: z.string(),
+        //   }),
+        //   z.object({
+        //     modeOfTransport: z.literal("INLAND_WATER"),
+        //     vesselType: z.enum(inlandWaterVesselTypes),
+        //   }),
+        //   z.object({
+        //     modeOfTransport: z.literal("OCEAN"),
+        //     vesselType: z.enum(oceanVesselTypes),
+        //     imoVesselNumber: z.number(),
+        //   }),
+        //   z.object({
+        //     /**
+        //      * The unique vehicle identifier. Minimum requirement to identify an emission factor.
+        //      */
+        //     vehicleIdentifier: z.string(), // TODO: Add validation for all possible vehicle identifiers
+        //   }),
+        // ])
+        // ),
+      })
+    )
+    .openapi({
+      description:
+        "The different transport activities to calculate emissions for. Each has their own fuel type, fuel consumption and freight details.",
+    }),
 });
 
 export type FreightEmissionCalculationInput = z.infer<

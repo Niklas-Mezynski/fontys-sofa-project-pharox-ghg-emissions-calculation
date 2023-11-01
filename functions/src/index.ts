@@ -1,6 +1,7 @@
-import { authenticate } from "./utils/authentication";
-import { getFirestore } from "firebase-admin/firestore";
 import { initializeApp } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+import { authenticate } from "./utils/authentication";
+import { generateAndSaveOpenApiYaml } from "./documentation/open_api_generator";
 import { onErrorHandledRequest } from "./utils/errors";
 
 initializeApp();
@@ -8,6 +9,13 @@ initializeApp();
 export const db = getFirestore();
 
 export const helloWorld = onErrorHandledRequest((request, response) => {
+  generateAndSaveOpenApiYaml();
+
+  response.json({
+    result: "Generated and saved OpenAPI YAML file",
+  });
+  return;
+
   authenticate(request.headers.authorization);
   response.json({ message: "Hello World" });
 

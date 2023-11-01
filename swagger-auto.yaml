@@ -1,0 +1,192 @@
+openapi: 3.0.3
+info:
+  title: GHG Emission Calculation API
+  description: <p>API to make the calculation of Greenhouse gasses emissions
+    during logistic activities.</p><p>Built following the <a
+    href="https://www.smartfreightcentre.org/en/our-programs/global-logistics-emissions-council/calculate-report-glec-framework/">GLEC
+    framework</a>.</p>
+  version: 0.0.0
+servers:
+  - url: http://127.0.0.1:{port}/pharox-sofa-project/us-central1
+    description: Local Development Server
+    variables:
+      port:
+        default: "5001"
+        description: Port where the local development server is running on
+  - url: https://us-central1-pharox-sofa-project.cloudfunctions.net
+    description: Online Production Server
+tags:
+  - name: Emission calculations
+    description: Functions related to calculation of emissions
+  - name: Emission factors
+    description: Functions related to emission factors
+  - name: Units
+    description: Functions related units being used in the system
+security:
+  - authToken: []
+components:
+  schemas:
+    EmissionCalculationInput:
+      type: object
+      properties:
+        metadata:
+          type: object
+          nullable: true
+          additionalProperties:
+            nullable: true
+        transportParts:
+          type: array
+          items:
+            type: object
+            properties:
+              distance:
+                type: object
+                properties:
+                  value:
+                    type: number
+                  unit:
+                    type: string
+                    enum: &a1
+                      - km
+                      - cm
+                      - m
+                      - in
+                      - ft
+                      - mi
+                required:
+                  - value
+                  - unit
+              weight:
+                type: object
+                properties:
+                  value:
+                    type: number
+                  unit:
+                    type: string
+                    enum: &a2
+                      - g
+                      - kg
+                      - tonnes
+                      - oz
+                      - lb
+                required:
+                  - value
+                  - unit
+              transportDetails:
+                type: object
+                properties:
+                  consumedFuel:
+                    type: object
+                    properties:
+                      value:
+                        type: number
+                      unit:
+                        type: string
+                        enum: &a3
+                          - ml
+                          - l
+                          - tsp
+                          - tbsp
+                          - g
+                          - kg
+                          - tonnes
+                          - oz
+                          - lb
+                          - kWh
+                    required:
+                      - value
+                      - unit
+                  fuelCode:
+                    type: string
+                    description: A unique code for the fuel used
+                required:
+                  - consumedFuel
+                  - fuelCode
+            required:
+              - distance
+              - weight
+              - transportDetails
+          description: The different transport activities to calculate emissions for. Each
+            has their own fuel type, fuel consumption and freight details.
+      required:
+        - transportParts
+  parameters: {}
+paths:
+  /emissionCalculator:
+    post:
+      summary: Calculate GHG emissions
+      description: Cloud function to perform an emission calculation
+      tags:
+        - Emission calculations
+      requestBody:
+        description: The calculation input
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  nullable: true
+                  additionalProperties:
+                    nullable: true
+                transportParts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      distance:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            enum: *a1
+                        required:
+                          - value
+                          - unit
+                      weight:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            enum: *a2
+                        required:
+                          - value
+                          - unit
+                      transportDetails:
+                        type: object
+                        properties:
+                          consumedFuel:
+                            type: object
+                            properties:
+                              value:
+                                type: number
+                              unit:
+                                type: string
+                                enum: *a3
+                            required:
+                              - value
+                              - unit
+                          fuelCode:
+                            type: string
+                            description: A unique code for the fuel used
+                        required:
+                          - consumedFuel
+                          - fuelCode
+                    required:
+                      - distance
+                      - weight
+                      - transportDetails
+                  description: The different transport activities to calculate emissions for. Each
+                    has their own fuel type, fuel consumption and freight
+                    details.
+              required:
+                - transportParts
+      responses:
+        "200":
+          description: The emission calculation overview/report
