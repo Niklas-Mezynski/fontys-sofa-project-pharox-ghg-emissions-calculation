@@ -9,15 +9,14 @@ post:
       schema:
         type:
           $ref: "#/components/schemas/FuelEmissionFactor"
-          
       description: The fuel emission factor to add
   responses:
     "200":
-      description: List of added fuel emission factors
+      description: The added fuel emission factors
       content:
         application/json:
           schema:
             oneOf:
-                - type:
-                    $ref: "#/components/schemas/FuelEmissionFactor"
-                - type: object
+              - type:
+                  $ref: "#/components/schemas/FuelEmissionFactor"
+              - type: object
