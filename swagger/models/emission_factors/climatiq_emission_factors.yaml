@@ -1,0 +1,114 @@
+
+swagger: '2.0'
+info:
+  title: Climatiq Emission Factors API
+  version: '1.0'
+paths: {}
+definitions:
+  ConstituentGases:
+    type: object
+    properties:
+      co2eTotal:
+        type: number
+      co2eOther:
+        type: number
+      co2:
+        type: number
+      ch4:
+        type: number
+      n2o:
+        type: number
+  EmissionFactor:
+    type: object
+    properties:
+      activityId:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      category:
+        type: string
+      sector:
+        type: string
+      source:
+        type: string
+      sourceLink:
+        type: string
+      sourceDataset:
+        type: string
+      year:
+        type: number
+      yearReleased:
+        type: number
+      region:
+        type: string
+      regionName:
+        type: string
+      description:
+        type: string
+      unitType:
+        type: string
+      unit:
+        type: string
+      sourceLcaActivity:
+        type: string
+      dataQualityFlags:
+        type: array
+        items:
+          type: string
+      accessType:
+        type: string
+        enum:
+          - public
+          - private
+      supportedCalculationMethods:
+        type: array
+        items:
+          type: string
+      factor:
+        type: number
+      factorCalculationMethod:
+        type: string
+      factorCalculationOrigin:
+        type: string
+      constituentGases:
+        $ref: '#/definitions/ConstituentGases'
+  ClimatiqEmissionFactor:
+    allOf:
+      - $ref: '#/definitions/EmissionFactor'
+      - type: object
+        properties:
+          activity_id:
+            type: string
+          source_link:
+            type: string
+          source_dataset:
+            type: string
+          region_name:
+            type: string
+          unit_type:
+            type: string
+          source_lca_activity:
+            type: string
+          data_quality_flags:
+            type: array
+            items:
+              type: string
+          access_type:
+            type: string
+          supported_calculation_methods:
+            type: array
+            items:
+              type: string
+          factor_calculation_method:
+            type: string
+          factor_calculation_origin:
+            type: string
+          constituent_gases:
+            $ref: '#/definitions/ConstituentGases'
+  GetEmissionFactorQueryInput:
+    type: object
+    properties:
+      activityId:
+        type: string

@@ -1,0 +1,16 @@
+
+swagger: '2.0'
+info:
+  title: Simple Emission Calculation API
+  version: '1.0'
+paths: {}
+definitions:
+  SimpleEmissionCalculationInput:
+    type: object
+    properties:
+      usedFuel:
+        type: number
+        minimum: 0
+      emissionFactor:
+        type: number
+        minimum: 0

@@ -1,0 +1,108 @@
+
+swagger: '2.0'
+info:
+  title: Emission Factors API
+  version: '1.0'
+paths: {}
+definitions:
+  EmissionFactorInput:
+    type: object
+    properties:
+      activityId:
+        type: string
+      activityType:
+        type: string
+      vehicleType:
+        type: string
+      fuelType:
+        type: string
+  CalculationDataInput:
+    type: object
+    properties:
+      resourceAmount:
+        type: number
+        minimum: 0
+      unit:
+        type: string
+  EmissionCalculatorInput:
+    type: object
+    properties:
+      emissionDetails:
+        $ref: '#/definitions/EmissionFactorInput'
+      calculationDetails:
+        $ref: '#/definitions/CalculationDataInput'
+  Fuel:
+    type: object
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+  Factor:
+    type: object
+    properties:
+      WTT:
+        type: number
+      TTW:
+        type: number
+      WTW:
+        type: number
+  FuelFactor:
+    type: object
+    properties:
+      unit:
+        type: string
+        enum:
+          - KG_CO2E_PER_KWH
+          - KG_CO2E_PER_KG
+          - KG_CO2E_PER_L
+      factor:
+        $ref: '#/definitions/Factor'
+  FuelEmissionFactor:
+    type: object
+    properties:
+      id:
+        type: string
+      source:
+        type: string
+        enum:
+          - CUSTOM
+          - GLEC
+      fuel:
+        $ref: '#/definitions/Fuel'
+      factors:
+        type: array
+        items:
+          $ref: '#/definitions/FuelFactor'
+      region:
+        type: string
+        enum:
+          - EU
+          - NA
+          - AF
+          - AS
+          - SA
+          - OC
+          - AN
+          - INTERNATIONAL
+  IntensityEmissionFactor:
+    type: object
+    properties:
+      id:
+        type: string
+      source:
+        type: string
+        enum:
+          - CUSTOM
+          - GLEC
+          - ISO
+      freightType:
+        type: string
+        enum:
+          - AIR
+          - RAIL
+          - ROAD
+          - OCEAN
+          - INLAND_WATERWAY
+      vehicleType:
+        type: string
