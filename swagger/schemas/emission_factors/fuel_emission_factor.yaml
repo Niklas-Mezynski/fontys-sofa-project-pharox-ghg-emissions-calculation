@@ -10,12 +10,12 @@ properties:
       - GLEC
     description: The fuel emission factor data source
   fuel:
-    $ref: '#/schemas/Fuel'
+    $ref: "#/components/schemas/Fuel"
     description: The fuel which the fuel emission factor applies to
   factors:
     type: array
     items:
-      $ref: '#/schemas/FuelFactor'
+      $ref: "#/components/schemas/FuelFactor"
     description: The conversion factor to calculate emissions
   region:
     type: string

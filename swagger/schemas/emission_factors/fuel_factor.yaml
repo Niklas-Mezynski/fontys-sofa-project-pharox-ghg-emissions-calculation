@@ -8,4 +8,4 @@ properties:
       - KG_CO2E_PER_L
     description: The convversion units for the fuel factor
   factor:
-    $ref: '#/schemas/Factor'
+    $ref: "#/components/schemas/Factor"
