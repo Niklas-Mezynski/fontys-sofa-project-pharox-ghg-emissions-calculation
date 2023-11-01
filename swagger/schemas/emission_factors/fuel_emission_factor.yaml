@@ -16,7 +16,7 @@ properties:
     type: array
     items:
       $ref: "#/components/schemas/FuelFactor"
-    description: The conversion factor to calculate emissions
+    description: The conversion factors to calculate emissions
   region:
     type: string
     enum:

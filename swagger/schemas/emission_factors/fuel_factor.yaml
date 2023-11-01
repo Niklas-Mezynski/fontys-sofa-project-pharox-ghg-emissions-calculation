@@ -6,6 +6,6 @@ properties:
       - KG_CO2E_PER_KWH
       - KG_CO2E_PER_KG
       - KG_CO2E_PER_L
-    description: The convversion units for the fuel factor
+    description: The conversion units for the fuel factor
   factor:
     $ref: "#/components/schemas/Factor"
