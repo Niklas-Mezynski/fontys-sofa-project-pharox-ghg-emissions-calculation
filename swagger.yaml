@@ -10,8 +10,8 @@ servers:
       port:
         default: "5001"
         description: Port where the local development server is running on
-  # - url: https://us-central1-pharox-sofa-project.cloudfunctions.net
-  #   description: Online Production Server
+  - url: https://us-central1-pharox-sofa-project.cloudfunctions.net
+    description: Online Production Server
 components:
   securitySchemes:
     authToken:
