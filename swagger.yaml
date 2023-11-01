@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GHG Emission Calculation API
-  description: API to make the calculation of Greenhouse gasses emissions derived from a logistic activity. Built following the GLEC framework
+  description: <p>API to make the calculation of Greenhouse gasses emissions during logistic activities.</p><p>Built following the *[GLEC framework](https://www.smartfreightcentre.org/en/our-programs/global-logistics-emissions-council/calculate-report-glec-framework/)*.</p>
   version: 0.0.0
 servers:
   - url: http://127.0.0.1:{port}/pharox-sofa-project/us-central1
