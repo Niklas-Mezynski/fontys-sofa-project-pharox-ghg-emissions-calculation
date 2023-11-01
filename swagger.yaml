@@ -59,3 +59,7 @@ components:
       $ref: "./swagger/schemas/emission_factors/fuel_factor.yaml"
     FuelEmissionFactor:
       $ref: "./swagger/schemas/emission_factors/fuel_emission_factor.yaml"
+    UnitConverterInput:
+      $ref: "./swagger/schemas/units/units_converter_input.yaml"
+    UnitConverterOutput:
+      $ref: "./swagger/schemas/units/units_converter_output.yaml"
