@@ -2,17 +2,21 @@ type: object
 properties:
   id:
     type: string
+    description: The fuel emission factor ID
   source:
     type: string
     enum:
       - CUSTOM
       - GLEC
+    description: The fuel emission factor data source
   fuel:
     $ref: '#/schemas/Fuel'
+    description: The fuel which the fuel emission factor applies to
   factors:
     type: array
     items:
       $ref: '#/schemas/FuelFactor'
+    description: The conversion factor to calculate emissions
   region:
     type: string
     enum:
@@ -24,3 +28,4 @@ properties:
       - OC
       - AN
       - INTERNATIONAL
+    description: The region where the fuel emission factor applies
