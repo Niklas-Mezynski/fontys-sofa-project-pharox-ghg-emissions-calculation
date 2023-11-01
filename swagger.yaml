@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   title: GHG Emission Calculation API
   description: API to make the calculation of Greenhouse gasses emissions derived from a logistic activity. Built following the GLEC framework
