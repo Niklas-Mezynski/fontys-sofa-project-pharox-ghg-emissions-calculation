@@ -16,7 +16,8 @@
     "test-coverage": "jest --coverage",
     "test-watch": "jest --watchAll",
     "test-watch-coverage": "jest --watchAll --coverage",
-    "generate-documentation": "typedoc src/index.ts"
+    "generate-documentation": "typedoc src/index.ts",
+    "generate-openapi": "tsc && cross-env GENERATE_OPENAPI=true node lib/src/index.js"
   },
   "engines": {
     "node": "18"
@@ -41,6 +42,7 @@
     "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.0.0",

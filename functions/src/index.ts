@@ -9,13 +9,6 @@ initializeApp();
 export const db = getFirestore();
 
 export const helloWorld = onErrorHandledRequest((request, response) => {
-  generateAndSaveOpenApiYaml();
-
-  response.json({
-    result: "Generated and saved OpenAPI YAML file",
-  });
-  return;
-
   authenticate(request.headers.authorization);
   response.json({ message: "Hello World" });
 
@@ -33,5 +26,11 @@ export const helloWorld = onErrorHandledRequest((request, response) => {
   //   response.json({ message: "Hello World" });
   // }
 });
+
+if (process.env.GENERATE_OPENAPI === "true") {
+  generateAndSaveOpenApiYaml();
+  console.log("OpenAPI YAML generated");
+  process.exit(0);
+}
 
 export * from "./endpoints";
