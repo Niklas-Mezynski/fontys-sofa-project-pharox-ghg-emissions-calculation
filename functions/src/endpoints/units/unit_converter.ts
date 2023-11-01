@@ -22,8 +22,12 @@ export const unitConverter = onErrorHandledRequest(
     const requestBody = validateInput(request.body, queryInputSchema);
 
     // Verify that: originalUnitType and targetUnitType are of the same classification (e.g. both are distances)
-    const originalUnitClassification = classifyUnitType(requestBody.originalUnitType);
-    const targetUnitClassification = classifyUnitType(requestBody.targetUnitType);
+    const originalUnitClassification = classifyUnitType(
+      requestBody.originalUnitType
+    );
+    const targetUnitClassification = classifyUnitType(
+      requestBody.targetUnitType
+    );
 
     if (originalUnitClassification !== targetUnitClassification) {
       throw new CustomError({
@@ -31,17 +35,6 @@ export const unitConverter = onErrorHandledRequest(
         message: `Conversion from ${requestBody.originalUnitType} to ${requestBody.targetUnitType} not possible. Not same unit classification.`,
       });
     }
-
-    // // Verify that the targetUnitType and originalUnitType is a supported Unit. Otherwise they cannot be converted.
-    // const targetUnitSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.targetUnitType);
-    // const originalTargetSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.originalUnitType);
-
-    // if (targetUnitSupported === false || originalTargetSupported === false) {
-    //   throw new CustomError({
-    //     status: HttpStatusCode.BadRequest,
-    //     message: "Either the Target Unit or the Original Unit is not supported.",
-    //   });
-    // }
 
     // Convert
     const convertedUnit = UnitConversionService.convertUnits(

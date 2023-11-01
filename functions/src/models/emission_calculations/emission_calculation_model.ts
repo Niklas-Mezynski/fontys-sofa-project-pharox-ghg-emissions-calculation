@@ -7,28 +7,28 @@ import {
   weightUnits,
 } from "../units/units";
 
-const roadFuelTypes = [
-  "DIESEL",
-  "PETROL",
-  "HYBRID",
-  "CNG",
-  "LPG",
-  "LNG",
-  "PLUGIN_HYBRID",
-  "ELECTRICITY",
-  "OTHER",
-] as const;
+// const roadFuelTypes = [
+//   "DIESEL",
+//   "PETROL",
+//   "HYBRID",
+//   "CNG",
+//   "LPG",
+//   "LNG",
+//   "PLUGIN_HYBRID",
+//   "ELECTRICITY",
+//   "OTHER",
+// ] as const;
 
-const railFuelTypes = ["DIESEL", "ELECTRICITY"] as const;
+// const railFuelTypes = ["DIESEL", "ELECTRICITY"] as const;
 
 // TODO: Add all possible truck types for road transport
-const roadTruckTypes = ["TRUCK", "VAN"] as const;
+// const roadTruckTypes = ["TRUCK", "VAN"] as const;
 
 // TODO: Add all possible ship types for inland water transport
-const inlandWaterVesselTypes = ["MOTOR_VESSEL", "TANKER_VESSEL"] as const;
+// const inlandWaterVesselTypes = ["MOTOR_VESSEL", "TANKER_VESSEL"] as const;
 
 // TODO: Add all possible ship types for inland water transport
-const oceanVesselTypes = ["GENERAL_CARGO"] as const;
+// const oceanVesselTypes = ["GENERAL_CARGO"] as const;
 
 export const freightEmissionCalculationInputSchema = z.object({
   /**
