@@ -63,3 +63,7 @@ components:
       $ref: "./swagger/schemas/units/units_converter_input.yaml"
     UnitConverterOutput:
       $ref: "./swagger/schemas/units/units_converter_output.yaml"
+    UnitClassificationInput:
+      $ref: "./swagger/schemas/units/units_classification_input.yaml"
+    UnitTypes:
+      $ref: "./swagger/schemas/units/unit_types.yaml"

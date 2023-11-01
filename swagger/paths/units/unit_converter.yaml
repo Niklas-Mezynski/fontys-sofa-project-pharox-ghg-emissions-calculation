@@ -18,7 +18,3 @@ post:
           schema:
             $ref: "../../schemas/units/units_converter_output.yaml"
           description: The new value and units after the conversion
-          example: {
-            convertedUnit: 1000,
-            unit: "m",
-          }
