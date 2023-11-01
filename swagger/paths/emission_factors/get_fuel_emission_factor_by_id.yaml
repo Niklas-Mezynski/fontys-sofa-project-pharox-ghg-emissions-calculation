@@ -1,12 +1,23 @@
 get:
-  summary: Returns amount of emission factors saved in the DB
-  description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+  summary: Fetch a fuel emission factor by ID
+  description: Function that fetch a fuel emission factors which matches the given ID
   tags:
     - Emission factors
+  parameters:
+    - in : query
+      name: id
+      schema:
+        type: string
+      description: The ID to fetch the Fuel emission factors from
   responses:
     "200":
-      description: A message saying the amount of emission factors saved
+      description: The found fuel emission factor
       content:
         application/json:
           schema:
-            type: object
+            type:
+              oneOf:
+                - $ref: "#/components/schemas/FuelEmissionFactor"
+                - type: object
+              
+              

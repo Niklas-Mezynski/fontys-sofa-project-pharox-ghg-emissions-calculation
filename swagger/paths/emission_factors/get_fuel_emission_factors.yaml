@@ -9,4 +9,8 @@ get:
       content:
         application/json:
           schema:
-            type: object
+            oneOf:
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/FuelEmissionFactor"
+                - type: array

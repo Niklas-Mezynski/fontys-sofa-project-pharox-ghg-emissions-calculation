@@ -1,0 +1,8 @@
+type: object
+properties:
+  WTT:
+    type: number
+  TTW:
+    type: number
+  WTW:
+    type: number

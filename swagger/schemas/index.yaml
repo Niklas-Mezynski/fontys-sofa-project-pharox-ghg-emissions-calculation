@@ -1,0 +1,11 @@
+# Emission calculation
+# Emission factors
+Fuel:
+  $ref: "./emission_factors/fuel.yaml"
+Factor:
+  $ref: "./emission_factors/factor.yaml"
+FuelFactor:
+  $ref: "./emission_factors/fuel_factor.yaml"
+FuelEmissionFactor:
+  $ref: "./emission_factors/fuel_emission_factor.yaml"
+# Units

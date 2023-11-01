@@ -20,6 +20,8 @@ components:
   responses:
     UnauthorizedError:
       description: Access token is missing or invalid
+  schemas:
+    $ref: "./swagger/schemas/index.yaml"
 tags:
   - name: Emission calculations
     description: Functions related to calculation of emissions

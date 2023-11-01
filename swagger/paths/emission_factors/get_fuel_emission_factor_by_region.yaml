@@ -1,12 +1,24 @@
 get:
-  summary: Returns amount of emission factors saved in the DB
-  description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+  summary: Fetch fuel emission factors by region
+  description: Function that fetches the fuel emission factors which matches the given region
   tags:
     - Emission factors
+  parameters:
+    - in : query
+      name: region
+      schema:
+        type: string
+        enum: [EU, NA, AF, AS, SA, OC, AN, INTERNATIONAL]
+      description: The region to fetch the Fuel emission factors from
+      example: EU
   responses:
     "200":
-      description: A message saying the amount of emission factors saved
+      description: List of found fuel emission factors
       content:
         application/json:
           schema:
-            type: object
+            oneOf:
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/FuelEmissionFactor"
+                - type: array

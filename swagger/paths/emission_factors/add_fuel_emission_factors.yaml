@@ -1,12 +1,24 @@
-get:
-  summary: Returns amount of emission factors saved in the DB
-  description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+post:
+  summary: Add multiple fuel emission factors
+  description: Function that adds multiple fuel emission factors to the Database
   tags:
     - Emission factors
+  parameters:
+    - in : body
+      name: code
+      schema:
+        type: array
+        items:
+          $ref: "#/components/schemas/FuelEmissionFactor"
+      description: The fuel emission factors to add
   responses:
     "200":
-      description: A message saying the amount of emission factors saved
+      description: List of added fuel emission factors
       content:
         application/json:
           schema:
-            type: object
+            oneOf:
+                - type: array
+                  items:
+                    $ref: "#/components/schemas/FuelEmissionFactor"
+                - type: array

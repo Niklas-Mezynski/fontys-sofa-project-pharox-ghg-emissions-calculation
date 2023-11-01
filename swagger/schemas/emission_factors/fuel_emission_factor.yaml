@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: string
+  source:
+    type: string
+    enum:
+      - CUSTOM
+      - GLEC
+  fuel:
+    $ref: '#/schemas/Fuel'
+  factors:
+    type: array
+    items:
+      $ref: '#/schemas/FuelFactor'
+  region:
+    type: string
+    enum:
+      - EU
+      - NA
+      - AF
+      - AS
+      - SA
+      - OC
+      - AN
+      - INTERNATIONAL
