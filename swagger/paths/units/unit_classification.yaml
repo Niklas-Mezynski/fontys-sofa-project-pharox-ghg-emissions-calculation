@@ -1,12 +1,21 @@
-get:
-  summary: Returns amount of emission factors saved in the DB
-  description: Function that fetches the emission factors from Climatiq API and stores them in our DB
+post:
+  summary: Classify the given unit
+  description: This endpoints attempts to classify whether a unit is Weight, Distance or Volume
   tags:
     - Units
+  parameters:
+    - in : body
+      name: unit
+      schema:
+        type: string
+      description: The unit to classify
+      example: km
   responses:
     "200":
-      description: A message saying the amount of emission factors saved
+      description: The unit classification
       content:
         application/json:
           schema:
-            type: object
+            type: string
+            enum: [DISTANCE, VOLUME, WEIGHT]
+            example: DISTANCE

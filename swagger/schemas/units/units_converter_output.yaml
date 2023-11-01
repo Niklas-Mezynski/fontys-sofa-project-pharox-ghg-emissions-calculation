@@ -1,0 +1,8 @@
+type: object
+properties:
+  convertedUnit:
+    type: number
+    description: The converted value
+  unit:
+    type: string
+    description: The new value units

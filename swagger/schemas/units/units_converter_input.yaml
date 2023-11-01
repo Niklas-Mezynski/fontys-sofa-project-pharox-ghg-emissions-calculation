@@ -1,0 +1,11 @@
+type: object
+properties:
+  originalUnitType:
+    type: string
+    description: The unit to convert the value from
+  targetUnitType:
+    type: string
+    description: The unit to convert the value to
+  value:
+    type: number
+    description: The value to convert
