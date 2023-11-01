@@ -1,0 +1,82 @@
+
+swagger: '2.0'
+info:
+  title: Emission Calculation API
+  version: '1.0'
+paths: {}
+definitions:
+  ValueWithUnit:
+    type: object
+    properties:
+      value:
+        type: number
+      unit:
+        type: string
+  TransportDetail:
+    type: object
+    properties:
+      consumedFuel:
+        $ref: '#/definitions/ValueWithUnit'
+      fuelCode:
+        type: string
+  TransportPart:
+    type: object
+    properties:
+      distance:
+        $ref: '#/definitions/ValueWithUnit'
+      weight:
+        $ref: '#/definitions/ValueWithUnit'
+      transportDetails:
+        $ref: '#/definitions/TransportDetail'
+  FreightEmissionCalculationInput:
+    type: object
+    properties:
+      metadata:
+        type: object
+        additionalProperties: true
+      transportParts:
+        type: array
+        items:
+          $ref: '#/definitions/TransportPart'
+  ProducedEmissions:
+    type: object
+    properties:
+      tankToWheel:
+        type: number
+      wellToTank:
+        type: number
+      wellToWheel:
+        type: number
+  EmissionIntensity:
+    type: object
+    properties:
+      tkm:
+        type: number
+      value:
+        type: number
+      unit:
+        type: string
+  TransportActivity:
+    type: object
+    properties:
+      producedEmissions:
+        $ref: '#/definitions/ProducedEmissions'
+      emissionIntensity:
+        $ref: '#/definitions/EmissionIntensity'
+      unit:
+        type: string
+      usedEmissionFactor:
+        type: object
+        additionalProperties: true
+  CalculationReport:
+    type: object
+    properties:
+      metadata:
+        type: object
+        additionalProperties: true
+      transportActivities:
+        type: array
+        items:
+          $ref: '#/definitions/TransportActivity'
+      totalEmissions:
+        type: number
