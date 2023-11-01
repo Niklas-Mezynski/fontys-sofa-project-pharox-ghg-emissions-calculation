@@ -17,7 +17,8 @@ get:
           schema:
             type:
               oneOf:
-                - $ref: "#/components/schemas/FuelEmissionFactor"
+                - type:
+                    $ref: "#/components/schemas/FuelEmissionFactor"
                 - type: object
               
               
