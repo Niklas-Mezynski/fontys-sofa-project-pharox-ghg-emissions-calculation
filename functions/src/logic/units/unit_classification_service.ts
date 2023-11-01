@@ -8,11 +8,11 @@ import { UnitType, units } from "../../models/units/units";
 export function classifyUnitType(unit: string): UnitType {
   console.log("Classification of: " + unit + "  Starting...");
 
-  for (const unitObject of units) {
-    if ((unitObject.units as readonly string[]).includes(unit)) {
-      return unitObject.unitType;
+  for (const unitObject of Object.values(units)) {
+    if (unitObject.isOfType(unit)) {
+      return unitObject.type;
     }
   }
 
-  return "UNKNOWN" as UnitType;
+  return "UNKNOWN";
 }

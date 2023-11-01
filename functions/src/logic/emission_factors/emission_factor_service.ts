@@ -14,6 +14,7 @@ import {
 } from "../../models/emission_factors/emission_factors";
 import { v4 as uuid } from "uuid";
 import { z } from "zod";
+import { Filter } from "firebase-admin/firestore";
 
 /**
  * @deprecated Use fuelEmissionFactors instead.
@@ -162,21 +163,33 @@ async function getAllFuelEmissionFactors() {
   return validatedFactors;
 }
 
-async function getFuelEmissionFactorByDocumentId(documentId: string) {
+async function getFuelEmissionFactorByFuel(fuelCode: string) {
   const document = await db
     .collection("fuel_emission_factors")
-    .doc(documentId)
+    .where(
+      Filter.or(
+        Filter.where("fuel.code", "==", fuelCode),
+        Filter.where("fuel.name", "==", fuelCode)
+      )
+    )
+    .limit(2)
     .get();
 
-  if (!document.exists) {
+  if (document.size === 0) {
     throw new CustomError({
       status: HttpStatusCode.NotFound,
-      message: `Emission factor for document ${documentId} not found.`,
+      message: `Emission factor for fuel ${fuelCode} not found.`,
+    });
+  }
+  if (document.size > 1) {
+    throw new CustomError({
+      status: HttpStatusCode.InternalServerError,
+      message: `Multiple emission factors for fuel ${fuelCode} found.`,
     });
   }
 
   const data = validateInput(
-    document.data(),
+    document.docs[0].data(),
     fuelEmissionFactorSchema,
     "Received unexpected emissionFactor format from the database."
   );
@@ -211,5 +224,5 @@ export const EmissionFactorService = {
   createFuelEmissionFactor,
   createFuelEmissionFactors,
   getAllFuelEmissionFactors,
-  getFuelEmissionFactorByDocumentId,
+  getFuelEmissionFactorByFuel,
 };

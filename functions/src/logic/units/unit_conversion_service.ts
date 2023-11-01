@@ -1,6 +1,6 @@
+import { HttpStatusCode } from "axios";
 import convert from "convert";
 import { units } from "../../models/units/units";
-import { HttpStatusCode } from "axios";
 import { CustomError } from "../../utils/errors";
 
 /**
@@ -10,49 +10,57 @@ import { CustomError } from "../../utils/errors";
  * @param {string} value - The value that gets converted with the units
  * @returns {number} The unit in the Metric system
  */
-function convertUnits(
-  originalUnit: string,
-  targetUnit: string,
-  value: number
-): number {
-  if (originalUnit === targetUnit) {
-    return value;
+function convertUnits(originalUnit: string, targetUnit: string, value: number) {
+  if (
+    units.VOLUME.isOfType(originalUnit) &&
+    units.VOLUME.isOfType(targetUnit)
+  ) {
+    const conversionResult = convert(value, originalUnit).to(targetUnit);
+    return {
+      value: conversionResult,
+      unit: targetUnit,
+    };
   }
 
-  if (!UnitConversionService.verifyIfUnitIsSupported(originalUnit)) {
-    throw new CustomError({
-      status: HttpStatusCode.BadRequest,
-      message: `Unit '${originalUnit}' is not supported. It cannot be converted to '${targetUnit}'`,
-    });
+  if (
+    units.WEIGHT.isOfType(originalUnit) &&
+    units.WEIGHT.isOfType(targetUnit)
+  ) {
+    const conversionResult = convert(value, originalUnit).to(targetUnit);
+    return {
+      value: conversionResult,
+      unit: targetUnit,
+    };
   }
 
-  if (!UnitConversionService.verifyIfUnitIsSupported(targetUnit)) {
-    throw new CustomError({
-      status: HttpStatusCode.BadRequest,
-      message: `Unit '${targetUnit}' is not supported. It cannot be converted from '${originalUnit}'`,
-    });
+  if (
+    units.DISTANCE.isOfType(originalUnit) &&
+    units.DISTANCE.isOfType(targetUnit)
+  ) {
+    const conversionResult = convert(value, originalUnit).to(targetUnit);
+    return {
+      value: conversionResult,
+      unit: targetUnit,
+    };
   }
 
-  const result = convert(value, originalUnit as never).to(targetUnit as never);
-  return result as never as number;
-}
-
-/**
- * Function to determine whether the given unit is supported
- * @param {string} unit - The unit to verify whether is supported
- * @returns {boolean} - Whether the given unit is supported
- */
-function verifyIfUnitIsSupported(unit: string): boolean {
-  for (const unitObject of units) {
-    if ((unitObject.units as readonly string[]).includes(unit)) {
-      return true;
-    }
+  if (
+    units.ELECTRICITY.isOfType(originalUnit) &&
+    units.ELECTRICITY.isOfType(targetUnit)
+  ) {
+    const conversionResult = convert(value, originalUnit).to(targetUnit);
+    return {
+      value: conversionResult,
+      unit: targetUnit,
+    };
   }
 
-  return false;
+  throw new CustomError({
+    status: HttpStatusCode.BadRequest,
+    message: `Conversion from '${originalUnit}' to '${targetUnit}' is not supported`,
+  });
 }
 
 export const UnitConversionService = {
   convertUnits,
-  verifyIfUnitIsSupported,
 };
