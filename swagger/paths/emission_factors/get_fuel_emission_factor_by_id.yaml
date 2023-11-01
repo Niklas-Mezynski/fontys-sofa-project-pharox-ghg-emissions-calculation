@@ -15,10 +15,7 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-              - type:
-                  $ref: "#/components/schemas/FuelEmissionFactor"
-              - type: object
-                example: {}
+            type:
+              $ref: "#/components/schemas/FuelEmissionFactor"
               
               

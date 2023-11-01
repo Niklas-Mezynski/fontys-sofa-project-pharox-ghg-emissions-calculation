@@ -16,9 +16,6 @@ get:
       content:
         application/json:
           schema:
-            oneOf:
-                - type: array
-                  items:
-                    $ref: "#/components/schemas/FuelEmissionFactor"
-                - type: array
-                  example: []
+            type: array
+            items:
+              $ref: "#/components/schemas/FuelEmissionFactor"
