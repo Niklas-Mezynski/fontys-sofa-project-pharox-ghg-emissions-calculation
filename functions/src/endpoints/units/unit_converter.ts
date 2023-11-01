@@ -29,16 +29,16 @@ export const unitConverter = onErrorHandledRequest(
       });
     }
 
-    // Verify that the targetUnitType and originalUnitType is a supported Unit. Otherwise they cannot be converted.
-    const targetUnitSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.targetUnitType);
-    const originalTargetSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.originalUnitType);
+    // // Verify that the targetUnitType and originalUnitType is a supported Unit. Otherwise they cannot be converted.
+    // const targetUnitSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.targetUnitType);
+    // const originalTargetSupported = UnitConversionService.verifyIfUnitIsSupported(requestBody.originalUnitType);
 
-    if (targetUnitSupported === false || originalTargetSupported === false) {
-      throw new CustomError({
-        status: HttpStatusCode.BadRequest,
-        message: "Either the Target Unit or the Original Unit is not supported.",
-      });
-    }
+    // if (targetUnitSupported === false || originalTargetSupported === false) {
+    //   throw new CustomError({
+    //     status: HttpStatusCode.BadRequest,
+    //     message: "Either the Target Unit or the Original Unit is not supported.",
+    //   });
+    // }
 
     // Convert
     const convertedUnit = UnitConversionService.convertUnits(
