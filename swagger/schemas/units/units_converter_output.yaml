@@ -1,6 +1,6 @@
 type: object
 properties:
-  convertedUnit:
+  value:
     type: number
     description: The converted value
   unit:

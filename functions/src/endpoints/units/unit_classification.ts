@@ -6,7 +6,6 @@ import { z } from "zod";
 
 const queryInputSchema = z.object({
   unit: z.string(),
-  amount: z.coerce.string(),
 });
 
 /**

@@ -44,7 +44,7 @@ export const unitConverter = onErrorHandledRequest(
     );
 
     response
-      .json({ convertedUnit: convertedUnit, unit: requestBody.targetUnitType })
+      .json( convertedUnit )
       .status(200)
       .send();
   }
