@@ -10,7 +10,6 @@ get:
         type: string
         enum: [GLEC, CUSTOM]
       description: The source to fetch the Fuel emission factors from
-      example: GLEC
   responses:
     "200":
       description: List of found fuel emission factors

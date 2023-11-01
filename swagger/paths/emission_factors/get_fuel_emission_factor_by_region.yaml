@@ -10,7 +10,6 @@ get:
         type: string
         enum: [EU, NA, AF, AS, SA, OC, AN, INTERNATIONAL]
       description: The region to fetch the Fuel emission factors from
-      example: EU
   responses:
     "200":
       description: List of found fuel emission factors
