@@ -7,11 +7,6 @@ get:
     - in : body
       schema:
         $ref: "../../schemas/units/units_converter_input.yaml"
-        example: {
-          originalUnitType: "km",
-          targetUnitType: "m",
-          value: 1
-        }
       description: The value and units to convert from and to
   responses:
     "200":
