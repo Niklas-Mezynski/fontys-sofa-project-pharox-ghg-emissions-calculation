@@ -3,12 +3,13 @@ post:
   description: Function that adds a fuel emission factors to the Database
   tags:
     - Emission factors
-  parameters:
-    - in : body
-      name: code
-      schema:
-        $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
-      description: The fuel emission factor to add
+  requestBody:
+    description: The fuel emission factor to add
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
   responses:
     "200":
       description: The added fuel emission factors

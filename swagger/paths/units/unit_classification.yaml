@@ -3,13 +3,14 @@ post:
   description: Classify whether a unit is Weight, Distance or Volume
   tags:
     - Units
-  parameters:
-    - in : body
-      name: unit
-      schema:
-        type: string
-        example: km
-      description: The unit to classify
+  requestBody:
+    description: The unit to classify
+    required: true
+    content:
+      application/text:
+        schema:
+          type: string
+          example: km
   responses:
     "200":
       description: The unit classification

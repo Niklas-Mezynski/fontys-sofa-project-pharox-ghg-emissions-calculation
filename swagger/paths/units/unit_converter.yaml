@@ -1,13 +1,15 @@
-get:
+post:
   summary: Convert a given unit to the desired one
   description: Convert a given unit to the desired one
   tags:
     - Units
-  parameters:
-    - in : body
-      schema:
-        $ref: "../../schemas/units/units_converter_input.yaml"
-      description: The value and units to convert from and to
+  requestBody:
+    description: The value and units to convert from and to
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/units/units_converter_input.yaml"
   responses:
     "200":
       description: The converted units
