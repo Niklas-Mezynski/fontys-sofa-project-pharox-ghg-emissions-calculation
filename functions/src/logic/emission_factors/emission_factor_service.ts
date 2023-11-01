@@ -205,7 +205,7 @@ async function getFuelEmissionFactorBySource(source: string): Promise<FuelEmissi
 /**
  * Function to create a new fuel emission factor and store it in the DB
  * @param {object} data - The multiple data to create a new fuel emission factor
- * @returns {Promise<Partial<FuelEmissionFactor>>} - The saved fuel emission factor in the DB
+ * @returns {Promise<FuelEmissionFactor>} - The saved fuel emission factor in the DB
  */
 async function createFuelEmissionFactor(
   data: unknown
@@ -223,7 +223,7 @@ async function createFuelEmissionFactor(
 /**
  * Function to create multiple new fuel emission factors and store it in the DB
  * @param {object[]} data - The multiple data to create multiple new fuel emission factors
- * @returns {Promise<Partial<FuelEmissionFactor>[]>} - The saved fuel emission factors in the DB
+ * @returns {Promise<FuelEmissionFactor[]>} - The saved fuel emission factors in the DB
  */
 async function createFuelEmissionFactors(
   data: unknown
