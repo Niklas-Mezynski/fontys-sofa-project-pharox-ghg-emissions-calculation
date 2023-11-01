@@ -111,30 +111,18 @@ const fuelEmissionFactorsCollection = "fuel_emission_factors";
  * Get all the Fuel emission factors in the database
  * @returns {Promise<FuelEmissionFactor[]>} - The found fuel emission factors
  */
-async function getFuelEmissionFactors(): Promise<FuelEmissionFactor[]> {
-  const documents = await db
-    .collection(fuelEmissionFactorsCollection)
-    .get();
+async function getAllFuelEmissionFactors() {
+  const factors = (await db.collection(fuelEmissionFactorsCollection).get()).docs.map(
+    (doc) => doc.data()
+  );
 
-  if (documents.empty) {
-    throw new CustomError({
-      status: HttpStatusCode.NotFound,
-      message: "No Fuel Emission Factors found",
-    });
-  }
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected emissionFactor format from the database."
+  );
 
-  const data: FuelEmissionFactor[] = [];
-  documents.forEach((doc) => {
-    const factor = validateInput(
-      doc.data(),
-      fuelEmissionFactorSchema,
-      "Received unexpected Fuel Emission Factor format from the database."
-    );
-
-    data.push(<FuelEmissionFactor>factor);
-  });
-
-  return data;
+  return validatedFactors;
 }
 
 /**
@@ -148,14 +136,7 @@ async function getFuelEmissionFactorById(id: string): Promise<FuelEmissionFactor
     .doc(id)
     .get();
 
-  if (document.exists) {
-    throw new CustomError({
-      status: HttpStatusCode.NotFound,
-      message: `No Fuel Emission Factor found with ID ${id}`,
-    });
-  }
-
-  const data: FuelEmissionFactor = <FuelEmissionFactor>validateInput(
+  const data: FuelEmissionFactor = validateInput(
     document.data(),
     fuelEmissionFactorSchema,
     "Received unexpected Fuel Emission Factor format from the database."
@@ -166,34 +147,21 @@ async function getFuelEmissionFactorById(id: string): Promise<FuelEmissionFactor
 
 /**
  * Get all the Fuel emission factors with same fuel code
- * @param {string} code - The fuel code
+ * @param {string} fuelCode - The fuel code
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
  */
-async function getFuelEmissionFactorByCode(fuelCode: string): Promise<FuelEmissionFactor[]> {
-  const documents = await db
-    .collection(fuelEmissionFactorsCollection)
-    .where("fuel.code", "==", fuelCode)
-    .get();
+async function getFuelEmissionFactorByFuelCode(fuelCode: string): Promise<FuelEmissionFactor[]> {
+  const factors = (await db.collection(fuelEmissionFactorsCollection).where("fuel.code", "==", fuelCode).get()).docs.map(
+    (doc) => doc.data()
+  );
 
-  if (documents.empty) {
-    throw new CustomError({
-      status: HttpStatusCode.NotFound,
-      message: `No Fuel Emission Factor found containing Fuel code ${fuelCode}`,
-    });
-  }
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
 
-  const data: FuelEmissionFactor[] = [];
-  documents.forEach((doc) => {
-    const factor = validateInput(
-      doc.data(),
-      fuelEmissionFactorSchema,
-      "Received unexpected Fuel Emission Factor format from the database."
-    );
-
-    data.push(<FuelEmissionFactor>factor);
-  });
-
-  return data;
+  return validatedFactors;
 }
 
 /**
@@ -202,30 +170,17 @@ async function getFuelEmissionFactorByCode(fuelCode: string): Promise<FuelEmissi
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
  */
 async function getFuelEmissionFactorByRegion(region: string): Promise<FuelEmissionFactor[]> {
-  const documents = await db
-    .collection(fuelEmissionFactorsCollection)
-    .where("region", "==", region)
-    .get();
+  const factors = (await db.collection(fuelEmissionFactorsCollection).where("region", "==", region).get()).docs.map(
+    (doc) => doc.data()
+  );
 
-  if (documents.empty) {
-    throw new CustomError({
-      status: HttpStatusCode.NotFound,
-      message: `No Fuel Emission Factor found in region ${region}`,
-    });
-  }
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
 
-  const data: FuelEmissionFactor[] = [];
-  documents.forEach((doc) => {
-    const factor = validateInput(
-      doc.data(),
-      fuelEmissionFactorSchema,
-      "Received unexpected Fuel Emission Factor format from the database."
-    );
-
-    data.push(<FuelEmissionFactor>factor);
-  });
-
-  return data;
+  return validatedFactors;
 }
 
 /**
@@ -234,30 +189,17 @@ async function getFuelEmissionFactorByRegion(region: string): Promise<FuelEmissi
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
  */
 async function getFuelEmissionFactorBySource(source: string): Promise<FuelEmissionFactor[]> {
-  const documents = await db
-    .collection(fuelEmissionFactorsCollection)
-    .where("source", "==", source)
-    .get();
+  const factors = (await db.collection(fuelEmissionFactorsCollection).where("source", "==", source).get()).docs.map(
+    (doc) => doc.data()
+  );
 
-  if (documents.empty) {
-    throw new CustomError({
-      status: HttpStatusCode.NotFound,
-      message: `No Fuel Emission Factor found with source ${source}`,
-    });
-  }
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
 
-  const data: FuelEmissionFactor[] = [];
-  documents.forEach((doc) => {
-    const factor = validateInput(
-      doc.data(),
-      fuelEmissionFactorSchema,
-      "Received unexpected Fuel Emission Factor format from the database."
-    );
-
-    data.push(<FuelEmissionFactor>factor);
-  });
-
-  return data;
+  return validatedFactors;
 }
 
 /**
@@ -309,20 +251,6 @@ async function createFuelEmissionFactors(
 
   await batch.commit();
   return factors;
-}
-
-async function getAllFuelEmissionFactors() {
-  const factors = (await db.collection("fuel_emission_factors").get()).docs.map(
-    (doc) => doc.data()
-  );
-
-  const validatedFactors = validateInput(
-    factors,
-    z.array(fuelEmissionFactorSchema),
-    "Received unexpected emissionFactor format from the database."
-  );
-
-  return validatedFactors;
 }
 
 async function getFuelEmissionFactorByFuel(fuelCode: string) {
@@ -377,14 +305,14 @@ async function createIntensityEmissionFactor(
   return factor;
 }
 
-export const EmissionFactorService = {
-  return (await db.collection(intensityEmissionFactorsCollection).add(factor)).get();
-}
+// export const EmissionFactorService = {
+//   return (await db.collection(intensityEmissionFactorsCollection).add(factor)).get();
+// }
 
 export const EmissionFactorService = {
-  getFuelEmissionFactors,
+  getAllFuelEmissionFactors,
   getFuelEmissionFactorById,
-  getFuelEmissionFactorByCode,
+  getFuelEmissionFactorByFuelCode,
   getFuelEmissionFactorByRegion,
   getFuelEmissionFactorBySource,
   createFuelEmissionFactor,
@@ -394,6 +322,5 @@ export const EmissionFactorService = {
   getByActivityId,
   getByUnitType,
   saveEmissionFactor,
-  getAllFuelEmissionFactors,
   getFuelEmissionFactorByFuel,
 };

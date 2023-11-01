@@ -38,7 +38,7 @@ export const getEmissionFactorByActivity = onErrorHandledRequest(
  */
 export const getFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await EmissionFactorService.getFuelEmissionFactors();
+    const factors = await EmissionFactorService.getAllFuelEmissionFactors();
     response.json(factors);
   }
 );
@@ -84,7 +84,7 @@ export const getFuelEmissionFactorByFuelCode = onErrorHandledRequest(
       });
     }
 
-    const factors = await EmissionFactorService.getFuelEmissionFactorByCode(code);
+    const factors = await EmissionFactorService.getFuelEmissionFactorByFuelCode(code);
     response.json(factors);
   }
 );
@@ -132,7 +132,7 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
 
     const factors = await EmissionFactorService.getFuelEmissionFactorBySource(source);
     response.json(factors);
-  
+  }
 );
 
 /** INTENSITY EMISSION FACTORS */
