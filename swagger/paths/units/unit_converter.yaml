@@ -1,0 +1,20 @@
+post:
+  summary: Convert a given unit to the desired one
+  description: Convert a given unit to the desired one
+  tags:
+    - Units
+  requestBody:
+    description: The value and units to convert from and to
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/units/units_converter_input.yaml"
+  responses:
+    "200":
+      description: The converted units
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/units/units_converter_output.yaml"
+          description: The new value and units after the conversion

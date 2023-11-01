@@ -1,11 +1,11 @@
 import { classifyUnitType } from "../../logic/units/unit_classification_service";
+import { authenticate } from "../../utils/authentication";
 import { onErrorHandledRequest } from "../../utils/errors";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
 
 const queryInputSchema = z.object({
   unit: z.string(),
-  amount: z.coerce.string(),
 });
 
 /**
@@ -16,6 +16,8 @@ const queryInputSchema = z.object({
  */
 export const unitClassification = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+    
     const requestBody = validateInput(request.body, queryInputSchema);
 
     const unitType = classifyUnitType(requestBody.unit);

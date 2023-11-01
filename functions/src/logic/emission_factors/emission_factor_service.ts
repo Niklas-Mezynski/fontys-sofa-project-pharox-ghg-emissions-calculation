@@ -103,10 +103,109 @@ async function saveEmissionFactor(factor: EmissionFactor) {
   await docRef.set(factor);
 }
 
+/** FUEL EMISSION FACTORS */
+
+const fuelEmissionFactorsCollection = "fuel_emission_factors";
+
+/**
+ * Get all the Fuel emission factors in the database
+ * @returns {Promise<FuelEmissionFactor[]>} - The found fuel emission factors
+ */
+async function getAllFuelEmissionFactors() {
+  const factors = (await db.collection(fuelEmissionFactorsCollection).get()).docs.map(
+    (doc) => doc.data()
+  );
+
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected emissionFactor format from the database."
+  );
+
+  return validatedFactors;
+}
+
+/**
+ * Get a Fuel emission factor by ID
+ * @param {string} id - The Fuel emission factor ID
+ * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factor
+ */
+async function getFuelEmissionFactorById(id: string): Promise<FuelEmissionFactor> {
+  const document = await db
+    .collection(fuelEmissionFactorsCollection)
+    .doc(id)
+    .get();
+
+  const data: FuelEmissionFactor = validateInput(
+    document.data(),
+    fuelEmissionFactorSchema,
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
+  return data;
+}
+
+/**
+ * Get all the Fuel emission factors with same fuel code
+ * @param {string} fuelCode - The fuel code
+ * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
+ */
+async function getFuelEmissionFactorByFuelCode(fuelCode: string): Promise<FuelEmissionFactor[]> {
+  const factors = (await db.collection(fuelEmissionFactorsCollection).where("fuel.code", "==", fuelCode).get()).docs.map(
+    (doc) => doc.data()
+  );
+
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
+  return validatedFactors;
+}
+
+/**
+ * Get all the Fuel emission factors with same region
+ * @param {string} region - The fuel emission factor region
+ * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
+ */
+async function getFuelEmissionFactorByRegion(region: string): Promise<FuelEmissionFactor[]> {
+  const factors = (await db.collection(fuelEmissionFactorsCollection).where("region", "==", region).get()).docs.map(
+    (doc) => doc.data()
+  );
+
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
+  return validatedFactors;
+}
+
+/**
+ * Get all the Fuel emission factors with same source
+ * @param {string} source - The fuel emission factor source
+ * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
+ */
+async function getFuelEmissionFactorBySource(source: string): Promise<FuelEmissionFactor[]> {
+  const factors = (await db.collection(fuelEmissionFactorsCollection).where("source", "==", source).get()).docs.map(
+    (doc) => doc.data()
+  );
+
+  const validatedFactors = validateInput(
+    factors,
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
+  return validatedFactors;
+}
+
 /**
  * Function to create a new fuel emission factor and store it in the DB
  * @param {object} data - The multiple data to create a new fuel emission factor
- * @returns {Promise<Partial<FuelEmissionFactor>>} - The saved fuel emission factor in the DB
+ * @returns {Promise<FuelEmissionFactor>} - The saved fuel emission factor in the DB
  */
 async function createFuelEmissionFactor(
   data: unknown
@@ -117,14 +216,14 @@ async function createFuelEmissionFactor(
     "Could not create a Fuel Emission Factor from the given data"
   );
 
-  await db.collection("fuel_emission_factors").doc(uuid()).set(factor);
+  await db.collection(fuelEmissionFactorsCollection).doc(uuid()).set(factor);
   return factor;
 }
 
 /**
  * Function to create multiple new fuel emission factors and store it in the DB
  * @param {object[]} data - The multiple data to create multiple new fuel emission factors
- * @returns {Promise<Partial<FuelEmissionFactor>[]>} - The saved fuel emission factors in the DB
+ * @returns {Promise<FuelEmissionFactor[]>} - The saved fuel emission factors in the DB
  */
 async function createFuelEmissionFactors(
   data: unknown
@@ -142,25 +241,16 @@ async function createFuelEmissionFactors(
   for (const factor of validatedFactors) {
     batch.set(db.collection("fuel_emission_factors").doc(uuid()), factor);
 
+    batch.set(
+      db.collection(fuelEmissionFactorsCollection).doc(uuid()),
+      factor
+    );
+
     factors.push(factor);
   }
 
   await batch.commit();
   return factors;
-}
-
-async function getAllFuelEmissionFactors() {
-  const factors = (await db.collection("fuel_emission_factors").get()).docs.map(
-    (doc) => doc.data()
-  );
-
-  const validatedFactors = validateInput(
-    factors,
-    z.array(fuelEmissionFactorSchema),
-    "Received unexpected emissionFactor format from the database."
-  );
-
-  return validatedFactors;
 }
 
 async function getFuelEmissionFactorByFuel(fuelCode: string) {
@@ -215,14 +305,22 @@ async function createIntensityEmissionFactor(
   return factor;
 }
 
+// export const EmissionFactorService = {
+//   return (await db.collection(intensityEmissionFactorsCollection).add(factor)).get();
+// }
+
 export const EmissionFactorService = {
+  getAllFuelEmissionFactors,
+  getFuelEmissionFactorById,
+  getFuelEmissionFactorByFuelCode,
+  getFuelEmissionFactorByRegion,
+  getFuelEmissionFactorBySource,
+  createFuelEmissionFactor,
+  createFuelEmissionFactors,
   createIntensityEmissionFactor,
   getAll,
   getByActivityId,
   getByUnitType,
   saveEmissionFactor,
-  createFuelEmissionFactor,
-  createFuelEmissionFactors,
-  getAllFuelEmissionFactors,
   getFuelEmissionFactorByFuel,
 };

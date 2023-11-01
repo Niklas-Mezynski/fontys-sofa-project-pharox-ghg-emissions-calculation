@@ -1,4 +1,5 @@
 import { EmissionCalculatorService } from "../../logic/emission_calculations/emission_calculator_service";
+import { authenticate } from "../../utils/authentication";
 import { onErrorHandledRequest } from "../../utils/errors";
 
 /**
@@ -6,6 +7,8 @@ import { onErrorHandledRequest } from "../../utils/errors";
  */
 export const emissionCalculator = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+    
     const result = await EmissionCalculatorService.performEmissionCalculation(
       request.body
     );

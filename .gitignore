@@ -24,4 +24,5 @@
 # Test coverage
 **/coverage/
 
-**/.env
+**/*.env
+**/*.env.*

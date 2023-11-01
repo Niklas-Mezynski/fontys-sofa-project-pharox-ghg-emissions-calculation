@@ -1,0 +1,14 @@
+
+swagger: '2.0'
+info:
+  title: Common Models API
+  version: '1.0'
+paths: {}
+definitions:
+  ValueWithUnit:
+    type: object
+    properties:
+      value:
+        type: number
+      unit:
+        type: string

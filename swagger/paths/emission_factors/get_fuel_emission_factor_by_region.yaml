@@ -1,0 +1,21 @@
+get:
+  summary: Fetch fuel emission factors by region
+  description: Function that fetches the fuel emission factors which matches the given region
+  tags:
+    - Emission factors
+  parameters:
+    - in : query
+      name: region
+      schema:
+        type: string
+        enum: [EU, NA, AF, AS, SA, OC, AN, INTERNATIONAL]
+      description: The region to fetch the Fuel emission factors from
+  responses:
+    "200":
+      description: List of found fuel emission factors
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"

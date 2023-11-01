@@ -1,0 +1,21 @@
+get:
+  summary: Fetch fuel emission factors using fuel code
+  description: Function that fetches the fuel emission factors which matches the given fuel code
+  tags:
+    - Emission factors
+  parameters:
+    - in : query
+      name: code
+      schema:
+        type: string
+      description: The fuel code to fetch the Fuel emission factors
+      example: GASOLINE
+  responses:
+    "200":
+      description: List of found fuel emission factors
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"

@@ -1,0 +1,20 @@
+get:
+  summary: Fetch a fuel emission factor by ID
+  description: Function that fetch a fuel emission factors which matches the given ID
+  tags:
+    - Emission factors
+  parameters:
+    - in : query
+      name: id
+      schema:
+        type: string
+      description: The ID to fetch the Fuel emission factors from
+  responses:
+    "200":
+      description: The found fuel emission factor
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
+              
+              
