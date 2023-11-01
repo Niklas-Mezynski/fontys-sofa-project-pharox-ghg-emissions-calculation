@@ -33,9 +33,9 @@ export const Scope1Calculation = onRequest(async (request, response) => {
   };
 
   response.status(200).send(postData);
-//   const result = SimpleCalculationService.simpleEmissionCalculation(postData);
+  //   const result = SimpleCalculationService.simpleEmissionCalculation(postData);
 
-//   response.status(200).send(result);
+  //   response.status(200).send(result);
   /*
   const apiUrl = 'https://emissioncalculationsimple-u2tzkd7k6q-uc.a.run.app';
 
