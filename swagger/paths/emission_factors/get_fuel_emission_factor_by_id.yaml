@@ -15,7 +15,6 @@ get:
       content:
         application/json:
           schema:
-            type:
-              $ref: "#/components/schemas/FuelEmissionFactor"
+            $ref: "#/components/schemas/FuelEmissionFactor"
               
               
