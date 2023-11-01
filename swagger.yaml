@@ -12,23 +12,6 @@ servers:
         description: Port where the local development server is running on
   - url: https://us-central1-pharox-sofa-project.cloudfunctions.net
     description: Online Production Server
-components:
-  securitySchemes:
-    authToken:
-      type: http
-      scheme: bearer
-  responses:
-    UnauthorizedError:
-      description: Access token is missing or invalid
-  schemas:
-    Fuel:
-      $ref: "./swagger/schemas/emission_factors/fuel.yaml"
-    Factor:
-      $ref: "./swagger/schemas/emission_factors/factor.yaml"
-    FuelFactor:
-      $ref: "./swagger/schemas/emission_factors/fuel_factor.yaml"
-    FuelEmissionFactor:
-      $ref: "./swagger/schemas/emission_factors/fuel_emission_factor.yaml"
 tags:
   - name: Emission calculations
     description: Functions related to calculation of emissions
@@ -59,3 +42,20 @@ paths:
     $ref: "./swagger/paths/units/unit_classification.yaml"
   /unitConverter:
     $ref: "./swagger/paths/units/unit_converter.yaml"
+components:
+  securitySchemes:
+    authToken:
+      type: http
+      scheme: bearer
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  schemas:
+    Fuel:
+      $ref: "./swagger/schemas/emission_factors/fuel.yaml"
+    Factor:
+      $ref: "./swagger/schemas/emission_factors/factor.yaml"
+    FuelFactor:
+      $ref: "./swagger/schemas/emission_factors/fuel_factor.yaml"
+    FuelEmissionFactor:
+      $ref: "./swagger/schemas/emission_factors/fuel_emission_factor.yaml"
