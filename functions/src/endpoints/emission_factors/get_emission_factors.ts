@@ -38,6 +38,8 @@ export const getEmissionFactorByActivity = onErrorHandledRequest(
  */
 export const getFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+    
     const factors = await EmissionFactorService.getAllFuelEmissionFactors();
     response.json(factors);
   }
@@ -48,6 +50,8 @@ export const getFuelEmissionFactors = onErrorHandledRequest(
  */
 export const getFuelEmissionFactorById = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+
     const { id } = validateInput(
       request.query,
       fuelEmissionFactorSchema.partial(),
@@ -71,6 +75,8 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
  */
 export const getFuelEmissionFactorByFuelCode = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+
     const { code } = validateInput(
       request.query,
       fuelSchema.partial(),
@@ -94,6 +100,8 @@ export const getFuelEmissionFactorByFuelCode = onErrorHandledRequest(
  */
 export const getFuelEmissionFactorByRegion = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+
     const { region } = validateInput(
       request.query,
       fuelEmissionFactorSchema.partial(),
@@ -117,6 +125,8 @@ export const getFuelEmissionFactorByRegion = onErrorHandledRequest(
  */
 export const getFuelEmissionFactorBySource = onErrorHandledRequest(
   async (request, response) => {
+    authenticate(request.headers.authorization);
+    
     const { source } = validateInput(
       request.query,
       fuelEmissionFactorSchema.partial(),
