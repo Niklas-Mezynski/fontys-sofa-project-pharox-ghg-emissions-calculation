@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
-import { authenticate } from "./utils/authentication";
 import { generateAndSaveOpenApiYaml } from "./documentation/open_api_generator";
+import { authenticate } from "./utils/authentication";
 import { onErrorHandledRequest } from "./utils/errors";
 
 initializeApp();

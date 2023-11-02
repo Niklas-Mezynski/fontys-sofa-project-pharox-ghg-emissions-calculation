@@ -112,9 +112,9 @@ const fuelEmissionFactorsCollection = "fuel_emission_factors";
  * @returns {Promise<FuelEmissionFactor[]>} - The found fuel emission factors
  */
 async function getAllFuelEmissionFactors() {
-  const factors = (await db.collection(fuelEmissionFactorsCollection).get()).docs.map(
-    (doc) => doc.data()
-  );
+  const factors = (
+    await db.collection(fuelEmissionFactorsCollection).get()
+  ).docs.map((doc) => doc.data());
 
   const validatedFactors = validateInput(
     factors,
@@ -130,7 +130,9 @@ async function getAllFuelEmissionFactors() {
  * @param {string} id - The Fuel emission factor ID
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factor
  */
-async function getFuelEmissionFactorById(id: string): Promise<FuelEmissionFactor> {
+async function getFuelEmissionFactorById(
+  id: string
+): Promise<FuelEmissionFactor> {
   const document = await db
     .collection(fuelEmissionFactorsCollection)
     .doc(id)
@@ -150,10 +152,15 @@ async function getFuelEmissionFactorById(id: string): Promise<FuelEmissionFactor
  * @param {string} fuelCode - The fuel code
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
  */
-async function getFuelEmissionFactorByFuelCode(fuelCode: string): Promise<FuelEmissionFactor[]> {
-  const factors = (await db.collection(fuelEmissionFactorsCollection).where("fuel.code", "==", fuelCode).get()).docs.map(
-    (doc) => doc.data()
-  );
+async function getFuelEmissionFactorByFuelCode(
+  fuelCode: string
+): Promise<FuelEmissionFactor[]> {
+  const factors = (
+    await db
+      .collection(fuelEmissionFactorsCollection)
+      .where("fuel.code", "==", fuelCode)
+      .get()
+  ).docs.map((doc) => doc.data());
 
   const validatedFactors = validateInput(
     factors,
@@ -169,10 +176,15 @@ async function getFuelEmissionFactorByFuelCode(fuelCode: string): Promise<FuelEm
  * @param {string} region - The fuel emission factor region
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
  */
-async function getFuelEmissionFactorByRegion(region: string): Promise<FuelEmissionFactor[]> {
-  const factors = (await db.collection(fuelEmissionFactorsCollection).where("region", "==", region).get()).docs.map(
-    (doc) => doc.data()
-  );
+async function getFuelEmissionFactorByRegion(
+  region: string
+): Promise<FuelEmissionFactor[]> {
+  const factors = (
+    await db
+      .collection(fuelEmissionFactorsCollection)
+      .where("region", "==", region)
+      .get()
+  ).docs.map((doc) => doc.data());
 
   const validatedFactors = validateInput(
     factors,
@@ -188,10 +200,15 @@ async function getFuelEmissionFactorByRegion(region: string): Promise<FuelEmissi
  * @param {string} source - The fuel emission factor source
  * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factors
  */
-async function getFuelEmissionFactorBySource(source: string): Promise<FuelEmissionFactor[]> {
-  const factors = (await db.collection(fuelEmissionFactorsCollection).where("source", "==", source).get()).docs.map(
-    (doc) => doc.data()
-  );
+async function getFuelEmissionFactorBySource(
+  source: string
+): Promise<FuelEmissionFactor[]> {
+  const factors = (
+    await db
+      .collection(fuelEmissionFactorsCollection)
+      .where("source", "==", source)
+      .get()
+  ).docs.map((doc) => doc.data());
 
   const validatedFactors = validateInput(
     factors,
@@ -241,10 +258,7 @@ async function createFuelEmissionFactors(
   for (const factor of validatedFactors) {
     batch.set(db.collection("fuel_emission_factors").doc(uuid()), factor);
 
-    batch.set(
-      db.collection(fuelEmissionFactorsCollection).doc(uuid()),
-      factor
-    );
+    batch.set(db.collection(fuelEmissionFactorsCollection).doc(uuid()), factor);
 
     factors.push(factor);
   }
@@ -253,38 +267,57 @@ async function createFuelEmissionFactors(
   return factors;
 }
 
-async function getFuelEmissionFactorByFuel(fuelCode: string) {
+/**
+ * Get a Fuel emission factor by fuel code and region, if not found in region, it tries to get the international one
+ */
+async function getFuelEmissionFactorByFuelCodeAndRegion(
+  fuelCode: string,
+  region: string
+) {
   const document = await db
     .collection("fuel_emission_factors")
     .where(
-      Filter.or(
-        Filter.where("fuel.code", "==", fuelCode),
-        Filter.where("fuel.name", "==", fuelCode)
+      Filter.and(
+        Filter.or(
+          Filter.where("fuel.code", "==", fuelCode),
+          Filter.where("fuel.name", "==", fuelCode)
+        ),
+        Filter.or(
+          Filter.where("region", "==", region),
+          Filter.where("region", "==", "INTERNATIONAL")
+        )
       )
     )
-    .limit(2)
     .get();
 
-  if (document.size === 0) {
+  const factors = validateInput(
+    document.docs.map((doc) => doc.data()),
+    z.array(fuelEmissionFactorSchema),
+    "Received unexpected emissionFactor format from the database."
+  );
+
+  // Find the factors with the exact region, if empty use the international factors
+  const exactRegionFactors = factors.filter(
+    (factor) => factor.region === region
+  );
+  const foundFactors = exactRegionFactors.length
+    ? exactRegionFactors
+    : factors.filter((factor) => factor.region === "INTERNATIONAL");
+
+  if (foundFactors.length === 0) {
     throw new CustomError({
       status: HttpStatusCode.NotFound,
       message: `Emission factor for fuel ${fuelCode} not found.`,
     });
   }
-  if (document.size > 1) {
+  if (foundFactors.length > 1) {
     throw new CustomError({
       status: HttpStatusCode.InternalServerError,
       message: `Multiple emission factors for fuel ${fuelCode} found.`,
     });
   }
 
-  const data = validateInput(
-    document.docs[0].data(),
-    fuelEmissionFactorSchema,
-    "Received unexpected emissionFactor format from the database."
-  );
-
-  return data;
+  return foundFactors[0];
 }
 
 /**
@@ -322,5 +355,5 @@ export const EmissionFactorService = {
   getByActivityId,
   getByUnitType,
   saveEmissionFactor,
-  getFuelEmissionFactorByFuel,
+  getFuelEmissionFactorByFuelCodeAndRegion,
 };
