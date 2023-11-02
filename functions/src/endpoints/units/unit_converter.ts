@@ -4,7 +4,6 @@ import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../../logic/units/unit_conversion_service";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
-import { authenticate } from "../../utils/authentication";
 
 const queryInputSchema = z.object({
   originalUnitType: z.string(), // e.g. m
@@ -17,8 +16,6 @@ const queryInputSchema = z.object({
  */
 export const unitConverter = onErrorHandledRequest(
   async (request, response) => {
-    authenticate(request.headers.authorization);
-    
     const requestBody = validateInput(request.body, queryInputSchema);
 
     // Verify that: originalUnitType and targetUnitType are of the same classification (e.g. both are distances)

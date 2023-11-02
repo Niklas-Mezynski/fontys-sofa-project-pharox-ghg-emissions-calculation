@@ -2,6 +2,7 @@ import { HttpStatusCode } from "axios";
 import { Response, Request } from "express";
 import { logger } from "./logger";
 import { HttpsFunction, onRequest } from "firebase-functions/v2/https";
+import { authenticate } from "./authentication";
 
 /**
  * Custom error class for providing a consistent error handling.
@@ -72,6 +73,8 @@ export function onErrorHandledRequest(
 ): HttpsFunction {
   return onRequest(async (request, response) => {
     try {
+      authenticate(request.headers.authorization);
+      
       await handler(request, response);
     } catch (error) {
       handleError(response, error);
