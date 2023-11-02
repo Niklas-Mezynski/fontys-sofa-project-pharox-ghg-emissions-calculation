@@ -1,5 +1,5 @@
 import { ClimatiqService } from "../../logic/emission_factors/climatiq_service";
-import { onErrorHandledRequest } from "../../utils/errors";
+import { onErrorHandledRequest } from "../../utils/request_handler";
 
 export const fetchClimatiq = onErrorHandledRequest(
   async (request, response) => {

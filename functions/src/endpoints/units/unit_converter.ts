@@ -1,9 +1,10 @@
 import { classifyUnitType } from "../../logic/units/unit_classification_service";
-import { CustomError, onErrorHandledRequest } from "../../utils/errors";
+import { onErrorHandledRequest } from "../../utils/request_handler";
 import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../../logic/units/unit_conversion_service";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
+import { CustomError } from "../../utils/errors";
 
 const queryInputSchema = z.object({
   originalUnitType: z.string(), // e.g. m
@@ -40,9 +41,6 @@ export const unitConverter = onErrorHandledRequest(
       requestBody.value
     );
 
-    response
-      .json( convertedUnit )
-      .status(200)
-      .send();
+    response.json(convertedUnit).status(200).send();
   }
 );
