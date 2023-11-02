@@ -24,5 +24,10 @@
 # Test coverage
 **/coverage/
 
+# Enviromental Variables
 **/*.env
 **/*.env.*
+
+# Drawio
+**/*.drawio.bkp
+**/*.drawio.dtmp
