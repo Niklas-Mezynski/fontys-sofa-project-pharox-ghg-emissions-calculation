@@ -66,9 +66,7 @@ async function performEmissionCalculation(
 async function calculateTransportActivity(
   transportPart: FreightEmissionCalculationInput["transportParts"][number]
 ) {
-  const emissionFactor = await getEmissionFactor(
-    transportPart.transportDetails
-  );
+  const emissionFactor = await getEmissionFactor(transportPart);
 
   // --- Unit conversion ---
   const providedUnitType = classifyUnitType(
@@ -154,10 +152,11 @@ async function calculateTransportActivity(
  * @returns The emission factor if available.
  */
 async function getEmissionFactor(
-  calculationData: FreightEmissionCalculationInput["transportParts"][number]["transportDetails"]
+  transportPart: FreightEmissionCalculationInput["transportParts"][number]
 ) {
-  return EmissionFactorService.getFuelEmissionFactorByFuel(
-    calculationData.fuelCode
+  return EmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
+    transportPart.transportDetails.fuelCode,
+    transportPart.region
   );
 }
 

@@ -1,16 +1,15 @@
-get:
+post:
   summary: Calculate GHG emissions
   description: Cloud function to perform an emission calculation
   tags:
     - Emission calculations
-  parameters:
-    - in : body
-      name: code
-      schema:
-        type: object
-      description: The calculation input
-      example:
-        $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
+  requestBody:
+    description: The calculation input
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/emission_calculation/emission_calculator_input.yaml"
   responses:
     "200":
       description: The emission calculation overview/report
