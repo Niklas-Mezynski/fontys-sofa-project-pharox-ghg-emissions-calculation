@@ -3,8 +3,6 @@ post:
   description: Cloud function to perform an emission calculation
   tags:
     - Emission calculations
-  headers:
-    - Access-Control-Allow-Origin:*
   requestBody:
     description: The calculation input
     required: true

@@ -35,6 +35,7 @@ export function parseZodError(issues: z.ZodIssue[], message?: string) {
  * @throws {CustomError} containing the validation error
  */
 export function validateInput<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Output = any,
   Def extends ZodTypeDef = ZodTypeDef,
   Input = Output,
