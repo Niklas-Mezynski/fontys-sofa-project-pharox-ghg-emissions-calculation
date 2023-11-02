@@ -1,0 +1,22 @@
+= Delivery Meeting 03/11/2023
+
+== Planning:
+
+- Showcase Activity Diagram
+- Showcase Emission Factors
+  - Fuel Emission Factors
+- Introduce Pharox to Swagger
+  - Authentication
+  - Live Demonstration
+    - GLEC Framework Scope 1 Example
+- Showcase Testing implementation
+- Discuss Next Sprint
+  - Start Scope 2 Emissions
+    - Perform research to implement Scope 2
+  - Refactoring Emission Factors from Database
+  - Continue working on the reporting structure
+  - Clean codebase
+- Feedback and Questions for Pharox
+
+== Notes (During Session):
+

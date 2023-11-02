@@ -1,0 +1,78 @@
+= Agenda: 
+- General Introductions 
+
+- About the company & past projects 
+
+- Goal of the project, business value 
+
+- Discuss way of working 
+
+- General organization 
+
+- Repository 
+
+- Backlog / Project Management 
+
+- Discuss communication. 
+
+== Specific project-related questions: 
+
+- Which type of users will the platform have? 
+
+- User-stories 
+
+- Do you have a vision on the result? 
+
+- List of requirements if they know what they would like. 
+
+- Way of working within the company 
+
+- Communication methods 
+
+- Scrum? 
+
+- Who can we contact to know more about greenhouse emissions? Do you know an expert? 
+
+- How will we acquire the data? 
+
+- What will the data look like? 
+
+- Can we get access to the internal knowledgebase? (Wikis, etc) 
+
+- Access to the Standards-documents (ISO) 
+
+- How is authentication handled? 
+
+- How do you calculate predicted emissions? 
+
+ 
+
+== Technical Questions 
+
+ 
+
+- Which platform does the application have to run on? 
+
+- Use-cases? 
+
+- What can this user-case do? 
+
+- How many users do you expect to use the application? 
+
+ 
+
+== Our Expectations 
+
+- Work from the office? Only when the need arises 
+
+- Preferred communication method: Email & Teams/Google Hangouts? 
+
+- Preferred meeting date: Friday or Wednesday 
+
+ 
+
+ 
+
+ 
+
+ 
