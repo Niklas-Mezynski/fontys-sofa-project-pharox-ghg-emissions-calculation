@@ -7,43 +7,24 @@ import * as path from "path";
 import * as YAML from "yaml";
 import { freightEmissionCalculationInputSchema } from "../models/emission_calculations/emission_calculation_model";
 import { openApiDocumentConfig } from "./open_api_document_config";
-
-const registry = new OpenAPIRegistry();
-
-// Register definitions here
-registry.register(
-  "EmissionCalculationInput",
-  freightEmissionCalculationInputSchema
-);
-
-// Register paths here
-registry.registerPath({
-  method: "post",
-  path: "/emissionCalculator",
-  summary: "Calculate GHG emissions",
-  description: "Cloud function to perform an emission calculation",
-  tags: ["Emission calculations"],
-  request: {
-    body: {
-      content: {
-        "application/json": {
-          schema: freightEmissionCalculationInputSchema,
-        },
-      },
-      description: "The calculation input",
-      required: true,
-    },
-  },
-  responses: {
-    "200": {
-      description: "The emission calculation overview/report",
-    },
-  },
-});
-
-const generator = new OpenApiGeneratorV3(registry.definitions);
+import { emissionCalculationOpenApiPaths } from "./paths/emission_calculations";
 
 export function getOpenApiYaml() {
+  const registry = new OpenAPIRegistry();
+
+  // -- Register definitions here --
+  registry.register(
+    "EmissionCalculationInput",
+    freightEmissionCalculationInputSchema
+  );
+
+  // -- Register paths here --
+  emissionCalculationOpenApiPaths.forEach((path) =>
+    registry.registerPath(path)
+  );
+
+  const generator = new OpenApiGeneratorV3(registry.definitions);
+
   return generator.generateDocument(openApiDocumentConfig);
 }
 
