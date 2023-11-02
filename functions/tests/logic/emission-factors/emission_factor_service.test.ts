@@ -40,7 +40,7 @@ describe("Emission factors - Fuel emission factors", () => {
   //       doc: jest.fn(id => ({
   //         get: mockQueryResponse,
   //       })),
-  //     })), 
+  //     })),
   //   }),
   // }))
 
@@ -51,11 +51,11 @@ describe("Emission factors - Fuel emission factors", () => {
 
   test("Get Fuel Emission Factor by ID returns desired fuel emission factor", async () => {
     console.log(await EmissionFactorService.getFuelEmissionFactorById(uuid()));
-  }, );
+  });
 });
 
 describe("Emission factors - Intensity emission factors", () => {
   test("Hello World function returns 'Hello world!'", async () => {
-
+    //
   });
 });
