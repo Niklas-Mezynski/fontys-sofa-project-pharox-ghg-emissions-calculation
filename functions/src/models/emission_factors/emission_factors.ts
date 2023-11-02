@@ -55,6 +55,16 @@ export const fuelFactorSchema = z.object({
 });
 export type FuelFactor = z.infer<typeof fuelFactorSchema>;
 
+export const emissionFactorRegions = [
+  "EU",
+  "NA",
+  "AF",
+  "AS",
+  "SA",
+  "OC",
+  "AN",
+  "INTERNATIONAL",
+] as const;
 /**
  * The fuel emission factor model containin the info to perform emission calculations
  */
@@ -63,9 +73,7 @@ export const fuelEmissionFactorSchema = z.object({
   source: z.enum(["CUSTOM", "GLEC"]).default("GLEC"),
   fuel: fuelSchema,
   factors: z.array(fuelFactorSchema).nonempty(),
-  region: z
-    .enum(["EU", "NA", "AF", "AS", "SA", "OC", "AN", "INTERNATIONAL"])
-    .default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
+  region: z.enum(emissionFactorRegions).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
 

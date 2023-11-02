@@ -1,9 +1,13 @@
 import { HttpStatusCode } from "axios";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
 import { getEmissionFactorQueryInput } from "../../models/emission_factors/climatiq_emission_factors";
-import { fuelEmissionFactorSchema, fuelSchema } from "../../models/emission_factors/emission_factors";
-import { CustomError, onErrorHandledRequest } from "../../utils/errors";
+import {
+  fuelEmissionFactorSchema,
+  fuelSchema,
+} from "../../models/emission_factors/emission_factors";
+import { onErrorHandledRequest } from "../../utils/request_handler";
 import { validateInput } from "../../utils/functions";
+import { CustomError } from "../../utils/errors";
 
 export const getEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
@@ -46,7 +50,7 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
     const { id } = validateInput(
       request.query,
       fuelEmissionFactorSchema.partial(),
-      "Fuel Emission Factor ID not Found",
+      "Fuel Emission Factor ID not Found"
     );
 
     if (!id) {
@@ -79,7 +83,8 @@ export const getFuelEmissionFactorByFuelCode = onErrorHandledRequest(
       });
     }
 
-    const factors = await EmissionFactorService.getFuelEmissionFactorByFuelCode(code);
+    const factors =
+      await EmissionFactorService.getFuelEmissionFactorByFuelCode(code);
     response.json(factors);
   }
 );
@@ -102,7 +107,8 @@ export const getFuelEmissionFactorByRegion = onErrorHandledRequest(
       });
     }
 
-    const factors = await EmissionFactorService.getFuelEmissionFactorByRegion(region);
+    const factors =
+      await EmissionFactorService.getFuelEmissionFactorByRegion(region);
     response.json(factors);
   }
 );
@@ -125,7 +131,8 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
       });
     }
 
-    const factors = await EmissionFactorService.getFuelEmissionFactorBySource(source);
+    const factors =
+      await EmissionFactorService.getFuelEmissionFactorBySource(source);
     response.json(factors);
   }
 );

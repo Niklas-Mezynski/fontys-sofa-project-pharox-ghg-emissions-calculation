@@ -72,6 +72,18 @@ components:
                 required:
                   - value
                   - unit
+              region:
+                type: string
+                enum: &a3
+                  - EU
+                  - NA
+                  - AF
+                  - AS
+                  - SA
+                  - OC
+                  - AN
+                  - INTERNATIONAL
+                default: EU
               transportDetails:
                 type: object
                 properties:
@@ -82,7 +94,7 @@ components:
                         type: number
                       unit:
                         type: string
-                        enum: &a3
+                        enum: &a4
                           - ml
                           - l
                           - tsp
@@ -105,11 +117,28 @@ components:
             required:
               - distance
               - weight
+              - region
               - transportDetails
           description: The different transport activities to calculate emissions for. Each
             has their own fuel type, fuel consumption and freight details.
       required:
         - transportParts
+      example: &a5
+        metadata:
+          anything: can go here
+        transportParts:
+          - distance:
+              value: 100000
+              unit: m
+            weight:
+              value: 1000
+              unit: kg
+            region: EU
+            transportDetails:
+              consumedFuel:
+                value: 100
+                unit: kg
+              fuelCode: HEAVY_FUEL_OIL
   parameters: {}
 paths:
   /emissionCalculator:
@@ -158,6 +187,10 @@ paths:
                         required:
                           - value
                           - unit
+                      region:
+                        type: string
+                        enum: *a3
+                        default: EU
                       transportDetails:
                         type: object
                         properties:
@@ -168,7 +201,7 @@ paths:
                                 type: number
                               unit:
                                 type: string
-                                enum: *a3
+                                enum: *a4
                             required:
                               - value
                               - unit
@@ -181,12 +214,14 @@ paths:
                     required:
                       - distance
                       - weight
+                      - region
                       - transportDetails
                   description: The different transport activities to calculate emissions for. Each
                     has their own fuel type, fuel consumption and freight
                     details.
               required:
                 - transportParts
+              example: *a5
       responses:
         "200":
           description: The emission calculation overview/report
