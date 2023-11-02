@@ -3,16 +3,13 @@ import { onRequest } from "firebase-functions/v2/https";
 import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
 import { parseZodError } from "../../utils/functions";
-import { authenticate } from "../../utils/authentication";
 
 const queryInputSchema = z.object({
   usedFuel: z.coerce.number().min(1),
   activityId: z.coerce.string().min(1),
 });
 
-export const scope1Calculation = onRequest(async (request, response) => {
-  authenticate(request.headers.authorization);
-  
+export const scope1Calculation = onRequest(async (request, response) => {  
   const parseResult = queryInputSchema.safeParse(request.query);
 
   if (!parseResult.success) {
