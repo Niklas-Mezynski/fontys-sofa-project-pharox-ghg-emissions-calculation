@@ -1,0 +1,11 @@
+type: object
+properties:
+  unit:
+    type: string
+    enum:
+      - KG_CO2E_PER_KWH
+      - KG_CO2E_PER_KG
+      - KG_CO2E_PER_L
+    description: The conversion units for the fuel factor
+  factor:
+    $ref: "./factor.yaml"

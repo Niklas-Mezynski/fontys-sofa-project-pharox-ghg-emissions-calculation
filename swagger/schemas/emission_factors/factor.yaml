@@ -1,0 +1,11 @@
+type: object
+properties:
+  WTT:
+    type: number
+    description: Well to Tank activity factor
+  TTW:
+    type: number
+    description: Tank to Wheel activity factor
+  WTW:
+    type: number
+    description: Well to Wheel activity factor

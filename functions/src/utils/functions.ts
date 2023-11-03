@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { ZodTypeDef, z } from "zod";
 import { CustomError } from "./errors";
 import { HttpStatusCode } from "axios";
 
@@ -10,10 +10,13 @@ import { HttpStatusCode } from "axios";
  */
 export function parseZodError(issues: z.ZodIssue[], message?: string) {
   const parsedIssues = issues.map((issue) => {
-    return {
-      inputField: issue.path.join("."),
-      error: issue.message,
-    };
+    if (issue.code === "invalid_type") {
+      return {
+        inputField: issue.path.join("."),
+        error: issue.message,
+      };
+    }
+    return issue;
   });
 
   return new CustomError({
@@ -31,11 +34,12 @@ export function parseZodError(issues: z.ZodIssue[], message?: string) {
  * @return {T} The validated data that is guaranteed to be of type T
  * @throws {CustomError} containing the validation error
  */
-export function validateInput<T>(
-  input: unknown,
-  schema: z.Schema<T>,
-  message?: string
-) {
+export function validateInput<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Output = any,
+  Def extends ZodTypeDef = ZodTypeDef,
+  Input = Output,
+>(input: unknown, schema: z.Schema<Output, Def, Input>, message?: string) {
   const parseResult = schema.safeParse(input);
 
   if (!parseResult.success) {

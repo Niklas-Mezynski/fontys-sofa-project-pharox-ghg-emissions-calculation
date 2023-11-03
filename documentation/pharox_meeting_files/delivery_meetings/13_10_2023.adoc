@@ -1,0 +1,25 @@
+= Delivery Meeting 13/10/2023
+
+== Planning:
+
+- Flow chart? 
+
+- Show structure of the project (modularity) 
+
+- Show a few API calls to show implementation progress 
+
+- Show how we get the emission factors from Climatiq 
+
+- Show a basic emission calculation 
+
+- Perhaps show off (generated) documentation – e.g., the flowchart  
+
+- Discuss plan for upcoming sprint 
+
+== Sprint planning 
+
+- Scope 1 calculation implementation 
+
+- Wrap basic calculator into scope 1 
+- Define report / saving of calculation report 
+- Start API overview (Something like Swagger has) 

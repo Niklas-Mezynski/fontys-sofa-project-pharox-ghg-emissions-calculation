@@ -1,0 +1,9 @@
+type: string
+enum:
+  - DISTANCE
+  - WEIGHT
+  - VOLUME
+  - ELECTRICITY
+  - UNKNOWN
+example: DISTANCE
+description: The unit type classification

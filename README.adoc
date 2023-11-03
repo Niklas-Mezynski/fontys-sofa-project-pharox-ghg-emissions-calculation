@@ -16,13 +16,13 @@ Some links to folders or files inside the repository are provided in order to fa
 ==== Analysis phase
 
     - link:./documentation/project-plan/ProjectPlan.pdf[Project plan]
-    - link:<./documentation/use-case-diagram/UseCaseDiagram.svg>[Use case diagram]
+    - link:./documentation/use-case-diagram/UseCaseDiagram.pdf[Use case diagram]
     - link:./documentation/use-cases/UseCases.pdf[Use cases]
     - link:./documentation/test-case-scenarios/TestCaseScenarios.pdf[Test case scenarios]
 
 ==== Design phase
 
-    - link:./documentation/flow-diagram[Flow diagrams]
+    - link:./documentation/activity-diagram[Activity diagrams]
     - link:./documentation/sequence-diagram[Sequence diagrams]
     - link:./documentation/deployment-strategy/DeploymentStrategy.pdf[Deployment strategy]
     - link:./documentation/branching-strategy/BranchingStrategy.pdf[Branching strategy]
@@ -31,6 +31,7 @@ Some links to folders or files inside the repository are provided in order to fa
 === Implementation phase
 
     - link:./functions[Implementation]
+    - link:https://fontysvenlo.github.io/sofa-project-pharox-ghg-emissions-calculation/[API documentation]
 
 === Useful links
 

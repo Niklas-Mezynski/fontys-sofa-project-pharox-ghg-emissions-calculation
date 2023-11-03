@@ -1,0 +1,10 @@
+type: object
+properties:
+  value:
+    type: number
+    example: 1000
+    description: The converted value
+  unit:
+    type: string
+    example: "m"
+    description: The new value units

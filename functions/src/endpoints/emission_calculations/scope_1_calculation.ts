@@ -2,15 +2,14 @@ import { HttpStatusCode } from "axios";
 import { onRequest } from "firebase-functions/v2/https";
 import { z } from "zod";
 import { EmissionFactorService } from "../../logic/emission_factors/emission_factor_service";
-import { SimpleCalculationService } from "../../logic/emission_calculations/simple_calculation_service";
 import { parseZodError } from "../../utils/functions";
 
 const queryInputSchema = z.object({
   usedFuel: z.coerce.number().min(1),
-  activityId: z.coerce.string().min(1)
+  activityId: z.coerce.string().min(1),
 });
 
-export const Scope1Calculation = onRequest(async (request, response) => {
+export const scope1Calculation = onRequest(async (request, response) => {  
   const parseResult = queryInputSchema.safeParse(request.query);
 
   if (!parseResult.success) {
@@ -21,22 +20,23 @@ export const Scope1Calculation = onRequest(async (request, response) => {
     return;
   }
 
-  const { activityId } = parseResult.data 
-  const { usedFuel } = parseResult.data
-  
-  const activity = await EmissionFactorService.getByActivityId(activityId)  
+  const { activityId } = parseResult.data;
+  const { usedFuel } = parseResult.data;
 
-  const factor = activity?.factor
+  const activity = await EmissionFactorService.getByActivityId(activityId);
 
+  const factor = activity?.factor;
 
   const postData = {
     usedFuel: usedFuel,
-    emissionFactor: factor
+    emissionFactor: factor,
   };
-  const result = SimpleCalculationService.simpleEmissionCalculation(postData)
 
-  response.status(200).send(result)
-/*
+  response.status(200).send(postData);
+  //   const result = SimpleCalculationService.simpleEmissionCalculation(postData);
+
+  //   response.status(200).send(result);
+  /*
   const apiUrl = 'https://emissioncalculationsimple-u2tzkd7k6q-uc.a.run.app';
 
   const postData = {
@@ -51,7 +51,6 @@ export const Scope1Calculation = onRequest(async (request, response) => {
       "\n Provided Activity ID: " +
       activityId
   );
-
 
 
   fetch(apiUrl, {
@@ -69,5 +68,4 @@ export const Scope1Calculation = onRequest(async (request, response) => {
       console.error('Error:', error);
     });
 */
-
 });

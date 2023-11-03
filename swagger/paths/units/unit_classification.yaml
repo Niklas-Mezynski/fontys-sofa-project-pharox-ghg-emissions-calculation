@@ -1,0 +1,19 @@
+post:
+  summary: Classify the given unit
+  description: Classify whether a unit is Weight, Distance, Volume or Electrivity
+  tags:
+    - Units
+  requestBody:
+    description: The unit to classify
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/units/units_classification_input.yaml"
+  responses:
+    "200":
+      description: The unit classification
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/units/unit_types.yaml"

@@ -1,11 +1,12 @@
 import axios from "axios";
-import { db } from "../..";
 import {
   ClimatiqEmissionFactorResponse,
+  EmissionFactor,
   climatiqEmissionFactorResponseSchema,
-} from "../../models/emission_factors/emission_factors";
-import { logger } from "../../utils/logger";
+} from "../../models/emission_factors/climatiq_emission_factors";
 import { parseZodError } from "../../utils/functions";
+import { logger } from "../../utils/logger";
+import { EmissionFactorService } from "./emission_factor_service";
 
 const dataVersion = "^0";
 const source = "GLEC";
@@ -72,9 +73,39 @@ async function getTotalPageNum(headers: object) {
 async function saveInDatabase(emissionFactors: ClimatiqEmissionFactorResponse) {
   await Promise.all(
     emissionFactors.map(async (factor) => {
-      const docRef = db.collection("emission_factors").doc(factor.activity_id);
+      const mappedEmissionFactor: EmissionFactor = {
+        activityId: factor.activity_id,
+        id: factor.id,
+        name: factor.name,
+        category: factor.category,
+        sector: factor.sector,
+        source: factor.source,
+        sourceLink: factor.source_link,
+        sourceDataset: factor.source_dataset,
+        year: factor.year,
+        yearReleased: factor.year_released,
+        region: factor.region,
+        regionName: factor.region_name,
+        description: factor.description,
+        unitType: factor.unit_type,
+        unit: factor.unit,
+        sourceLcaActivity: factor.source_lca_activity,
+        dataQualityFlags: factor.data_quality_flags,
+        accessType: factor.access_type,
+        supportedCalculationMethods: factor.supported_calculation_methods,
+        factor: factor.factor,
+        factorCalculationMethod: factor.factor_calculation_method,
+        factorCalculationOrigin: factor.factor_calculation_origin,
+        constituentGases: {
+          co2eTotal: factor.constituent_gases.co2e_total,
+          co2eOther: factor.constituent_gases.co2e_other,
+          co2: factor.constituent_gases.co2,
+          ch4: factor.constituent_gases.ch4,
+          n2o: factor.constituent_gases.n2o,
+        },
+      };
 
-      await docRef.set(factor);
+      await EmissionFactorService.saveEmissionFactor(mappedEmissionFactor);
     })
   );
 }

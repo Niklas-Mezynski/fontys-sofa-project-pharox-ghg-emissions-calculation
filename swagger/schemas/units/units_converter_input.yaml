@@ -1,0 +1,14 @@
+type: object
+properties:
+  originalUnitType:
+    type: string
+    example: "km"
+    description: The unit to convert the value from
+  targetUnitType:
+    type: string
+    example: "m"
+    description: The unit to convert the value to
+  value:
+    type: number
+    example: 1
+    description: The value to convert

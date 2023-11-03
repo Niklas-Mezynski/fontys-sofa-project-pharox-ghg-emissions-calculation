@@ -1,45 +1,93 @@
 import { z } from "zod";
 
-const constituentGasesSchema = z.object({
-  co2e_total: z.number().nullable(),
-  co2e_other: z.number().nullable(),
-  co2: z.number().nullable(),
-  ch4: z.number().nullable(),
-  n2o: z.number().nullable(),
-});
-
-export const climatiqEmissionFactorResponseSchema = z.array(
+/**
+ * Emission factor input needed to find the right emission factor.
+ */
+export const emissionFactorInput = z.union([
   z.object({
-    activity_id: z.string(),
-    id: z.string(),
-    name: z.string(),
-    category: z.string(),
-    sector: z.string(),
-    source: z.string(),
-    source_link: z.string(),
-    source_dataset: z.string(),
-    year: z.number(),
-    year_released: z.number(),
-    region: z.string(),
-    region_name: z.string(),
-    description: z.string(),
-    unit_type: z.string(),
-    unit: z.string(),
-    source_lca_activity: z.string(),
-    data_quality_flags: z.array(z.string()), // Adjust the type as needed
-    access_type: z.enum(["public", "private"]),
-    supported_calculation_methods: z.array(z.string()),
-    factor: z.number(),
-    factor_calculation_method: z.string(),
-    factor_calculation_origin: z.string(),
-    constituent_gases: constituentGasesSchema,
-  })
-);
+    activityId: z.string(),
+  }),
+  z.object({
+    activityType: z.string(),
+    vehicleType: z.string(),
+    fuelType: z.string(),
+  }),
+]);
 
-export type ClimatiqEmissionFactorResponse = z.infer<
-  typeof climatiqEmissionFactorResponseSchema
->;
-
-export const getEmissionFactorQueryInput = z.object({
-  activityId: z.string().min(1),
+/**
+ * Calculation data input needed to calculate the emissions.
+ */
+export const calculationDataInput = z.object({
+  resourceAmount: z.number().positive(),
+  unit: z.string(),
 });
+
+/**
+ * Emission calculator input needed to calculate the emissions.
+ */
+export const emissionCalculatorInput = z.object({
+  emissionDetails: emissionFactorInput,
+  calculationDetails: calculationDataInput,
+});
+export type EmissionCalculatorInput = z.infer<typeof emissionCalculatorInput>;
+
+/** FUEL EMISSION FACTOR MODELS */
+
+/**
+ * Fuel model
+ */
+export const fuelSchema = z.object({
+  code: z.string(),
+  description: z.string().optional(),
+});
+export type Fuel = z.infer<typeof fuelSchema>;
+
+/**
+ * Define the different fuel factors to be able to calculate emissions
+ */
+export const fuelFactorSchema = z.object({
+  unit: z.enum(["KG_CO2E_PER_KWH", "KG_CO2E_PER_KG", "KG_CO2E_PER_L"]),
+  factor: z.object({
+    WTT: z.number().nullable(),
+    TTW: z.number().nullable(),
+    WTW: z.number().nullable(),
+  }),
+});
+export type FuelFactor = z.infer<typeof fuelFactorSchema>;
+
+export const emissionFactorRegions = [
+  "EU",
+  "NA",
+  "AF",
+  "AS",
+  "SA",
+  "OC",
+  "AN",
+  "INTERNATIONAL",
+] as const;
+/**
+ * The fuel emission factor model containin the info to perform emission calculations
+ */
+export const fuelEmissionFactorSchema = z.object({
+  id: z.string().uuid().optional(),
+  source: z.enum(["CUSTOM", "GLEC"]).default("GLEC"),
+  fuel: fuelSchema,
+  factors: z.array(fuelFactorSchema).nonempty(),
+  region: z.enum(emissionFactorRegions).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
+});
+export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
+
+/** INTENSITY EMISSION FACTOR MODELS */
+
+// TODO: define the model
+export const intensityEmissionFactorSchema = z.object({
+  id: z.string().uuid(),
+  source: z.enum(["CUSTOM", "GLEC", "ISO"]).default("GLEC"),
+  freightType: z
+    .enum(["AIR", "RAIL", "ROAD", "OCEAN", "INLAND_WATERWAY"])
+    .default("ROAD"),
+  vehicleType: z.string(),
+});
+export type IntensityEmissionFactor = z.infer<
+  typeof intensityEmissionFactorSchema
+>;
