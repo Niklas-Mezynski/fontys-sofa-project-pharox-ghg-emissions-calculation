@@ -20,3 +20,22 @@
 
 == Notes (During Session):
 
+- calculate per engine type and other factors depending (engine, etc) instead of fuel
+
+often times you do not get an exact amount of fuel consumed but a combination of different information
+
+** Send email on what order we are going to use**
+
+Revamp project plan?
+
+== What we agreed upon:
+
+Pharox will send example data this afternoon
+
+On Monday we will discuss the example data and determine a new roadmap
+
+On Tuesday we meet with Pharox again to discuss our plan and if that aligns with what Pharox expects.
+
+Ask Pharox to contact GLEC to get the data necessary
+
+Send van den Ham a summary on what we discuss(ed) on Tuesday
