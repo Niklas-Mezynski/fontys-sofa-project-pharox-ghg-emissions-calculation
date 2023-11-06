@@ -129,7 +129,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     path: "/getFuelEmissionFactorByRegion",
     summary: "Fetch fuel emission factors by region",
     description:
-      "Function that fetches the fuel emission factors which matches the given region",
+      "Fetches the fuel emission factors which match the given region",
     tags: ["Emission factors"],
     request: {
       params: z.object({
