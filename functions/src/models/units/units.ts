@@ -24,6 +24,13 @@ export type DistanceUnit = (typeof distanceUnits)[number];
 export const electricityUnits = ["kWh"] as const;
 export type ElectricityUnit = (typeof electricityUnits)[number];
 
+export const allUnits = [
+  ...volumeUnits,
+  ...weightUnits,
+  ...distanceUnits,
+  ...electricityUnits,
+] as const;
+
 // Define your structure type
 type UnitStructure = {
   [key in Exclude<UnitType, "UNKNOWN">]: {

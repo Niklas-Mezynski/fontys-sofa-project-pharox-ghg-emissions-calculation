@@ -6,7 +6,7 @@ import { validateInput } from "../../utils/functions";
 import { z } from "zod";
 import { CustomError } from "../../utils/errors";
 
-const queryInputSchema = z.object({
+export const unitConverterInputSchema = z.object({
   originalUnitType: z.string(), // e.g. m
   targetUnitType: z.string(), // e.g. km
   value: z.number(), // e.g. 1000
@@ -17,7 +17,7 @@ const queryInputSchema = z.object({
  */
 export const unitConverter = onErrorHandledRequest(
   async (request, response) => {
-    const requestBody = validateInput(request.body, queryInputSchema);
+    const requestBody = validateInput(request.body, unitConverterInputSchema);
 
     // Verify that: originalUnitType and targetUnitType are of the same classification (e.g. both are distances)
     const originalUnitClassification = classifyUnitType(

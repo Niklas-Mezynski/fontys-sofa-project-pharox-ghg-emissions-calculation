@@ -46,7 +46,7 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: &a1
+                    enum: &a3
                       - km
                       - cm
                       - m
@@ -63,7 +63,7 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: &a2
+                    enum: &a4
                       - g
                       - kg
                       - tonnes
@@ -74,7 +74,7 @@ components:
                   - unit
               region:
                 type: string
-                enum: &a3
+                enum: &a1
                   - EU
                   - NA
                   - AF
@@ -94,7 +94,7 @@ components:
                         type: number
                       unit:
                         type: string
-                        enum: &a4
+                        enum: &a5
                           - ml
                           - l
                           - tsp
@@ -123,7 +123,7 @@ components:
             has their own fuel type, fuel consumption and freight details.
       required:
         - transportParts
-      example: &a5
+      example: &a6
         metadata:
           anything: can go here
         transportParts:
@@ -139,6 +139,128 @@ components:
                 value: 100
                 unit: kg
               fuelCode: HEAVY_FUEL_OIL
+    FuelEmissionFactor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        source:
+          type: string
+          enum: &a7
+            - CUSTOM
+            - GLEC
+          default: GLEC
+        fuel:
+          type: object
+          properties:
+            code:
+              type: string
+            description:
+              type: string
+          required:
+            - code
+        factors:
+          type: array
+          items:
+            type: object
+            properties:
+              unit:
+                type: string
+                enum: &a2
+                  - KG_CO2E_PER_KWH
+                  - KG_CO2E_PER_KG
+                  - KG_CO2E_PER_L
+              factor:
+                type: object
+                properties:
+                  WTT:
+                    type: number
+                    nullable: true
+                  TTW:
+                    type: number
+                    nullable: true
+                  WTW:
+                    type: number
+                    nullable: true
+                required:
+                  - WTT
+                  - TTW
+                  - WTW
+            required:
+              - unit
+              - factor
+          minItems: 1
+        region:
+          type: string
+          enum: *a1
+          default: EU
+      required:
+        - source
+        - fuel
+        - factors
+        - region
+    Fuel:
+      type: object
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+      required:
+        - code
+    FuelFactor:
+      type: object
+      properties:
+        unit:
+          type: string
+          enum: *a2
+        factor:
+          type: object
+          properties:
+            WTT:
+              type: number
+              nullable: true
+            TTW:
+              type: number
+              nullable: true
+            WTW:
+              type: number
+              nullable: true
+          required:
+            - WTT
+            - TTW
+            - WTW
+      required:
+        - unit
+        - factor
+    UnitTypes:
+      type: string
+      enum: &a8
+        - DISTANCE
+        - WEIGHT
+        - VOLUME
+        - ELECTRICITY
+        - UNKNOWN
+    Units:
+      type: string
+      enum: &a9
+        - ml
+        - l
+        - tsp
+        - tbsp
+        - g
+        - kg
+        - tonnes
+        - oz
+        - lb
+        - km
+        - cm
+        - m
+        - in
+        - ft
+        - mi
+        - kWh
   parameters: {}
 paths:
   /emissionCalculator:
@@ -172,7 +294,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a1
+                            enum: *a3
                         required:
                           - value
                           - unit
@@ -183,13 +305,13 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a2
+                            enum: *a4
                         required:
                           - value
                           - unit
                       region:
                         type: string
-                        enum: *a3
+                        enum: *a1
                         default: EU
                       transportDetails:
                         type: object
@@ -201,7 +323,7 @@ paths:
                                 type: number
                               unit:
                                 type: string
-                                enum: *a4
+                                enum: *a5
                             required:
                               - value
                               - unit
@@ -221,7 +343,715 @@ paths:
                     details.
               required:
                 - transportParts
-              example: *a5
+              example: *a6
       responses:
         "200":
           description: The emission calculation overview/report
+  /addFuelEmissionFactor:
+    post:
+      summary: Add a fuel emission factor
+      description: Function that adds a fuel emission factors to the Database
+      tags:
+        - Emission factors
+      requestBody:
+        description: The fuel emission factor to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                source:
+                  type: string
+                  enum: *a7
+                  default: GLEC
+                fuel:
+                  type: object
+                  properties:
+                    code:
+                      type: string
+                    description:
+                      type: string
+                  required:
+                    - code
+                factors:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      unit:
+                        type: string
+                        enum: *a2
+                      factor:
+                        type: object
+                        properties:
+                          WTT:
+                            type: number
+                            nullable: true
+                          TTW:
+                            type: number
+                            nullable: true
+                          WTW:
+                            type: number
+                            nullable: true
+                        required:
+                          - WTT
+                          - TTW
+                          - WTW
+                    required:
+                      - unit
+                      - factor
+                  minItems: 1
+                region:
+                  type: string
+                  enum: *a1
+                  default: EU
+              required:
+                - source
+                - fuel
+                - factors
+                - region
+      responses:
+        "200":
+          description: The added fuel emission factors
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  source:
+                    type: string
+                    enum: *a7
+                    default: GLEC
+                  fuel:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      description:
+                        type: string
+                    required:
+                      - code
+                  factors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        unit:
+                          type: string
+                          enum: *a2
+                        factor:
+                          type: object
+                          properties:
+                            WTT:
+                              type: number
+                              nullable: true
+                            TTW:
+                              type: number
+                              nullable: true
+                            WTW:
+                              type: number
+                              nullable: true
+                          required:
+                            - WTT
+                            - TTW
+                            - WTW
+                      required:
+                        - unit
+                        - factor
+                    minItems: 1
+                  region:
+                    type: string
+                    enum: *a1
+                    default: EU
+                required:
+                  - source
+                  - fuel
+                  - factors
+                  - region
+  /addFuelEmissionFactors:
+    post:
+      summary: Add multiple fuel emission factors
+      description: Function that adds multiple fuel emission factors to the Database
+      tags:
+        - Emission factors
+      requestBody:
+        description: List of fuel emission factors to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  source:
+                    type: string
+                    enum: *a7
+                    default: GLEC
+                  fuel:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      description:
+                        type: string
+                    required:
+                      - code
+                  factors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        unit:
+                          type: string
+                          enum: *a2
+                        factor:
+                          type: object
+                          properties:
+                            WTT:
+                              type: number
+                              nullable: true
+                            TTW:
+                              type: number
+                              nullable: true
+                            WTW:
+                              type: number
+                              nullable: true
+                          required:
+                            - WTT
+                            - TTW
+                            - WTW
+                      required:
+                        - unit
+                        - factor
+                    minItems: 1
+                  region:
+                    type: string
+                    enum: *a1
+                    default: EU
+                required:
+                  - source
+                  - fuel
+                  - factors
+                  - region
+      responses:
+        "200":
+          description: List of added fuel emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    source:
+                      type: string
+                      enum: *a7
+                      default: GLEC
+                    fuel:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - code
+                    factors:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          unit:
+                            type: string
+                            enum: *a2
+                          factor:
+                            type: object
+                            properties:
+                              WTT:
+                                type: number
+                                nullable: true
+                              TTW:
+                                type: number
+                                nullable: true
+                              WTW:
+                                type: number
+                                nullable: true
+                            required:
+                              - WTT
+                              - TTW
+                              - WTW
+                        required:
+                          - unit
+                          - factor
+                      minItems: 1
+                    region:
+                      type: string
+                      enum: *a1
+                      default: EU
+                  required:
+                    - source
+                    - fuel
+                    - factors
+                    - region
+  /getFuelEmissionFactorByFuelCode:
+    get:
+      summary: Fetch fuel emission factors using fuel code
+      description: Function that fetches the fuel emission factors which matches the
+        given fuel code
+      tags:
+        - Emission factors
+      parameters:
+        - schema:
+            type: string
+            description: The fuel code to fetch the Fuel emission factors
+            example: GASOLINE
+          required: true
+          name: code
+          in: path
+      responses:
+        "200":
+          description: List of found fuel emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    source:
+                      type: string
+                      enum: *a7
+                      default: GLEC
+                    fuel:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - code
+                    factors:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          unit:
+                            type: string
+                            enum: *a2
+                          factor:
+                            type: object
+                            properties:
+                              WTT:
+                                type: number
+                                nullable: true
+                              TTW:
+                                type: number
+                                nullable: true
+                              WTW:
+                                type: number
+                                nullable: true
+                            required:
+                              - WTT
+                              - TTW
+                              - WTW
+                        required:
+                          - unit
+                          - factor
+                      minItems: 1
+                    region:
+                      type: string
+                      enum: *a1
+                      default: EU
+                  required:
+                    - source
+                    - fuel
+                    - factors
+                    - region
+  /getFuelEmissionFactorById:
+    get:
+      summary: Fetch a fuel emission factor by ID
+      description: Function that fetch a fuel emission factors which matches the given ID
+      tags:
+        - Emission factors
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The found fuel emission factor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  source:
+                    type: string
+                    enum: *a7
+                    default: GLEC
+                  fuel:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      description:
+                        type: string
+                    required:
+                      - code
+                  factors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        unit:
+                          type: string
+                          enum: *a2
+                        factor:
+                          type: object
+                          properties:
+                            WTT:
+                              type: number
+                              nullable: true
+                            TTW:
+                              type: number
+                              nullable: true
+                            WTW:
+                              type: number
+                              nullable: true
+                          required:
+                            - WTT
+                            - TTW
+                            - WTW
+                      required:
+                        - unit
+                        - factor
+                    minItems: 1
+                  region:
+                    type: string
+                    enum: *a1
+                    default: EU
+                required:
+                  - source
+                  - fuel
+                  - factors
+                  - region
+  /getFuelEmissionFactorByRegion:
+    get:
+      summary: Fetch fuel emission factors by region
+      description: Function that fetches the fuel emission factors which matches the
+        given region
+      tags:
+        - Emission factors
+      parameters:
+        - schema:
+            type: string
+            enum: *a1
+            default: EU
+          required: true
+          name: region
+          in: path
+      responses:
+        "200":
+          description: List of found fuel emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    source:
+                      type: string
+                      enum: *a7
+                      default: GLEC
+                    fuel:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - code
+                    factors:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          unit:
+                            type: string
+                            enum: *a2
+                          factor:
+                            type: object
+                            properties:
+                              WTT:
+                                type: number
+                                nullable: true
+                              TTW:
+                                type: number
+                                nullable: true
+                              WTW:
+                                type: number
+                                nullable: true
+                            required:
+                              - WTT
+                              - TTW
+                              - WTW
+                        required:
+                          - unit
+                          - factor
+                      minItems: 1
+                    region:
+                      type: string
+                      enum: *a1
+                      default: EU
+                  required:
+                    - source
+                    - fuel
+                    - factors
+                    - region
+  /getFuelEmissionFactorBySource:
+    get:
+      summary: Fetch fuel emission factors by data source
+      description: Function that fetches the fuel emission factors which matches the
+        given data source
+      tags:
+        - Emission factors
+      parameters:
+        - schema:
+            type: string
+            enum: *a7
+            default: GLEC
+          required: true
+          name: source
+          in: path
+      responses:
+        "200":
+          description: List of found fuel emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    source:
+                      type: string
+                      enum: *a7
+                      default: GLEC
+                    fuel:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - code
+                    factors:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          unit:
+                            type: string
+                            enum: *a2
+                          factor:
+                            type: object
+                            properties:
+                              WTT:
+                                type: number
+                                nullable: true
+                              TTW:
+                                type: number
+                                nullable: true
+                              WTW:
+                                type: number
+                                nullable: true
+                            required:
+                              - WTT
+                              - TTW
+                              - WTW
+                        required:
+                          - unit
+                          - factor
+                      minItems: 1
+                    region:
+                      type: string
+                      enum: *a1
+                      default: EU
+                  required:
+                    - source
+                    - fuel
+                    - factors
+                    - region
+  /getFuelEmissionFactors:
+    get:
+      summary: Fetch all fuel emission factors
+      description: Function that fetches all fuel emission factors in the Database
+      tags:
+        - Emission factors
+      responses:
+        "200":
+          description: List of found fuel emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    source:
+                      type: string
+                      enum: *a7
+                      default: GLEC
+                    fuel:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        description:
+                          type: string
+                      required:
+                        - code
+                    factors:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          unit:
+                            type: string
+                            enum: *a2
+                          factor:
+                            type: object
+                            properties:
+                              WTT:
+                                type: number
+                                nullable: true
+                              TTW:
+                                type: number
+                                nullable: true
+                              WTW:
+                                type: number
+                                nullable: true
+                            required:
+                              - WTT
+                              - TTW
+                              - WTW
+                        required:
+                          - unit
+                          - factor
+                      minItems: 1
+                    region:
+                      type: string
+                      enum: *a1
+                      default: EU
+                  required:
+                    - source
+                    - fuel
+                    - factors
+                    - region
+  /unitClassification:
+    post:
+      summary: Classify the given unit
+      description: Classify whether a unit is Weight, Distance, Volume or Electrivity
+      tags:
+        - Units
+      requestBody:
+        description: The unit to classify
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                unit:
+                  type: string
+              required:
+                - unit
+      responses:
+        "200":
+          description: The unit classification
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  unit:
+                    type: string
+                    enum: *a8
+                required:
+                  - unit
+  /unitConverter:
+    post:
+      summary: Convert a given unit to the desired one
+      description: Convert a given unit to the desired one
+      tags:
+        - Units
+      requestBody:
+        description: The value and units to convert from and to
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                originalUnitType:
+                  type: string
+                targetUnitType:
+                  type: string
+                value:
+                  type: number
+              required:
+                - originalUnitType
+                - targetUnitType
+                - value
+      responses:
+        "200":
+          description: The converted units
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: number
+                  unit:
+                    type: string
+                    enum: *a9
+                required:
+                  - value
+                  - unit
