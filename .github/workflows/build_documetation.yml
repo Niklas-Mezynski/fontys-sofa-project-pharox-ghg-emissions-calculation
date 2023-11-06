@@ -19,12 +19,10 @@ jobs:
 
       - name: Install packages
         run: |
-          cd functions
           npm ci
 
       - name: Build project
         run: |
-          cd functions
           npm run build
 
       - name: Commit changes
