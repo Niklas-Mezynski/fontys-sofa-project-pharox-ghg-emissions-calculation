@@ -30,19 +30,18 @@ jobs:
           cd functions
           npm run build
 
-      - name: Check for changes
-        id: check_changes
+      - name: Check for changes and commit
+        id: check_changes_and_commit
         run: |
           git fetch
           git pull
           git add swagger-auto.yaml
-          git diff --quiet || echo "::set-output name=changed::true"
-        continue-on-error: true
-
-      - name: Commit changes
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git commit -a -m "Update OpenAPI documentation"
+          git commit -a -m "Update OpenAPI documentation" || echo "::set-output name=changed::true"
+        continue-on-error: true
+
+      - name: Push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
           git push
