@@ -1,0 +1,48 @@
+name: build OpenAPI documentation
+
+on:
+  push:
+    paths:
+      - functions/**.ts
+      - functions/**.js
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_openapi_docs:
+    runs-on: ubuntu-latest
+    name: Build OpenAPI documentation
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+
+      - name: Install packages
+        run: |
+          cd functions
+          npm ci
+
+      - name: Build documentation
+        run: |
+          cd functions
+          npm run generate-openapi
+
+      - name: Check for changes and commit
+        id: check_changes_and_commit
+        run: |
+          git fetch
+          git pull
+          git add swagger-auto.yaml
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git commit -a -m "Update OpenAPI documentation"
+          echo "changed=true" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
+      - name: Push changes
+        if: steps.check_changes_and_commit.outputs.changed == 'true'
+        run: |
+          git push
