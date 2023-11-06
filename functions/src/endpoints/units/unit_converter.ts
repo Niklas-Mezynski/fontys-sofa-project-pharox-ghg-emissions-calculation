@@ -9,7 +9,7 @@ import { CustomError } from "../../utils/errors";
 export const unitConverterInputSchema = z.object({
   originalUnitType: z.string(), // e.g. m
   targetUnitType: z.string(), // e.g. km
-  value: z.number(), // e.g. 3.14
+  value: z.number(), // e.g. 1000
 });
 
 /**
