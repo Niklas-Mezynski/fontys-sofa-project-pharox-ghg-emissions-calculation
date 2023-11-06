@@ -762,8 +762,7 @@ paths:
   /getFuelEmissionFactorByRegion:
     get:
       summary: Fetch fuel emission factors by region
-      description: Function that fetches the fuel emission factors which matches the
-        given region
+      description: Fetches the fuel emission factors which match the given region
       tags:
         - Emission factors
       parameters:
@@ -776,7 +775,7 @@ paths:
           in: path
       responses:
         "200":
-          description: List of found fuel emission factors
+          description: List of the found fuel emission factors
           content:
             application/json:
               schema:
@@ -987,7 +986,7 @@ paths:
   /unitClassification:
     post:
       summary: Classify the given unit
-      description: Classify whether a unit is Weight, Distance, Volume or Electrivity
+      description: Classify whether a unit is Weight, Distance, Volume or Electricity
       tags:
         - Units
       requestBody:
