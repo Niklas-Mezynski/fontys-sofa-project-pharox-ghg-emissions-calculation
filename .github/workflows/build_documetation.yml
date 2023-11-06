@@ -25,10 +25,10 @@ jobs:
           cd functions
           npm ci
 
-      - name: Build project
+      - name: Build documentation
         run: |
           cd functions
-          npm run build
+          npm run generate-openapi
 
       - name: Check for changes and commit
         id: check_changes_and_commit

@@ -138,7 +138,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     },
     responses: {
       "200": {
-        description: "List of the found fuel emission factors",
+        description: "List of found fuel emission factors",
         content: {
           "application/json": {
             schema: z.array(fuelEmissionFactorSchema),
