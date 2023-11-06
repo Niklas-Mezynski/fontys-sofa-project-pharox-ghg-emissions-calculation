@@ -38,10 +38,11 @@ jobs:
           git add swagger-auto.yaml
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git commit -a -m "Update OpenAPI documentation" || echo "::set-output name=changed::true"
+          git commit -a -m "Update OpenAPI documentation"
+          echo "changed=true" >> $GITHUB_OUTPUT
         continue-on-error: true
 
       - name: Push changes
-        if: steps.check_changes.outputs.changed == 'true'
+        if: steps.check_changes_and_commit.outputs.changed == 'true'
         run: |
           git push
