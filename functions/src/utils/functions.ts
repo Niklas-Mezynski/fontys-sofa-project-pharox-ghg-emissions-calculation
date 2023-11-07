@@ -52,9 +52,18 @@ export function validateInput<
   return parseResult.data;
 }
 
-export function exhaustiveMatchingGuard(_: never, errorMessage: string): never {
+/**
+ * Utility function to use in a switch statement to ensure that all cases are handled. (for exhaustive matching)
+ * @throws A CustomError in case the function is called anyways.
+ */
+export function exhaustiveMatchingGuard(
+  _: never,
+  errorMessage?: string
+): never {
   throw new CustomError({
     status: HttpStatusCode.InternalServerError,
-    message: errorMessage,
+    message:
+      errorMessage ??
+      "This statement should never be reached. This is a bug and means there is a unhandled case in an exhaustive matching guard",
   });
 }
