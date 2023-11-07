@@ -51,3 +51,10 @@ export function validateInput<
 
   return parseResult.data;
 }
+
+export function exhaustiveMatchingGuard(_: never, errorMessage: string): never {
+  throw new CustomError({
+    status: HttpStatusCode.InternalServerError,
+    message: errorMessage,
+  });
+}

@@ -36,11 +36,16 @@ export const fuelSchema = z.object({
 });
 export type Fuel = z.infer<typeof fuelSchema>;
 
+export const glecFuelFactorUnits = [
+  "KG_CO2E_PER_KWH",
+  "KG_CO2E_PER_KG",
+  "KG_CO2E_PER_L",
+] as const;
 /**
  * Define the different fuel factors to be able to calculate emissions
  */
 export const fuelFactorSchema = z.object({
-  unit: z.enum(["KG_CO2E_PER_KWH", "KG_CO2E_PER_KG", "KG_CO2E_PER_L"]),
+  unit: z.enum(glecFuelFactorUnits),
   factor: z.object({
     WTT: z.number().nullable(),
     TTW: z.number().nullable(),
