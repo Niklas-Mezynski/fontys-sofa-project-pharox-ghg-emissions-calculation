@@ -18,7 +18,8 @@
             "wtt": null,
             "ttw": null,
             "wtw": 680
-        }
+        },
+        "region": ["EU", "SA"]
     },
     {
         "vehicle": {
@@ -29,6 +30,9 @@
                 "upper": 7.5,
                 "unit": "t"
             },
+            "engineType": null
+        },
+        "characteristics": null,
         "fuel": null,
         "fuelConsumption": null,
         "factor": {
@@ -36,7 +40,8 @@
             "wtt": null,
             "ttw": null,
             "wtw": 370
-        }
+        },
+        "region": ["EU", "SA"]
     },
     {
         "vehicle": {
@@ -57,7 +62,8 @@
             "wtt": null,
             "ttw": null,
             "wtw": 200
-        }
+        },
+        "region": ["EU", "SA"]
     },
     {
         "vehicle": {
@@ -78,6 +84,7 @@
             "wtt": null,
             "ttw": null,
             "wtw": 92
-        }
+        },
+        "region": ["EU", "SA"]
     },
 ]
