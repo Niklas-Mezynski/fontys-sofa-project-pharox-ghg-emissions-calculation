@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "RIGID_TRUCK",
+        "name": "Rigid truck 20-26 t GVW",
+        "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 0.6,
+        "emptyRunning": 0.17,
+        "loadCharacteristic": "AVERAGE_MIXED",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "LNG",
+        "code": "LNG"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.038,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 36,
+        "ttw": 100,
+        "wtw": 140
+    }
+}
