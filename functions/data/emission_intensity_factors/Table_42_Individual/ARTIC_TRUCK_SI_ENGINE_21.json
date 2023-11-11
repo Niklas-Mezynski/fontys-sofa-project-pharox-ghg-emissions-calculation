@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "ARTIC_TRUCK_SI_ENGINE",
+        "name": "Artic truck up to 40 t GVW SI engine",
+        "weight": {
+            "lower": 0,
+            "upper": 40,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 0.72,
+        "emptyRunning": 0.3,
+        "loadCharacteristic": "CONTAINER",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "Bio-LNG",
+        "code": "BLNG"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.021,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 30,
+        "ttw": 2,
+        "wtw": 32
+    }
+}
