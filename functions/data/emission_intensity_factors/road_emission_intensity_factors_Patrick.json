@@ -430,5 +430,77 @@
             "ttw": 69,
             "wtw": 87
         }
+    },
+    {
+        "vehicle": {
+            "code": "ARTIC_TRUCK",
+            "name": "Artic truck up to 34 t GVW",
+            "weight": {
+                "lower": 0,
+                "upper": 34,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.60,
+            "emptyRunning": 0.17,
+            "loadCharacteristic": "AVERAGE_MIXED",
+            "combinedLoadFactorEmptyRunning": 0.00
+        },
+        "fuel": {
+            "name": "Diesel, 5% biodiesel blend",
+            "code": "D5BB"
+        },
+        "fuelConsumption": [{
+            "value": 0.024,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.029,
+            "unit": "l/t-km"
+        }],
+        "factor": {
+            "unit": "g co2e/t-km",
+            "wtt": 18,
+            "ttw": 74,
+            "wtw": 92
+        }
+    },
+    {
+        "vehicle": {
+            "code": "ARTIC_TRUCK",
+            "name": "Artic truck up to 34 t GVW",
+            "weight": {
+                "lower": 0,
+                "upper": 34,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.72,
+            "emptyRunning": 0.30,
+            "loadCharacteristic": "CONTAINER",
+            "combinedLoadFactorEmptyRunning": 0.00
+        },
+        "fuel": {
+            "name": "Diesel, 5% biodiesel blend",
+            "code": "D5BB"
+        },
+        "fuelConsumption": [{
+            "value": 0.027,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.033,
+            "unit": "l/t-km"
+        }],
+        "factor": {
+            "unit": "g co2e/t-km",
+            "wtt": 21,
+            "ttw": 83,
+            "wtw": 100
+        }
     }
 ]
