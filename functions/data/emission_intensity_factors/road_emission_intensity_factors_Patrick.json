@@ -1045,7 +1045,7 @@
     },
     {
         "vehicle": {
-            "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+            "code": "ARTIC_TRUCK",
             "name": "Artic truck up to 44 t GVW",
             "weight": {
                 "lower": 0,
@@ -1081,7 +1081,7 @@
     },
     {
         "vehicle": {
-            "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+            "code": "ARTIC_TRUCK",
             "name": "Artic truck up to 44 t GVW",
             "weight": {
                 "lower": 0,
@@ -1117,7 +1117,7 @@
     },
     {
         "vehicle": {
-            "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+            "code": "ARTIC_TRUCK",
             "name": "Artic truck up to 44 t GVW",
             "weight": {
                 "lower": 0,
@@ -1153,7 +1153,7 @@
     },
     {
         "vehicle": {
-            "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+            "code": "ARTIC_TRUCK",
             "name": "Artic truck up to 44 t GVW",
             "weight": {
                 "lower": 0,
@@ -1185,6 +1185,42 @@
             "wtt": 14,
             "ttw": 54,
             "wtw": 67
+        }
+    },
+    {
+        "vehicle": {
+            "code": "ARTIC_TRUCK",
+            "name": "Artic truck up to 60 t GVW",
+            "weight": {
+                "lower": 0,
+                "upper": 60,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.60,
+            "emptyRunning": 0.17,
+            "loadCharacteristic": "AVERAGE_MIXED",
+            "combinedLoadFactorEmptyRunning": 0.00
+        },
+        "fuel": {
+            "name": "Diesel, 5% biodiesel blend",
+            "code": "D5BB"
+        },
+        "fuelConsumption": [{
+            "value": 0.017,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.020,
+            "unit": "l/t-km"
+        }],
+        "factor": {
+            "unit": "g co2e/t-km",
+            "wtt": 12,
+            "ttw": 51,
+            "wtw": 63
         }
     }
 ]
