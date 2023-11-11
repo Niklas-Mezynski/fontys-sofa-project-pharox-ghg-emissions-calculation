@@ -1,0 +1,153 @@
+[
+    {
+        "SmartWayCategory": "Van(<3.5t)",
+        "ConsumptionFactor(kg/t-km)": 0.22,
+        "ConsumptionFactor(l/t-km)": 0.26,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 142,
+            "TTW": 692,
+            "WTW": 835
+        }
+    },
+    {
+        "SmartWayCategory": "General",
+        "ConsumptionFactor(kg/t-km)": 0.025,
+        "ConsumptionFactor(l/t-km)": 0.030,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 16.5,
+            "TTW": 80,
+            "WTW": 97
+        }
+    },
+    {
+        "SmartWayCategory": "AutoCarrier",
+        "ConsumptionFactor(kg/t-km)": 0.031,
+        "ConsumptionFactor(l/t-km)": 0.037,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 20.4,
+            "TTW": 99,
+            "WTW": 120
+        }
+    },
+    {
+        "SmartWayCategory": "Dray",
+        "ConsumptionFactor(kg/t-km)": 0.022,
+        "ConsumptionFactor(l/t-km)": 0.026,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 14.2,
+            "TTW": 69,
+            "WTW": 83
+        }
+    },
+    {
+        "SmartWayCategory": "Expedited",
+        "ConsumptionFactor(kg/t-km)": 0.170,
+        "ConsumptionFactor(l/t-km)": 0.204,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 111.9,
+            "TTW": 544,
+            "WTW": 656
+        }
+    },
+    {
+        "SmartWayCategory": "Flatbed",
+        "ConsumptionFactor(kg/t-km)": 0.021,
+        "ConsumptionFactor(l/t-km)": 0.026,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 14.1,
+            "TTW": 68,
+            "WTW": 83
+        }
+    },
+    {
+        "SmartWayCategory": "HeavyBulk",
+        "ConsumptionFactor(kg/t-km)": 0.018,
+        "ConsumptionFactor(l/t-km)": 0.022,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 12.0,
+            "TTW": 58,
+            "WTW": 70
+        }
+    },
+    {
+        "SmartWayCategory": "LTL/DryVan",
+        "ConsumptionFactor(kg/t-km)": 0.041,
+        "ConsumptionFactor(l/t-km)": 0.049,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 26.8,
+            "TTW": 130,
+            "WTW": 157
+        }
+    },
+    {
+        "SmartWayCategory": "Mixed",
+        "ConsumptionFactor(kg/t-km)": 0.025,
+        "ConsumptionFactor(l/t-km)": 0.030,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 16.5,
+            "TTW": 80,
+            "WTW": 97
+        }
+    },
+    {
+        "SmartWayCategory": "Moving",
+        "ConsumptionFactor(kg/t-km)": 0.053,
+        "ConsumptionFactor(l/t-km)": 0.064,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 35.2,
+            "TTW": 171,
+            "WTW": 206
+        }
+    },
+    {
+        "SmartWayCategory": "Package",
+        "ConsumptionFactor(kg/t-km)": 0.293,
+        "ConsumptionFactor(l/t-km)": 0.354,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 193.6,
+            "TTW": 942,
+            "WTW": 1135
+        }
+    },
+    {
+        "SmartWayCategory": "Refrigerated",
+        "ConsumptionFactor(kg/t-km)": 0.024,
+        "ConsumptionFactor(l/t-km)": 0.029,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 15.8,
+            "TTW": 77,
+            "WTW": 92
+        }
+    },
+    {
+        "SmartWayCategory": "Specialized",
+        "ConsumptionFactor(kg/t-km)": 0.021,
+        "ConsumptionFactor(l/t-km)": 0.025,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 13.7,
+            "TTW": 66,
+            "WTW": 80
+        }
+    },
+    {
+        "SmartWayCategory": "Tanker",
+        "ConsumptionFactor(kg/t-km)": 0.019,
+        "ConsumptionFactor(l/t-km)": 0.023,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 12.4,
+            "TTW": 60,
+            "WTW": 73
+        }
+    },
+    {
+        "SmartWayCategory": "TL/DryVan",
+        "ConsumptionFactor(kg/t-km)": 0.023,
+        "ConsumptionFactor(l/t-km)": 0.028,
+        "EmissionIntensity(gCO2e/t-km)":{
+            "WTT": 15.1,
+            "TTW": 73,
+            "WTW": 88
+        }
+    }
+    
+]
