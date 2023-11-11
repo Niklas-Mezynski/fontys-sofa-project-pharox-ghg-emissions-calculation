@@ -358,5 +358,77 @@
             "ttw": 100,
             "wtw": 140
         }
+    },
+    {
+        "vehicle": {
+            "code": "RIGID_TRUCK",
+            "name": "Rigid truck 26-32 t GVW",
+            "weight": {
+                "lower": 26,
+                "upper": 32,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.6,
+            "emptyRunning": 0.17,
+            "loadCharacteristic": "AVERAGE_MIXED",
+            "combinedLoadFactorEmptyRunning": 0.00
+        },
+        "fuel": {
+            "name": "Diesel, 5% biodiesel blend",
+            "code": "D5BB"
+        },
+        "fuelConsumption": [{
+            "value": 0.026,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.031,
+            "unit": "l/t-km"
+        }],
+        "factor": {
+            "unit": "g co2e/t-km",
+            "wtt": 20,
+            "ttw": 78,
+            "wtw": 98
+        }
+    },
+    {
+        "vehicle": {
+            "code": "RIGID_TRUCK",
+            "name": "Rigid truck 26-32 t GVW",
+            "weight": {
+                "lower": 26,
+                "upper": 32,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.72,
+            "emptyRunning": 0.30,
+            "loadCharacteristic": "CONTAINER",
+            "combinedLoadFactorEmptyRunning": 0.00
+        },
+        "fuel": {
+            "name": "Diesel, 5% biodiesel blend",
+            "code": "D5BB"
+        },
+        "fuelConsumption": [{
+            "value": 0.023,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.027,
+            "unit": "l/t-km"
+        }],
+        "factor": {
+            "unit": "g co2e/t-km",
+            "wtt": 18,
+            "ttw": 69,
+            "wtw": 87
+        }
     }
 ]
