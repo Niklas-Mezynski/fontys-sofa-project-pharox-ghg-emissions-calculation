@@ -230,5 +230,140 @@
             "wtw": 660
         },
         "region": ["EU", "SA"]
+    },
+    {
+        "vehicle": {
+            "code": "VAN_LT_3.5_T",
+            "name": "Van <- 3.5 t",
+            "weight": {
+                "lower": null,
+                "upper": 3.5,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": null,
+            "emptyRunning": null,
+            "loadCharacteristic": null,
+            "combinedLoadFactorEmptyRunning": 0.31
+        },
+        "fuel": {
+            "name": "ELECTRICITY",
+            "code": "ELECTRICITY"
+        },
+        "fuelConsumption": [{
+            "value": 1.1,
+            "unit": "KWH_PER_TKM"
+        }],
+        "region": ["EU", "SA"]
+    },
+    {
+        "vehicle": {
+            "code": "RIGID_TRUCK_3.5_TO_7.5_T_GVW",
+            "name": "Rigid truck 3.5 - 7.5 t GVW",
+            "weight": {
+                "lower": 3.5,
+                "upper": 7.5,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.3,
+            "emptyRunning": 0.09,
+            "loadCharacteristic": "LIGHT",
+            "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+            "name": "ELECTRICITY",
+            "code": "ELECTRICITY"
+        },
+        "fuelConsumption": [{
+            "value": 0.90,
+            "unit": "KWH_PER_TKM"
+        }],
+        "region": ["EU", "SA"]
+    },
+    {
+        "vehicle": {
+            "code": "RIGID_TRUCK_3.5_TO_7.5_T_GVW",
+            "name": "Rigid truck 3.5 - 7.5 t GVW",
+            "weight": {
+                "lower": 3.5,
+                "upper": 7.5,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.6,
+            "emptyRunning": 0.17,
+            "loadCharacteristic": "AVERAGE_MIXED",
+            "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+            "name": "ELECTRICITY",
+            "code": "ELECTRICITY"
+        },
+        "fuelConsumption": [{
+            "value": 0.51,
+            "unit": "KWH_PER_TKM"
+        }],
+        "region": ["EU", "SA"]
+    },
+    {
+        "vehicle": {
+            "code": "RIGID_TRUCK_7.5_TO_12_T_GVW",
+            "name": "Rigid truck 7.5 - 12 t GVW",
+            "weight": {
+                "lower": 7.5,
+                "upper": 12,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.3,
+            "emptyRunning": 0.09,
+            "loadCharacteristic": "LIGHT",
+            "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+            "name": "ELECTRICITY",
+            "code": "ELECTRICITY"
+        },
+        "fuelConsumption": [{
+            "value": 0.68,
+            "unit": "KWH_PER_TKM"
+        }],
+        "region": ["EU", "SA"]
+    },
+    {
+        "vehicle": {
+            "code": "RIGID_TRUCK_7.5_TO_12_T_GVW",
+            "name": "Rigid truck 7.5 - 12 t GVW",
+            "weight": {
+                "lower": 7.5,
+                "upper": 12,
+                "unit": "t"
+            },
+            "engineType": null
+        },
+        "characteristics": {
+            "loadFactor": 0.6,
+            "emptyRunning": 0.17,
+            "loadCharacteristic": "AVERAGE_MIXED",
+            "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+            "name": "ELECTRICITY",
+            "code": "ELECTRICITY"
+        },
+        "fuelConsumption": [{
+            "value": 0.39,
+            "unit": "KWH_PER_TKM"
+        }],
+        "region": ["EU", "SA"]
     }
 ]
