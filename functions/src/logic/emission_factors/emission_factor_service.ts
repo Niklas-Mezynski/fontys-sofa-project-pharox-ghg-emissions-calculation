@@ -12,7 +12,7 @@ import {
   IntensityEmissionFactor,
   fuelEmissionFactorSchema,
   intensityEmissionFactorSchema,
-} from "../../models/emission_factors/emission_factors";
+} from "../../models/emission_factors/fuel_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 

@@ -3,28 +3,6 @@ import { z } from "zod";
 
 extendZodWithOpenApi(z);
 
-/**
- * Emission factor input needed to find the right emission factor.
- */
-export const emissionFactorInput = z.union([
-  z.object({
-    activityId: z.string(),
-  }),
-  z.object({
-    activityType: z.string(),
-    vehicleType: z.string(),
-    fuelType: z.string(),
-  }),
-]);
-
-/**
- * Calculation data input needed to calculate the emissions.
- */
-export const calculationDataInput = z.object({
-  resourceAmount: z.number().positive(),
-  unit: z.string(),
-});
-
 /** FUEL EMISSION FACTOR MODELS */
 
 /**

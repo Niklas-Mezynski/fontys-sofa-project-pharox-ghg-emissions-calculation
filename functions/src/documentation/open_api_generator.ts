@@ -13,7 +13,7 @@ import {
   fuelEmissionFactorSchema,
   fuelFactorSchema,
   fuelSchema,
-} from "../models/emission_factors/emission_factors";
+} from "../models/emission_factors/fuel_emission_factors";
 import { unitsOpenApiPaths } from "./paths/units";
 import { z } from "zod";
 import { allUnits, unitTypes } from "../models/units/units";

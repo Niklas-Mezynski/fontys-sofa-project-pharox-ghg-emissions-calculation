@@ -67,3 +67,35 @@ export function exhaustiveMatchingGuard(
       "This statement should never be reached. This is a bug and means there is a unhandled case in an exhaustive matching guard",
   });
 }
+
+type EntityWithReport<T> = {
+  report: unknown[];
+} & T;
+
+function runWithReport<I, O>(
+  input: EntityWithReport<I>,
+  transform: (_: I) => EntityWithReport<O>
+): EntityWithReport<O> {
+  const result = transform(input);
+  result.report = input.report.concat(result.report);
+  return result;
+}
+
+function getEmissionFactor(input: {
+  fuelType: string;
+  fuelCode: string;
+}): EntityWithReport<{ emissionFactor: number }> {
+  const { fuelType, fuelCode } = input;
+  const emissionFactor = 1;
+  return {
+    emissionFactor,
+    report: [
+      `Emission factor for ${fuelType} ${fuelCode} is ${emissionFactor}`,
+    ],
+  };
+}
+
+const factorWithReport = runWithReport(
+  { fuelType: "Diesel", fuelCode: "D1", report: [] },
+  getEmissionFactor
+);

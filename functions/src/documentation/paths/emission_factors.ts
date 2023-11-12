@@ -4,7 +4,7 @@ import {
   fuelEmissionFactorSchema,
   fuelEmissionFactorSourceSchema,
   regionSchema,
-} from "../../models/emission_factors/emission_factors";
+} from "../../models/emission_factors/fuel_emission_factors";
 
 export const emissionFactorsOpenApiPaths: RouteConfig[] = [
   {

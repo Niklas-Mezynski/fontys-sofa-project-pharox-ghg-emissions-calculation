@@ -15,7 +15,7 @@ export type UnitType = (typeof unitTypes)[number];
 export const volumeUnits = ["ml", "l", "tsp", "tbsp"] as const;
 export type VolumeUnit = (typeof volumeUnits)[number];
 
-export const weightUnits = ["g", "kg", "tonnes", "oz", "lb"] as const;
+export const weightUnits = ["g", "kg", "tonnes", "t", "oz", "lb"] as const;
 export type WeightUnit = (typeof weightUnits)[number];
 
 export const distanceUnits = ["km", "cm", "m", "in", "ft", "mi"] as const;
