@@ -7,7 +7,8 @@
             "WTT": 142,
             "TTW": 692,
             "WTW": 835
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "General",
@@ -17,7 +18,8 @@
             "WTT": 16.5,
             "TTW": 80,
             "WTW": 97
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "AutoCarrier",
@@ -27,7 +29,8 @@
             "WTT": 20.4,
             "TTW": 99,
             "WTW": 120
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Dray",
@@ -37,7 +40,8 @@
             "WTT": 14.2,
             "TTW": 69,
             "WTW": 83
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Expedited",
@@ -47,7 +51,8 @@
             "WTT": 111.9,
             "TTW": 544,
             "WTW": 656
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Flatbed",
@@ -57,7 +62,8 @@
             "WTT": 14.1,
             "TTW": 68,
             "WTW": 83
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "HeavyBulk",
@@ -67,7 +73,8 @@
             "WTT": 12.0,
             "TTW": 58,
             "WTW": 70
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "LTL/DryVan",
@@ -77,7 +84,8 @@
             "WTT": 26.8,
             "TTW": 130,
             "WTW": 157
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Mixed",
@@ -87,7 +95,8 @@
             "WTT": 16.5,
             "TTW": 80,
             "WTW": 97
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Moving",
@@ -97,7 +106,8 @@
             "WTT": 35.2,
             "TTW": 171,
             "WTW": 206
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Package",
@@ -107,7 +117,8 @@
             "WTT": 193.6,
             "TTW": 942,
             "WTW": 1135
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Refrigerated",
@@ -117,7 +128,8 @@
             "WTT": 15.8,
             "TTW": 77,
             "WTW": 92
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Specialized",
@@ -127,7 +139,8 @@
             "WTT": 13.7,
             "TTW": 66,
             "WTW": 80
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "Tanker",
@@ -137,7 +150,8 @@
             "WTT": 12.4,
             "TTW": 60,
             "WTW": 73
-        }
+        },
+        "region": "NORTH_AMERICA"
     },
     {
         "SmartWayCategory": "TL/DryVan",
@@ -147,7 +161,7 @@
             "WTT": 15.1,
             "TTW": 73,
             "WTW": 88
-        }
+        },
+        "region": "NORTH_AMERICA"
     }
-    
 ]
