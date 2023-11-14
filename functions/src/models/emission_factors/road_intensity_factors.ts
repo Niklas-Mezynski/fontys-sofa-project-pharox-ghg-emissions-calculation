@@ -36,7 +36,8 @@ const fuelSchema = z.object({
 
 export const glecIntensityFuelConsumptionUnits = [
   "KWH_PER_TKM",
-  "CO2E_PER_TKM",
+  "KG_PER_TKM",
+  "L_PER_TKM",
 ] as const;
 
 const fuelConsumptionSchema = z.array(
@@ -58,7 +59,7 @@ export const roadIntensityFactorSchema = z.object({
   characteristics: characteristicsSchema.nullable(),
   fuel: fuelSchema.nullable(),
   fuelConsumption: fuelConsumptionSchema.nullable(),
-  factor: factorSchema,
+  factor: factorSchema.nullable(),
   region: regionSchema,
   source: fuelEmissionFactorSourceSchema,
 });

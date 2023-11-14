@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { z } from "zod";
 import { roadIntensityFactorSchema } from "../../../models/emission_factors/road_intensity_factors";
 import { validateInput } from "../../../utils/functions";
@@ -59,12 +60,20 @@ function mapToSPecificRegion(
     return {
       ...factor,
       region: regionToMapTo,
-      factor: {
-        ...factor.factor,
-        wtt: factor.factor.wtt ? factor.factor.wtt * multiplier : null,
-        ttw: factor.factor.ttw ? factor.factor.ttw * multiplier : null,
-        wtw: factor.factor.wtw ? factor.factor.wtw * multiplier : null,
-      },
+      factor: factor.factor
+        ? {
+            ...factor.factor,
+            wtt: factor.factor.wtt ? factor.factor.wtt * multiplier : null,
+            ttw: factor.factor.ttw ? factor.factor.ttw * multiplier : null,
+            wtw: factor.factor.wtw ? factor.factor.wtw * multiplier : null,
+          }
+        : null,
+      fuelConsumption: factor.fuelConsumption
+        ? factor.fuelConsumption.map((c: any) => ({
+            ...c,
+            value: c.value ? c.value * multiplier : null,
+          }))
+        : null,
     };
   });
 }

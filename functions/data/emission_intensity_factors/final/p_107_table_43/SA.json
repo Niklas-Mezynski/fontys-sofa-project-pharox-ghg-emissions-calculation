@@ -1,0 +1,32 @@
+[
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T",
+      "name": "Van <- 3.5 t",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": null,
+      "combinedLoadFactorEmptyRunning": 0.31
+    },
+    "fuel": {
+      "name": "ELECTRICITY",
+      "code": "ELECTRICITY"
+    },
+    "fuelConsumption": [
+      {
+        "value": 1.1,
+        "unit": "KWH_PER_TKM"
+      }
+    ],
+    "region": "SA",
+    "factor": null
+  }
+]
