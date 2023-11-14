@@ -111,7 +111,7 @@ const fuelEmissionFactorsCollection = "fuel_emission_factors";
  * Get all the Fuel emission factors in the database
  * @returns {Promise<FuelEmissionFactor[]>} - The found fuel emission factors
  */
-async function getAllFuelEmissionFactors() {
+async function getAllFuelEmissionFactors(): Promise<FuelEmissionFactor[]> {
   const factors = (
     await db.collection(fuelEmissionFactorsCollection).get()
   ).docs.map((doc) => doc.data());
