@@ -39,10 +39,17 @@ describe("Emission factors - Fuel emission factors", () => {
   let EmissionFactorService: any;
 
   beforeAll(() => {
+
+    /**
+     * Mock initialization of the Firebase App
+     */
     jest.mock("firebase-admin/app", () => ({
       initializeApp: jest.fn(),
     }));
   
+    /**
+     * Mock the different Firestore methods
+     */
     jest.mock("firebase-admin/firestore", () => ({
       getFirestore: jest.fn(() => ({
         collection: jest.fn((path) => ({
@@ -57,6 +64,10 @@ describe("Emission factors - Fuel emission factors", () => {
       })),
     }));
 
+    /**
+     * Import the logic that it will be tested
+     * NOTE: Always after the Firebase App and Firestore mocking, otherwise it won't work
+     */
     EmissionFactorService = require("../../../src/logic/emission_factors/emission_factor_service").EmissionFactorService;
   });
 
