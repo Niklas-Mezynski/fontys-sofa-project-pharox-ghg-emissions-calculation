@@ -2,6 +2,10 @@ import { z } from "zod";
 import { weightUnits } from "../units/units";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { commonModels } from "../common";
+import {
+  fuelEmissionFactorSourceSchema,
+  regionSchema,
+} from "./fuel_emission_factors";
 
 extendZodWithOpenApi(z);
 
@@ -43,18 +47,19 @@ export const glecIntensityFactorUnits = ["G_CO2E_PER_TKM"] as const;
 
 const factorSchema = z.object({
   unit: z.enum(glecIntensityFactorUnits),
-  wtt: z.number(),
-  ttw: z.number(),
-  wtw: z.number(),
+  wtt: z.number().nullable(),
+  ttw: z.number().nullable(),
+  wtw: z.number().nullable(),
 });
 
 export const roadIntensityFactorSchema = z.object({
   id: z.string().uuid().optional(),
-  vehicle: vehicleSchema,
-  characteristics: characteristicsSchema,
-  fuel: fuelSchema,
-  fuelConsumption: fuelConsumptionSchema,
+  vehicle: vehicleSchema.nullable(),
+  characteristics: characteristicsSchema.nullable(),
+  fuel: fuelSchema.nullable(),
+  fuelConsumption: fuelConsumptionSchema.nullable(),
   factor: factorSchema,
-  region: z.string(),
+  region: regionSchema,
+  source: fuelEmissionFactorSourceSchema,
 });
 export type RoadIntensityFactor = z.infer<typeof roadIntensityFactorSchema>;
