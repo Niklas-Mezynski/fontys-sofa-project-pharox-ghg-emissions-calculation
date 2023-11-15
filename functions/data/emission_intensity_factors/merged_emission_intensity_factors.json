@@ -1279,5 +1279,5741 @@
           "wtw": 660
         },
         "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.11956,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.14395999999999998,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 90.28,
+          "ttw": 366,
+          "wtw": 451.4
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.14274,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 54.9,
+          "ttw": 378.2,
+          "wtw": 439.2
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.07564,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.09028,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 57.339999999999996,
+          "ttw": 231.79999999999998,
+          "wtw": 292.8
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.08905999999999999,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 34.16,
+          "ttw": 231.79999999999998,
+          "wtw": 268.4
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.0488,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.05856,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36.6,
+          "ttw": 146.4,
+          "wtw": 183
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.061,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 158.6,
+          "wtw": 183
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.061,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 56.12,
+          "ttw": 158.6,
+          "wtw": 219.6
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.040260000000000004,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.04758,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 31.72,
+          "ttw": 120.78,
+          "wtw": 158.6
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.04636,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 122,
+          "wtw": 146.4
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.04636,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 43.92,
+          "ttw": 122,
+          "wtw": 170.79999999999998
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.03172,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03782,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 24.4,
+          "ttw": 95.16,
+          "wtw": 119.56
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.028059999999999998,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03294,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 21.96,
+          "ttw": 84.17999999999999,
+          "wtw": 106.14
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02928,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03538,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 21.96,
+          "ttw": 90.28,
+          "wtw": 112.24
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.03294,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.040260000000000004,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 25.62,
+          "ttw": 101.25999999999999,
+          "wtw": 122
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0305,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 19.52,
+          "ttw": 78.08,
+          "wtw": 97.6
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.0244,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03172,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 73.2,
+          "wtw": 91.5
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 75.64,
+          "wtw": 96.38
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 69.53999999999999,
+          "wtw": 90.28
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36.6,
+          "ttw": 2.44,
+          "wtw": 39.04
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 75.64,
+          "wtw": 96.38
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 69.53999999999999,
+          "wtw": 90.28
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36.6,
+          "ttw": 2.44,
+          "wtw": 39.04
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 68.32,
+          "wtw": 86.62
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 63.44,
+          "wtw": 81.74
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30.5,
+          "ttw": 9.76,
+          "wtw": 40.26
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 63.44,
+          "wtw": 86.62
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 63.44,
+          "wtw": 81.74
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30.5,
+          "ttw": 9.76,
+          "wtw": 40.26
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+          "name": "Artic truck up to 40 t GVW inc light-weight trailer",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01952,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02318,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14.64,
+          "ttw": 58.56,
+          "wtw": 73.2
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.3,
+          "emptyRunning": 0.09,
+          "loadCharacteristic": "LIGHT",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.03538,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.043919999999999994,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 28.06,
+          "ttw": 106.14,
+          "wtw": 134.2
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02562,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17.08,
+          "ttw": 65.88,
+          "wtw": 82.96
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.0183,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.021959999999999997,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14.64,
+          "ttw": 80.52,
+          "wtw": 70.76
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02562,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17.08,
+          "ttw": 65.88,
+          "wtw": 81.74
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02074,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14.64,
+          "ttw": 62.22,
+          "wtw": 76.86
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01708,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02074,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 13.42,
+          "ttw": 53.68,
+          "wtw": 65.88
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02074,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15.86,
+          "ttw": 61,
+          "wtw": 76.86
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01586,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0183,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12.2,
+          "ttw": 46.36,
+          "wtw": 58.56
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01708,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02074,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 13.42,
+          "ttw": 52.46,
+          "wtw": 65.88
+        },
+        "region": "AF"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.11956,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.14395999999999998,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 90.28,
+          "ttw": 366,
+          "wtw": 451.4
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.14274,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 54.9,
+          "ttw": 378.2,
+          "wtw": 439.2
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.07564,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.09028,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 57.339999999999996,
+          "ttw": 231.79999999999998,
+          "wtw": 292.8
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.08905999999999999,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 34.16,
+          "ttw": 231.79999999999998,
+          "wtw": 268.4
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.0488,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.05856,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36.6,
+          "ttw": 146.4,
+          "wtw": 183
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.061,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 158.6,
+          "wtw": 183
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.061,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 56.12,
+          "ttw": 158.6,
+          "wtw": 219.6
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.040260000000000004,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.04758,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 31.72,
+          "ttw": 120.78,
+          "wtw": 158.6
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.04636,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 122,
+          "wtw": 146.4
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.04636,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 43.92,
+          "ttw": 122,
+          "wtw": 170.79999999999998
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.03172,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03782,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 24.4,
+          "ttw": 95.16,
+          "wtw": 119.56
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.028059999999999998,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03294,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 21.96,
+          "ttw": 84.17999999999999,
+          "wtw": 106.14
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02928,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03538,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 21.96,
+          "ttw": 90.28,
+          "wtw": 112.24
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.03294,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.040260000000000004,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 25.62,
+          "ttw": 101.25999999999999,
+          "wtw": 122
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0305,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 19.52,
+          "ttw": 78.08,
+          "wtw": 97.6
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.0244,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.03172,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 73.2,
+          "wtw": 91.5
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 75.64,
+          "wtw": 96.38
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 69.53999999999999,
+          "wtw": 90.28
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36.6,
+          "ttw": 2.44,
+          "wtw": 39.04
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 75.64,
+          "wtw": 96.38
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20.74,
+          "ttw": 69.53999999999999,
+          "wtw": 90.28
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36.6,
+          "ttw": 2.44,
+          "wtw": 39.04
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 68.32,
+          "wtw": 86.62
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 63.44,
+          "wtw": 81.74
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30.5,
+          "ttw": 9.76,
+          "wtw": 40.26
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 63.44,
+          "wtw": 86.62
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18.3,
+          "ttw": 63.44,
+          "wtw": 81.74
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02562,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.000244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30.5,
+          "ttw": 9.76,
+          "wtw": 40.26
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+          "name": "Artic truck up to 40 t GVW inc light-weight trailer",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01952,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02318,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14.64,
+          "ttw": 58.56,
+          "wtw": 73.2
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.3,
+          "emptyRunning": 0.09,
+          "loadCharacteristic": "LIGHT",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.03538,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.043919999999999994,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 28.06,
+          "ttw": 106.14,
+          "wtw": 134.2
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02562,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17.08,
+          "ttw": 65.88,
+          "wtw": 82.96
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.0183,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.021959999999999997,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14.64,
+          "ttw": 80.52,
+          "wtw": 70.76
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021959999999999997,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02562,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17.08,
+          "ttw": 65.88,
+          "wtw": 81.74
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02074,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14.64,
+          "ttw": 62.22,
+          "wtw": 76.86
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01708,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02074,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 13.42,
+          "ttw": 53.68,
+          "wtw": 65.88
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02074,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0244,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15.86,
+          "ttw": 61,
+          "wtw": 76.86
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01586,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0183,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12.2,
+          "ttw": 46.36,
+          "wtw": 58.56
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.01708,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02074,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 13.42,
+          "ttw": 52.46,
+          "wtw": 65.88
+        },
+        "region": "AS"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.098,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.118,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 74,
+          "ttw": 300,
+          "wtw": 370
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.117,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 45,
+          "ttw": 310,
+          "wtw": 360
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.062,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.074,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 47,
+          "ttw": 190,
+          "wtw": 240
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.073,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 28,
+          "ttw": 190,
+          "wtw": 220
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.04,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.048,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30,
+          "ttw": 120,
+          "wtw": 150
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.05,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 130,
+          "wtw": 150
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.05,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 46,
+          "ttw": 130,
+          "wtw": 180
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.033,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.039,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 26,
+          "ttw": 99,
+          "wtw": 130
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.038,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 100,
+          "wtw": 120
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.038,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36,
+          "ttw": 100,
+          "wtw": 140
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.026,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.031,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20,
+          "ttw": 78,
+          "wtw": 98
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.023,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.027,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18,
+          "ttw": 69,
+          "wtw": 87
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.024,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.029,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18,
+          "ttw": 74,
+          "wtw": 92
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.027,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.033,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 21,
+          "ttw": 83,
+          "wtw": 100
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.025,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 16,
+          "ttw": 64,
+          "wtw": 80
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.026,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 60,
+          "wtw": 75
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 62,
+          "wtw": 79
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 57,
+          "wtw": 74
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30,
+          "ttw": 2,
+          "wtw": 32
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 62,
+          "wtw": 79
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 57,
+          "wtw": 74
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30,
+          "ttw": 2,
+          "wtw": 32
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 56,
+          "wtw": 71
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 52,
+          "wtw": 67
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 25,
+          "ttw": 8,
+          "wtw": 33
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 52,
+          "wtw": 71
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 52,
+          "wtw": 67
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 25,
+          "ttw": 8,
+          "wtw": 33
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+          "name": "Artic truck up to 40 t GVW inc light-weight trailer",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.016,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.019,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12,
+          "ttw": 48,
+          "wtw": 60
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.3,
+          "emptyRunning": 0.09,
+          "loadCharacteristic": "LIGHT",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.029,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.036,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 23,
+          "ttw": 87,
+          "wtw": 110
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.021,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14,
+          "ttw": 54,
+          "wtw": 68
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.015,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.018,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12,
+          "ttw": 66,
+          "wtw": 58
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.021,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14,
+          "ttw": 54,
+          "wtw": 67
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.017,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12,
+          "ttw": 51,
+          "wtw": 63
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.014,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.017,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 11,
+          "ttw": 44,
+          "wtw": 54
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.017,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 13,
+          "ttw": 50,
+          "wtw": 63
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.013,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.015,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 10,
+          "ttw": 38,
+          "wtw": 48
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.014,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.017,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 11,
+          "ttw": 43,
+          "wtw": 54
+        },
+        "region": "EU"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.098,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.118,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 74,
+          "ttw": 300,
+          "wtw": 370
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 3.5-7.5 t GVW",
+          "weight": {
+            "lower": 3.5,
+            "upper": 7.5,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.117,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 45,
+          "ttw": 310,
+          "wtw": 360
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.062,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.074,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 47,
+          "ttw": 190,
+          "wtw": 240
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 7.5-12 t GVW",
+          "weight": {
+            "lower": 7.5,
+            "upper": 12,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.073,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 28,
+          "ttw": 190,
+          "wtw": 220
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.04,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.048,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30,
+          "ttw": 120,
+          "wtw": 150
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.05,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 130,
+          "wtw": 150
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 12-20 t GVW",
+          "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.05,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 46,
+          "ttw": 130,
+          "wtw": 180
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.033,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.039,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 26,
+          "ttw": 99,
+          "wtw": 130
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.038,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 100,
+          "wtw": 120
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 20-26 t GVW",
+          "weight": {
+            "lower": 20,
+            "upper": 26,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.038,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 36,
+          "ttw": 100,
+          "wtw": 140
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.026,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.031,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 20,
+          "ttw": 78,
+          "wtw": 98
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "RIGID_TRUCK",
+          "name": "Rigid truck 26-32 t GVW",
+          "weight": {
+            "lower": 26,
+            "upper": 32,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.023,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.027,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18,
+          "ttw": 69,
+          "wtw": 87
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.024,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.029,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 18,
+          "ttw": 74,
+          "wtw": 92
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 34 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 34,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.027,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.033,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 21,
+          "ttw": 83,
+          "wtw": 100
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.025,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 16,
+          "ttw": 64,
+          "wtw": 80
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 40 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.02,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.026,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 60,
+          "wtw": 75
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 62,
+          "wtw": 79
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 57,
+          "wtw": 74
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30,
+          "ttw": 2,
+          "wtw": 32
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG",
+          "code": "LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 62,
+          "wtw": 79
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG",
+          "code": "CNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 17,
+          "ttw": 57,
+          "wtw": 74
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_SI_ENGINE",
+          "name": "Artic truck up to 40 t GVW SI engine",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Bio-LNG",
+          "code": "B_LNG"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 30,
+          "ttw": 2,
+          "wtw": 32
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 56,
+          "wtw": 71
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 52,
+          "wtw": 67
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 25,
+          "ttw": 8,
+          "wtw": 33
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "LNG/Diesel",
+          "code": "LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 52,
+          "wtw": 71
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "CNG/Diesel",
+          "code": "CNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 15,
+          "ttw": 52,
+          "wtw": 67
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_HPDI",
+          "name": "Artic truck up to 40 t GVW HDPI",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "BIO-LNG/Diesel",
+          "code": "B_LNG_DIESEL"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.021,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.0002,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 25,
+          "ttw": 8,
+          "wtw": 33
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+          "name": "Artic truck up to 40 t GVW inc light-weight trailer",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.016,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.019,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12,
+          "ttw": 48,
+          "wtw": 60
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.3,
+          "emptyRunning": 0.09,
+          "loadCharacteristic": "LIGHT",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.029,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.036,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 23,
+          "ttw": 87,
+          "wtw": 110
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.021,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14,
+          "ttw": 54,
+          "wtw": 68
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.015,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.018,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12,
+          "ttw": 66,
+          "wtw": 58
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 44 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 40,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.018,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.021,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 14,
+          "ttw": 54,
+          "wtw": 67
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.6,
+          "emptyRunning": 0.17,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.017,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 12,
+          "ttw": 51,
+          "wtw": 63
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.014,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.017,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 11,
+          "ttw": 44,
+          "wtw": 54
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 60 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 60,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.017,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.02,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 13,
+          "ttw": 50,
+          "wtw": 63
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 1,
+          "emptyRunning": 0.38,
+          "loadCharacteristic": "HEAVY",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.013,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.015,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 10,
+          "ttw": 38,
+          "wtw": 48
+        },
+        "region": "SA"
+      },
+      {
+        "vehicle": {
+          "code": "ARTIC_TRUCK",
+          "name": "Artic truck up to 72 t GVW",
+          "weight": {
+            "lower": null,
+            "upper": 72,
+            "unit": "t"
+          },
+          "engineType": null
+        },
+        "characteristics": {
+          "loadFactor": 0.72,
+          "emptyRunning": 0.3,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "fuel": {
+          "name": "Diesel, 5% biodiesel blend",
+          "code": "DIESEL_B5"
+        },
+        "fuelConsumption": [
+          {
+            "value": 0.014,
+            "unit": "KG_PER_TKM"
+          },
+          {
+            "value": 0.017,
+            "unit": "L_PER_TKM"
+          }
+        ],
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 11,
+          "ttw": 43,
+          "wtw": 54
+        },
+        "region": "SA"
       }
   ]
