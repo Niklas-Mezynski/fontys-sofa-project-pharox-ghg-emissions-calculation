@@ -7,7 +7,7 @@ import {
 } from "../../../models/emission_factors/road_intensity_factors";
 import { validateInput } from "../../../utils/functions";
 
-const roadIntensityFactorsCollection = "intensity_factors/road";
+const roadIntensityFactorsCollection = "intensity_factors_road";
 
 async function getAll() {
   const factors = await db.collection(roadIntensityFactorsCollection).get();
