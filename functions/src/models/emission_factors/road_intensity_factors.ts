@@ -62,5 +62,6 @@ export const roadIntensityFactorSchema = z.object({
   factor: factorSchema.nullable(),
   region: regionSchema,
   source: fuelEmissionFactorSourceSchema,
+  refrigerated: z.boolean().default(false),
 });
 export type RoadIntensityFactor = z.infer<typeof roadIntensityFactorSchema>;
