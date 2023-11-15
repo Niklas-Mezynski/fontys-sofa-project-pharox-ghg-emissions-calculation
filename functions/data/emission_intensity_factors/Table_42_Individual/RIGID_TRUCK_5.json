@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "RIGID_TRUCK",
+        "name": "Rigid truck 12-20 t GVW",
+        "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 0.6,
+        "emptyRunning": 0.17,
+        "loadCharacteristic": "AVERAGE_MIXED",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "CNG",
+        "code": "CNG"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.05,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 15,
+        "ttw": 130,
+        "wtw": 150
+    }
+}

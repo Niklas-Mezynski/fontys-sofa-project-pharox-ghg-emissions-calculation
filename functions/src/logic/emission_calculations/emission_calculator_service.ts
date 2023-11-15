@@ -73,14 +73,8 @@ async function calculateTransportActivity(
     transportPart.transportDetails.consumedFuel.unit
   );
 
-  const mappedEmissionFactor = {
-    ...emissionFactor,
-    factors: emissionFactor.factors.map((factor) => ({
-      ...factor,
-      producedUnit: factor.unit.split("_PER_")[0].toLowerCase(),
-      perUnit: factor.unit.split("_PER_")[1].toLowerCase(), // TODO: Check that this toLowerCase() does not produce any errors
-    })),
-  };
+  const mappedEmissionFactor =
+    EmissionFactorService.mapEmissionFactorWithUnits(emissionFactor);
 
   // Get the factor with the same unit type as the provided unit type
   const factorToUse = mappedEmissionFactor.factors.find(

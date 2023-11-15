@@ -4,7 +4,7 @@ import { getEmissionFactorQueryInput } from "../../models/emission_factors/clima
 import {
   fuelEmissionFactorSchema,
   fuelSchema,
-} from "../../models/emission_factors/emission_factors";
+} from "../../models/emission_factors/fuel_emission_factors";
 import { onErrorHandledRequest } from "../../utils/request_handler";
 import { validateInput } from "../../utils/functions";
 import { CustomError } from "../../utils/errors";

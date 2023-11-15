@@ -1,35 +1,7 @@
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-/**
- * Emission factor input needed to find the right emission factor.
- */
-export const emissionFactorInput = z.union([
-  z.object({
-    activityId: z.string(),
-  }),
-  z.object({
-    activityType: z.string(),
-    vehicleType: z.string(),
-    fuelType: z.string(),
-  }),
-]);
-
-/**
- * Calculation data input needed to calculate the emissions.
- */
-export const calculationDataInput = z.object({
-  resourceAmount: z.number().positive(),
-  unit: z.string(),
-});
-
-/**
- * Emission calculator input needed to calculate the emissions.
- */
-export const emissionCalculatorInput = z.object({
-  emissionDetails: emissionFactorInput,
-  calculationDetails: calculationDataInput,
-});
-export type EmissionCalculatorInput = z.infer<typeof emissionCalculatorInput>;
+extendZodWithOpenApi(z);
 
 /** FUEL EMISSION FACTOR MODELS */
 
@@ -42,11 +14,16 @@ export const fuelSchema = z.object({
 });
 export type Fuel = z.infer<typeof fuelSchema>;
 
+export const glecFuelFactorUnits = [
+  "KG_CO2E_PER_KWH",
+  "KG_CO2E_PER_KG",
+  "KG_CO2E_PER_L",
+] as const;
 /**
  * Define the different fuel factors to be able to calculate emissions
  */
 export const fuelFactorSchema = z.object({
-  unit: z.enum(["KG_CO2E_PER_KWH", "KG_CO2E_PER_KG", "KG_CO2E_PER_L"]),
+  unit: z.enum(glecFuelFactorUnits),
   factor: z.object({
     WTT: z.number().nullable(),
     TTW: z.number().nullable(),
@@ -65,15 +42,20 @@ export const emissionFactorRegions = [
   "AN",
   "INTERNATIONAL",
 ] as const;
+export const regionSchema = z.enum(emissionFactorRegions).default("EU");
+
+export const fuelEmissionFactorSourceSchema = z
+  .enum(["CUSTOM", "GLEC"])
+  .default("GLEC");
 /**
  * The fuel emission factor model containin the info to perform emission calculations
  */
 export const fuelEmissionFactorSchema = z.object({
   id: z.string().uuid().optional(),
-  source: z.enum(["CUSTOM", "GLEC"]).default("GLEC"),
+  source: fuelEmissionFactorSourceSchema,
   fuel: fuelSchema,
   factors: z.array(fuelFactorSchema).nonempty(),
-  region: z.enum(emissionFactorRegions).default("EU"), // EU, NA, AF, AS, SA, OC, AN - continent codes
+  region: regionSchema, // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
 

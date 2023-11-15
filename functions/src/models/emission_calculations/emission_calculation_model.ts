@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { commonModels } from "../common";
-import { emissionFactorRegions } from "../emission_factors/emission_factors";
+import { emissionFactorRegions } from "../emission_factors/fuel_emission_factors";
 import {
   distanceUnits,
   electricityUnits,

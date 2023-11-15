@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "RIGID_TRUCK",
+        "name": "Rigid truck 12-20 t GVW",
+        "weight": {
+            "lower": 12,
+            "upper": 20,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 0.6,
+        "emptyRunning": 0.17,
+        "loadCharacteristic": "AVERAGE_MIXED",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "Diesel, 5% biodiesel blend",
+        "code": "D5BB"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.04,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.048,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 30,
+        "ttw": 120,
+        "wtw": 150
+    }
+}

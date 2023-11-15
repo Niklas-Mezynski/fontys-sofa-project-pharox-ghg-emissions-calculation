@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "ARTIC_TRUCK_HPDI",
+        "name": "Artic truck up to 40 t GVW HDPI",
+        "weight": {
+            "lower": 0,
+            "upper": 40,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 0.6,
+        "emptyRunning": 0.17,
+        "loadCharacteristic": "AVERAGE_MIXED",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "BIO-LNG/Diesel",
+        "code": "BLNG_DIESEL"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.021,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.0002,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 25,
+        "ttw": 8,
+        "wtw": 33
+    }
+}

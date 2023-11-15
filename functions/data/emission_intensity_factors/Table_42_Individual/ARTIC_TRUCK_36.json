@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "ARTIC_TRUCK",
+        "name": "Artic truck up to 72 t GVW",
+        "weight": {
+            "lower": 0,
+            "upper": 72,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 1,
+        "emptyRunning": 0.38,
+        "loadCharacteristic": "HEAVY",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "Diesel, 5% biodiesel blend",
+        "code": "D5BB"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.013,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.015,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 10,
+        "ttw": 38,
+        "wtw": 48
+    }
+}

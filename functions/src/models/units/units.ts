@@ -15,7 +15,7 @@ export type UnitType = (typeof unitTypes)[number];
 export const volumeUnits = ["ml", "l", "tsp", "tbsp"] as const;
 export type VolumeUnit = (typeof volumeUnits)[number];
 
-export const weightUnits = ["g", "kg", "tonnes", "oz", "lb"] as const;
+export const weightUnits = ["g", "kg", "tonnes", "t", "oz", "lb"] as const;
 export type WeightUnit = (typeof weightUnits)[number];
 
 export const distanceUnits = ["km", "cm", "m", "in", "ft", "mi"] as const;
@@ -23,6 +23,13 @@ export type DistanceUnit = (typeof distanceUnits)[number];
 
 export const electricityUnits = ["kWh"] as const;
 export type ElectricityUnit = (typeof electricityUnits)[number];
+
+export const allUnits = [
+  ...volumeUnits,
+  ...weightUnits,
+  ...distanceUnits,
+  ...electricityUnits,
+] as const;
 
 // Define your structure type
 type UnitStructure = {

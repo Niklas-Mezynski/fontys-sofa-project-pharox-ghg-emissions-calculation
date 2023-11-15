@@ -1,0 +1,122 @@
+[
+  {
+    "vehicle": {
+      "code": "RIGID_TRUCK_3.5_TO_7.5_T_GVW",
+      "name": "Rigid truck 3.5 - 7.5 t GVW",
+      "weight": {
+        "lower": 3.5,
+        "upper": 7.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": 0.3,
+      "emptyRunning": 0.09,
+      "loadCharacteristic": "LIGHT",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": {
+      "name": "ELECTRICITY",
+      "code": "ELECTRICITY"
+    },
+    "fuelConsumption": [
+      {
+        "value": 1.098,
+        "unit": "KWH_PER_TKM"
+      }
+    ],
+    "region": "AS",
+    "factor": null
+  },
+  {
+    "vehicle": {
+      "code": "RIGID_TRUCK_3.5_TO_7.5_T_GVW",
+      "name": "Rigid truck 3.5 - 7.5 t GVW",
+      "weight": {
+        "lower": 3.5,
+        "upper": 7.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": 0.6,
+      "emptyRunning": 0.17,
+      "loadCharacteristic": "AVERAGE_MIXED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": {
+      "name": "ELECTRICITY",
+      "code": "ELECTRICITY"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.6222,
+        "unit": "KWH_PER_TKM"
+      }
+    ],
+    "region": "AS",
+    "factor": null
+  },
+  {
+    "vehicle": {
+      "code": "RIGID_TRUCK_7.5_TO_12_T_GVW",
+      "name": "Rigid truck 7.5 - 12 t GVW",
+      "weight": {
+        "lower": 7.5,
+        "upper": 12,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": 0.3,
+      "emptyRunning": 0.09,
+      "loadCharacteristic": "LIGHT",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": {
+      "name": "ELECTRICITY",
+      "code": "ELECTRICITY"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.8296,
+        "unit": "KWH_PER_TKM"
+      }
+    ],
+    "region": "AS",
+    "factor": null
+  },
+  {
+    "vehicle": {
+      "code": "RIGID_TRUCK_7.5_TO_12_T_GVW",
+      "name": "Rigid truck 7.5 - 12 t GVW",
+      "weight": {
+        "lower": 7.5,
+        "upper": 12,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": 0.6,
+      "emptyRunning": 0.17,
+      "loadCharacteristic": "AVERAGE_MIXED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": {
+      "name": "ELECTRICITY",
+      "code": "ELECTRICITY"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.4758,
+        "unit": "KWH_PER_TKM"
+      }
+    ],
+    "region": "AS",
+    "factor": null
+  }
+]

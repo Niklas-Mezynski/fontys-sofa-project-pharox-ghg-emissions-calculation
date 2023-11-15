@@ -1,0 +1,90 @@
+[
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T_GVW",
+      "name": "Van <- 3.5 t GVW",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": null,
+    "fuel": null,
+    "fuelConsumption": null,
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": null,
+      "ttw": null,
+      "wtw": 768.4
+    },
+    "region": "AF"
+  },
+  {
+    "vehicle": {
+      "code": "URBAN_TRUCK_3.5_TO_7.5_T_GVW",
+      "name": "Urban truck 3.5 - 7.5 t GVW",
+      "weight": {
+        "lower": 3.5,
+        "upper": 7.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": null,
+    "fuel": null,
+    "fuelConsumption": null,
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": null,
+      "ttw": null,
+      "wtw": 451.4
+    },
+    "region": "AF"
+  },
+  {
+    "vehicle": {
+      "code": "MGV_7.5_TO_20_T_GVW",
+      "name": "MGV 7.5 - 20 t GVW",
+      "weight": {
+        "lower": 7.5,
+        "upper": 20,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": null,
+    "fuel": null,
+    "fuelConsumption": null,
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": null,
+      "ttw": null,
+      "wtw": 244
+    },
+    "region": "AF"
+  },
+  {
+    "vehicle": {
+      "code": "HGV_GT_20_T_GVW",
+      "name": "HGV -> 20 t GVW",
+      "weight": {
+        "lower": 20,
+        "upper": null,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": null,
+    "fuel": null,
+    "fuelConsumption": null,
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": null,
+      "ttw": null,
+      "wtw": 103.96
+    },
+    "region": "AF"
+  }
+]
