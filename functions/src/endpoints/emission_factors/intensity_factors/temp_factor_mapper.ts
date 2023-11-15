@@ -124,12 +124,12 @@ export const mapRoadIntensityFactorsToRefrigerated = onErrorHandledRequest(
               value: c.value ? c.value * multiplier : null,
             }))
           : null,
-        refrigerated: true,
+        refrigerated: multiplier !== 1,
       };
     });
 
     validateInput(mappedFactors, z.array(roadIntensityFactorSchema.strict()));
 
-    response.status(200).json(mappedFactors);
+    response.status(200).json(mappedFactors.filter((f) => f.refrigerated));
   }
 );
