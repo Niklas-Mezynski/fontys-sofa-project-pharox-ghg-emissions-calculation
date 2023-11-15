@@ -28,7 +28,7 @@
       "ttw": 692,
       "wtw": 835
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -45,7 +45,7 @@
         "unit": "KG_PER_TKM"
       },
       {
-        "value": 0.030,
+        "value": 0.03,
         "unit": "L_PER_TKM"
       }
     ],
@@ -55,7 +55,7 @@
       "ttw": 80,
       "wtw": 97
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -82,7 +82,7 @@
       "ttw": 99,
       "wtw": 120
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -109,7 +109,7 @@
       "ttw": 69,
       "wtw": 83
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -122,7 +122,7 @@
     "fuel": null,
     "fuelConsumption": [
       {
-        "value": 0.170,
+        "value": 0.17,
         "unit": "KG_PER_TKM"
       },
       {
@@ -136,7 +136,7 @@
       "ttw": 544,
       "wtw": 656
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -163,7 +163,7 @@
       "ttw": 68,
       "wtw": 83
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -186,11 +186,11 @@
     ],
     "factor": {
       "unit": "G_CO2E_PER_TKM",
-      "wtt": 12.0,
+      "wtt": 12,
       "ttw": 58,
       "wtw": 70
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -217,7 +217,7 @@
       "ttw": 130,
       "wtw": 157
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -234,7 +234,7 @@
         "unit": "KG_PER_TKM"
       },
       {
-        "value": 0.030,
+        "value": 0.03,
         "unit": "L_PER_TKM"
       }
     ],
@@ -244,7 +244,7 @@
       "ttw": 80,
       "wtw": 97
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -271,7 +271,7 @@
       "ttw": 171,
       "wtw": 206
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -298,7 +298,7 @@
       "ttw": 942,
       "wtw": 1135
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -325,7 +325,7 @@
       "ttw": 77,
       "wtw": 92
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -352,7 +352,7 @@
       "ttw": 66,
       "wtw": 80
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -379,7 +379,7 @@
       "ttw": 60,
       "wtw": 73
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   },
   {
     "vehicle": null,
@@ -406,6 +406,6 @@
       "ttw": 73,
       "wtw": 88
     },
-    "region": "NORTH_AMERICA"
+    "region": "NA"
   }
 ]

@@ -35,7 +35,8 @@
       "wtt": 74,
       "ttw": 300,
       "wtw": 370
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -69,7 +70,8 @@
       "wtt": 45,
       "ttw": 310,
       "wtw": 360
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -107,7 +109,8 @@
       "wtt": 47,
       "ttw": 190,
       "wtw": 240
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -141,7 +144,8 @@
       "wtt": 28,
       "ttw": 190,
       "wtw": 220
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -166,7 +170,7 @@
     },
     "fuelConsumption": [
       {
-        "value": 0.040,
+        "value": 0.04,
         "unit": "KG_PER_TKM"
       },
       {
@@ -179,7 +183,8 @@
       "wtt": 30,
       "ttw": 120,
       "wtw": 150
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -204,7 +209,7 @@
     },
     "fuelConsumption": [
       {
-        "value": 0.050,
+        "value": 0.05,
         "unit": "KG_PER_TKM"
       }
     ],
@@ -213,7 +218,8 @@
       "wtt": 15,
       "ttw": 130,
       "wtw": 150
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -238,7 +244,7 @@
     },
     "fuelConsumption": [
       {
-        "value": 0.050,
+        "value": 0.05,
         "unit": "KG_PER_TKM"
       }
     ],
@@ -247,7 +253,8 @@
       "wtt": 46,
       "ttw": 130,
       "wtw": 180
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -285,7 +292,8 @@
       "wtt": 26,
       "ttw": 99,
       "wtw": 130
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -319,7 +327,8 @@
       "wtt": 15,
       "ttw": 100,
       "wtw": 120
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -353,7 +362,8 @@
       "wtt": 36,
       "ttw": 100,
       "wtw": 140
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -391,7 +401,8 @@
       "wtt": 20,
       "ttw": 78,
       "wtw": 98
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -406,7 +417,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -429,7 +440,8 @@
       "wtt": 18,
       "ttw": 69,
       "wtw": 87
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -443,7 +455,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -467,7 +479,8 @@
       "wtt": 18,
       "ttw": 74,
       "wtw": 92
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -482,7 +495,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -505,7 +518,8 @@
       "wtt": 21,
       "ttw": 83,
       "wtw": 100
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -519,7 +533,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -543,7 +557,8 @@
       "wtt": 16,
       "ttw": 64,
       "wtw": 80
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -558,7 +573,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -568,7 +583,7 @@
     },
     "fuelConsumption": [
       {
-        "value": 0.020,
+        "value": 0.02,
         "unit": "KG_PER_TKM"
       },
       {
@@ -581,7 +596,8 @@
       "wtt": 15,
       "ttw": 60,
       "wtw": 75
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -595,7 +611,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -615,7 +631,8 @@
       "wtt": 17,
       "ttw": 62,
       "wtw": 79
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -629,7 +646,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -649,7 +666,8 @@
       "wtt": 17,
       "ttw": 57,
       "wtw": 74
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -663,7 +681,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -683,7 +701,8 @@
       "wtt": 30,
       "ttw": 2,
       "wtw": 32
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -698,7 +717,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -717,7 +736,8 @@
       "wtt": 17,
       "ttw": 62,
       "wtw": 79
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -732,7 +752,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -751,7 +771,8 @@
       "wtt": 17,
       "ttw": 57,
       "wtw": 74
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -766,7 +787,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -785,7 +806,8 @@
       "wtt": 30,
       "ttw": 2,
       "wtw": 32
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -799,7 +821,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -823,7 +845,8 @@
       "wtt": 15,
       "ttw": 56,
       "wtw": 71
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -837,7 +860,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -861,7 +884,8 @@
       "wtt": 15,
       "ttw": 52,
       "wtw": 67
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -875,7 +899,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -899,7 +923,8 @@
       "wtt": 25,
       "ttw": 8,
       "wtw": 33
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -914,7 +939,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -937,7 +962,8 @@
       "wtt": 15,
       "ttw": 52,
       "wtw": 71
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -952,7 +978,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -975,7 +1001,8 @@
       "wtt": 15,
       "ttw": 52,
       "wtw": 67
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -990,7 +1017,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -1013,7 +1040,8 @@
       "wtt": 25,
       "ttw": 8,
       "wtw": 33
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1051,7 +1079,8 @@
       "wtt": 12,
       "ttw": 48,
       "wtw": 60
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1065,7 +1094,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.30,
+      "loadFactor": 0.3,
       "emptyRunning": 0.09,
       "loadCharacteristic": "LIGHT",
       "combinedLoadFactorEmptyRunning": null
@@ -1089,7 +1118,8 @@
       "wtt": 23,
       "ttw": 87,
       "wtw": 110
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1103,7 +1133,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -1127,7 +1157,8 @@
       "wtt": 14,
       "ttw": 54,
       "wtw": 68
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1165,7 +1196,8 @@
       "wtt": 12,
       "ttw": 66,
       "wtw": 58
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1180,7 +1212,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -1203,7 +1235,8 @@
       "wtt": 14,
       "ttw": 54,
       "wtw": 67
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1217,7 +1250,7 @@
       "engineType": null
     },
     "characteristics": {
-      "loadFactor": 0.60,
+      "loadFactor": 0.6,
       "emptyRunning": 0.17,
       "loadCharacteristic": "AVERAGE_MIXED",
       "combinedLoadFactorEmptyRunning": null
@@ -1232,7 +1265,7 @@
         "unit": "KG_PER_TKM"
       },
       {
-        "value": 0.020,
+        "value": 0.02,
         "unit": "L_PER_TKM"
       }
     ],
@@ -1241,7 +1274,8 @@
       "wtt": 12,
       "ttw": 51,
       "wtw": 63
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1279,7 +1313,8 @@
       "wtt": 11,
       "ttw": 44,
       "wtw": 54
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1294,7 +1329,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -1308,7 +1343,7 @@
         "unit": "KG_PER_TKM"
       },
       {
-        "value": 0.020,
+        "value": 0.02,
         "unit": "L_PER_TKM"
       }
     ],
@@ -1317,7 +1352,8 @@
       "wtt": 13,
       "ttw": 50,
       "wtw": 63
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1355,7 +1391,8 @@
       "wtt": 10,
       "ttw": 38,
       "wtw": 48
-    }
+    },
+    "region": "EU"
   },
   {
     "vehicle": {
@@ -1370,7 +1407,7 @@
     },
     "characteristics": {
       "loadFactor": 0.72,
-      "emptyRunning": 0.30,
+      "emptyRunning": 0.3,
       "loadCharacteristic": "CONTAINER",
       "combinedLoadFactorEmptyRunning": null
     },
@@ -1393,6 +1430,7 @@
       "wtt": 11,
       "ttw": 43,
       "wtw": 54
-    }
+    },
+    "region": "EU"
   }
 ]

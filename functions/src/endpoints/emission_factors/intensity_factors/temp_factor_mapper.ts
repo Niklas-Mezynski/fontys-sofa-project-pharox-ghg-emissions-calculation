@@ -45,7 +45,10 @@ function mapToSPecificRegion(
     if (conversionFactor) {
       if (factor.vehicle.weight.upper <= 3.5) {
         multiplier = conversionFactor.small;
-      } else if (factor.vehicle.weight.lower >= 3.5) {
+      } else if (
+        factor.vehicle.weight.lower >= 3.5 ||
+        factor.vehicle.weight.upper >= 3.5
+      ) {
         multiplier = conversionFactor.big;
       } else {
         throw new CustomError({
