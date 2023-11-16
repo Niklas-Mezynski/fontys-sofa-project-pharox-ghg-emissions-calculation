@@ -11,6 +11,37 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 
 extendZodWithOpenApi(z);
 
+const consumedFuelTransportDetails = z.object({
+  consumedFuel: commonModels.valueWithUnitModel([
+    ...volumeUnits,
+    ...weightUnits,
+    ...electricityUnits,
+  ]),
+  fuelCode: z.string().openapi({
+    description: "A unique code for the fuel used",
+  }),
+});
+export type ConsumedFuelTransportDetails = z.infer<
+  typeof consumedFuelTransportDetails
+>;
+
+const roadTransportDetails = z.object({
+  modeOfTransport: z.literal("ROAD"),
+  vehicle: z.object({
+    code: z.string().nullable().optional(),
+    weight: commonModels.valueWithUnitModel(weightUnits),
+    engineType: z.string().optional().nullable(),
+  }),
+  characteristics: z.object({
+    loadFactor: z.number().optional().nullable(),
+    emptyRunning: z.number().nullable().optional(),
+    loadCharacteristic: z.string().nullable().optional(),
+    combinedLoadFactorEmptyRunning: z.number().nullable().optional(),
+  }),
+  fuelCode: z.string().nullable().optional(),
+});
+export type RoadTransportDetails = z.infer<typeof roadTransportDetails>;
+
 export const freightEmissionCalculationInputSchema = z
   .object({
     /**
@@ -24,34 +55,8 @@ export const freightEmissionCalculationInputSchema = z
           weight: commonModels.valueWithUnitModel(weightUnits),
           region: z.enum(emissionFactorRegions),
           transportDetails: z.union([
-            z.object({
-              consumedFuel: commonModels.valueWithUnitModel([
-                ...volumeUnits,
-                ...weightUnits,
-                ...electricityUnits,
-              ]),
-              fuelCode: z.string().openapi({
-                description: "A unique code for the fuel used",
-              }),
-            }),
-            z.object({
-              modeOfTransport: z.literal("ROAD"),
-              vehicle: z.object({
-                code: z.string().nullable().optional(),
-                weight: commonModels.valueWithUnitModel(weightUnits),
-                engineType: z.string().optional().nullable(),
-              }),
-              characteristics: z.object({
-                loadFactor: z.number().optional().nullable(),
-                emptyRunning: z.number().nullable().optional(),
-                loadCharacteristic: z.string().nullable().optional(),
-                combinedLoadFactorEmptyRunning: z
-                  .number()
-                  .nullable()
-                  .optional(),
-              }),
-              fuelCode: z.string().nullable().optional(),
-            }),
+            consumedFuelTransportDetails,
+            roadTransportDetails,
           ]),
         })
       )
