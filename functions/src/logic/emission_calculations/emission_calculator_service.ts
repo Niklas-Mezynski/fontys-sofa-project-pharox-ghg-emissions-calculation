@@ -1,11 +1,12 @@
 import { HttpStatusCode } from "axios";
 import {
   CalculationReport,
+  ConsumedFuelTransportDetails,
   FreightEmissionCalculationInput,
   freightEmissionCalculationInputSchema,
 } from "../../models/emission_calculations/emission_calculation_model";
 import { CustomError } from "../../utils/errors";
-import { validateInput } from "../../utils/functions";
+import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { EmissionFactorService } from "../emission_factors/emission_factor_service";
 import { classifyUnitType } from "../units/unit_classification_service";
 import { UnitConversionService } from "../units/unit_conversion_service";
@@ -66,12 +67,42 @@ async function performEmissionCalculation(
 async function calculateTransportActivity(
   transportPart: FreightEmissionCalculationInput["transportParts"][number]
 ) {
-  const emissionFactor = await getEmissionFactor(transportPart);
+  if ("modeOfTransport" in transportPart.transportDetails) {
+    switch (transportPart.transportDetails.modeOfTransport) {
+      case "ROAD":
+        throw new CustomError({
+          status: HttpStatusCode.BadRequest,
+          message: "Road transport is not yet supported",
+        });
+      default:
+        throw exhaustiveMatchingGuard(
+          transportPart.transportDetails.modeOfTransport
+        );
+    }
+  } else {
+    return await handleCalculationWithGivenFuelConsumption(
+      transportPart,
+      transportPart.transportDetails
+    );
+  }
+}
+
+/**
+ * Calculates the emission in case the fuel consumption is provided. Requires primary data and knowledge of the fuel consumption.
+ * @returns The report part for the transport activity.
+ */
+async function handleCalculationWithGivenFuelConsumption(
+  transportPart: FreightEmissionCalculationInput["transportParts"][number],
+  transportDetails: ConsumedFuelTransportDetails
+) {
+  const emissionFactor =
+    await EmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
+      transportDetails.fuelCode,
+      transportPart.region
+    );
 
   // --- Unit conversion ---
-  const providedUnitType = classifyUnitType(
-    transportPart.transportDetails.consumedFuel.unit
-  );
+  const providedUnitType = classifyUnitType(transportDetails.consumedFuel.unit);
 
   const mappedEmissionFactor =
     EmissionFactorService.mapEmissionFactorWithUnits(emissionFactor);
@@ -90,9 +121,9 @@ async function calculateTransportActivity(
 
   // Convert the consumed fuel to the unit type of the emission factor
   const convertedConsumedFuel = UnitConversionService.convertUnits(
-    transportPart.transportDetails.consumedFuel.unit,
+    transportDetails.consumedFuel.unit,
     factorToUse.perUnit,
-    transportPart.transportDetails.consumedFuel.value
+    transportDetails.consumedFuel.value
   );
 
   // --- Emission calculation ---
@@ -135,23 +166,6 @@ async function calculateTransportActivity(
       unit: "kgCO2e/tkm",
     },
   };
-}
-
-/**
- * Gets the emission factor based on the provided emission details.
- * This function has to take care of the different types of user input it may receive
- * @async
- * @param unitType The type of unit. E.g. VolumeUnit, MassUnit, LengthUnit
- * @param emissionDetails The emission details. E.g. activityId, activityType, vehicleType, fuelType.
- * @returns The emission factor if available.
- */
-async function getEmissionFactor(
-  transportPart: FreightEmissionCalculationInput["transportParts"][number]
-) {
-  return EmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
-    transportPart.transportDetails.fuelCode,
-    transportPart.region
-  );
 }
 
 export const EmissionCalculatorService = {
