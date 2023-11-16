@@ -1,19 +1,27 @@
-import { v4 as uuid } from "uuid";
-import { z } from "zod";
-import { db } from "../../..";
 import {
   RoadIntensityFactor,
   roadIntensityFactorSchema,
 } from "../../../models/emission_factors/road_intensity_factors";
+import { FirestoreUtil } from "../../../utils/firestore";
 import { validateInput } from "../../../utils/functions";
+import { z } from "zod";
 
 const roadIntensityFactorsCollection = "intensity_factors_road";
 
-async function getAll() {
-  const factors = await db.collection(roadIntensityFactorsCollection).get();
-  return factors.docs.map((doc) => doc.data());
+/**
+ * Function to get all road intensity factors
+ * @returns {RoadIntensityFactor[]} All road intensity factors
+ */
+async function getAll(): Promise<RoadIntensityFactor[]> {
+  const factors = await FirestoreUtil.getAll(roadIntensityFactorsCollection);
+  return FirestoreUtil.getDataFromQuerySnapshot(factors);
 }
 
+/**
+ * Function to create road intensity factors
+ * @param {unknown} data - Data to create road intensity factors from
+ * @returns {Promise<RoadIntensityFactor[]>} - Array of created road intensity factors
+ */
 async function createRoadIntensityFactors(
   data: unknown
 ): Promise<RoadIntensityFactor[]> {
@@ -30,20 +38,8 @@ async function createRoadIntensityFactors(
     ? validatedFactors
     : [validatedFactors];
 
-  const factors = [];
-
-  const batch = db.batch();
-
-  for (const factor of factorsToCreate) {
-    batch.set(
-      db.collection(roadIntensityFactorsCollection).doc(uuid()),
-      factor
-    );
-    factors.push(factor);
-  }
-
-  await batch.commit();
-  return factors;
+  const factors = await FirestoreUtil.createMany(roadIntensityFactorsCollection, factorsToCreate)
+  return FirestoreUtil.getDataFromDocumentReferences(factors);
 }
 
 export const RoadIntensityFactorService = {
