@@ -95,7 +95,12 @@ function getEmissionFactor(input: {
   };
 }
 
-const factorWithReport = runWithReport(
+// const factorWithReport = runWithReport(
+//   { fuelType: "Diesel", fuelCode: "D1", report: [] },
+//   getEmissionFactor
+// );
+
+runWithReport(
   { fuelType: "Diesel", fuelCode: "D1", report: [] },
   getEmissionFactor
 );
