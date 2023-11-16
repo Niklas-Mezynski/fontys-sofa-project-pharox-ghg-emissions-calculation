@@ -90,7 +90,7 @@ async function getByActivityId(activityId: string) {
  * @param {EmissionFactor} factor - the emission factor to save
  */
 async function saveEmissionFactor(factor: EmissionFactor) {
-  await FirestoreUtil.createWithId("emission_factors", factor.activityId, factor);
+  await FirestoreUtil.createWithCustomId("emission_factors", factor, factor.activityId);
 }
 
 /** INTENSITY EMISSION FACTORS */
