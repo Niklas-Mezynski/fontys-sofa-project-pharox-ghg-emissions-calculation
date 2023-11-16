@@ -83,7 +83,7 @@ export async function createManyWithCustomId(collectionName: string, data: any[]
  * @param {string} collectionName - The name of the collection to get data from
  * @returns
  */
-export async function getAll(collectionName: string): Promise<QuerySnapshot<DocumentData>> {
+export async function getAll(collectionName: string): Promise<QuerySnapshot<any>> {
   return await db.collection(collectionName).get();
 }
 
