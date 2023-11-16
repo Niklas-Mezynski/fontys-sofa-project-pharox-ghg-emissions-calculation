@@ -1,4 +1,4 @@
-source,fuel__code,fuel__description,region,factors__unit,factors__factor__WTT,factors__factor__TTW,factors__factor__WTW
+source,fuel__code,fuel__name,region,factors__unit,factors__factor__wtt,factors__factor__ttw,factors__factor__wtw
 GLEC,AVIATION_FUEL,Aviation fuel,INTERNATIONAL,KG_CO2E_PER_KG,0.7,3.18,3.88
 GLEC,AVIATION_FUEL,Aviation fuel,INTERNATIONAL,KG_CO2E_PER_L,0.56,2.55,3.1
 GLEC,BIO_CNG_HPDI_HDR,"Bio-CNG HPDI, heavy duty road",EU,KG_CO2E_PER_KG,1.41,null,null

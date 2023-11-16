@@ -10,7 +10,7 @@ extendZodWithOpenApi(z);
  */
 export const fuelSchema = z.object({
   code: z.string(),
-  description: z.string().optional(),
+  name: z.string().optional(),
 });
 export type Fuel = z.infer<typeof fuelSchema>;
 
@@ -25,9 +25,9 @@ export const glecFuelFactorUnits = [
 export const fuelFactorSchema = z.object({
   unit: z.enum(glecFuelFactorUnits),
   factor: z.object({
-    WTT: z.number().nullable(),
-    TTW: z.number().nullable(),
-    WTW: z.number().nullable(),
+    wtt: z.number().nullable(),
+    ttw: z.number().nullable(),
+    wtw: z.number().nullable(),
   }),
 });
 export type FuelFactor = z.infer<typeof fuelFactorSchema>;
