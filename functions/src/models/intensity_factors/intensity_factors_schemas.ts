@@ -4,3 +4,7 @@ import { roadIntensityFactorSchema } from "../emission_factors/road_intensity_fa
 
 export const updateRoadEmissionIntensityFactorSchema =
   roadIntensityFactorSchema.extend({ identifier: z.string() });
+
+export const removeRoadEmissionIntensityFactorSchema = z.object({
+  identifier: z.string(),
+});
