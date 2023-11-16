@@ -10,7 +10,6 @@ import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { EmissionFactorService } from "../emission_factors/emission_factor_service";
 import { FuelEmissionFactorService } from "../emission_factors/fuel_emission_factor_service";
 import { HttpStatusCode } from "axios";
-import { validateInput } from "../../utils/functions";
 import { UnitConversionService } from "../units/unit_conversion_service";
 
 /**
@@ -98,7 +97,7 @@ async function handleCalculationWithGivenFuelConsumption(
   transportDetails: ConsumedFuelTransportDetails
 ) {
   const emissionFactor =
-    await EmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
+    await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
       transportDetails.fuelCode,
       transportPart.region
     );
