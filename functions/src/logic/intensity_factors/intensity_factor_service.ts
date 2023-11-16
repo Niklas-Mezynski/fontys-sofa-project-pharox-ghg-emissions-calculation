@@ -1,12 +1,41 @@
 import { HttpStatusCode } from "axios";
 import { Filter } from "firebase-admin/firestore";
 import { v4 as uuid } from "uuid";
-import { z } from "zod";
+import { INVALID, z } from "zod";
 import { db } from "../..";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
+import { updateRoadEmissionIntensityFactorSchema } from "../../models/intensity_factors/intensity_factors_schemas";
+import { CustomError } from "../../utils/errors";
 
+/**
+ * Creates new road intensity factor and inserts it into the database.
+ * @param data = roadIntensityFactor
+ */
 export async function createIntensityFactor(data: object) {
-  const validatedInput = validateInput(data, roadIntensityFactorSchema);
-  await db.collection("intensity_factors_road").doc(uuid()).set(data);
+  validateInput(data, roadIntensityFactorSchema);
+  await db.collection("intensity_factors_road_test").doc(uuid()).set(data);
+}
+
+export async function updateIntensityFactor(data: object, identifier: string) {
+  validateInput(data, updateRoadEmissionIntensityFactorSchema);
+
+  // Attempt to Fetch document with the identifier.
+  const fetchDocument = await db
+    .collection("intensity_factors_road_test")
+    .doc(identifier)
+    .get();
+
+  // If Exist: Update. Else, throw error.
+  if (fetchDocument.exists) {
+    await db
+      .collection("intensity_factors_road_test")
+      .doc(identifier)
+      .set(data);
+  } else {
+    throw new CustomError({
+      status: HttpStatusCode.BadRequest,
+      message: "Invalid Identifier.",
+    });
+  }
 }
