@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-import { FuelEmissionFactor } from "../../../src/models/emission_factors/emission_factors";
-import { Mock } from "../../helpers/mocks";
+import { FuelEmissionFactor } from "../../../src/models/emission_factors/fuel_emission_factors";
 import { fuelEmissionFactors } from "../../helpers/test-data";
+import { Mock } from "../../helpers/mocks";
 
 describe("Emission factors - Fuel emission factors", () => {
-  let EmissionFactorService: any;
+  let FuelEmissionFactorService: any;
   let fuelEmissionFactorsMock: Mock<FuelEmissionFactor>;
 
   beforeAll(() => {
@@ -19,7 +19,7 @@ describe("Emission factors - Fuel emission factors", () => {
      * Import the logic that it will be tested
      * NOTE: Always after the Firebase App and Firestore mocking, otherwise it won't work
      */
-    EmissionFactorService = require("../../../src/logic/emission_factors/emission_factor_service").EmissionFactorService;
+    FuelEmissionFactorService = require("../../../src/logic/emission_factors/fuel_emission_factor_service").FuelEmissionFactorService;
   });
 
   afterEach(() => {
@@ -31,6 +31,6 @@ describe("Emission factors - Fuel emission factors", () => {
   });
 
   test("Get All Fuel Emission Factor returns all fuel emission factors", async () => {
-    expect(await EmissionFactorService.getAllFuelEmissionFactors()).toStrictEqual(fuelEmissionFactors);
+    expect(await FuelEmissionFactorService.getAllFuelEmissionFactors()).toStrictEqual(fuelEmissionFactors);
   });
 });

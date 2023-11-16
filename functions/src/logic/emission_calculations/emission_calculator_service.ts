@@ -1,14 +1,16 @@
-import { HttpStatusCode } from "axios";
 import {
   CalculationReport,
   ConsumedFuelTransportDetails,
   FreightEmissionCalculationInput,
   freightEmissionCalculationInputSchema,
 } from "../../models/emission_calculations/emission_calculation_model";
+import { classifyUnitType } from "../units/unit_classification_service";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { EmissionFactorService } from "../emission_factors/emission_factor_service";
-import { classifyUnitType } from "../units/unit_classification_service";
+import { FuelEmissionFactorService } from "../emission_factors/fuel_emission_factor_service";
+import { HttpStatusCode } from "axios";
+import { validateInput } from "../../utils/functions";
 import { UnitConversionService } from "../units/unit_conversion_service";
 
 /**
@@ -129,14 +131,14 @@ async function handleCalculationWithGivenFuelConsumption(
   // --- Emission calculation ---
   // Calculate the emission
   const producedEmissions = {
-    tankToWheel: factorToUse.factor.TTW
-      ? convertedConsumedFuel.value * factorToUse.factor.TTW
+    tankToWheel: factorToUse.factor.ttw
+      ? convertedConsumedFuel.value * factorToUse.factor.ttw
       : null,
-    wellToTank: factorToUse.factor.WTT
-      ? convertedConsumedFuel.value * factorToUse.factor.WTT
+    wellToTank: factorToUse.factor.wtt
+      ? convertedConsumedFuel.value * factorToUse.factor.wtt
       : null,
-    wellToWheel: factorToUse.factor.WTW
-      ? convertedConsumedFuel.value * factorToUse.factor.WTW
+    wellToWheel: factorToUse.factor.wtw
+      ? convertedConsumedFuel.value * factorToUse.factor.wtw
       : null,
   };
 
