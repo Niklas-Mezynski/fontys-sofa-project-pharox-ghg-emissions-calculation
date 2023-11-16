@@ -1,5 +1,8 @@
+
+import { initializeApp } from "firebase-admin/app";
 import { CollectionReference, DocumentData, DocumentReference, DocumentSnapshot, Filter, QueryDocumentSnapshot, QuerySnapshot, getFirestore } from "firebase-admin/firestore";
 
+initializeApp();
 export const db = getFirestore();
 
 /* CREATE METHODS*/
@@ -132,18 +135,18 @@ export function getCollection(collectionName: string): CollectionReference {
 /**
  * Helper method to get the document data from a document reference
  * @param {DocumentReference<DocumentData>} docRef - The document reference
- * @returns {DocumentData | undefined} - The data of the document if present
+ * @returns {any | undefined} - The data of the document if present
  */
-export async function getDataFromDocumentReference(docRef: DocumentReference<DocumentData>): Promise<DocumentData | undefined> {
+export async function getDataFromDocumentReference(docRef: DocumentReference<DocumentData>): Promise<any | undefined> {
   return docRef.get();
 }
 
 /**
  * Helper method to get document data from multiple document reference
  * @param {DocumentReference<DocumentData>[]} docsRef - The document references
- * @returns {DocumentData[]} - The data of the documents
+ * @returns {any[]} - The data of the documents
  */
-export async function getDataFromDocumentReferences(docsRef: DocumentReference<DocumentData>[]): Promise<DocumentData[]> {
+export async function getDataFromDocumentReferences(docsRef: DocumentReference<DocumentData>[]): Promise<any[]> {
   const data = [];
 
   for (const docRef of docsRef) {
@@ -175,9 +178,9 @@ export function getDocumentReferenceFromDocumentSnapshot(doc: DocumentSnapshot<D
 /**
  * Helper method to get the data from a document snapshot
  * @param {DocumentSnapshot<DocumentData>} doc - The document snapshot
- * @returns {DocumentData | undefined} - The data of the document if present
+ * @returns {any | undefined} - The data of the document if present
  */
-export function getDataFromDocumentSnapshot(doc: DocumentSnapshot<DocumentData>): DocumentData | undefined{
+export function getDataFromDocumentSnapshot(doc: DocumentSnapshot<DocumentData>): any | undefined{
   return doc.data();
 }
 
@@ -220,9 +223,9 @@ export function getQuerySnapshotDocuments(querySnapshot: QuerySnapshot<DocumentD
 /**
  * Helper method to get all the data from a query snapshot
  * @param {QuerySnapshot<DocumentData>} querySnapshot - The query snapshot
- * @returns {DocumentData[]} - All the data in the query snapshot
+ * @returns {any[]} - All the data in the query snapshot
  */
-export function getDataFromQuerySnapshot(querySnapshot: QuerySnapshot<DocumentData>): DocumentData[] {
+export function getDataFromQuerySnapshot(querySnapshot: QuerySnapshot<DocumentData>): any[] {
   return querySnapshot.docs.map(doc => doc.data());
 }
 
