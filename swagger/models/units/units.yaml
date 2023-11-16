@@ -1,0 +1,43 @@
+
+swagger: '2.0'
+info:
+  title: Units API
+  version: '1.0'
+paths: {}
+definitions:
+  UnitType:
+    type: string
+    enum:
+      - DISTANCE
+      - WEIGHT
+      - VOLUME
+      - ELECTRICITY
+      - UNKNOWN
+  VolumeUnit:
+    type: string
+    enum:
+      - ml
+      - l
+      - tsp
+      - tbsp
+  WeightUnit:
+    type: string
+    enum:
+      - g
+      - kg
+      - tonnes
+      - oz
+      - lb
+  DistanceUnit:
+    type: string
+    enum:
+      - km
+      - cm
+      - m
+      - in
+      - ft
+      - mi
+  ElectricityUnit:
+    type: string
+    enum:
+      - kWh

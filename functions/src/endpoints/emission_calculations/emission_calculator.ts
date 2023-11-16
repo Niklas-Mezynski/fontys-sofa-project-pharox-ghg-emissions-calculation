@@ -1,5 +1,5 @@
 import { EmissionCalculatorService } from "../../logic/emission_calculations/emission_calculator_service";
-import { onErrorHandledRequest } from "../../utils/errors";
+import { onErrorHandledRequest } from "../../utils/request_handler";
 
 /**
  * Cloud function to perform an emission calculation

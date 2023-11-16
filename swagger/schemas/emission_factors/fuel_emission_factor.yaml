@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The fuel emission factor ID
+  source:
+    type: string
+    enum:
+      - CUSTOM
+      - GLEC
+    description: The fuel emission factor data source
+  fuel:
+    $ref: "./fuel.yaml"
+    description: The fuel which the fuel emission factor applies to
+  factors:
+    type: array
+    items:
+      $ref: "./fuel_factor.yaml"
+    description: The conversion factors to calculate emissions
+  region:
+    type: string
+    enum:
+      - EU
+      - NA
+      - AF
+      - AS
+      - SA
+      - OC
+      - AN
+      - INTERNATIONAL
+    description: The region where the fuel emission factor applies

@@ -1,7 +1,7 @@
 import { HttpStatusCode } from "axios";
-import convert from "convert";
-import { units } from "../../models/units/units";
 import { CustomError } from "../../utils/errors";
+import { units } from "../../models/units/units";
+import convert from "convert";
 
 /**
  * Converts supported units from one to another

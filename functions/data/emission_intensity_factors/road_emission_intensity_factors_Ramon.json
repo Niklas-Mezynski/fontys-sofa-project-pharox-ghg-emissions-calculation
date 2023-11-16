@@ -1,0 +1,411 @@
+[
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T",
+      "name": "Van (<3.5t)",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": null,
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.22,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.26,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 142,
+      "ttw": 692,
+      "wtw": 835
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "GENERAL",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.025,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.030,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 16.5,
+      "ttw": 80,
+      "wtw": 97
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "AUTO_CARRIER",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.031,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.037,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 20.4,
+      "ttw": 99,
+      "wtw": 120
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "DRAY",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.022,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.026,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 14.2,
+      "ttw": 69,
+      "wtw": 83
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "EXPEDITED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.170,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.204,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 111.9,
+      "ttw": 544,
+      "wtw": 656
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "FLATBED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.021,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.026,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 14.1,
+      "ttw": 68,
+      "wtw": 83
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "HEAVY_BULK",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.018,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.022,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 12.0,
+      "ttw": 58,
+      "wtw": 70
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "LTL_DRY_VAN",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.041,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.049,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 26.8,
+      "ttw": 130,
+      "wtw": 157
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "MIXED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.025,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.030,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 16.5,
+      "ttw": 80,
+      "wtw": 97
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "MOVING",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.053,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.064,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 35.2,
+      "ttw": 171,
+      "wtw": 206
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "PACKAGE",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.293,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.354,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 193.6,
+      "ttw": 942,
+      "wtw": 1135
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "REFRIGERATED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.024,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.029,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 15.8,
+      "ttw": 77,
+      "wtw": 92
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "SPECIALIZED",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.021,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.025,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 13.7,
+      "ttw": 66,
+      "wtw": 80
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "TANKER",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.019,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.023,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 12.4,
+      "ttw": 60,
+      "wtw": 73
+    },
+    "region": "NORTH_AMERICA"
+  },
+  {
+    "vehicle": null,
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "TL_DRY_VAN",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "fuel": null,
+    "fuelConsumption": [
+      {
+        "value": 0.023,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.028,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 15.1,
+      "ttw": 73,
+      "wtw": 88
+    },
+    "region": "NORTH_AMERICA"
+  }
+]

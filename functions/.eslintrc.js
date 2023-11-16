@@ -140,7 +140,8 @@ module.exports = {
     "max-len": 0,
     "object-curly-spacing": 0,
     "quote-props": 0,
-    "require-jsdoc": 0,
+    "require-jsdoc": 1,
     "valid-jsdoc": 0,
+    indent: ["error", 2, { SwitchCase: 1 }],
   },
 };

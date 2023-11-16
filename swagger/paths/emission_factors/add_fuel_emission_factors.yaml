@@ -1,0 +1,23 @@
+post:
+  summary: Add multiple fuel emission factors
+  description: Function that adds multiple fuel emission factors to the Database
+  tags:
+    - Emission factors
+  requestBody:
+    description: List of fuel emission factors to add
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
+  responses:
+    "200":
+      description: List of added fuel emission factors
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"

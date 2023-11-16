@@ -1,29 +1,24 @@
 import { HttpStatusCode } from "axios";
-import { db } from "../..";
+import { FirestoreUtil } from "../../utils/firestore";
 import {
   EmissionFactor,
   emissionFactorSchema,
 } from "../../models/emission_factors/climatiq_emission_factors";
 import { CustomError } from "../../utils/errors";
-import { validateInput } from "../../utils/functions";
+import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import {
   FuelEmissionFactor,
   IntensityEmissionFactor,
-  fuelEmissionFactorSchema,
   intensityEmissionFactorSchema,
-} from "../../models/emission_factors/emission_factors";
-import { v4 as uuid } from "uuid";
-import { z } from "zod";
-import { Filter } from "firebase-admin/firestore";
-
+} from "../../models/emission_factors/fuel_emission_factors";
 /**
  * @deprecated Use fuelEmissionFactors instead.
  * Fetches the emission factors from the Climatiq API and saves them in the database.
  * @returns The emission factors.
  */
 async function getAll() {
-  const factors = await db.collection("emission_factors").get();
-  return factors.docs.map((doc) => doc.data());
+  const factors = await FirestoreUtil.getAll("emission_factors");
+  return FirestoreUtil.getDataFromQuerySnapshot(factors);
 }
 
 /**
@@ -71,12 +66,9 @@ async function getByUnitType(unitType: string) {
  * @returns The emission factor.
  */
 async function getByActivityId(activityId: string) {
-  const document = await db
-    .collection("emission_factors")
-    .doc(activityId)
-    .get();
+  const document = await FirestoreUtil.getById("emission_factors", activityId);
 
-  if (!document.exists) {
+  if (!FirestoreUtil.isDocumentDataPresent(document)) {
     throw new CustomError({
       status: HttpStatusCode.NotFound,
       message: `Emission factor for activity ${activityId} not found.`,
@@ -98,104 +90,12 @@ async function getByActivityId(activityId: string) {
  * @param {EmissionFactor} factor - the emission factor to save
  */
 async function saveEmissionFactor(factor: EmissionFactor) {
-  const docRef = db.collection("emission_factors").doc(factor.activityId);
-
-  await docRef.set(factor);
+  await FirestoreUtil.createWithCustomId("emission_factors", factor, factor.activityId);
 }
 
-/**
- * Function to create a new fuel emission factor and store it in the DB
- * @param {object} data - The multiple data to create a new fuel emission factor
- * @returns {Promise<Partial<FuelEmissionFactor>>} - The saved fuel emission factor in the DB
- */
-async function createFuelEmissionFactor(
-  data: unknown
-): Promise<FuelEmissionFactor> {
-  const factor = validateInput(
-    data,
-    fuelEmissionFactorSchema,
-    "Could not create a Fuel Emission Factor from the given data"
-  );
+/** INTENSITY EMISSION FACTORS */
 
-  await db.collection("fuel_emission_factors").doc(uuid()).set(factor);
-  return factor;
-}
-
-/**
- * Function to create multiple new fuel emission factors and store it in the DB
- * @param {object[]} data - The multiple data to create multiple new fuel emission factors
- * @returns {Promise<Partial<FuelEmissionFactor>[]>} - The saved fuel emission factors in the DB
- */
-async function createFuelEmissionFactors(
-  data: unknown
-): Promise<FuelEmissionFactor[]> {
-  const validatedFactors = validateInput(
-    data,
-    z.array(fuelEmissionFactorSchema),
-    "Could not create a Fuel Emission Factor from the given data"
-  );
-
-  const factors = [];
-
-  const batch = db.batch();
-
-  for (const factor of validatedFactors) {
-    batch.set(db.collection("fuel_emission_factors").doc(uuid()), factor);
-
-    factors.push(factor);
-  }
-
-  await batch.commit();
-  return factors;
-}
-
-async function getAllFuelEmissionFactors() {
-  const factors = (await db.collection("fuel_emission_factors").get()).docs.map(
-    (doc) => doc.data()
-  );
-
-  const validatedFactors = validateInput(
-    factors,
-    z.array(fuelEmissionFactorSchema),
-    "Received unexpected emissionFactor format from the database."
-  );
-
-  return validatedFactors;
-}
-
-async function getFuelEmissionFactorByFuel(fuelCode: string) {
-  const document = await db
-    .collection("fuel_emission_factors")
-    .where(
-      Filter.or(
-        Filter.where("fuel.code", "==", fuelCode),
-        Filter.where("fuel.name", "==", fuelCode)
-      )
-    )
-    .limit(2)
-    .get();
-
-  if (document.size === 0) {
-    throw new CustomError({
-      status: HttpStatusCode.NotFound,
-      message: `Emission factor for fuel ${fuelCode} not found.`,
-    });
-  }
-  if (document.size > 1) {
-    throw new CustomError({
-      status: HttpStatusCode.InternalServerError,
-      message: `Multiple emission factors for fuel ${fuelCode} found.`,
-    });
-  }
-
-  const data = validateInput(
-    document.docs[0].data(),
-    fuelEmissionFactorSchema,
-    "Received unexpected emissionFactor format from the database."
-  );
-
-  return data;
-}
+const intensityEmissionFactorsCollection = "intensity_emission_factors";
 
 /**
  * Function to create a new intensity emission factor and store it in the DB
@@ -211,8 +111,65 @@ async function createIntensityEmissionFactor(
     "Could not create a Intensity Emission Factor from the given data"
   );
 
-  await db.collection("intensity_emission_factors").doc(uuid()).set(factor);
-  return factor;
+  const savedFactor = await FirestoreUtil.createWithCustomId(intensityEmissionFactorsCollection, factor);
+  return FirestoreUtil.getDataFromDocumentReference(savedFactor);
+}
+
+/**
+ *
+ * @param emissionFactor
+ * @returns
+ */
+function mapEmissionFactorWithUnits(emissionFactor: FuelEmissionFactor) {
+  return {
+    ...emissionFactor,
+    factors: emissionFactor.factors.map((factor) => {
+      const glecUnitString = glecUnitStringMapper(factor.unit);
+      if (!glecUnitString) {
+        throw new CustomError({
+          status: HttpStatusCode.InternalServerError,
+          message: `Could not map unit string ${factor.unit} from the GLEC fuel emission factors to the required format`,
+        });
+      }
+      return {
+        ...factor,
+        producedUnit: glecUnitString.producedUnit,
+        perUnit: glecUnitString.perUnit,
+      };
+    }),
+  };
+}
+
+/**
+ *
+ * @param unit
+ * @returns
+ */
+function glecUnitStringMapper(
+  unit: FuelEmissionFactor["factors"][number]["unit"]
+) {
+  switch (unit) {
+    case "KG_CO2E_PER_KG":
+      return {
+        producedUnit: "kg_CO2e",
+        perUnit: "kg",
+      };
+    case "KG_CO2E_PER_L":
+      return {
+        producedUnit: "kg_CO2e",
+        perUnit: "l",
+      };
+    case "KG_CO2E_PER_KWH":
+      return {
+        producedUnit: "kg_CO2e",
+        perUnit: "kWh",
+      };
+    default:
+      return exhaustiveMatchingGuard(
+        unit,
+        "Invalid unit type. This should not happen and means a unhandled unit type was added to the glecUnitStringMapper."
+      );
+  }
 }
 
 export const EmissionFactorService = {
@@ -221,8 +178,6 @@ export const EmissionFactorService = {
   getByActivityId,
   getByUnitType,
   saveEmissionFactor,
-  createFuelEmissionFactor,
-  createFuelEmissionFactors,
-  getAllFuelEmissionFactors,
-  getFuelEmissionFactorByFuel,
+  mapEmissionFactorWithUnits,
+  glecUnitStringMapper,
 };

@@ -1,0 +1,119 @@
+== General planning proposal 
+
+Sprint Duration: 2 weeks 
+
+Sprint Delivery Meeting: Friday at end of the sprint (odd week for Joel), at location? 
+Week in between sprint MS-Teams-Meeting (If we have questions): Thursday 9:00-09:30 
+
+Won’t work in weeks: 42, 51, 52, 1 
+
+== Questions 
+
+ 
+
+Do you want us to adopt the GLEC-Framework into the application or can we use an external API which has already adopted the GLEC-Framework? Example: https://www.climatiq.io/ 
+
+ 
+
+Are all three scopes in the GLEC framework going to be mandatory to be adopted or can the user choose which one to apply to their calculation? 
+
+ 
+
+Which types of users do we have / which will make use of the platform? 
+
+ 
+
+What are the roles of the users which will make use of the application? 
+
+ 
+
+Are all types of data relevant for the calculations? Where is the data coming from? Can we see the structure so we can create dummy-data? 
+
+ 
+
+Does the front-end need to be responsive? 
+
+ 
+
+Does the application need to be split up in Firebase Cloud Functions? If so, what is the general structure you wish us to adhere to? 
+
+ 
+
+Can you share a list of requirements and scope? 
+
+ 
+
+How are the different transportation modes going to be considered? Will the user provide us with which method they use or should we know that based on the data? 
+
+ 
+
+Can we get access to your Firebase and Slack environment? 
+
+ 
+== Notes made throughout the meeting
+
+Niels does not know a lot about the project. 
+
+ 
+
+They want to make the calculations for customers – they want to do them after the transport happened, which is also the MVP. A tool when the transport is DONE that you send the data to the tool and that calculates the emissions. MVP is also only the backend 
+
+ 
+
+Scope 1 of the GLEC-Framework is priority. 
+
+ 
+
+Requirement: Needs to me modular. 
+
+ 
+
+Focus on or assume that all the data is already in a database.  
+
+ 
+
+Will come back on: Can we fetch the data or will it get sent to us? – not a huge priority. 
+
+ 
+
+We will get a Slack and Firebase environments today, will also add some information on what we are using. 
+
+ 
+
+Again: First prio is making sure that all of the calculations to the backend. AKA: GLEC-Framework integration into modular Firebase Cloud Functions. 
+
+ 
+
+We could use the climatiq API to validate our calculations 
+
+ 
+
+Calculations need to be done for all types of transports. Do them in this order: 
+
+Road 
+
+Ocean 
+
+Rail 
+
+Air 
+
+ 
+
+It’s also a goal to get scope 2 and 3 in there (from the GLEC framework).  
+
+ 
+
+Calculations is for all types of gasses, not only CO2 
+
+ 
+
+All calculations should be split up. To get a few calculations the result should be in within like a minute, if you want to calculate the result from the past year then its fine that it takes a day to do. 
+
+ 
+
+ 
+
+Summarize everything being told today, send to Niels – he’ll say if its correct or if we are missing something. 
+
+ 

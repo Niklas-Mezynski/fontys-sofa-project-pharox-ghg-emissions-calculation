@@ -1,11 +1,12 @@
 import { classifyUnitType } from "../../logic/units/unit_classification_service";
-import { CustomError, onErrorHandledRequest } from "../../utils/errors";
+import { onErrorHandledRequest } from "../../utils/request_handler";
 import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../../logic/units/unit_conversion_service";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
+import { CustomError } from "../../utils/errors";
 
-const queryInputSchema = z.object({
+export const unitConverterInputSchema = z.object({
   originalUnitType: z.string(), // e.g. m
   targetUnitType: z.string(), // e.g. km
   value: z.number(), // e.g. 1000
@@ -16,7 +17,7 @@ const queryInputSchema = z.object({
  */
 export const unitConverter = onErrorHandledRequest(
   async (request, response) => {
-    const requestBody = validateInput(request.body, queryInputSchema);
+    const requestBody = validateInput(request.body, unitConverterInputSchema);
 
     // Verify that: originalUnitType and targetUnitType are of the same classification (e.g. both are distances)
     const originalUnitClassification = classifyUnitType(
@@ -40,9 +41,6 @@ export const unitConverter = onErrorHandledRequest(
       requestBody.value
     );
 
-    response
-      .json({ convertedUnit: convertedUnit, unit: requestBody.targetUnitType })
-      .status(200)
-      .send();
+    response.json(convertedUnit).status(200).send();
   }
 );

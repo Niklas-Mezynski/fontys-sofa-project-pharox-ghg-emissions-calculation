@@ -35,6 +35,7 @@ export function parseZodError(issues: z.ZodIssue[], message?: string) {
  * @throws {CustomError} containing the validation error
  */
 export function validateInput<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Output = any,
   Def extends ZodTypeDef = ZodTypeDef,
   Input = Output,
@@ -50,3 +51,56 @@ export function validateInput<
 
   return parseResult.data;
 }
+
+/**
+ * Utility function to use in a switch statement to ensure that all cases are handled. (for exhaustive matching)
+ * @throws A CustomError in case the function is called anyways.
+ */
+export function exhaustiveMatchingGuard(
+  _: never,
+  errorMessage?: string
+): never {
+  throw new CustomError({
+    status: HttpStatusCode.InternalServerError,
+    message:
+      errorMessage ??
+      "This statement should never be reached. This is a bug and means there is a unhandled case in an exhaustive matching guard",
+  });
+}
+
+type EntityWithReport<T> = {
+  report: unknown[];
+} & T;
+
+function runWithReport<I, O>(
+  input: EntityWithReport<I>,
+  transform: (_: I) => EntityWithReport<O>
+): EntityWithReport<O> {
+  const result = transform(input);
+  result.report = input.report.concat(result.report);
+  return result;
+}
+
+function getEmissionFactor(input: {
+  fuelType: string;
+  fuelCode: string;
+}): EntityWithReport<{ emissionFactor: number }> {
+  const { fuelType, fuelCode } = input;
+  const emissionFactor = 1;
+  return {
+    emissionFactor,
+    report: [
+      `Emission factor for ${fuelType} ${fuelCode} is ${emissionFactor}`,
+    ],
+  };
+}
+
+// const factorWithReport = runWithReport(
+//   { fuelType: "Diesel", fuelCode: "D1", report: [] },
+//   getEmissionFactor
+// );
+
+runWithReport(
+  { fuelType: "Diesel", fuelCode: "D1", report: [] },
+  getEmissionFactor
+);

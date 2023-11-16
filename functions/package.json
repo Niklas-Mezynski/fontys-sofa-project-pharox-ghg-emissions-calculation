@@ -16,13 +16,15 @@
     "test-coverage": "jest --coverage",
     "test-watch": "jest --watchAll",
     "test-watch-coverage": "jest --watchAll --coverage",
-    "generate-documentation": "typedoc src/index.ts"
+    "generate-documentation": "typedoc src/index.ts",
+    "generate-openapi": "tsc && cross-env GENERATE_OPENAPI=true node lib/src/index.js"
   },
   "engines": {
     "node": "18"
   },
   "main": "lib/src/index.js",
   "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^6.2.0",
     "@firebase/firestore": "^4.3.0",
     "axios": "^1.5.1",
     "convert": "^4.13.2",
@@ -31,6 +33,7 @@
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "uuid": "^9.0.1",
+    "yaml": "^2.3.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -40,6 +43,7 @@
     "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.0.0",

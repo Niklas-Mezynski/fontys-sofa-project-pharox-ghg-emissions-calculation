@@ -1,0 +1,48 @@
+1. Firebase Access 
+
+ 
+
+Niels will contact Jules to get our environment ready, he aims to give it to us today or tomorrow. 
+
+ 
+
+2. Location for the delivery meeting 
+
+Time? 
+
+ 
+
+Delivery meetings need to have value, when the environment is ready, and we are going to integrate it then they would like us to be in the office to set everything up.  
+
+ 
+
+3. Discuss Sprint planning that we made. 
+
+ 
+
+Send it into the email after the meeting, Niels will give feedback on it today. 
+
+ 
+
+ 
+The current meeting hour is ideal for Niels – Thursday at 09:30. 
+
+ 
+
+Joel was checking the framework and the Climatiq API – Joel has some questions about the data and the api itself. 
+
+ 
+
+The collection for each customers data will be different, it would be nice for Pharox to know what we need and collecting the data will be out of scope. We should send them a table of what we need as minimum and data what we need optionally, that way Pharox will be able to give us the data 
+
+ 
+
+Pharox would prefer it if we include multiple ways to calculate the emissions, so if a customer doesn’t have property X but they do Y that we then can still calculate the emissions – even if it is less detailed and/or accurate. 
+
+ 
+
+On emissions factors: We should gather them from the source, Niels expects GLEC or ISO to be the source of the emission factors. So: Where do the factors come from? Where can we get them? This should be researched. 
+
+ 
+
+ 

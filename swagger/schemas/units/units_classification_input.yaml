@@ -1,0 +1,6 @@
+type: object
+properties:
+  unit:
+    type: string
+    example: "km"
+    description: The unit to classify

@@ -1,0 +1,113 @@
+type: object
+properties:
+  metadata:
+    type: object
+    nullable: true
+    additionalProperties:
+      nullable: true
+  transportParts:
+    type: array
+    items:
+      type: object
+      properties:
+        distance:
+          type: object
+          properties:
+            value:
+              type: number
+            unit:
+              type: string
+              enum: &a1
+                - km
+                - cm
+                - m
+                - in
+                - ft
+                - mi
+          required:
+            - value
+            - unit
+        weight:
+          type: object
+          properties:
+            value:
+              type: number
+            unit:
+              type: string
+              enum: &a2
+                - g
+                - kg
+                - tonnes
+                - oz
+                - lb
+          required:
+            - value
+            - unit
+        region:
+          type: string
+          enum: &a3
+            - EU
+            - NA
+            - AF
+            - AS
+            - SA
+            - OC
+            - AN
+            - INTERNATIONAL
+          default: EU
+        transportDetails:
+          type: object
+          properties:
+            consumedFuel:
+              type: object
+              properties:
+                value:
+                  type: number
+                unit:
+                  type: string
+                  enum: &a4
+                    - ml
+                    - l
+                    - tsp
+                    - tbsp
+                    - g
+                    - kg
+                    - tonnes
+                    - oz
+                    - lb
+                    - kWh
+              required:
+                - value
+                - unit
+            fuelCode:
+              type: string
+              description: A unique code for the fuel used
+          required:
+            - consumedFuel
+            - fuelCode
+      required:
+        - distance
+        - weight
+        - region
+        - transportDetails
+    description:
+      The different transport activities to calculate emissions for. Each
+      has their own fuel type, fuel consumption and freight details.
+required:
+  - transportParts
+example: &a5
+  metadata:
+    anything: can go here
+  transportParts:
+    - distance:
+        value: 100000
+        unit: m
+      weight:
+        value: 1000
+        unit: kg
+      region: EU
+      transportDetails:
+        consumedFuel:
+          value: 100
+          unit: kg
+        fuelCode: HEAVY_FUEL_OIL

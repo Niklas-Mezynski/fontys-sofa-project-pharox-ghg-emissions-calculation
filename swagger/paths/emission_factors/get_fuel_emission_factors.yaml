@@ -1,0 +1,14 @@
+get:
+  summary: Fetch all fuel emission factors
+  description: Function that fetches all fuel emission factors in the Database
+  tags:
+    - Emission factors
+  responses:
+    "200":
+      description: List of found fuel emission factors
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml"
