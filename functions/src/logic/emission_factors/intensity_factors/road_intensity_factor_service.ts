@@ -1,5 +1,4 @@
-import { where } from "@firebase/firestore";
-import { FreightEmissionCalculationInput, RoadTransportDetails } from "../../../models/emission_calculations/emission_calculation_model";
+import { RoadTransportDetails } from "../../../models/emission_calculations/emission_calculation_model";
 import {
   RoadIntensityFactor,
   roadIntensityFactorSchema,
@@ -7,7 +6,6 @@ import {
 import { FirestoreUtil } from "../../../utils/firestore";
 import { validateInput } from "../../../utils/functions";
 import { z } from "zod";
-import { Firestore } from "firebase-admin/firestore";
 
 const roadIntensityFactorsCollection = "intensity_factors_road";
 
