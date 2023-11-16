@@ -52,7 +52,7 @@ async function getSpecificIntensityFactor(
     let factors:RoadIntensityFactor[] = await getAll();
 
     factors.filter((factor)=>{
-      (factor.fuel?.code == data.fuelCode || null) &&
+      (factor.fuel?.code == data.fuelCode || undefined) &&
       (factor.characteristics?.loadFactor == data.characteristics.loadFactor || null || undefined) &&
       (factor.characteristics?.loadCharacteristic == data.characteristics.loadCharacteristic || null || undefined) &&
       (factor.characteristics?.emptyRunning == data.characteristics.emptyRunning || null || undefined) &&
