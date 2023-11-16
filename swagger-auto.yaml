@@ -67,6 +67,7 @@ components:
                       - g
                       - kg
                       - tonnes
+                      - t
                       - oz
                       - lb
                 required:
@@ -102,6 +103,7 @@ components:
                           - g
                           - kg
                           - tonnes
+                          - t
                           - oz
                           - lb
                           - kWh
@@ -156,7 +158,7 @@ components:
           properties:
             code:
               type: string
-            description:
+            name:
               type: string
           required:
             - code
@@ -174,19 +176,19 @@ components:
               factor:
                 type: object
                 properties:
-                  WTT:
+                  wtt:
                     type: number
                     nullable: true
-                  TTW:
+                  ttw:
                     type: number
                     nullable: true
-                  WTW:
+                  wtw:
                     type: number
                     nullable: true
                 required:
-                  - WTT
-                  - TTW
-                  - WTW
+                  - wtt
+                  - ttw
+                  - wtw
             required:
               - unit
               - factor
@@ -205,7 +207,7 @@ components:
       properties:
         code:
           type: string
-        description:
+        name:
           type: string
       required:
         - code
@@ -218,19 +220,19 @@ components:
         factor:
           type: object
           properties:
-            WTT:
+            wtt:
               type: number
               nullable: true
-            TTW:
+            ttw:
               type: number
               nullable: true
-            WTW:
+            wtw:
               type: number
               nullable: true
           required:
-            - WTT
-            - TTW
-            - WTW
+            - wtt
+            - ttw
+            - wtw
       required:
         - unit
         - factor
@@ -252,6 +254,7 @@ components:
         - g
         - kg
         - tonnes
+        - t
         - oz
         - lb
         - km
@@ -373,7 +376,7 @@ paths:
                   properties:
                     code:
                       type: string
-                    description:
+                    name:
                       type: string
                   required:
                     - code
@@ -388,19 +391,19 @@ paths:
                       factor:
                         type: object
                         properties:
-                          WTT:
+                          wtt:
                             type: number
                             nullable: true
-                          TTW:
+                          ttw:
                             type: number
                             nullable: true
-                          WTW:
+                          wtw:
                             type: number
                             nullable: true
                         required:
-                          - WTT
-                          - TTW
-                          - WTW
+                          - wtt
+                          - ttw
+                          - wtw
                     required:
                       - unit
                       - factor
@@ -434,7 +437,7 @@ paths:
                     properties:
                       code:
                         type: string
-                      description:
+                      name:
                         type: string
                     required:
                       - code
@@ -449,19 +452,19 @@ paths:
                         factor:
                           type: object
                           properties:
-                            WTT:
+                            wtt:
                               type: number
                               nullable: true
-                            TTW:
+                            ttw:
                               type: number
                               nullable: true
-                            WTW:
+                            wtw:
                               type: number
                               nullable: true
                           required:
-                            - WTT
-                            - TTW
-                            - WTW
+                            - wtt
+                            - ttw
+                            - wtw
                       required:
                         - unit
                         - factor
@@ -503,7 +506,7 @@ paths:
                     properties:
                       code:
                         type: string
-                      description:
+                      name:
                         type: string
                     required:
                       - code
@@ -518,19 +521,19 @@ paths:
                         factor:
                           type: object
                           properties:
-                            WTT:
+                            wtt:
                               type: number
                               nullable: true
-                            TTW:
+                            ttw:
                               type: number
                               nullable: true
-                            WTW:
+                            wtw:
                               type: number
                               nullable: true
                           required:
-                            - WTT
-                            - TTW
-                            - WTW
+                            - wtt
+                            - ttw
+                            - wtw
                       required:
                         - unit
                         - factor
@@ -566,7 +569,7 @@ paths:
                       properties:
                         code:
                           type: string
-                        description:
+                        name:
                           type: string
                       required:
                         - code
@@ -581,19 +584,19 @@ paths:
                           factor:
                             type: object
                             properties:
-                              WTT:
+                              wtt:
                                 type: number
                                 nullable: true
-                              TTW:
+                              ttw:
                                 type: number
                                 nullable: true
-                              WTW:
+                              wtw:
                                 type: number
                                 nullable: true
                             required:
-                              - WTT
-                              - TTW
-                              - WTW
+                              - wtt
+                              - ttw
+                              - wtw
                         required:
                           - unit
                           - factor
@@ -644,7 +647,7 @@ paths:
                       properties:
                         code:
                           type: string
-                        description:
+                        name:
                           type: string
                       required:
                         - code
@@ -659,19 +662,19 @@ paths:
                           factor:
                             type: object
                             properties:
-                              WTT:
+                              wtt:
                                 type: number
                                 nullable: true
-                              TTW:
+                              ttw:
                                 type: number
                                 nullable: true
-                              WTW:
+                              wtw:
                                 type: number
                                 nullable: true
                             required:
-                              - WTT
-                              - TTW
-                              - WTW
+                              - wtt
+                              - ttw
+                              - wtw
                         required:
                           - unit
                           - factor
@@ -718,7 +721,7 @@ paths:
                     properties:
                       code:
                         type: string
-                      description:
+                      name:
                         type: string
                     required:
                       - code
@@ -733,19 +736,19 @@ paths:
                         factor:
                           type: object
                           properties:
-                            WTT:
+                            wtt:
                               type: number
                               nullable: true
-                            TTW:
+                            ttw:
                               type: number
                               nullable: true
-                            WTW:
+                            wtw:
                               type: number
                               nullable: true
                           required:
-                            - WTT
-                            - TTW
-                            - WTW
+                            - wtt
+                            - ttw
+                            - wtw
                       required:
                         - unit
                         - factor
@@ -795,7 +798,7 @@ paths:
                       properties:
                         code:
                           type: string
-                        description:
+                        name:
                           type: string
                       required:
                         - code
@@ -810,19 +813,19 @@ paths:
                           factor:
                             type: object
                             properties:
-                              WTT:
+                              wtt:
                                 type: number
                                 nullable: true
-                              TTW:
+                              ttw:
                                 type: number
                                 nullable: true
-                              WTW:
+                              wtw:
                                 type: number
                                 nullable: true
                             required:
-                              - WTT
-                              - TTW
-                              - WTW
+                              - wtt
+                              - ttw
+                              - wtw
                         required:
                           - unit
                           - factor
@@ -873,7 +876,7 @@ paths:
                       properties:
                         code:
                           type: string
-                        description:
+                        name:
                           type: string
                       required:
                         - code
@@ -888,19 +891,19 @@ paths:
                           factor:
                             type: object
                             properties:
-                              WTT:
+                              wtt:
                                 type: number
                                 nullable: true
-                              TTW:
+                              ttw:
                                 type: number
                                 nullable: true
-                              WTW:
+                              wtw:
                                 type: number
                                 nullable: true
                             required:
-                              - WTT
-                              - TTW
-                              - WTW
+                              - wtt
+                              - ttw
+                              - wtw
                         required:
                           - unit
                           - factor
@@ -942,7 +945,7 @@ paths:
                       properties:
                         code:
                           type: string
-                        description:
+                        name:
                           type: string
                       required:
                         - code
@@ -957,19 +960,19 @@ paths:
                           factor:
                             type: object
                             properties:
-                              WTT:
+                              wtt:
                                 type: number
                                 nullable: true
-                              TTW:
+                              ttw:
                                 type: number
                                 nullable: true
-                              WTW:
+                              wtw:
                                 type: number
                                 nullable: true
                             required:
-                              - WTT
-                              - TTW
-                              - WTW
+                              - wtt
+                              - ttw
+                              - wtw
                         required:
                           - unit
                           - factor
