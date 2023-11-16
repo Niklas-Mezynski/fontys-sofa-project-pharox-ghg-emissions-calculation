@@ -38,7 +38,7 @@ async function createRoadIntensityFactors(
     ? validatedFactors
     : [validatedFactors];
 
-  const factors = await FirestoreUtil.createMany(roadIntensityFactorsCollection, factorsToCreate)
+  const factors = await FirestoreUtil.createManyWithCustomId(roadIntensityFactorsCollection, factorsToCreate)
   return FirestoreUtil.getDataFromDocumentReferences(factors);
 }
 

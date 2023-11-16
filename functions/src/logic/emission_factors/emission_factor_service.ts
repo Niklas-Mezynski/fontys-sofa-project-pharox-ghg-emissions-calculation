@@ -111,7 +111,7 @@ async function createIntensityEmissionFactor(
     "Could not create a Intensity Emission Factor from the given data"
   );
 
-  const savedFactor = await FirestoreUtil.create(intensityEmissionFactorsCollection, factor);
+  const savedFactor = await FirestoreUtil.createWithCustomId(intensityEmissionFactorsCollection, factor);
   return FirestoreUtil.getDataFromDocumentReference(savedFactor);
 }
 

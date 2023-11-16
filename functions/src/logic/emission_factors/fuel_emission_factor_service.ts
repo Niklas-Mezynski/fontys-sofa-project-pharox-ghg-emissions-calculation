@@ -22,7 +22,7 @@ async function createFuelEmissionFactor(
     "Could not create a Fuel Emission Factor from the given data"
   );
 
-  const savedFactor = await FirestoreUtil.create(fuelEmissionFactorsCollection, factor);
+  const savedFactor = await FirestoreUtil.createWithCustomId(fuelEmissionFactorsCollection, factor);
   return FirestoreUtil.getDataFromDocumentReference(savedFactor);
 }
 
@@ -40,7 +40,7 @@ async function createFuelEmissionFactors(
     "Could not create a Fuel Emission Factor from the given data"
   );
 
-  const savedFactors = await FirestoreUtil.createMany(fuelEmissionFactorsCollection, validatedFactors);
+  const savedFactors = await FirestoreUtil.createManyWithCustomId(fuelEmissionFactorsCollection, validatedFactors);
   return FirestoreUtil.getDataFromDocumentReferences(savedFactors);
 }
 

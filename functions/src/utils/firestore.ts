@@ -1,6 +1,7 @@
 
-import { initializeApp } from "firebase-admin/app";
 import { CollectionReference, DocumentData, DocumentReference, DocumentSnapshot, Filter, QueryDocumentSnapshot, QuerySnapshot, getFirestore } from "firebase-admin/firestore";
+import { initializeApp } from "firebase-admin/app";
+import { v4 as uuid } from "uuid";
 
 initializeApp();
 export const db = getFirestore();
@@ -18,12 +19,13 @@ export async function create(collectionName: string, data: any): Promise<Documen
 }
 
 /**
- * Function to create a document in a collection
+ * Function to create a document in a collection using a custom id
  * @param {string} collectionName - The name of the collection to add data to
  * @param {any} data - The data to be added
+ * @param {string} id - The id of the document to be created
  * @returns {Promise<DocumentReference<DocumentData>>} - The document reference of the created document
  */
-export async function createWithId(collectionName: string, id: string, data: any): Promise<DocumentReference<DocumentData>> {
+export async function createWithCustomId(collectionName: string, data: any, id: string = uuid() ): Promise<DocumentReference<DocumentData>> {
   await db.collection(collectionName).doc(id).set(data);
   return db.collection(collectionName).doc(id);
 }
@@ -40,6 +42,29 @@ export async function createMany(collectionName: string, data: any[]): Promise<D
 
   for (const item of data) {
     const docRef = db.collection(collectionName).doc();
+    batch.set(docRef, item);
+
+    docsRef.push(docRef);
+  }
+
+  await batch.commit();
+
+  return docsRef;
+}
+
+/**
+ * Function to create multiple documents in a collection using custom ids
+ * @param {string} collectionName - The name of the collection to add data to
+ * @param {any[]} data - Array of data to be added
+ * @returns {Promise<DocumentReference<DocumentData>[]>} - Array of document references of the created documents
+ */
+export async function createManyWithCustomId(collectionName: string, data: any[]): Promise<DocumentReference<DocumentData>[]> {
+  const docsRef = [];
+  const batch = db.batch();
+
+  for (const item of data) {
+    const id = item.id || uuid();
+    const docRef = db.collection(collectionName).doc(id);
     batch.set(docRef, item);
 
     docsRef.push(docRef);
@@ -138,7 +163,7 @@ export function getCollection(collectionName: string): CollectionReference {
  * @returns {any | undefined} - The data of the document if present
  */
 export async function getDataFromDocumentReference(docRef: DocumentReference<DocumentData>): Promise<any | undefined> {
-  return docRef.get();
+  return getDataFromDocumentSnapshot(await docRef.get());
 }
 
 /**
