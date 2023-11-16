@@ -1,20 +1,20 @@
 import { HttpStatusCode } from "axios";
-import { Filter } from "firebase-admin/firestore";
-import { v4 as uuid } from "uuid";
-import { z } from "zod";
-import { db } from "../..";
+import { FirestoreUtil } from "../../utils/firestore";
 import {
   EmissionFactor,
   emissionFactorSchema,
 } from "../../models/emission_factors/climatiq_emission_factors";
+import { CustomError } from "../../utils/errors";
+import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import {
   FuelEmissionFactor,
   IntensityEmissionFactor,
   fuelEmissionFactorSchema,
   intensityEmissionFactorSchema,
-} from "../../models/emission_factors/fuel_emission_factors";
-import { CustomError } from "../../utils/errors";
-import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
+} from "../../models/emission_factors/emission_factors";
+import { v4 as uuid } from "uuid";
+import { z } from "zod";
+import { Filter } from "firebase-admin/firestore";
 
 /**
  * @deprecated Use fuelEmissionFactors instead.
@@ -22,8 +22,8 @@ import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
  * @returns The emission factors.
  */
 async function getAll() {
-  const factors = await db.collection("emission_factors").get();
-  return factors.docs.map((doc) => doc.data());
+  const factors = await FirestoreUtil.getAll("emission_factors");
+  return FirestoreUtil.getDataFromQuerySnapshot(factors);
 }
 
 /**
@@ -71,12 +71,9 @@ async function getByUnitType(unitType: string) {
  * @returns The emission factor.
  */
 async function getByActivityId(activityId: string) {
-  const document = await db
-    .collection("emission_factors")
-    .doc(activityId)
-    .get();
+  const document = await FirestoreUtil.getById("emission_factors", activityId);
 
-  if (!document.exists) {
+  if (!FirestoreUtil.isDocumentDataPresent(document)) {
     throw new CustomError({
       status: HttpStatusCode.NotFound,
       message: `Emission factor for activity ${activityId} not found.`,
@@ -98,9 +95,7 @@ async function getByActivityId(activityId: string) {
  * @param {EmissionFactor} factor - the emission factor to save
  */
 async function saveEmissionFactor(factor: EmissionFactor) {
-  const docRef = db.collection("emission_factors").doc(factor.activityId);
-
-  await docRef.set(factor);
+  await FirestoreUtil.createWithId("emission_factors", factor.activityId, factor);
 }
 
 /** FUEL EMISSION FACTORS */
@@ -112,12 +107,10 @@ const fuelEmissionFactorsCollection = "fuel_emission_factors";
  * @returns {Promise<FuelEmissionFactor[]>} - The found fuel emission factors
  */
 async function getAllFuelEmissionFactors(): Promise<FuelEmissionFactor[]> {
-  const factors = (
-    await db.collection(fuelEmissionFactorsCollection).get()
-  ).docs.map((doc) => doc.data());
+  const factors = await FirestoreUtil.getAll(fuelEmissionFactorsCollection);
 
   const validatedFactors = validateInput(
-    factors,
+    FirestoreUtil.getDataFromQuerySnapshot(factors),
     z.array(fuelEmissionFactorSchema),
     "Received unexpected emissionFactor format from the database."
   );
@@ -133,13 +126,10 @@ async function getAllFuelEmissionFactors(): Promise<FuelEmissionFactor[]> {
 async function getFuelEmissionFactorById(
   id: string
 ): Promise<FuelEmissionFactor> {
-  const document = await db
-    .collection(fuelEmissionFactorsCollection)
-    .doc(id)
-    .get();
+  const document = await FirestoreUtil.getById(fuelEmissionFactorsCollection, id);
 
   const data: FuelEmissionFactor = validateInput(
-    document.data(),
+    FirestoreUtil.getDataFromDocumentSnapshot(document),
     fuelEmissionFactorSchema,
     "Received unexpected Fuel Emission Factor format from the database."
   );
@@ -155,15 +145,11 @@ async function getFuelEmissionFactorById(
 async function getFuelEmissionFactorByFuelCode(
   fuelCode: string
 ): Promise<FuelEmissionFactor[]> {
-  const factors = (
-    await db
-      .collection(fuelEmissionFactorsCollection)
-      .where("fuel.code", "==", fuelCode)
-      .get()
-  ).docs.map((doc) => doc.data());
+  const filter = Filter.where("fuel.code", "==", fuelCode);
+  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
 
   const validatedFactors = validateInput(
-    factors,
+    FirestoreUtil.getDataFromQuerySnapshot(factors),
     z.array(fuelEmissionFactorSchema),
     "Received unexpected Fuel Emission Factor format from the database."
   );
@@ -179,15 +165,11 @@ async function getFuelEmissionFactorByFuelCode(
 async function getFuelEmissionFactorByRegion(
   region: string
 ): Promise<FuelEmissionFactor[]> {
-  const factors = (
-    await db
-      .collection(fuelEmissionFactorsCollection)
-      .where("region", "==", region)
-      .get()
-  ).docs.map((doc) => doc.data());
+  const filter = Filter.where("region", "==", region);
+  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
 
   const validatedFactors = validateInput(
-    factors,
+    FirestoreUtil.getDataFromQuerySnapshot(factors),
     z.array(fuelEmissionFactorSchema),
     "Received unexpected Fuel Emission Factor format from the database."
   );
@@ -203,15 +185,11 @@ async function getFuelEmissionFactorByRegion(
 async function getFuelEmissionFactorBySource(
   source: string
 ): Promise<FuelEmissionFactor[]> {
-  const factors = (
-    await db
-      .collection(fuelEmissionFactorsCollection)
-      .where("source", "==", source)
-      .get()
-  ).docs.map((doc) => doc.data());
+  const filter = Filter.where("source", "==", source);
+  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
 
   const validatedFactors = validateInput(
-    factors,
+    FirestoreUtil.getDataFromQuerySnapshot(factors),
     z.array(fuelEmissionFactorSchema),
     "Received unexpected Fuel Emission Factor format from the database."
   );
@@ -233,8 +211,8 @@ async function createFuelEmissionFactor(
     "Could not create a Fuel Emission Factor from the given data"
   );
 
-  await db.collection(fuelEmissionFactorsCollection).doc(uuid()).set(factor);
-  return factor;
+  const savedFactor = await FirestoreUtil.create(fuelEmissionFactorsCollection, factor);
+  return FirestoreUtil.getDataFromDocumentReference(savedFactor);
 }
 
 /**
@@ -251,20 +229,8 @@ async function createFuelEmissionFactors(
     "Could not create a Fuel Emission Factor from the given data"
   );
 
-  const factors = [];
-
-  const batch = db.batch();
-
-  for (const factor of validatedFactors) {
-    batch.set(db.collection("fuel_emission_factors").doc(uuid()), factor);
-
-    batch.set(db.collection(fuelEmissionFactorsCollection).doc(uuid()), factor);
-
-    factors.push(factor);
-  }
-
-  await batch.commit();
-  return factors;
+  const savedFactors = await FirestoreUtil.createMany(fuelEmissionFactorsCollection, validatedFactors);
+  return FirestoreUtil.getDataFromDocumentReferences(savedFactors);
 }
 
 /**
@@ -274,24 +240,20 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
   fuelCode: string,
   region: string
 ) {
-  const document = await db
-    .collection("fuel_emission_factors")
-    .where(
-      Filter.and(
-        Filter.or(
-          Filter.where("fuel.code", "==", fuelCode),
-          Filter.where("fuel.name", "==", fuelCode)
-        ),
-        Filter.or(
-          Filter.where("region", "==", region),
-          Filter.where("region", "==", "INTERNATIONAL")
-        )
-      )
+  const filter = Filter.and(
+    Filter.or(
+      Filter.where("fuel.code", "==", fuelCode),
+      Filter.where("fuel.name", "==", fuelCode)
+    ),
+    Filter.or(
+      Filter.where("region", "==", region),
+      Filter.where("region", "==", "INTERNATIONAL")
     )
-    .get();
+  );
+  const documents = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
 
   const factors = validateInput(
-    document.docs.map((doc) => doc.data()),
+    FirestoreUtil.getDataFromQuerySnapshot(documents),
     z.array(fuelEmissionFactorSchema),
     "Received unexpected emissionFactor format from the database."
   );
@@ -320,6 +282,10 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
   return foundFactors[0];
 }
 
+/** INTENSITY EMISSION FACTORS */
+
+const intensityEmissionFactorsCollection = "intensity_emission_factors";
+
 /**
  * Function to create a new intensity emission factor and store it in the DB
  * @param {object} data - The data to create a new intensity emission factor
@@ -334,10 +300,15 @@ async function createIntensityEmissionFactor(
     "Could not create a Intensity Emission Factor from the given data"
   );
 
-  await db.collection("intensity_emission_factors").doc(uuid()).set(factor);
-  return factor;
+  const savedFactor = await FirestoreUtil.create(intensityEmissionFactorsCollection, factor);
+  return FirestoreUtil.getDataFromDocumentReference(savedFactor);
 }
 
+/**
+ *
+ * @param emissionFactor
+ * @returns
+ */
 function mapEmissionFactorWithUnits(emissionFactor: FuelEmissionFactor) {
   return {
     ...emissionFactor,
@@ -358,6 +329,11 @@ function mapEmissionFactorWithUnits(emissionFactor: FuelEmissionFactor) {
   };
 }
 
+/**
+ *
+ * @param unit
+ * @returns
+ */
 function glecUnitStringMapper(
   unit: FuelEmissionFactor["factors"][number]["unit"]
 ) {
@@ -399,5 +375,4 @@ export const EmissionFactorService = {
   getByUnitType,
   saveEmissionFactor,
   getFuelEmissionFactorByFuelCodeAndRegion,
-  mapEmissionFactorWithUnits,
 };
