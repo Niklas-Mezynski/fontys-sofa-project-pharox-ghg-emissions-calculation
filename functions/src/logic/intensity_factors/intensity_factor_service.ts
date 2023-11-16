@@ -8,6 +8,5 @@ import { roadIntensityFactorSchema } from "../../models/emission_factors/road_in
 
 export async function createIntensityFactor(data: object) {
   const validatedInput = validateInput(data, roadIntensityFactorSchema);
-
-  console.log("done");
+  await db.collection("intensity_factors_road").doc(uuid()).set(data);
 }
