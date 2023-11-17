@@ -11,6 +11,7 @@ import { EmissionFactorService } from "../emission_factors/emission_factor_servi
 import { FuelEmissionFactorService } from "../emission_factors/fuel_emission_factor_service";
 import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../units/unit_conversion_service";
+import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -102,11 +103,17 @@ async function handleCalculationWithGivenFuelConsumption(
       transportPart.region
     );
 
+  const validatedEmissionFactor = validateInput(
+    emissionFactor,
+    fuelEmissionFactorSchema,
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
   // --- Unit conversion ---
   const providedUnitType = classifyUnitType(transportDetails.consumedFuel.unit);
 
   const mappedEmissionFactor =
-    EmissionFactorService.mapEmissionFactorWithUnits(emissionFactor);
+    EmissionFactorService.mapEmissionFactorWithUnits(validatedEmissionFactor);
 
   // Get the factor with the same unit type as the provided unit type
   const factorToUse = mappedEmissionFactor.factors.find(

@@ -15,7 +15,11 @@ const roadIntensityFactorsCollection = "intensity_factors_road";
  */
 async function getAll(): Promise<RoadIntensityFactor[]> {
   const factors = await FirestoreUtil.getAll(roadIntensityFactorsCollection);
-  return FirestoreUtil.getDataFromQuerySnapshot(factors);
+  return validateInput(
+    factors,
+    z.array(roadIntensityFactorSchema),
+    "Received unexpected Road Intensity Factors format from the database."
+  );
 }
 
 /**
@@ -40,17 +44,25 @@ async function createRoadIntensityFactors(
     : [validatedFactors];
 
   const factors = await FirestoreUtil.createManyWithCustomId(roadIntensityFactorsCollection, factorsToCreate)
-  return FirestoreUtil.getDataFromDocumentReferences(factors);
+  return validateInput(
+    factors,
+    z.array(roadIntensityFactorSchema),
+    "Received unexpected Road Intensity Factors format from the database."
+  );
 }
 
-
+/**
+ *
+ * @param data
+ * @returns
+ */
 async function getSpecificIntensityFactor(
   data: RoadTransportDetails): Promise<RoadIntensityFactor>{
 
-    let factors:RoadIntensityFactor[] = await getAll();
+  const factors:RoadIntensityFactor[] = await getAll();
 
-    factors.filter((factor)=>{
-      (factor.fuel?.code == data.fuelCode || undefined) &&
+  factors.filter((factor)=>{
+    (factor.fuel?.code == data.fuelCode || undefined) &&
       (factor.characteristics?.loadFactor == data.characteristics.loadFactor || null || undefined) &&
       (factor.characteristics?.loadCharacteristic == data.characteristics.loadCharacteristic || null || undefined) &&
       (factor.characteristics?.emptyRunning == data.characteristics.emptyRunning || null || undefined) &&
@@ -58,19 +70,20 @@ async function getSpecificIntensityFactor(
       (factor.vehicle?.code == data.vehicle.code || null || undefined) &&
       (factor.vehicle?.engineType == data.vehicle.engineType || null || undefined) &&
       (factor.vehicle?.weight?.unit == data.vehicle.weight.unit || undefined)
-    });
+  });
 
-    if(!(factors.length > 1)){
-      throw new Error('The provided data was not enough to find the correct emission factor!')
-    } else if(!(factors.length < 1)){
-      throw new Error('The provided data does not corespond to any emission factor!')
-    }
+  if(!(factors.length > 1)){
+    throw new Error("The provided data was not enough to find the correct emission factor!")
+  } else if(!(factors.length < 1)){
+    throw new Error("The provided data does not corespond to any emission factor!")
+  }
 
-    return factors[0];
+  return factors[0];
 
 }
 
 export const RoadIntensityFactorService = {
   getAll,
   createRoadIntensityFactors,
+  getSpecificIntensityFactor,
 };

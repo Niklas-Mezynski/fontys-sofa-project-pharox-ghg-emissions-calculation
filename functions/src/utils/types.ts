@@ -10,3 +10,7 @@ export type CheckStructureOfConst<T, S> = {
 // type ExtractGeneric<A, K extends string, B> = A extends { [Key in K]: B }
 //   ? A
 //   : never;
+
+export type UnknownObject = {
+  [key: string]: any;
+};
