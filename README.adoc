@@ -19,6 +19,7 @@ Some links to folders or files inside the repository are provided in order to fa
     * link:./documentation/use-case-diagram/UseCaseDiagram.svg[Use case diagram]
     * link:./documentation/use-cases/UseCases.pdf[Use cases]
     * link:./documentation/test-case-scenarios/TestCaseScenarios.pdf[Test case scenarios]
+    * link:./documentation/glec_considerations/emission_factor_retrieval.adoc[Considerations made for the GLEC framework]
 
 ==== Design phase
 
