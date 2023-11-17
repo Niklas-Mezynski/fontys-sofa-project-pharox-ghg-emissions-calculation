@@ -1,3 +1,4 @@
+import { RoadTransportDetails } from "../../../models/emission_calculations/emission_calculation_model";
 import {
   RoadIntensityFactor,
   roadIntensityFactorSchema,
@@ -40,6 +41,33 @@ async function createRoadIntensityFactors(
 
   const factors = await FirestoreUtil.createManyWithCustomId(roadIntensityFactorsCollection, factorsToCreate)
   return FirestoreUtil.getDataFromDocumentReferences(factors);
+}
+
+
+async function getSpecificIntensityFactor(
+  data: RoadTransportDetails): Promise<RoadIntensityFactor>{
+
+    let factors:RoadIntensityFactor[] = await getAll();
+
+    factors.filter((factor)=>{
+      (factor.fuel?.code == data.fuelCode || undefined) &&
+      (factor.characteristics?.loadFactor == data.characteristics.loadFactor || null || undefined) &&
+      (factor.characteristics?.loadCharacteristic == data.characteristics.loadCharacteristic || null || undefined) &&
+      (factor.characteristics?.emptyRunning == data.characteristics.emptyRunning || null || undefined) &&
+      (factor.characteristics?.combinedLoadFactorEmptyRunning == data.characteristics.combinedLoadFactorEmptyRunning || null || undefined) &&
+      (factor.vehicle?.code == data.vehicle.code || null || undefined) &&
+      (factor.vehicle?.engineType == data.vehicle.engineType || null || undefined) &&
+      (factor.vehicle?.weight?.unit == data.vehicle.weight.unit || undefined)
+    });
+
+    if(!(factors.length > 1)){
+      throw new Error('The provided data was not enough to find the correct emission factor!')
+    } else if(!(factors.length < 1)){
+      throw new Error('The provided data does not corespond to any emission factor!')
+    }
+
+    return factors[0];
+
 }
 
 export const RoadIntensityFactorService = {
