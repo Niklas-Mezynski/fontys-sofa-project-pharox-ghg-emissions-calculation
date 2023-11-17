@@ -248,10 +248,8 @@ components:
           enum: *a2
           default: EU
       required:
-        - source
         - fuel
         - factors
-        - region
     Fuel:
       type: object
       properties:
@@ -513,10 +511,8 @@ paths:
                   enum: *a2
                   default: EU
               required:
-                - source
                 - fuel
                 - factors
-                - region
       responses:
         "200":
           description: The added fuel emission factors
@@ -574,10 +570,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /addFuelEmissionFactors:
     post:
       summary: Add multiple fuel emission factors
@@ -643,10 +637,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
       responses:
         "200":
           description: List of added fuel emission factors
@@ -706,10 +698,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorByFuelCode:
     get:
       summary: Fetch fuel emission factors using fuel code
@@ -784,10 +774,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorById:
     get:
       summary: Fetch a fuel emission factor by ID
@@ -858,10 +846,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /getFuelEmissionFactorByRegion:
     get:
       summary: Fetch fuel emission factors by region
@@ -873,7 +859,7 @@ paths:
             type: string
             enum: *a2
             default: EU
-          required: true
+          required: false
           name: region
           in: path
       responses:
@@ -935,10 +921,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorBySource:
     get:
       summary: Fetch fuel emission factors by data source
@@ -951,7 +935,7 @@ paths:
             type: string
             enum: *a7
             default: GLEC
-          required: true
+          required: false
           name: source
           in: path
       responses:
@@ -1013,10 +997,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactors:
     get:
       summary: Fetch all fuel emission factors
@@ -1082,10 +1064,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /unitClassification:
     post:
       summary: Classify the given unit
