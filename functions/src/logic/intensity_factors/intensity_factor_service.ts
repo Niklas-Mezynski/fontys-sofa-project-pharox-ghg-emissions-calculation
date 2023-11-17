@@ -1,9 +1,7 @@
 import { HttpStatusCode } from "axios";
-import { Filter } from "firebase-admin/firestore";
 import { v4 as uuid } from "uuid";
-import { INVALID, z } from "zod";
 import { db } from "../..";
-import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
+import { validateInput } from "../../utils/functions";
 import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
 import {
   removeRoadEmissionIntensityFactorSchema,

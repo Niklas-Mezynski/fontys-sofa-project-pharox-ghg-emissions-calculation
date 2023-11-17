@@ -6,7 +6,6 @@ import { onErrorHandledRequest } from "../../utils/request_handler";
  */
 export const newRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    // Return emission value
     await createIntensityFactor(request.body);
     response.status(200).send("Factor inserted.");
   }
