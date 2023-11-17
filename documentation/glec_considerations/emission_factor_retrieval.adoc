@@ -13,7 +13,7 @@ TODO:
 The road intensity emission factors are being used when calculating the emissions for road transport and there is no data available on the exact amount of fuel used. The intensity emission factors are based on the type of vehicle and the characteristics of the transport. The intensity emission factors are given in gCO2e/tkm. In the GLEC framework they can be found on p. 103-31.
 We came up with the following schema to store the data:
 
-image::../database-schema/schema.svg[Static, 500]
+image::../database-schema/DatabaseSchema.svg[Static, 500]
 The factors for the North American values are using a special format (table 40).
 The column "SmartWay Category" has been mapped to the characteristics object in the schema for all rows, expect the "Van (<3.5 t)" category, which has been mapped to the vehicle object.
 
