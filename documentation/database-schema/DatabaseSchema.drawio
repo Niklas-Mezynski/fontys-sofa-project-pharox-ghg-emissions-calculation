@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" modified="2023-11-16T23:59:15.212Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="dPbm948rq4R3ME44zQo7" version="22.1.2" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1953" dy="1013" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="uOMRUYrI1pACzMCdl_Fx-10" value="fuel_emission_factors" style="shape=folder;fontStyle=1;tabWidth=140;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="60" y="85" width="430" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="uOMRUYrI1pACzMCdl_Fx-6" value="fuel_emission_factor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="uOMRUYrI1pACzMCdl_Fx-10" vertex="1">
+          <mxGeometry x="110" y="66" width="210" height="248" as="geometry" />
+        </mxCell>
+        <mxCell id="uOMRUYrI1pACzMCdl_Fx-7" value="+ uid: uid&#xa;+ fuel: {&#xa;    + name: string&#xa;    + code: string&#xa;}&#xa;+ factor: [array] {    &#xa;    + unit: string&#xa;    + wtt: number&#xa;    + ttw: number&#xa;    + wtw: number&#xa;}&#xa;+ source: string&#xa;+ region: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="uOMRUYrI1pACzMCdl_Fx-6" vertex="1">
+          <mxGeometry y="26" width="210" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="uOMRUYrI1pACzMCdl_Fx-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="uOMRUYrI1pACzMCdl_Fx-6" vertex="1">
+          <mxGeometry y="240" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-0" value="intensity_emission_factors" style="shape=folder;fontStyle=1;tabWidth=170;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="580" y="40" width="860" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-1" value="road_intensity_emission_factors" style="shape=folder;fontStyle=1;tabWidth=200;tabHeight=25;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-0">
+          <mxGeometry x="40" y="45" width="390" height="605" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-2" value="road_intensity_emission_factor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-1">
+          <mxGeometry x="55" y="45" width="280" height="528" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-3" value="+ uid: uid&#xa;+ vehicle: {&#xa;    + code: string&#xa;    + name: string&#xa;    + weight: {&#xa;        + lower: number&#xa;        + upper: number&#xa;        + unit: string&#xa;    }&#xa;    + engineType: string&#xa;}&#xa;+ characteristics: {&#xa;    + loadFactor: number&#xa;    + emptyRunning: number&#xa;    + loadCharacteristic: string&#xa;    + combinedLoadFactorEmptyRunning: number&#xa;}&#xa;+ fuel: {&#xa;    + name: string&#xa;    + code: string&#xa;}&#xa;+ fuelConsumption: [array] {&#xa;    + value: number&#xa;    + unit: string&#xa;}&#xa;+ factor: {    &#xa;    + unit: string&#xa;    + wtt: number&#xa;    + ttw: number&#xa;    + wtw: number&#xa;}&#xa;+ refrigerated: boolean&#xa;+ source: string&#xa;+ region: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-2">
+          <mxGeometry y="26" width="280" height="494" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-2">
+          <mxGeometry y="520" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-6" value="rail_intensity_emission_factors" style="shape=folder;fontStyle=1;tabWidth=200;tabHeight=25;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-0">
+          <mxGeometry x="481" y="45" width="320" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-14" value="ocean_intensity_emission_factors" style="shape=folder;fontStyle=1;tabWidth=210;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-0">
+          <mxGeometry x="481" y="260" width="320" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-15" value="air_intensity_emission_factors" style="shape=folder;fontStyle=1;tabWidth=200;tabHeight=25;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-0">
+          <mxGeometry x="481" y="475" width="320" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-16" value="emission_calculations" style="shape=folder;fontStyle=1;tabWidth=140;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="60" y="535" width="430" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-17" value="emission_calculation" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-16">
+          <mxGeometry x="110" y="66" width="210" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="T5xu_mNyABZ1caYWuq8b-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="T5xu_mNyABZ1caYWuq8b-17">
+          <mxGeometry y="26" width="210" height="8" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
