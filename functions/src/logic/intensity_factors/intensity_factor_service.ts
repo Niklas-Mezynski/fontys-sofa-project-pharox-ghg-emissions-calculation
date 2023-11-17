@@ -14,8 +14,8 @@ import { CustomError } from "../../utils/errors";
  * @param data = roadIntensityFactor
  */
 export async function createIntensityFactor(data: object) {
-  validateInput(data, roadIntensityFactorSchema);
-  await db.collection("intensity_factors_road").doc(uuid()).set(data);
+  const validatedInput = validateInput(data, roadIntensityFactorSchema);
+  await db.collection("intensity_factors_road").doc(uuid()).set(validatedInput);
 }
 
 /**
@@ -24,7 +24,10 @@ export async function createIntensityFactor(data: object) {
  * @param identifier = the identifier to update
  */
 export async function updateIntensityFactor(data: object, identifier: string) {
-  validateInput(data, updateRoadEmissionIntensityFactorSchema);
+  const validatedInput = validateInput(
+    data,
+    updateRoadEmissionIntensityFactorSchema
+  );
 
   // Attempt to Fetch document with the identifier.
   const fetchDocument = await db
@@ -34,7 +37,10 @@ export async function updateIntensityFactor(data: object, identifier: string) {
 
   // If Exist: Update. Else, throw error.
   if (fetchDocument.exists) {
-    await db.collection("intensity_factors_road").doc(identifier).set(data);
+    await db
+      .collection("intensity_factors_road")
+      .doc(identifier)
+      .set(validatedInput);
   } else {
     throw new CustomError({
       status: HttpStatusCode.BadRequest,
