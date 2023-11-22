@@ -1,36 +1,30 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-import { FuelEmissionFactor } from "../../../src/models/emission_factors/fuel_emission_factors";
+import { FirestoreUtil } from "../../../src/utils/firestore";
+import { FuelEmissionFactorService } from "../../../src/logic/emission_factors/fuel_emission_factor_service";
 import { fuelEmissionFactors } from "../../helpers/test-data";
-import { Mock } from "../../helpers/mocks";
 
 describe("Emission factors - Fuel emission factors", () => {
-  let FuelEmissionFactorService: any;
-  let fuelEmissionFactorsMock: Mock<FuelEmissionFactor>;
-
-  beforeAll(() => {
-
-    fuelEmissionFactorsMock = new Mock<FuelEmissionFactor>(fuelEmissionFactors);
-    fuelEmissionFactorsMock.mockFirebaseApplication();
-    fuelEmissionFactorsMock.mockFirestore();
-
-    /**
-     * Import the logic that it will be tested
-     * NOTE: Always after the Firebase App and Firestore mocking, otherwise it won't work
-     */
-    FuelEmissionFactorService = require("../../../src/logic/emission_factors/fuel_emission_factor_service").FuelEmissionFactorService;
-  });
-
   afterEach(() => {
-    fuelEmissionFactorsMock.resetMockToDefaultData();
+    jest.restoreAllMocks();
   });
 
   afterAll(() => {
-    // fuelEmissionFactorsMock.clearMocks();
+    jest.restoreAllMocks();
   });
 
   test("Get All Fuel Emission Factor returns all fuel emission factors", async () => {
+    jest.spyOn(FirestoreUtil, "getAll").mockResolvedValue(fuelEmissionFactors);
+
     expect(await FuelEmissionFactorService.getAllFuelEmissionFactors()).toStrictEqual(fuelEmissionFactors);
   });
+
+  test("Get Fuel Emission Factors by Fuel code returns all fuel emission factors with the same fuel code", async () => {
+    const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]]
+    jest.spyOn(FirestoreUtil, "getByFilter").mockResolvedValue(gasolineFuelEmissionFactors);
+
+    const result = await FuelEmissionFactorService.getFuelEmissionFactorByFuelCode("GASOLINE")
+
+    expect(result.length).toStrictEqual(1);
+    expect(result).toStrictEqual(gasolineFuelEmissionFactors);
+  });
 });
+

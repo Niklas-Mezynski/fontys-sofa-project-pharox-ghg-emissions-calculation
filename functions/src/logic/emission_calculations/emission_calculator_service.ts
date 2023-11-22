@@ -1,17 +1,17 @@
+import { HttpStatusCode } from "axios";
 import {
   CalculationReport,
   ConsumedFuelTransportDetails,
   FreightEmissionCalculationInput,
   freightEmissionCalculationInputSchema,
 } from "../../models/emission_calculations/emission_calculation_model";
-import { classifyUnitType } from "../units/unit_classification_service";
+import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
-import { EmissionFactorService } from "../emission_factors/emission_factor_service";
 import { FuelEmissionFactorService } from "../emission_factors/fuel_emission_factor_service";
-import { HttpStatusCode } from "axios";
-import { validateInput } from "../../utils/functions";
+import { classifyUnitType } from "../units/unit_classification_service";
 import { UnitConversionService } from "../units/unit_conversion_service";
+import { EmissionFactorUtils } from "../../utils/emission_factor_utils";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -66,6 +66,11 @@ async function performEmissionCalculation(
   return calculationReport;
 }
 
+/**
+ * Calculates the emission for a single transport activity.
+ * @param transportPart The transport activity to calculate the emission for.
+ * @returns The report part for the transport activity.
+ */
 async function calculateTransportActivity(
   transportPart: FreightEmissionCalculationInput["transportParts"][number]
 ) {
@@ -98,16 +103,23 @@ async function handleCalculationWithGivenFuelConsumption(
   transportDetails: ConsumedFuelTransportDetails
 ) {
   const emissionFactor =
-    await EmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
+    await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
       transportDetails.fuelCode,
       transportPart.region
     );
 
+  const validatedEmissionFactor = validateInput(
+    emissionFactor,
+    fuelEmissionFactorSchema,
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
   // --- Unit conversion ---
   const providedUnitType = classifyUnitType(transportDetails.consumedFuel.unit);
 
-  const mappedEmissionFactor =
-    EmissionFactorService.mapEmissionFactorWithUnits(emissionFactor);
+  const mappedEmissionFactor = EmissionFactorUtils.mapEmissionFactorWithUnits(
+    validatedEmissionFactor
+  );
 
   // Get the factor with the same unit type as the provided unit type
   const factorToUse = mappedEmissionFactor.factors.find(

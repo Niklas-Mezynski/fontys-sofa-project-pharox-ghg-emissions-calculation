@@ -1,5 +1,7 @@
 // import * as indexFunctions from "../src/index";
 
+
+
 describe("Index - Hello World", () => {
   test("Hello World function returns 'Hello world!'", async () => {
     // A fake request object, with req.query.text set to 'input'

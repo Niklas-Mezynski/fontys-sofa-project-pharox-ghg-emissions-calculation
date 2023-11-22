@@ -3,10 +3,10 @@ import { z } from "zod";
 import {
   RoadIntensityFactor,
   roadIntensityFactorSchema,
-} from "../../../models/emission_factors/road_intensity_factors";
-import { validateInput } from "../../../utils/functions";
-import { onErrorHandledRequest } from "../../../utils/request_handler";
-import { CustomError } from "../../../utils/errors";
+} from "../../models/emission_factors/road_intensity_factors";
+import { validateInput } from "../../utils/functions";
+import { onErrorHandledRequest } from "../../utils/request_handler";
+import { CustomError } from "../../utils/errors";
 import { HttpStatusCode } from "axios";
 
 // "EU", "AF",  "AS",  "SA"
@@ -36,6 +36,9 @@ export const mapRoadIntensityFactors = onErrorHandledRequest(
   }
 );
 
+/**
+ * Helper
+ */
 function mapToSPecificRegion(
   body: any[],
   regionToMapTo: keyof typeof conversionFactors
