@@ -39,7 +39,7 @@ export const openApiDocumentConfig = {
   ],
   security: [
     {
-      authToken: [],
+      bearerAuth: [],
     },
   ],
 };

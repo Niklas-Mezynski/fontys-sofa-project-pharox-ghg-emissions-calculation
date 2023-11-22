@@ -32,6 +32,11 @@ export function getOpenApiYaml() {
   registry.register("UnitTypes", z.enum(unitTypes));
   registry.register("Units", z.enum(allUnits));
 
+  registry.registerComponent("securitySchemes", "bearerAuth", {
+    type: "http",
+    scheme: "bearer",
+  });
+
   // -- Register paths here --
   emissionCalculationOpenApiPaths.forEach((path) =>
     registry.registerPath(path)
