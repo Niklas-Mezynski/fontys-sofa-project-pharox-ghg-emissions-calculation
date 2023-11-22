@@ -12,5 +12,5 @@ export type CheckStructureOfConst<T, S> = {
 //   : never;
 
 export type UnknownObject = {
-  [key: string]: any;
+  [key: string | number | symbol]: unknown;
 };

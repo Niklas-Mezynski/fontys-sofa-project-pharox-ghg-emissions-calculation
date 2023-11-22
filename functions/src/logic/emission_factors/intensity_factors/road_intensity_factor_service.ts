@@ -11,19 +11,6 @@ import { validateInput } from "../../../utils/functions";
 const roadIntensityFactorsCollection = "intensity_factors_road";
 
 /**
- * Function to get all road intensity factors
- * @returns {RoadIntensityFactor[]} All road intensity factors
- */
-async function getAll(): Promise<RoadIntensityFactor[]> {
-  const factors = await FirestoreUtil.getAll(roadIntensityFactorsCollection);
-  return validateInput(
-    factors,
-    z.array(roadIntensityFactorSchema),
-    "Received unexpected Road Intensity Factors format from the database."
-  );
-}
-
-/**
  *
  * @param data
  * @returns
@@ -92,6 +79,5 @@ async function getSpecificIntensityFactor(
 }
 
 export const RoadIntensityFactorService = {
-  getAll,
   getSpecificIntensityFactor,
 };
