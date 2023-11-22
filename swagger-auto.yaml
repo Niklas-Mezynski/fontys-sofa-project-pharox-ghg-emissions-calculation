@@ -25,10 +25,6 @@ tags:
 security:
   - authToken: []
 components:
-  securitySchemes:
-      authToken:
-        type: http
-        scheme: bearer
   schemas:
     EmissionCalculationInput:
       type: object
