@@ -46,7 +46,7 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: &a3
+                    enum: &a4
                       - km
                       - cm
                       - m
@@ -63,7 +63,7 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: &a4
+                    enum: &a1
                       - g
                       - kg
                       - tonnes
@@ -75,7 +75,7 @@ components:
                   - unit
               region:
                 type: string
-                enum: &a1
+                enum: &a2
                   - EU
                   - NA
                   - AF
@@ -84,38 +84,88 @@ components:
                   - OC
                   - AN
                   - INTERNATIONAL
-                default: EU
               transportDetails:
-                type: object
-                properties:
-                  consumedFuel:
-                    type: object
+                anyOf:
+                  - type: object
                     properties:
-                      value:
-                        type: number
-                      unit:
+                      consumedFuel:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            enum: &a5
+                              - ml
+                              - l
+                              - tsp
+                              - tbsp
+                              - g
+                              - kg
+                              - tonnes
+                              - t
+                              - oz
+                              - lb
+                              - kWh
+                        required:
+                          - value
+                          - unit
+                      fuelCode:
                         type: string
-                        enum: &a5
-                          - ml
-                          - l
-                          - tsp
-                          - tbsp
-                          - g
-                          - kg
-                          - tonnes
-                          - t
-                          - oz
-                          - lb
-                          - kWh
+                        description: A unique code for the fuel used
                     required:
-                      - value
-                      - unit
-                  fuelCode:
-                    type: string
-                    description: A unique code for the fuel used
-                required:
-                  - consumedFuel
-                  - fuelCode
+                      - consumedFuel
+                      - fuelCode
+                  - type: object
+                    properties:
+                      modeOfTransport:
+                        type: string
+                        enum:
+                          - ROAD
+                      vehicle:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                            nullable: true
+                          weight:
+                            type: object
+                            properties:
+                              value:
+                                type: number
+                              unit:
+                                type: string
+                                enum: *a1
+                            required:
+                              - value
+                              - unit
+                          engineType:
+                            type: string
+                            nullable: true
+                        required:
+                          - weight
+                      characteristics:
+                        type: object
+                        properties:
+                          loadFactor:
+                            type: number
+                            nullable: true
+                          emptyRunning:
+                            type: number
+                            nullable: true
+                          loadCharacteristic:
+                            type: string
+                            nullable: true
+                          combinedLoadFactorEmptyRunning:
+                            type: number
+                            nullable: true
+                      fuelCode:
+                        type: string
+                        nullable: true
+                    required:
+                      - modeOfTransport
+                      - vehicle
+                      - characteristics
             required:
               - distance
               - weight
@@ -169,7 +219,7 @@ components:
             properties:
               unit:
                 type: string
-                enum: &a2
+                enum: &a3
                   - KG_CO2E_PER_KWH
                   - KG_CO2E_PER_KG
                   - KG_CO2E_PER_L
@@ -195,13 +245,11 @@ components:
           minItems: 1
         region:
           type: string
-          enum: *a1
+          enum: *a2
           default: EU
       required:
-        - source
         - fuel
         - factors
-        - region
     Fuel:
       type: object
       properties:
@@ -216,7 +264,7 @@ components:
       properties:
         unit:
           type: string
-          enum: *a2
+          enum: *a3
         factor:
           type: object
           properties:
@@ -297,7 +345,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a3
+                            enum: *a4
                         required:
                           - value
                           - unit
@@ -308,34 +356,84 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a1
                         required:
                           - value
                           - unit
                       region:
                         type: string
-                        enum: *a1
-                        default: EU
+                        enum: *a2
                       transportDetails:
-                        type: object
-                        properties:
-                          consumedFuel:
-                            type: object
+                        anyOf:
+                          - type: object
                             properties:
-                              value:
-                                type: number
-                              unit:
+                              consumedFuel:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    enum: *a5
+                                required:
+                                  - value
+                                  - unit
+                              fuelCode:
                                 type: string
-                                enum: *a5
+                                description: A unique code for the fuel used
                             required:
-                              - value
-                              - unit
-                          fuelCode:
-                            type: string
-                            description: A unique code for the fuel used
-                        required:
-                          - consumedFuel
-                          - fuelCode
+                              - consumedFuel
+                              - fuelCode
+                          - type: object
+                            properties:
+                              modeOfTransport:
+                                type: string
+                                enum:
+                                  - ROAD
+                              vehicle:
+                                type: object
+                                properties:
+                                  code:
+                                    type: string
+                                    nullable: true
+                                  weight:
+                                    type: object
+                                    properties:
+                                      value:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        enum: *a1
+                                    required:
+                                      - value
+                                      - unit
+                                  engineType:
+                                    type: string
+                                    nullable: true
+                                required:
+                                  - weight
+                              characteristics:
+                                type: object
+                                properties:
+                                  loadFactor:
+                                    type: number
+                                    nullable: true
+                                  emptyRunning:
+                                    type: number
+                                    nullable: true
+                                  loadCharacteristic:
+                                    type: string
+                                    nullable: true
+                                  combinedLoadFactorEmptyRunning:
+                                    type: number
+                                    nullable: true
+                              fuelCode:
+                                type: string
+                                nullable: true
+                            required:
+                              - modeOfTransport
+                              - vehicle
+                              - characteristics
                     required:
                       - distance
                       - weight
@@ -387,7 +485,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a2
+                        enum: *a3
                       factor:
                         type: object
                         properties:
@@ -410,13 +508,11 @@ paths:
                   minItems: 1
                 region:
                   type: string
-                  enum: *a1
+                  enum: *a2
                   default: EU
               required:
-                - source
                 - fuel
                 - factors
-                - region
       responses:
         "200":
           description: The added fuel emission factors
@@ -448,7 +544,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a2
+                          enum: *a3
                         factor:
                           type: object
                           properties:
@@ -471,13 +567,11 @@ paths:
                     minItems: 1
                   region:
                     type: string
-                    enum: *a1
+                    enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /addFuelEmissionFactors:
     post:
       summary: Add multiple fuel emission factors
@@ -517,7 +611,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a2
+                          enum: *a3
                         factor:
                           type: object
                           properties:
@@ -540,13 +634,11 @@ paths:
                     minItems: 1
                   region:
                     type: string
-                    enum: *a1
+                    enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
       responses:
         "200":
           description: List of added fuel emission factors
@@ -580,7 +672,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a2
+                            enum: *a3
                           factor:
                             type: object
                             properties:
@@ -603,13 +695,11 @@ paths:
                       minItems: 1
                     region:
                       type: string
-                      enum: *a1
+                      enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorByFuelCode:
     get:
       summary: Fetch fuel emission factors using fuel code
@@ -658,7 +748,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a2
+                            enum: *a3
                           factor:
                             type: object
                             properties:
@@ -681,13 +771,11 @@ paths:
                       minItems: 1
                     region:
                       type: string
-                      enum: *a1
+                      enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorById:
     get:
       summary: Fetch a fuel emission factor by ID
@@ -732,7 +820,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a2
+                          enum: *a3
                         factor:
                           type: object
                           properties:
@@ -755,13 +843,11 @@ paths:
                     minItems: 1
                   region:
                     type: string
-                    enum: *a1
+                    enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /getFuelEmissionFactorByRegion:
     get:
       summary: Fetch fuel emission factors by region
@@ -771,9 +857,9 @@ paths:
       parameters:
         - schema:
             type: string
-            enum: *a1
+            enum: *a2
             default: EU
-          required: true
+          required: false
           name: region
           in: path
       responses:
@@ -809,7 +895,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a2
+                            enum: *a3
                           factor:
                             type: object
                             properties:
@@ -832,13 +918,11 @@ paths:
                       minItems: 1
                     region:
                       type: string
-                      enum: *a1
+                      enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorBySource:
     get:
       summary: Fetch fuel emission factors by data source
@@ -851,7 +935,7 @@ paths:
             type: string
             enum: *a7
             default: GLEC
-          required: true
+          required: false
           name: source
           in: path
       responses:
@@ -887,7 +971,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a2
+                            enum: *a3
                           factor:
                             type: object
                             properties:
@@ -910,13 +994,11 @@ paths:
                       minItems: 1
                     region:
                       type: string
-                      enum: *a1
+                      enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactors:
     get:
       summary: Fetch all fuel emission factors
@@ -956,7 +1038,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a2
+                            enum: *a3
                           factor:
                             type: object
                             properties:
@@ -979,13 +1061,11 @@ paths:
                       minItems: 1
                     region:
                       type: string
-                      enum: *a1
+                      enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /unitClassification:
     post:
       summary: Classify the given unit
