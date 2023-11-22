@@ -4,9 +4,9 @@ export type CheckStructureOfConst<T, S> = {
 };
 
 // A conditional type that extracts a type from a union that has a given literal type
-type Extract<A, B> = A extends { type: B } ? A : never;
+// type Extract<A, B> = A extends { type: B } ? A : never;
 
 // A conditional type that extracts a type from a union that has a given property with the given literal type
-type ExtractGeneric<A, K extends string, B> = A extends { [Key in K]: B }
-  ? A
-  : never;
+// type ExtractGeneric<A, K extends string, B> = A extends { [Key in K]: B }
+//   ? A
+// : never;

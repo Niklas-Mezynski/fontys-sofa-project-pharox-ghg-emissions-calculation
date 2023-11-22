@@ -1,6 +1,5 @@
 import { HttpStatusCode } from "axios";
 import { v4 as uuid } from "uuid";
-import { db } from "../..";
 import { validateInput } from "../../utils/functions";
 import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
 import {
@@ -8,6 +7,7 @@ import {
   updateRoadEmissionIntensityFactorSchema,
 } from "../../models/intensity_factors/intensity_factors_schemas";
 import { CustomError } from "../../utils/errors";
+import { db } from "../../utils/firestore";
 
 /**
  * Creates new road intensity factor and inserts it into the database.
