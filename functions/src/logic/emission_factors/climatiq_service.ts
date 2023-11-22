@@ -110,6 +110,9 @@ async function saveInDatabase(emissionFactors: ClimatiqEmissionFactorResponse) {
   );
 }
 
+/**
+ * @deprecated
+ */
 export const ClimatiqService = {
   fetchClimatiqApi,
 };

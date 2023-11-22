@@ -1,0 +1,154 @@
+[
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T",
+      "name": "Van <- 3.5 t",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": null,
+      "combinedLoadFactorEmptyRunning": 0.36
+    },
+    "fuel": {
+      "name": "Diesel, 5% biodiesel blend",
+      "code": "DIESEL_B5"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.20339999999999997,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.24294999999999997,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 158.2,
+      "ttw": 621.4999999999999,
+      "wtw": 768.4
+    },
+    "region": "AS"
+  },
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T",
+      "name": "Van <- 3.5 t",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": null,
+      "combinedLoadFactorEmptyRunning": 0.24
+    },
+    "fuel": {
+      "name": "Petrol",
+      "code": "PETROL"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.29719,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.39888999999999997,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 180.79999999999998,
+      "ttw": 960.4999999999999,
+      "wtw": 1130
+    },
+    "region": "AS"
+  },
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T",
+      "name": "Van <- 3.5 t",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": null,
+      "combinedLoadFactorEmptyRunning": 0.36
+    },
+    "fuel": {
+      "name": "CNG",
+      "code": "CNG"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.22599999999999998,
+        "unit": "KG_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 90.39999999999999,
+      "ttw": 610.1999999999999,
+      "wtw": 700.5999999999999
+    },
+    "region": "AS"
+  },
+  {
+    "vehicle": {
+      "code": "VAN_LT_3.5_T",
+      "name": "Van <- 3.5 t",
+      "weight": {
+        "lower": null,
+        "upper": 3.5,
+        "unit": "t"
+      },
+      "engineType": null
+    },
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": null,
+      "combinedLoadFactorEmptyRunning": 0.36
+    },
+    "fuel": {
+      "name": "LPG",
+      "code": "LPG"
+    },
+    "fuelConsumption": [
+      {
+        "value": 0.21356999999999998,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.3898499999999999,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 79.1,
+      "ttw": 666.6999999999999,
+      "wtw": 745.8
+    },
+    "region": "AS"
+  }
+]

@@ -1,0 +1,38 @@
+{
+    "vehicle": {
+        "code": "ARTIC_TRUCK_HPDI",
+        "name": "Artic truck up to 40 t GVW HDPI",
+        "weight": {
+            "lower": 0,
+            "upper": 40,
+            "unit": "t"
+        },
+        "engineType": null
+    },
+    "characteristics": {
+        "loadFactor": 0.72,
+        "emptyRunning": 0.3,
+        "loadCharacteristic": "CONTAINER",
+        "combinedLoadFactorEmptyRunning": 0.0
+    },
+    "fuel": {
+        "name": "CNG/Diesel",
+        "code": "CNG_DIESEL"
+    },
+    "fuelConsumption": [
+        {
+            "value": 0.018,
+            "unit": "kg/t-km"
+        },
+        {
+            "value": 0.0002,
+            "unit": "l/t-km"
+        }
+    ],
+    "factor": {
+        "unit": "g co2e/t-km",
+        "wtt": 15,
+        "ttw": 52,
+        "wtw": 67
+    }
+}

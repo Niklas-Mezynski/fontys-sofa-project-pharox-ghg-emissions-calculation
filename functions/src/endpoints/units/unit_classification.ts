@@ -3,7 +3,7 @@ import { onErrorHandledRequest } from "../../utils/request_handler";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
 
-const queryInputSchema = z.object({
+export const unitClassificationInputSchema = z.object({
   unit: z.string(),
 });
 
@@ -15,7 +15,10 @@ const queryInputSchema = z.object({
  */
 export const unitClassification = onErrorHandledRequest(
   async (request, response) => {
-    const requestBody = validateInput(request.body, queryInputSchema);
+    const requestBody = validateInput(
+      request.body,
+      unitClassificationInputSchema
+    );
 
     const unitType = classifyUnitType(requestBody.unit);
 

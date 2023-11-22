@@ -115,7 +115,7 @@ module.exports = {
     "no-var": 1,
 
     // Prefer === and !== over == and !=. The latter operators support overloads that are often accidental.
-    "eqeqeq": 1,
+    eqeqeq: 1,
 
     // -- Light Warnings --
     // These rules are intended to help developers use better style. Simpler code has fewer bugs. These would be "info"
@@ -140,7 +140,8 @@ module.exports = {
     "max-len": 0,
     "object-curly-spacing": 0,
     "quote-props": 0,
-    "require-jsdoc": 0,
+    "require-jsdoc": 1,
     "valid-jsdoc": 0,
+    indent: ["error", 2, { SwitchCase: 1 }],
   },
 };
