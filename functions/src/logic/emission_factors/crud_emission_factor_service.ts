@@ -19,8 +19,25 @@ const factorSpecificData = {
 
 type FactorType = keyof typeof factorSpecificData;
 
-type FactorSpecificReturnType<T extends FactorType> =
-  (typeof factorSpecificData)[T]["validationSchema"]["_output"];
+type FactorSpecificReturnType<T extends FactorType> = z.infer<
+  (typeof factorSpecificData)[T]["validationSchema"]
+>;
+
+/**
+ * Gets all emission factors of a specific type.
+ * @param type = the type of emission factor
+ */
+async function testGetById<T extends FactorType>(id: string, type: T) {
+  const result = await FirestoreUtil.getById(
+    factorSpecificData[type].collectionName,
+    id
+  );
+  return validateInput(
+    result,
+    factorSpecificData[type].validationSchema,
+    `Received unexpected ${type} Emission Factor format from the database.`
+  );
+}
 
 /**
  * Gets all emission factors of a specific type.
@@ -36,7 +53,7 @@ async function getEmissionFactorById<T extends FactorType>(
   );
   return validateInput(
     result,
-    factorSpecificData[type].validationSchema as ZodSchema,
+    factorSpecificData[type].validationSchema,
     `Received unexpected ${type} Emission Factor format from the database.`
   );
 }
@@ -69,7 +86,7 @@ async function createEmissionFactor<T extends FactorType>(
 ) {
   const validatedInput = validateInput(
     data,
-    factorSpecificData[type].validationSchema as ZodSchema
+    factorSpecificData[type].validationSchema
   );
   await FirestoreUtil.createWithCustomId(
     factorSpecificData[type].collectionName,
@@ -109,7 +126,7 @@ async function updateEmissionFactor<T extends FactorType>(
 ): Promise<FactorSpecificReturnType<T>> {
   const validatedInput = validateInput(
     data,
-    factorSpecificData[type].validationSchema as ZodSchema
+    factorSpecificData[type].validationSchema
   );
 
   const updatedFactor = await FirestoreUtil.updateById(
