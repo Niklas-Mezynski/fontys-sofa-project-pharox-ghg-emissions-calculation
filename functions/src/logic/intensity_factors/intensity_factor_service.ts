@@ -14,7 +14,10 @@ import { FirestoreUtil } from "../../utils/firestore";
  */
 export async function createIntensityFactor(data: object) {
   const validatedInput = validateInput(data, roadIntensityFactorSchema);
-  await FirestoreUtil.createWithCustomId("intensity_factors_road", validatedInput);
+  await FirestoreUtil.createWithCustomId(
+    "intensity_factors_road",
+    validatedInput
+  );
   // await db.collection("intensity_factors_road").doc(uuid()).set(validatedInput);
 }
 
@@ -29,9 +32,13 @@ export async function updateIntensityFactor(data: object, identifier: string) {
     updateRoadEmissionIntensityFactorSchema
   );
 
-  const updatedFactor = await FirestoreUtil.updateById("intensity_factors_road", identifier, validatedInput);
+  const updatedFactor = await FirestoreUtil.updateById(
+    "intensity_factors_road",
+    identifier,
+    validatedInput
+  );
 
-  if(!updatedFactor){
+  if (!updatedFactor) {
     throw new CustomError({
       status: HttpStatusCode.BadRequest,
       message:
@@ -70,9 +77,12 @@ export async function removeIntensityFactor(data: object, identifier: string) {
 
   await FirestoreUtil.deleteById("intensity_factors_road", identifier);
 
-  const deletedFactor = await FirestoreUtil.getById("intensity_factors_road", identifier);
+  const deletedFactor = await FirestoreUtil.getById(
+    "intensity_factors_road",
+    identifier
+  );
 
-  if(deletedFactor){
+  if (deletedFactor) {
     throw new CustomError({
       status: HttpStatusCode.BadRequest,
       message:
