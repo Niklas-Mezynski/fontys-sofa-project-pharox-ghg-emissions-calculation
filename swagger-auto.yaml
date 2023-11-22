@@ -936,10 +936,60 @@ paths:
         - Emission factors
       parameters:
         - schema:
-            type: string
-            enum: *a7
-            default: GLEC
-          required: false
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid
+              source:
+                type: string
+                enum: *a7
+                default: GLEC
+              fuel:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  name:
+                    type: string
+                required:
+                  - code
+              factors:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    unit:
+                      type: string
+                      enum: *a3
+                    factor:
+                      type: object
+                      properties:
+                        wtt:
+                          type: number
+                          nullable: true
+                        ttw:
+                          type: number
+                          nullable: true
+                        wtw:
+                          type: number
+                          nullable: true
+                      required:
+                        - wtt
+                        - ttw
+                        - wtw
+                  required:
+                    - unit
+                    - factor
+                minItems: 1
+              region:
+                type: string
+                enum: *a2
+                default: EU
+            required:
+              - fuel
+              - factors
+          required: true
           name: source
           in: path
       responses:
