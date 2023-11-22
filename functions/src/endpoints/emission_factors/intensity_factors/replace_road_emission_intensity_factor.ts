@@ -1,5 +1,5 @@
-import { updateIntensityFactor } from "../../logic/intensity_factors/intensity_factor_service";
-import { onErrorHandledRequest } from "../../utils/request_handler";
+import { updateIntensityFactor } from "../../../logic/intensity_factors/intensity_factor_service";
+import { onErrorHandledRequest } from "../../../utils/request_handler";
 
 /**
  * Updates an Emission Intensity Factor by UUID

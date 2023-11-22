@@ -8,10 +8,10 @@ import {
 import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
-import { EmissionFactorService } from "../emission_factors/emission_factor_service";
 import { FuelEmissionFactorService } from "../emission_factors/fuel_emission_factor_service";
 import { classifyUnitType } from "../units/unit_classification_service";
 import { UnitConversionService } from "../units/unit_conversion_service";
+import { EmissionFactorUtils } from "../../utils/emission_factor_utils";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -117,7 +117,7 @@ async function handleCalculationWithGivenFuelConsumption(
   // --- Unit conversion ---
   const providedUnitType = classifyUnitType(transportDetails.consumedFuel.unit);
 
-  const mappedEmissionFactor = EmissionFactorService.mapEmissionFactorWithUnits(
+  const mappedEmissionFactor = EmissionFactorUtils.mapEmissionFactorWithUnits(
     validatedEmissionFactor
   );
 

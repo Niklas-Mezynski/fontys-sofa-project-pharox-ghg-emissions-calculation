@@ -1,38 +1,9 @@
 import { HttpStatusCode } from "axios";
-import { FirestoreUtil } from "../../utils/firestore";
-import { CustomError } from "../../utils/errors";
-import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
-import {
-  FuelEmissionFactor,
-  IntensityEmissionFactor,
-  intensityEmissionFactorSchema,
-} from "../../models/emission_factors/fuel_emission_factors";
+import { FuelEmissionFactor } from "../models/emission_factors/fuel_emission_factors";
+import { CustomError } from "./errors";
+import { exhaustiveMatchingGuard } from "./functions";
 
 /** INTENSITY EMISSION FACTORS */
-
-const intensityEmissionFactorsCollection = "intensity_emission_factors";
-
-/**
- * Function to create a new intensity emission factor and store it in the DB
- * @param {object} data - The data to create a new intensity emission factor
- * @returns {Promise<IntensityEmissionFactor>} - The saved intensity emission factor in the DB
- */
-async function createIntensityEmissionFactor(
-  data: object
-): Promise<IntensityEmissionFactor> {
-  const factor = validateInput(
-    data,
-    intensityEmissionFactorSchema,
-    "Could not create a Intensity Emission Factor from the given data"
-  );
-
-  const savedFactor = await FirestoreUtil.createWithCustomId(intensityEmissionFactorsCollection, factor);
-  return validateInput(
-    savedFactor,
-    intensityEmissionFactorSchema,
-    "Received unexpected Intensity Emission Factor format from the database."
-  );
-}
 
 /**
  *
@@ -91,8 +62,6 @@ function glecUnitStringMapper(
   }
 }
 
-export const EmissionFactorService = {
-  createIntensityEmissionFactor,
+export const EmissionFactorUtils = {
   mapEmissionFactorWithUnits,
-  glecUnitStringMapper,
 };
