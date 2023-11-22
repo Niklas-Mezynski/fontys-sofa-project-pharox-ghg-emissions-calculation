@@ -9,7 +9,37 @@ import { CustomError } from "../../../utils/errors";
 import { validateInput } from "../../../utils/functions";
 import { onErrorHandledRequest } from "../../../utils/request_handler";
 
-/** FUEL EMISSION FACTORS */
+/** CREATE METHODS */
+
+/**
+ * Cloud function to add a Fuel emission factor
+ */
+export const createFuelEmissionFactor = onErrorHandledRequest(
+  async (request, response) => {
+    const emissionFactor = await CRUDEmissionFactorService.createEmissionFactor(
+      request.body,
+      "FUEL"
+    );
+    response.status(200).json(emissionFactor);
+  }
+);
+
+/**
+ * Cloud function to add multiple Fuel emission factors
+ */
+export const createFuelEmissionFactors = onErrorHandledRequest(
+  async (request, response) => {
+    const emissionFactors =
+      await CRUDEmissionFactorService.createEmissionFactors(
+        request.body,
+        "FUEL"
+      );
+
+    response.status(200).json(emissionFactors);
+  }
+);
+
+/** READ METHODS */
 
 /**
  * Cloud function to fetch all the Fuel emission factors
@@ -41,37 +71,9 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
 
     const factor = await CRUDEmissionFactorService.getEmissionFactorById(
       id,
-      "ROAD"
-    );
-    response.json(factor);
-  }
-);
-
-/**
- * Cloud function to add a Fuel emission factor
- */
-export const addFuelEmissionFactor = onErrorHandledRequest(
-  async (request, response) => {
-    const emissionFactor = await CRUDEmissionFactorService.createEmissionFactor(
-      request.body,
       "FUEL"
     );
-    response.status(200).json(emissionFactor);
-  }
-);
-
-/**
- * Cloud function to add multiple Fuel emission factors
- */
-export const addFuelEmissionFactors = onErrorHandledRequest(
-  async (request, response) => {
-    const emissionFactors =
-      await CRUDEmissionFactorService.createEmissionFactors(
-        request.body,
-        "FUEL"
-      );
-
-    response.status(200).json(emissionFactors);
+    response.json(factor);
   }
 );
 
@@ -131,13 +133,13 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
     const { source } = validateInput(
       request.query,
       fuelEmissionFactorSchema.partial(),
-      "Region not Found"
+      "Data source not Found"
     );
 
     if (!source) {
       throw new CustomError({
         status: HttpStatusCode.NotFound,
-        message: "Region not Found",
+        message: "Data source not Found",
       });
     }
 

@@ -15,12 +15,12 @@ import { EmissionFactorUtils } from "../../utils/emission_factor_utils";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
- * @param inputData the input object.
- * @return The response object.
+ * @param {FreightEmissionCalculationInput | unknown} inputData - the input object.
+ * @return {Promise<CalculationReport>} The result of the emission calculation.
  */
 async function performEmissionCalculation(
   inputData: FreightEmissionCalculationInput | unknown
-) {
+): Promise<CalculationReport> {
   // Validate calculation input
   const calculationInput = validateInput(
     inputData,
