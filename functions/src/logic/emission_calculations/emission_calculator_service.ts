@@ -5,6 +5,7 @@ import {
   FreightEmissionCalculationInput,
   freightEmissionCalculationInputSchema,
 } from "../../models/emission_calculations/emission_calculation_model";
+import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { EmissionFactorService } from "../emission_factors/emission_factor_service";
@@ -65,6 +66,11 @@ async function performEmissionCalculation(
   return calculationReport;
 }
 
+/**
+ * Calculates the emission for a single transport activity.
+ * @param transportPart The transport activity to calculate the emission for.
+ * @returns The report part for the transport activity.
+ */
 async function calculateTransportActivity(
   transportPart: FreightEmissionCalculationInput["transportParts"][number]
 ) {
@@ -102,11 +108,18 @@ async function handleCalculationWithGivenFuelConsumption(
       transportPart.region
     );
 
+  const validatedEmissionFactor = validateInput(
+    emissionFactor,
+    fuelEmissionFactorSchema,
+    "Received unexpected Fuel Emission Factor format from the database."
+  );
+
   // --- Unit conversion ---
   const providedUnitType = classifyUnitType(transportDetails.consumedFuel.unit);
 
-  const mappedEmissionFactor =
-    EmissionFactorService.mapEmissionFactorWithUnits(emissionFactor);
+  const mappedEmissionFactor = EmissionFactorService.mapEmissionFactorWithUnits(
+    validatedEmissionFactor
+  );
 
   // Get the factor with the same unit type as the provided unit type
   const factorToUse = mappedEmissionFactor.factors.find(

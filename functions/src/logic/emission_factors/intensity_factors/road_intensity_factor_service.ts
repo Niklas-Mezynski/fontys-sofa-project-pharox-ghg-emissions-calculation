@@ -16,7 +16,11 @@ const roadIntensityFactorsCollection = "intensity_factors_road";
  */
 async function getAll(): Promise<RoadIntensityFactor[]> {
   const factors = await FirestoreUtil.getAll(roadIntensityFactorsCollection);
-  return FirestoreUtil.getDataFromQuerySnapshot(factors);
+  return validateInput(
+    factors,
+    z.array(roadIntensityFactorSchema),
+    "Received unexpected Road Intensity Factors format from the database."
+  );
 }
 
 /**
@@ -40,13 +44,22 @@ async function createRoadIntensityFactors(
     ? validatedFactors
     : [validatedFactors];
 
-  const factors = await FirestoreUtil.createMany(
+  const factors = await FirestoreUtil.createManyWithCustomId(
     roadIntensityFactorsCollection,
     factorsToCreate
   );
-  return FirestoreUtil.getDataFromDocumentReferences(factors);
+  return validateInput(
+    factors,
+    z.array(roadIntensityFactorSchema),
+    "Received unexpected Road Intensity Factors format from the database."
+  );
 }
 
+/**
+ *
+ * @param data
+ * @returns
+ */
 async function getSpecificIntensityFactor(
   data: RoadTransportDetails,
   region: string
@@ -86,13 +99,18 @@ async function getSpecificIntensityFactor(
     )
   );
 
-  const query = await FirestoreUtil.getByFilter(
+  const queryData = await FirestoreUtil.getByFilter(
     roadIntensityFactorsCollection,
     filter
   );
-  const queryData = FirestoreUtil.getDataFromQuerySnapshot(query);
 
-  if (!(queryData.length > 1)) {
+  const validatedQueryData = validateInput(
+    queryData,
+    z.array(roadIntensityFactorSchema),
+    "Received unexpected Road Intensity Factors format from the database."
+  );
+
+  if (!(validatedQueryData.length > 1)) {
     throw new Error(
       "The provided data was not enough to find the correct emission factor!"
     );
@@ -102,7 +120,7 @@ async function getSpecificIntensityFactor(
     );
   }
 
-  return queryData[0];
+  return validatedQueryData[0];
 }
 
 export const RoadIntensityFactorService = {
