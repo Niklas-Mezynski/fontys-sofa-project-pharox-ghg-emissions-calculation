@@ -39,42 +39,7 @@ async function testGetById<T extends FactorType>(id: string, type: T) {
   );
 }
 
-/**
- * Gets all emission factors of a specific type.
- * @param type = the type of emission factor
- */
-async function getEmissionFactorById<T extends FactorType>(
-  id: string,
-  type: T
-): Promise<FactorSpecificReturnType<T>> {
-  const result = await FirestoreUtil.getById(
-    factorSpecificData[type].collectionName,
-    id
-  );
-  return validateInput(
-    result,
-    factorSpecificData[type].validationSchema,
-    `Received unexpected ${type} Emission Factor format from the database.`
-  );
-}
-
-/**
- * Gets all emission factors of a specific type.
- * @param type = the type of emission factor
- * @returns A list of all emission factors of the given type.
- */
-async function getEmissionFactors<T extends FactorType>(
-  type: T
-): Promise<FactorSpecificReturnType<T>[]> {
-  const result = await FirestoreUtil.getAll(
-    factorSpecificData[type].collectionName
-  );
-  return validateInput(
-    result,
-    z.array(factorSpecificData[type].validationSchema),
-    `Received unexpected ${type} Emission Factors format from the database.`
-  );
-}
+/** CREATE METHODS */
 
 /**
  * Creates new road intensity factor and inserts it into the database.
@@ -114,6 +79,47 @@ async function createEmissionFactors<T extends FactorType>(
   return result as never;
 }
 
+/** READ METHODS */
+
+/**
+ * Gets all emission factors of a specific type.
+ * @param type = the type of emission factor
+ */
+async function getEmissionFactorById<T extends FactorType>(
+  id: string,
+  type: T
+): Promise<FactorSpecificReturnType<T>> {
+  const result = await FirestoreUtil.getById(
+    factorSpecificData[type].collectionName,
+    id
+  );
+  return validateInput(
+    result,
+    factorSpecificData[type].validationSchema,
+    `Received unexpected ${type} Emission Factor format from the database.`
+  );
+}
+
+/**
+ * Gets all emission factors of a specific type.
+ * @param type = the type of emission factor
+ * @returns A list of all emission factors of the given type.
+ */
+async function getEmissionFactors<T extends FactorType>(
+  type: T
+): Promise<FactorSpecificReturnType<T>[]> {
+  const result = await FirestoreUtil.getAll(
+    factorSpecificData[type].collectionName
+  );
+  return validateInput(
+    result,
+    z.array(factorSpecificData[type].validationSchema),
+    `Received unexpected ${type} Emission Factors format from the database.`
+  );
+}
+
+/** UPDATE METHODS */
+
 /**
  * Updates a road intensity factor
  * @param data = the new schema
@@ -144,6 +150,8 @@ async function updateEmissionFactor<T extends FactorType>(
 
   return updatedFactor as never;
 }
+
+/** DELETE METHODS */
 
 /**
  * Removes an intensity factor by ID.

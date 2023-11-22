@@ -9,6 +9,7 @@ import { HttpStatusCode } from "axios";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
 
+// The Firestore collection name refering to the Fuel emission factors
 const fuelEmissionFactorsCollection = "fuel_emission_factors";
 
 /**

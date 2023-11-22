@@ -8,6 +8,7 @@ import {
 import { FirestoreUtil } from "../../../utils/firestore";
 import { validateInput } from "../../../utils/functions";
 
+// The Firestore collection name refering to the Road intensity factors
 const roadIntensityFactorsCollection = "intensity_factors_road";
 
 /**
