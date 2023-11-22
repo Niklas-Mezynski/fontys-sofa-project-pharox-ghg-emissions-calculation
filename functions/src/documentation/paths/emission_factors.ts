@@ -1,10 +1,7 @@
 import { RouteConfig } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
-import {
-  fuelEmissionFactorSchema,
-  fuelEmissionFactorSourceSchema,
-  regionSchema,
-} from "../../models/emission_factors/fuel_emission_factors";
+import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
+import { regionSchema } from "../../models/emission_factors/common_emission_factor_models";
 
 export const emissionFactorsOpenApiPaths: RouteConfig[] = [
   {
@@ -156,7 +153,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     tags: ["Emission factors"],
     request: {
       params: z.object({
-        source: fuelEmissionFactorSourceSchema,
+        source: fuelEmissionFactorSchema,
       }),
     },
     responses: {

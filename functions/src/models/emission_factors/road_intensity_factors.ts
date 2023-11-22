@@ -3,9 +3,9 @@ import { weightUnits } from "../units/units";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { commonModels } from "../common";
 import {
-  fuelEmissionFactorSourceSchema,
+  emissionFactorSourceSchema,
   regionSchema,
-} from "./fuel_emission_factors";
+} from "./common_emission_factor_models";
 
 extendZodWithOpenApi(z);
 
@@ -61,7 +61,7 @@ export const roadIntensityFactorSchema = z.object({
   fuelConsumption: fuelConsumptionSchema.nullable(),
   factor: factorSchema.nullable(),
   region: regionSchema,
-  source: fuelEmissionFactorSourceSchema,
+  source: emissionFactorSourceSchema,
   refrigerated: z.boolean().default(false),
 });
 export type RoadIntensityFactor = z.infer<typeof roadIntensityFactorSchema>;

@@ -1,57 +1,15 @@
 import { CustomError } from "../../utils/errors";
 import { Filter } from "firebase-admin/firestore";
 import { FirestoreUtil } from "../../utils/firestore";
-import { FuelEmissionFactor, fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
+import {
+  FuelEmissionFactor,
+  fuelEmissionFactorSchema,
+} from "../../models/emission_factors/fuel_emission_factors";
 import { HttpStatusCode } from "axios";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
 
 const fuelEmissionFactorsCollection = "fuel_emission_factors";
-
-/**
- * Function to create a new fuel emission factor and store it in the DB
- * @param {object} data - The multiple data to create a new fuel emission factor
- * @returns {Promise<FuelEmissionFactor>} - The saved fuel emission factor in the DB
- */
-async function createFuelEmissionFactor(
-  data: unknown
-): Promise<FuelEmissionFactor> {
-  const factor = validateInput(
-    data,
-    fuelEmissionFactorSchema,
-    "Could not create a Fuel Emission Factor from the given data"
-  );
-
-  const savedFactor = await FirestoreUtil.createWithCustomId(fuelEmissionFactorsCollection, factor);
-  return validateInput(
-    savedFactor,
-    fuelEmissionFactorSchema,
-    "Received unexpected Fuel Emission Factor format from the database."
-  );
-}
-
-/**
- * Function to create multiple new fuel emission factors and store it in the DB
- * @param {object[]} data - The multiple data to create multiple new fuel emission factors
- * @returns {Promise<FuelEmissionFactor[]>} - The saved fuel emission factors in the DB
- */
-async function createFuelEmissionFactors(
-  data: unknown
-): Promise<FuelEmissionFactor[]> {
-  const validatedFactors = validateInput(
-    data,
-    z.array(fuelEmissionFactorSchema),
-    "Could not create a Fuel Emission Factors from the given data"
-  );
-
-  const savedFactors = await FirestoreUtil.createManyWithCustomId(fuelEmissionFactorsCollection, validatedFactors);
-  return validateInput(
-    savedFactors,
-    z.array(fuelEmissionFactorSchema),
-    "Received unexpected Fuel Emission Factors format from the database."
-  );
-}
-
 
 /**
  * Get all the Fuel emission factors in the database
@@ -93,7 +51,10 @@ async function getFuelEmissionFactorByFuelCode(
   fuelCode: string
 ): Promise<FuelEmissionFactor[]> {
   const filter = Filter.where("fuel.code", "==", fuelCode);
-  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
+  const factors = await FirestoreUtil.getByFilter(
+    fuelEmissionFactorsCollection,
+    filter
+  );
 
   return validateInput(
     factors,
@@ -111,7 +72,10 @@ async function getFuelEmissionFactorByRegion(
   region: string
 ): Promise<FuelEmissionFactor[]> {
   const filter = Filter.where("region", "==", region);
-  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
+  const factors = await FirestoreUtil.getByFilter(
+    fuelEmissionFactorsCollection,
+    filter
+  );
 
   return validateInput(
     factors,
@@ -129,7 +93,10 @@ async function getFuelEmissionFactorBySource(
   source: string
 ): Promise<FuelEmissionFactor[]> {
   const filter = Filter.where("source", "==", source);
-  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
+  const factors = await FirestoreUtil.getByFilter(
+    fuelEmissionFactorsCollection,
+    filter
+  );
 
   return validateInput(
     factors,
@@ -155,7 +122,10 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
       Filter.where("region", "==", "INTERNATIONAL")
     )
   );
-  const factors = await FirestoreUtil.getByFilter(fuelEmissionFactorsCollection, filter);
+  const factors = await FirestoreUtil.getByFilter(
+    fuelEmissionFactorsCollection,
+    filter
+  );
 
   const validatedFactors = validateInput(
     factors,
@@ -188,8 +158,6 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
 }
 
 export const FuelEmissionFactorService = {
-  createFuelEmissionFactor,
-  createFuelEmissionFactors,
   getAllFuelEmissionFactors,
   getFuelEmissionFactorById,
   getFuelEmissionFactorByFuelCode,

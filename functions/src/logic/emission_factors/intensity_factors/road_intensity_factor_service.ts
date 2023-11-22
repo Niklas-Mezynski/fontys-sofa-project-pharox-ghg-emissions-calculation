@@ -24,38 +24,6 @@ async function getAll(): Promise<RoadIntensityFactor[]> {
 }
 
 /**
- * Function to create road intensity factors
- * @param {unknown} data - Data to create road intensity factors from
- * @returns {Promise<RoadIntensityFactor[]>} - Array of created road intensity factors
- */
-async function createRoadIntensityFactors(
-  data: unknown
-): Promise<RoadIntensityFactor[]> {
-  const validatedFactors = validateInput(
-    data,
-    z.union([
-      z.array(roadIntensityFactorSchema).nonempty(),
-      roadIntensityFactorSchema,
-    ]),
-    "Could not create Intensity Factors for road from the given data"
-  );
-
-  const factorsToCreate = Array.isArray(validatedFactors)
-    ? validatedFactors
-    : [validatedFactors];
-
-  const factors = await FirestoreUtil.createManyWithCustomId(
-    roadIntensityFactorsCollection,
-    factorsToCreate
-  );
-  return validateInput(
-    factors,
-    z.array(roadIntensityFactorSchema),
-    "Received unexpected Road Intensity Factors format from the database."
-  );
-}
-
-/**
  *
  * @param data
  * @returns
@@ -125,6 +93,5 @@ async function getSpecificIntensityFactor(
 
 export const RoadIntensityFactorService = {
   getAll,
-  createRoadIntensityFactors,
   getSpecificIntensityFactor,
 };

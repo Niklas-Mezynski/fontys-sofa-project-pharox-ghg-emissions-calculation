@@ -1,5 +1,9 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
+import {
+  emissionFactorSourceSchema,
+  regionSchema,
+} from "./common_emission_factor_models";
 
 extendZodWithOpenApi(z);
 
@@ -32,27 +36,12 @@ export const fuelFactorSchema = z.object({
 });
 export type FuelFactor = z.infer<typeof fuelFactorSchema>;
 
-export const emissionFactorRegions = [
-  "EU",
-  "NA",
-  "AF",
-  "AS",
-  "SA",
-  "OC",
-  "AN",
-  "INTERNATIONAL",
-] as const;
-export const regionSchema = z.enum(emissionFactorRegions).default("EU");
-
-export const fuelEmissionFactorSourceSchema = z
-  .enum(["CUSTOM", "GLEC"])
-  .default("GLEC");
 /**
  * The fuel emission factor model containin the info to perform emission calculations
  */
 export const fuelEmissionFactorSchema = z.object({
   id: z.string().uuid().optional(),
-  source: fuelEmissionFactorSourceSchema,
+  source: emissionFactorSourceSchema,
   fuel: fuelSchema,
   factors: z.array(fuelFactorSchema).nonempty(),
   region: regionSchema, // EU, NA, AF, AS, SA, OC, AN - continent codes

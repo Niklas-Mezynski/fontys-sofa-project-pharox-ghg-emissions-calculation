@@ -1,4 +1,6 @@
+import { CRUDEmissionFactorService } from "../../../logic/emission_factors/crud_emission_factor_service";
 import { FuelEmissionFactorService } from "../../../logic/emission_factors/fuel_emission_factor_service";
+import { fuelEmissionFactorSchema } from "../../../models/emission_factors/fuel_emission_factors";
 import { onErrorHandledRequest } from "../../../utils/request_handler";
 
 /**
@@ -6,8 +8,10 @@ import { onErrorHandledRequest } from "../../../utils/request_handler";
  */
 export const addFuelEmissionFactor = onErrorHandledRequest(
   async (request, response) => {
-    const emissionFactor = await FuelEmissionFactorService.createFuelEmissionFactor(
-      request.body
+    const emissionFactor = await CRUDEmissionFactorService.createEmissionFactor(
+      request.body,
+      fuelEmissionFactorSchema,
+      "FUEL"
     );
     response.status(200).json(emissionFactor);
   }
@@ -19,7 +23,11 @@ export const addFuelEmissionFactor = onErrorHandledRequest(
 export const addFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
     const emissionFactors =
-      await FuelEmissionFactorService.createFuelEmissionFactors(request.body);
+      await CRUDEmissionFactorService.createEmissionFactors(
+        request.body,
+        fuelEmissionFactorSchema,
+        "FUEL"
+      );
 
     response.status(200).json(emissionFactors);
   }
