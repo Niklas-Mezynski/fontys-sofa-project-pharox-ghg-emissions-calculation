@@ -23,22 +23,6 @@ type FactorSpecificReturnType<T extends FactorType> = z.infer<
   (typeof factorSpecificData)[T]["validationSchema"]
 >;
 
-/**
- * Gets all emission factors of a specific type.
- * @param type = the type of emission factor
- */
-async function testGetById<T extends FactorType>(id: string, type: T) {
-  const result = await FirestoreUtil.getById(
-    factorSpecificData[type].collectionName,
-    id
-  );
-  return validateInput(
-    result,
-    factorSpecificData[type].validationSchema,
-    `Received unexpected ${type} Emission Factor format from the database.`
-  );
-}
-
 /** CREATE METHODS */
 
 /**
@@ -53,7 +37,7 @@ async function createEmissionFactor<T extends FactorType>(
     data,
     factorSpecificData[type].validationSchema
   );
-  await FirestoreUtil.createWithCustomId(
+  return FirestoreUtil.createWithCustomId(
     factorSpecificData[type].collectionName,
     validatedInput
   );
@@ -76,7 +60,7 @@ async function createEmissionFactors<T extends FactorType>(
     validatedInput
   );
 
-  return result as never;
+  return result;
 }
 
 /** READ METHODS */
@@ -148,7 +132,7 @@ async function updateEmissionFactor<T extends FactorType>(
     });
   }
 
-  return updatedFactor as never;
+  return updatedFactor;
 }
 
 /** DELETE METHODS */
