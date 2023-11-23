@@ -6,16 +6,20 @@ import { exhaustiveMatchingGuard } from "./functions";
 /** INTENSITY EMISSION FACTORS */
 
 /**
- *
- * @param emissionFactor
- * @returns
+ * Helper to extract the different units from the string format stored in the database
+ * @param emissionFactor The FuelEmissionFactor to map
+ * @returns The FuelEmissionFactor with the units mapped.
+ * The units consist of
+ * - producedUnit: the unit of the produced product (e.g. kg)
+ * - producedProduct: the name of the produced product (e.g. CO2e)
+ * - perUnit: the unit of the per unit (e.g. kg)
  */
 function mapEmissionFactorWithUnits(emissionFactor: FuelEmissionFactor) {
   return {
     ...emissionFactor,
     factors: emissionFactor.factors.map((factor) => {
-      const glecUnitString = glecUnitStringMapper(factor.unit);
-      if (!glecUnitString) {
+      const glecUnitObj = glecUnitStringMapper(factor.unit);
+      if (!glecUnitObj) {
         throw new CustomError({
           status: HttpStatusCode.InternalServerError,
           message: `Could not map unit string ${factor.unit} from the GLEC fuel emission factors to the required format`,
@@ -23,8 +27,9 @@ function mapEmissionFactorWithUnits(emissionFactor: FuelEmissionFactor) {
       }
       return {
         ...factor,
-        producedUnit: glecUnitString.producedUnit,
-        perUnit: glecUnitString.perUnit,
+        unit: {
+          ...glecUnitObj,
+        },
       };
     }),
   };
@@ -41,19 +46,22 @@ function glecUnitStringMapper(
   switch (unit) {
     case "KG_CO2E_PER_KG":
       return {
-        producedUnit: "kg_CO2e",
+        producedUnit: "kg",
+        producedProduct: "CO2e",
         perUnit: "kg",
-      };
+      } as const;
     case "KG_CO2E_PER_L":
       return {
-        producedUnit: "kg_CO2e",
+        producedUnit: "kg",
+        producedProduct: "CO2e",
         perUnit: "l",
-      };
+      } as const;
     case "KG_CO2E_PER_KWH":
       return {
-        producedUnit: "kg_CO2e",
+        producedUnit: "kg",
+        producedProduct: "CO2e",
         perUnit: "kWh",
-      };
+      } as const;
     default:
       return exhaustiveMatchingGuard(
         unit,

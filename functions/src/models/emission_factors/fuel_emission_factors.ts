@@ -1,6 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 import {
+  baseFactorSchema,
   emissionFactorSourceSchema,
   regionSchema,
 } from "./common_emission_factor_models";
@@ -23,17 +24,12 @@ export const glecFuelFactorUnits = [
   "KG_CO2E_PER_KG",
   "KG_CO2E_PER_L",
 ] as const;
+
+// TODO: Refactpr this to also use the baseFactorSchema format
 /**
  * Define the different fuel factors to be able to calculate emissions
  */
-export const fuelFactorSchema = z.object({
-  unit: z.enum(glecFuelFactorUnits),
-  factor: z.object({
-    wtt: z.number().nullable(),
-    ttw: z.number().nullable(),
-    wtw: z.number().nullable(),
-  }),
-});
+export const fuelFactorSchema = baseFactorSchema(glecFuelFactorUnits);
 export type FuelFactor = z.infer<typeof fuelFactorSchema>;
 
 /**
