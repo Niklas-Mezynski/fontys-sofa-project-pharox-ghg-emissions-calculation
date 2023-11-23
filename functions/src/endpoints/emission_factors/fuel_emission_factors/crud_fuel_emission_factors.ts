@@ -148,3 +148,60 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
     response.json(factors);
   }
 );
+
+/** UPDATE METHODS */
+
+/**
+ * Cloud function to update a Fuel emission factor by ID
+ */
+export const updateFuelEmissionFactor = onErrorHandledRequest(
+  async (request, response) => {
+    const { id } = validateInput(
+      request.query,
+      fuelEmissionFactorSchema.partial(),
+      "Fuel Emission Factor ID not Found"
+    );
+
+    if (!id) {
+      throw new CustomError({
+        status: HttpStatusCode.NotFound,
+        message: "Fuel Emission Factor ID not Found",
+      });
+    }
+
+    const factor = await CRUDEmissionFactorService.updateEmissionFactor(
+      request.body,
+      id,
+      "FUEL"
+    );
+    response.json(factor);
+  }
+);
+
+/** DELETE METHODS */
+
+/**
+ * Cloud function to delete a Fuel emission factor by ID
+ */
+export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
+  async (request, response) => {
+    const { id } = validateInput(
+      request.query,
+      fuelEmissionFactorSchema.partial(),
+      "Fuel Emission Factor ID not Found"
+    );
+
+    if (!id) {
+      throw new CustomError({
+        status: HttpStatusCode.NotFound,
+        message: "Fuel Emission Factor ID not Found",
+      });
+    }
+
+    await CRUDEmissionFactorService.deleteEmissionFactor(
+      id,
+      "FUEL"
+    );
+    response.status(200);
+  }
+);
