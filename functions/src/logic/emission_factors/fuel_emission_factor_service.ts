@@ -77,11 +77,15 @@ async function getFuelEmissionFactorBySource(
 
 /**
  * Get a Fuel emission factor by fuel code and region, if not found in region, it tries to get the international one
+ * Expected to only get one factor, which will be used in the emission calculation
+ * @param {string} fuelCode - The fuel code
+ * @param {string} region - The fuel emission factor region
+ * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factor
  */
 async function getFuelEmissionFactorByFuelCodeAndRegion(
   fuelCode: string,
   region: string
-) {
+): Promise<FuelEmissionFactor> {
   const filter = Filter.and(
     Filter.or(
       Filter.where("fuel.code", "==", fuelCode),
@@ -109,7 +113,7 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
   );
   const foundFactors = exactRegionFactors.length
     ? exactRegionFactors
-    : factors.filter((factor) => factor.region === "INTERNATIONAL");
+    : validatedFactors.filter((factor) => factor.region === "INTERNATIONAL");
 
   if (foundFactors.length === 0) {
     throw new CustomError({

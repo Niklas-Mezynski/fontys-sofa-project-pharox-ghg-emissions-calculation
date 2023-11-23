@@ -6,6 +6,7 @@ import { CustomError } from "../../utils/errors";
 import { FirestoreUtil } from "../../utils/firestore";
 import { validateInput } from "../../utils/functions";
 
+// Data specific to each factor type to perform schema validation and Firestore operations
 const factorSpecificData = {
   FUEL: {
     collectionName: "fuel_emission_factors",
@@ -26,8 +27,10 @@ type FactorSpecificReturnType<T extends FactorType> = z.infer<
 /** CREATE METHODS */
 
 /**
- * Creates new road intensity factor and inserts it into the database.
- * @param data = roadIntensityFactor
+ * Create emission factors of a specific type and store it in the database.
+ * @param {unknown} data - The data to be stored in the database.
+ * @param {FactorType} type - The type of emission factor.
+ * @returns The created emission factor.
  */
 async function createEmissionFactor<T extends FactorType>(
   data: unknown,
@@ -44,8 +47,10 @@ async function createEmissionFactor<T extends FactorType>(
 }
 
 /**
- * Creates new road intensity factor and inserts it into the database.
- * @param data = roadIntensityFactor
+ * Creates multiple emission factors of a specific type and store them in the database.
+ * @param {unknown} data - The data to be stored in the database.
+ * @param {FactorType} type - The type of emission factor.
+ * @returns The created emission factors.
  */
 async function createEmissionFactors<T extends FactorType>(
   data: unknown,
@@ -66,8 +71,10 @@ async function createEmissionFactors<T extends FactorType>(
 /** READ METHODS */
 
 /**
- * Gets all emission factors of a specific type.
- * @param type = the type of emission factor
+ * Get an emission factor by ID of a specific type.
+ * @param {string} id - The ID of the emission factor.
+ * @param {FactorType} type - The type of emission factor.
+ * @returns The emission factor with the given ID.
  */
 async function getEmissionFactorById<T extends FactorType>(
   id: string,
@@ -86,7 +93,7 @@ async function getEmissionFactorById<T extends FactorType>(
 
 /**
  * Gets all emission factors of a specific type.
- * @param type = the type of emission factor
+ * @param {FactorType} type - The type of emission factor.
  * @returns A list of all emission factors of the given type.
  */
 async function getEmissionFactors<T extends FactorType>(
@@ -105,9 +112,11 @@ async function getEmissionFactors<T extends FactorType>(
 /** UPDATE METHODS */
 
 /**
- * Updates a road intensity factor
- * @param data = the new schema
- * @param identifier = the identifier to update
+ * Update a emission factor by ID of a specific type.
+ * @param {unknown} data - The data to be updated.
+ * @param {string} identifier - The ID of the emission factor.
+ * @param {FactorType} type - The type of emission factor.
+ * @returns The updated emission factor.
  */
 async function updateEmissionFactor<T extends FactorType>(
   data: object,
@@ -138,9 +147,10 @@ async function updateEmissionFactor<T extends FactorType>(
 /** DELETE METHODS */
 
 /**
- * Removes an intensity factor by ID.
- * @param data = the entire JSON body to validate if identifier is present
- * @param identifier = the identifier
+ * Delete an emission factor by ID of a specific type.
+ * @param {string} identifier - The ID of the emission factor.
+ * @param {FactorType} type - The type of emission factor.
+ * @returns {Promise<void>}
  */
 async function deleteEmissionFactor<T extends FactorType>(
   identifier: string,
