@@ -64,20 +64,20 @@ export async function handleCalculationWithGivenFuelConsumption(
   );
 
   if (factorToUse.unit.producedUnit !== CO2E_WEIGHT_UNIT) {
-    factorToUse.factor.ttw = UnitConversionService.convertUnits(
+    factorToUse.ttw = UnitConversionService.convertUnits(
       factorToUse.unit.producedUnit,
       CO2E_WEIGHT_UNIT,
-      factorToUse.factor.ttw ?? 0
+      factorToUse.ttw ?? 0
     ).value;
-    factorToUse.factor.wtt = UnitConversionService.convertUnits(
+    factorToUse.wtt = UnitConversionService.convertUnits(
       factorToUse.unit.producedUnit,
       CO2E_WEIGHT_UNIT,
-      factorToUse.factor.wtt ?? 0
+      factorToUse.wtt ?? 0
     ).value;
-    factorToUse.factor.wtw = UnitConversionService.convertUnits(
+    factorToUse.wtw = UnitConversionService.convertUnits(
       factorToUse.unit.producedUnit,
       CO2E_WEIGHT_UNIT,
-      factorToUse.factor.wtw ?? 0
+      factorToUse.wtw ?? 0
     ).value;
     factorToUse.unit.producedUnit = CO2E_WEIGHT_UNIT;
   }
@@ -85,14 +85,14 @@ export async function handleCalculationWithGivenFuelConsumption(
   // --- Emission calculation ---
   // Calculate the emission
   const producedEmissions = {
-    tankToWheel: factorToUse.factor.ttw
-      ? convertedConsumedFuel.value * factorToUse.factor.ttw
+    tankToWheel: factorToUse.ttw
+      ? convertedConsumedFuel.value * factorToUse.ttw
       : 0,
-    wellToTank: factorToUse.factor.wtt
-      ? convertedConsumedFuel.value * factorToUse.factor.wtt
+    wellToTank: factorToUse.wtt
+      ? convertedConsumedFuel.value * factorToUse.wtt
       : 0,
-    wellToWheel: factorToUse.factor.wtw
-      ? convertedConsumedFuel.value * factorToUse.factor.wtw
+    wellToWheel: factorToUse.wtw
+      ? convertedConsumedFuel.value * factorToUse.wtw
       : 0,
   };
 

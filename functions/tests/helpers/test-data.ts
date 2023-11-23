@@ -13,19 +13,15 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
     factors: [
       {
         unit: "KG_CO2E_PER_KG",
-        factor: {
-          wtt: 0.68,
-          ttw: 3.24,
-          wtw: 3.92,
-        },
+        wtt: 0.68,
+        ttw: 3.24,
+        wtw: 3.92,
       },
       {
         unit: "KG_CO2E_PER_L",
-        factor: {
-          wtt: 0.61,
-          ttw: 2.88,
-          wtw: 3.49,
-        },
+        wtt: 0.61,
+        ttw: 2.88,
+        wtw: 3.49,
       },
     ],
     region: "EU",
@@ -40,19 +36,15 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
     factors: [
       {
         unit: "KG_CO2E_PER_KG",
-        factor: {
-          wtt: 0.61,
-          ttw: 3.25,
-          wtw: 3.86,
-        },
+        wtt: 0.61,
+        ttw: 3.25,
+        wtw: 3.86,
       },
       {
         unit: "KG_CO2E_PER_L",
-        factor: {
-          wtt: 0.45,
-          ttw: 2.42,
-          wtw: 2.88,
-        },
+        wtt: 0.45,
+        ttw: 2.42,
+        wtw: 2.88,
       },
     ],
     region: "EU",
@@ -67,19 +59,15 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
     factors: [
       {
         unit: "KG_CO2E_PER_KG",
-        factor: {
-          wtt: 1.56,
-          ttw: 0.0,
-          wtw: 1.56,
-        },
+        wtt: 1.56,
+        ttw: 0.0,
+        wtw: 1.56,
       },
       {
         unit: "KG_CO2E_PER_L",
-        factor: {
-          wtt: 1.24,
-          ttw: 0.0,
-          wtw: 1.24,
-        },
+        wtt: 1.24,
+        ttw: 0.0,
+        wtw: 1.24,
       },
     ],
     region: "EU",
@@ -94,19 +82,15 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
     factors: [
       {
         unit: "KG_CO2E_PER_KG",
-        factor: {
-          wtt: 0.66,
-          ttw: 3.08,
-          wtw: 3.74,
-        },
+        wtt: 0.66,
+        ttw: 3.08,
+        wtw: 3.74,
       },
       {
         unit: "KG_CO2E_PER_L",
-        factor: {
-          wtt: 0.5,
-          ttw: 2.3,
-          wtw: 2.8,
-        },
+        wtt: 0.5,
+        ttw: 2.3,
+        wtw: 2.8,
       },
     ],
     region: "EU",
@@ -121,19 +105,15 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
     factors: [
       {
         unit: "KG_CO2E_PER_KG",
-        factor: {
-          wtt: 0.69,
-          ttw: 3.21,
-          wtw: 3.9,
-        },
+        wtt: 0.69,
+        ttw: 3.21,
+        wtw: 3.9,
       },
       {
         unit: "KG_CO2E_PER_L",
-        factor: {
-          wtt: 0.57,
-          ttw: 2.67,
-          wtw: 3.24,
-        },
+        wtt: 0.57,
+        ttw: 2.67,
+        wtw: 3.24,
       },
     ],
     region: "EU",

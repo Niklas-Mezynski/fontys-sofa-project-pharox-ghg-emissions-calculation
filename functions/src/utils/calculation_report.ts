@@ -73,7 +73,6 @@ export function baseEmissionReportFactory(input?: {
 export function calculationReportFactory(): CalculationReport {
   const emissionReportBase = baseEmissionReportFactory();
   return {
-    transportActivities: [],
     emissions: {
       ...emissionReportBase,
       breakdown: {
@@ -96,6 +95,7 @@ export function calculationReportFactory(): CalculationReport {
         ...emissionReportBase.breakdown,
       },
     },
+    transportActivities: [],
   };
 }
 
