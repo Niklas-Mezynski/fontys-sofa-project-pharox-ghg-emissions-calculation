@@ -237,25 +237,20 @@ components:
                   - KG_CO2E_PER_KWH
                   - KG_CO2E_PER_KG
                   - KG_CO2E_PER_L
-              factor:
-                type: object
-                properties:
-                  wtt:
-                    type: number
-                    nullable: true
-                  ttw:
-                    type: number
-                    nullable: true
-                  wtw:
-                    type: number
-                    nullable: true
-                required:
-                  - wtt
-                  - ttw
-                  - wtw
+              wtt:
+                type: number
+                nullable: true
+              ttw:
+                type: number
+                nullable: true
+              wtw:
+                type: number
+                nullable: true
             required:
               - unit
-              - factor
+              - wtt
+              - ttw
+              - wtw
           minItems: 1
         region:
           type: string
@@ -279,25 +274,20 @@ components:
         unit:
           type: string
           enum: *a3
-        factor:
-          type: object
-          properties:
-            wtt:
-              type: number
-              nullable: true
-            ttw:
-              type: number
-              nullable: true
-            wtw:
-              type: number
-              nullable: true
-          required:
-            - wtt
-            - ttw
-            - wtw
+        wtt:
+          type: number
+          nullable: true
+        ttw:
+          type: number
+          nullable: true
+        wtw:
+          type: number
+          nullable: true
       required:
         - unit
-        - factor
+        - wtt
+        - ttw
+        - wtw
     UnitTypes:
       type: string
       enum: &a9
@@ -507,25 +497,20 @@ paths:
                       unit:
                         type: string
                         enum: *a3
-                      factor:
-                        type: object
-                        properties:
-                          wtt:
-                            type: number
-                            nullable: true
-                          ttw:
-                            type: number
-                            nullable: true
-                          wtw:
-                            type: number
-                            nullable: true
-                        required:
-                          - wtt
-                          - ttw
-                          - wtw
+                      wtt:
+                        type: number
+                        nullable: true
+                      ttw:
+                        type: number
+                        nullable: true
+                      wtw:
+                        type: number
+                        nullable: true
                     required:
                       - unit
-                      - factor
+                      - wtt
+                      - ttw
+                      - wtw
                   minItems: 1
                 region:
                   type: string
@@ -566,25 +551,20 @@ paths:
                         unit:
                           type: string
                           enum: *a3
-                        factor:
-                          type: object
-                          properties:
-                            wtt:
-                              type: number
-                              nullable: true
-                            ttw:
-                              type: number
-                              nullable: true
-                            wtw:
-                              type: number
-                              nullable: true
-                          required:
-                            - wtt
-                            - ttw
-                            - wtw
+                        wtt:
+                          type: number
+                          nullable: true
+                        ttw:
+                          type: number
+                          nullable: true
+                        wtw:
+                          type: number
+                          nullable: true
                       required:
                         - unit
-                        - factor
+                        - wtt
+                        - ttw
+                        - wtw
                     minItems: 1
                   region:
                     type: string
@@ -633,25 +613,20 @@ paths:
                         unit:
                           type: string
                           enum: *a3
-                        factor:
-                          type: object
-                          properties:
-                            wtt:
-                              type: number
-                              nullable: true
-                            ttw:
-                              type: number
-                              nullable: true
-                            wtw:
-                              type: number
-                              nullable: true
-                          required:
-                            - wtt
-                            - ttw
-                            - wtw
+                        wtt:
+                          type: number
+                          nullable: true
+                        ttw:
+                          type: number
+                          nullable: true
+                        wtw:
+                          type: number
+                          nullable: true
                       required:
                         - unit
-                        - factor
+                        - wtt
+                        - ttw
+                        - wtw
                     minItems: 1
                   region:
                     type: string
@@ -694,25 +669,20 @@ paths:
                           unit:
                             type: string
                             enum: *a3
-                          factor:
-                            type: object
-                            properties:
-                              wtt:
-                                type: number
-                                nullable: true
-                              ttw:
-                                type: number
-                                nullable: true
-                              wtw:
-                                type: number
-                                nullable: true
-                            required:
-                              - wtt
-                              - ttw
-                              - wtw
+                          wtt:
+                            type: number
+                            nullable: true
+                          ttw:
+                            type: number
+                            nullable: true
+                          wtw:
+                            type: number
+                            nullable: true
                         required:
                           - unit
-                          - factor
+                          - wtt
+                          - ttw
+                          - wtw
                       minItems: 1
                     region:
                       type: string
@@ -770,25 +740,20 @@ paths:
                           unit:
                             type: string
                             enum: *a3
-                          factor:
-                            type: object
-                            properties:
-                              wtt:
-                                type: number
-                                nullable: true
-                              ttw:
-                                type: number
-                                nullable: true
-                              wtw:
-                                type: number
-                                nullable: true
-                            required:
-                              - wtt
-                              - ttw
-                              - wtw
+                          wtt:
+                            type: number
+                            nullable: true
+                          ttw:
+                            type: number
+                            nullable: true
+                          wtw:
+                            type: number
+                            nullable: true
                         required:
                           - unit
-                          - factor
+                          - wtt
+                          - ttw
+                          - wtw
                       minItems: 1
                     region:
                       type: string
@@ -842,25 +807,20 @@ paths:
                         unit:
                           type: string
                           enum: *a3
-                        factor:
-                          type: object
-                          properties:
-                            wtt:
-                              type: number
-                              nullable: true
-                            ttw:
-                              type: number
-                              nullable: true
-                            wtw:
-                              type: number
-                              nullable: true
-                          required:
-                            - wtt
-                            - ttw
-                            - wtw
+                        wtt:
+                          type: number
+                          nullable: true
+                        ttw:
+                          type: number
+                          nullable: true
+                        wtw:
+                          type: number
+                          nullable: true
                       required:
                         - unit
-                        - factor
+                        - wtt
+                        - ttw
+                        - wtw
                     minItems: 1
                   region:
                     type: string
@@ -917,25 +877,20 @@ paths:
                           unit:
                             type: string
                             enum: *a3
-                          factor:
-                            type: object
-                            properties:
-                              wtt:
-                                type: number
-                                nullable: true
-                              ttw:
-                                type: number
-                                nullable: true
-                              wtw:
-                                type: number
-                                nullable: true
-                            required:
-                              - wtt
-                              - ttw
-                              - wtw
+                          wtt:
+                            type: number
+                            nullable: true
+                          ttw:
+                            type: number
+                            nullable: true
+                          wtw:
+                            type: number
+                            nullable: true
                         required:
                           - unit
-                          - factor
+                          - wtt
+                          - ttw
+                          - wtw
                       minItems: 1
                     region:
                       type: string
@@ -979,25 +934,20 @@ paths:
                     unit:
                       type: string
                       enum: *a3
-                    factor:
-                      type: object
-                      properties:
-                        wtt:
-                          type: number
-                          nullable: true
-                        ttw:
-                          type: number
-                          nullable: true
-                        wtw:
-                          type: number
-                          nullable: true
-                      required:
-                        - wtt
-                        - ttw
-                        - wtw
+                    wtt:
+                      type: number
+                      nullable: true
+                    ttw:
+                      type: number
+                      nullable: true
+                    wtw:
+                      type: number
+                      nullable: true
                   required:
                     - unit
-                    - factor
+                    - wtt
+                    - ttw
+                    - wtw
                 minItems: 1
               region:
                 type: string
@@ -1043,25 +993,20 @@ paths:
                           unit:
                             type: string
                             enum: *a3
-                          factor:
-                            type: object
-                            properties:
-                              wtt:
-                                type: number
-                                nullable: true
-                              ttw:
-                                type: number
-                                nullable: true
-                              wtw:
-                                type: number
-                                nullable: true
-                            required:
-                              - wtt
-                              - ttw
-                              - wtw
+                          wtt:
+                            type: number
+                            nullable: true
+                          ttw:
+                            type: number
+                            nullable: true
+                          wtw:
+                            type: number
+                            nullable: true
                         required:
                           - unit
-                          - factor
+                          - wtt
+                          - ttw
+                          - wtw
                       minItems: 1
                     region:
                       type: string
@@ -1110,25 +1055,20 @@ paths:
                           unit:
                             type: string
                             enum: *a3
-                          factor:
-                            type: object
-                            properties:
-                              wtt:
-                                type: number
-                                nullable: true
-                              ttw:
-                                type: number
-                                nullable: true
-                              wtw:
-                                type: number
-                                nullable: true
-                            required:
-                              - wtt
-                              - ttw
-                              - wtw
+                          wtt:
+                            type: number
+                            nullable: true
+                          ttw:
+                            type: number
+                            nullable: true
+                          wtw:
+                            type: number
+                            nullable: true
                         required:
                           - unit
-                          - factor
+                          - wtt
+                          - ttw
+                          - wtw
                       minItems: 1
                     region:
                       type: string
