@@ -183,7 +183,7 @@ export const updateFuelEmissionFactor = onErrorHandledRequest(
 /**
  * Cloud function to delete a Fuel emission factor by ID
  */
-export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
+export const deleteFuelEmissionFactor = onErrorHandledRequest(
   async (request, response) => {
     const { id } = validateInput(
       request.query,
