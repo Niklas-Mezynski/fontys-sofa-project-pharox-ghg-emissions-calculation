@@ -1,3 +1,4 @@
+import { type } from "os";
 import { z } from "zod";
 
 /**
@@ -13,6 +14,10 @@ function valueWithUnitModel<U extends string, T extends Readonly<[U, ...U[]]>>(
   });
 }
 
+const glecScopeModel = z.enum(["SCOPE1", "SCOPE2", "SCOPE3"]);
+export type GLECScope = z.infer<typeof glecScopeModel>;
+
 export const commonModels = {
   valueWithUnitModel,
+  glecScopeModel,
 };

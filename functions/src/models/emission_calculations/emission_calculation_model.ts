@@ -48,9 +48,11 @@ export const freightEmissionCalculationInputSchema = z
      * Any metadata that should be stored with the calculation
      */
     metadata: z.record(z.unknown()).optional().nullable(),
+    date: z.string().optional().nullable(),
     transportParts: z
       .array(
         z.object({
+          scope: commonModels.glecScopeModel.optional().nullable(),
           distance: commonModels.valueWithUnitModel(distanceUnits),
           weight: commonModels.valueWithUnitModel(weightUnits),
           region: z.enum(emissionFactorRegions),
@@ -97,21 +99,61 @@ export type FreightEmissionCalculationInput = z.infer<
   typeof freightEmissionCalculationInputSchema
 >;
 
+type ValueWithUnit = {
+  value: number;
+  unit: string;
+};
+
+export type EmissionReportBase = {
+  co2e: ValueWithUnit;
+  intensity: ValueWithUnit;
+  activity: ValueWithUnit;
+  distance: ValueWithUnit;
+  breakdown: {
+    wtt: {
+      co2e: ValueWithUnit;
+      intensity: ValueWithUnit;
+    };
+    ttw: {
+      co2e: ValueWithUnit;
+      intensity: ValueWithUnit;
+    };
+  };
+};
+
+export type TotalEmissionReport = EmissionReportBase & {
+  breakdown: {
+    scope1: {
+      co2e: ValueWithUnit;
+      intensity: ValueWithUnit;
+    };
+    scope2: {
+      co2e: ValueWithUnit;
+      intensity: ValueWithUnit;
+    };
+    scope3: {
+      co2e: ValueWithUnit;
+      intensity: ValueWithUnit;
+    };
+    unknownScope: {
+      co2e: ValueWithUnit;
+      intensity: ValueWithUnit;
+    };
+  };
+};
+
+export type TransportActivityReport = {
+  mode: string;
+  input: unknown;
+  scope?: string;
+  assumptions?: string;
+  emissionFactor: unknown;
+  emissions: EmissionReportBase;
+};
+
 export type CalculationReport = {
   metadata?: Record<string, unknown>;
-  transportActivities: {
-    producedEmissions: {
-      tankToWheel: number | null;
-      wellToTank: number | null;
-      wellToWheel: number | null;
-    };
-    emissionIntensity: {
-      tkm: number;
-      value: number;
-      unit: string;
-    };
-    unit: string;
-    usedEmissionFactor: unknown;
-  }[];
-  totalEmissions?: number;
+  date?: string;
+  emissions: TotalEmissionReport;
+  transportActivities: TransportActivityReport[];
 };
