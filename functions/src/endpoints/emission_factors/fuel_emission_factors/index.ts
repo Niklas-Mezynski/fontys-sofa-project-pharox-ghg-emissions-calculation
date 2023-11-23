@@ -1,2 +1,1 @@
-export * from "./add_fuel_emission_factors";
-export * from "./get_fuel_emission_factors";
+export * from "./crud_fuel_emission_factors";

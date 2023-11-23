@@ -1,21 +1,52 @@
-import { CustomError } from "../../../utils/errors";
+import { HttpStatusCode } from "axios";
+import { CRUDEmissionFactorService } from "../../../logic/emission_factors/crud_emission_factor_service";
+import { FuelEmissionFactorService } from "../../../logic/emission_factors/fuel_emission_factor_service";
 import {
   fuelEmissionFactorSchema,
   fuelSchema,
 } from "../../../models/emission_factors/fuel_emission_factors";
-import { FuelEmissionFactorService } from "../../../logic/emission_factors/fuel_emission_factor_service";
-import { HttpStatusCode } from "axios";
-import { onErrorHandledRequest } from "../../../utils/request_handler";
+import { CustomError } from "../../../utils/errors";
 import { validateInput } from "../../../utils/functions";
+import { onErrorHandledRequest } from "../../../utils/request_handler";
 
-/** FUEL EMISSION FACTORS */
+/** CREATE METHODS */
+
+/**
+ * Cloud function to add a Fuel emission factor
+ */
+export const createFuelEmissionFactor = onErrorHandledRequest(
+  async (request, response) => {
+    const emissionFactor = await CRUDEmissionFactorService.createEmissionFactor(
+      request.body,
+      "FUEL"
+    );
+    response.status(200).json(emissionFactor);
+  }
+);
+
+/**
+ * Cloud function to add multiple Fuel emission factors
+ */
+export const createFuelEmissionFactors = onErrorHandledRequest(
+  async (request, response) => {
+    const emissionFactors =
+      await CRUDEmissionFactorService.createEmissionFactors(
+        request.body,
+        "FUEL"
+      );
+
+    response.status(200).json(emissionFactors);
+  }
+);
+
+/** READ METHODS */
 
 /**
  * Cloud function to fetch all the Fuel emission factors
  */
 export const getFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await FuelEmissionFactorService.getAllFuelEmissionFactors();
+    const factors = await CRUDEmissionFactorService.getEmissionFactors("FUEL");
     response.json(factors);
   }
 );
@@ -38,7 +69,10 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
       });
     }
 
-    const factor = await FuelEmissionFactorService.getFuelEmissionFactorById(id);
+    const factor = await CRUDEmissionFactorService.getEmissionFactorById(
+      id,
+      "FUEL"
+    );
     response.json(factor);
   }
 );
@@ -99,13 +133,13 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
     const { source } = validateInput(
       request.query,
       fuelEmissionFactorSchema.partial(),
-      "Region not Found"
+      "Data source not Found"
     );
 
     if (!source) {
       throw new CustomError({
         status: HttpStatusCode.NotFound,
-        message: "Region not Found",
+        message: "Data source not Found",
       });
     }
 

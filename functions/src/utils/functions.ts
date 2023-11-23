@@ -34,12 +34,11 @@ export function parseZodError(issues: z.ZodIssue[], message?: string) {
  * @return {T} The validated data that is guaranteed to be of type T
  * @throws {CustomError} containing the validation error
  */
-export function validateInput<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  Output = any,
-  Def extends ZodTypeDef = ZodTypeDef,
-  Input = Output,
->(input: unknown, schema: z.Schema<Output, Def, Input>, message?: string) {
+export function validateInput<T extends z.ZodTypeAny>(
+  input: unknown,
+  schema: T,
+  message?: string
+): z.infer<T> {
   const parseResult = schema.safeParse(input);
 
   if (!parseResult.success) {

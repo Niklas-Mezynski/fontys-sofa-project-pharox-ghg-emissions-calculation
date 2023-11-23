@@ -9,38 +9,8 @@ import { HttpStatusCode } from "axios";
 import { validateInput } from "../../utils/functions";
 import { z } from "zod";
 
+// The Firestore collection name refering to the Fuel emission factors
 const fuelEmissionFactorsCollection = "fuel_emission_factors";
-
-/**
- * Get all the Fuel emission factors in the database
- * @returns {Promise<FuelEmissionFactor[]>} - The found fuel emission factors
- */
-async function getAllFuelEmissionFactors(): Promise<FuelEmissionFactor[]> {
-  const factors = await FirestoreUtil.getAll(fuelEmissionFactorsCollection);
-
-  return validateInput(
-    factors,
-    z.array(fuelEmissionFactorSchema),
-    "Received unexpected Fuel Emission Factors format from the database."
-  );
-}
-
-/**
- * Get a Fuel emission factor by ID
- * @param {string} id - The Fuel emission factor ID
- * @returns {Promise<FuelEmissionFactor>} - The found Fuel emission factor
- */
-async function getFuelEmissionFactorById(
-  id: string
-): Promise<FuelEmissionFactor> {
-  const factor = await FirestoreUtil.getById(fuelEmissionFactorsCollection, id);
-
-  return validateInput(
-    factor,
-    fuelEmissionFactorSchema,
-    "Received unexpected Fuel Emission Factor format from the database."
-  );
-}
 
 /**
  * Get all the Fuel emission factors with same fuel code
@@ -158,8 +128,6 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
 }
 
 export const FuelEmissionFactorService = {
-  getAllFuelEmissionFactors,
-  getFuelEmissionFactorById,
   getFuelEmissionFactorByFuelCode,
   getFuelEmissionFactorByRegion,
   getFuelEmissionFactorBySource,
