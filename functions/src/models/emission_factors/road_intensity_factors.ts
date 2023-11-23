@@ -3,6 +3,7 @@ import { weightUnits } from "../units/units";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { commonModels } from "../common";
 import {
+  baseFactorSchema,
   emissionFactorSourceSchema,
   regionSchema,
 } from "./common_emission_factor_models";
@@ -46,20 +47,13 @@ const fuelConsumptionSchema = z.array(
 
 export const glecIntensityFactorUnits = ["G_CO2E_PER_TKM"] as const;
 
-const factorSchema = z.object({
-  unit: z.enum(glecIntensityFactorUnits),
-  wtt: z.number().nullable(),
-  ttw: z.number().nullable(),
-  wtw: z.number().nullable(),
-});
-
 export const roadIntensityFactorSchema = z.object({
   id: z.string().uuid().optional(),
   vehicle: vehicleSchema.nullable(),
   characteristics: characteristicsSchema.nullable(),
   fuel: fuelSchema.nullable(),
   fuelConsumption: fuelConsumptionSchema.nullable(),
-  factor: factorSchema.nullable(),
+  factor: baseFactorSchema(glecIntensityFactorUnits).nullable(),
   region: regionSchema,
   source: emissionFactorSourceSchema,
   refrigerated: z.boolean().default(false),

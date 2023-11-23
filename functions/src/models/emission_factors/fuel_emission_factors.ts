@@ -23,6 +23,8 @@ export const glecFuelFactorUnits = [
   "KG_CO2E_PER_KG",
   "KG_CO2E_PER_L",
 ] as const;
+
+// TODO: Refactpr this to also use the baseFactorSchema format
 /**
  * Define the different fuel factors to be able to calculate emissions
  */
