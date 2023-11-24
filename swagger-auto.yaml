@@ -1309,49 +1309,123 @@ paths:
                   id:
                     type: string
                     format: uuid
-                  source:
-                    type: string
-                    enum: *a8
-                    default: GLEC
-                  fuel:
+                  vehicle:
                     type: object
+                    nullable: true
                     properties:
                       code:
                         type: string
                       name:
                         type: string
+                      weight:
+                        type: object
+                        nullable: true
+                        properties:
+                          lower:
+                            type: number
+                            nullable: true
+                          upper:
+                            type: number
+                            nullable: true
+                          unit:
+                            type: string
+                            enum: *a1
+                        required:
+                          - lower
+                          - upper
+                          - unit
+                      engineType:
+                        type: string
+                        nullable: true
                     required:
                       - code
-                  factors:
+                      - name
+                      - weight
+                      - engineType
+                  characteristics:
+                    type: object
+                    nullable: true
+                    properties:
+                      loadFactor:
+                        type: number
+                        nullable: true
+                      emptyRunning:
+                        type: number
+                        nullable: true
+                      loadCharacteristic:
+                        type: string
+                        nullable: true
+                      combinedLoadFactorEmptyRunning:
+                        type: number
+                        nullable: true
+                    required:
+                      - loadFactor
+                      - emptyRunning
+                      - loadCharacteristic
+                      - combinedLoadFactorEmptyRunning
+                  fuel:
+                    type: object
+                    nullable: true
+                    properties:
+                      name:
+                        type: string
+                      code:
+                        type: string
+                    required:
+                      - name
+                      - code
+                  fuelConsumption:
                     type: array
+                    nullable: true
                     items:
                       type: object
                       properties:
+                        value:
+                          type: number
                         unit:
                           type: string
-                          enum: *a3
-                        wtt:
-                          type: number
-                          nullable: true
-                        ttw:
-                          type: number
-                          nullable: true
-                        wtw:
-                          type: number
-                          nullable: true
+                          enum: *a9
                       required:
+                        - value
                         - unit
-                        - wtt
-                        - ttw
-                        - wtw
-                    minItems: 1
+                  factor:
+                    type: object
+                    nullable: true
+                    properties:
+                      unit:
+                        type: string
+                        enum: *a10
+                      wtt:
+                        type: number
+                        nullable: true
+                      ttw:
+                        type: number
+                        nullable: true
+                      wtw:
+                        type: number
+                        nullable: true
+                    required:
+                      - unit
+                      - wtt
+                      - ttw
+                      - wtw
                   region:
                     type: string
                     enum: *a2
                     default: EU
+                  source:
+                    type: string
+                    enum: *a8
+                    default: GLEC
+                  refrigerated:
+                    type: boolean
+                    default: false
                 required:
+                  - vehicle
+                  - characteristics
                   - fuel
-                  - factors
+                  - fuelConsumption
+                  - factor
   /createRoadEmissionIntensityFactors:
     post:
       summary: Create multiple road intensity emission factors
