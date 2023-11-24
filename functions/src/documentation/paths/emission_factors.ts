@@ -259,7 +259,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
         description: "The added road intensity emission factor",
         content: {
           "application/json": {
-            schema: fuelEmissionFactorSchema,
+            schema: roadIntensityFactorSchema,
           },
         },
       },
