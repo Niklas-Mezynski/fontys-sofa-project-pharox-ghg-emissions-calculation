@@ -151,9 +151,150 @@ export type TransportActivityReport = {
   emissions: EmissionReportBase;
 };
 
-export type CalculationReport = {
-  metadata?: Record<string, unknown>;
-  date?: string;
-  emissions: TotalEmissionReport;
-  transportActivities: TransportActivityReport[];
-};
+export const calculationReportSchema = z.object({
+  id: z.string().optional().nullable(),
+  metadata: z.record(z.unknown()).optional().nullable(),
+  date: z.date(),
+  emissions: z.object({
+    co2e: z.object({
+      value: z.number(),
+      unit: z.string(),
+    }),
+    intensity: z.object({
+      value: z.number(),
+      unit: z.string(),
+    }),
+    activity: z.object({
+      value: z.number(),
+      unit: z.string(),
+    }),
+    distance: z.object({
+      value: z.number(),
+      unit: z.string(),
+    }),
+    breakdown: z.object({
+      scope1: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+      }),
+      scope2: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+      }),
+      scope3: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+      }),
+      unknownScope: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+      }),
+      wtt: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+      }),
+      ttw: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+      }),
+
+    }),
+  }),
+  transportActivities: z.array(
+    z.object({
+      mode: z.string(),
+      input: z.unknown(),
+      scope: z.string().optional().nullable(),
+      assumptions: z.string().optional().nullable(),
+      emissionFactor: z.unknown(),
+      emissions: z.object({
+        co2e: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        intensity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        activity: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        distance: z.object({
+          value: z.number(),
+          unit: z.string(),
+        }),
+        breakdown: z.object({
+          wtt: z.object({
+            co2e: z.object({
+              value: z.number(),
+              unit: z.string(),
+            }),
+            intensity: z.object({
+              value: z.number(),
+              unit: z.string(),
+            }),
+          }),
+          ttw: z.object({
+            co2e: z.object({
+              value: z.number(),
+              unit: z.string(),
+            }),
+            intensity: z.object({
+              value: z.number(),
+              unit: z.string(),
+            }),
+          }),
+        }),
+      }),
+    })
+  ),
+});
+
+export type CalculationReport = z.infer<typeof calculationReportSchema>;
+
+// export type CalculationReport = {
+//   id?: string;
+//   metadata?: Record<string, unknown>;
+//   date?: string;
+//   emissions: TotalEmissionReport;
+//   transportActivities: TransportActivityReport[];
+// };
+
+
