@@ -96,6 +96,7 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
       Filter.where("region", "==", "INTERNATIONAL")
     )
   );
+
   const factors = await FirestoreUtil.getByFilter(
     fuelEmissionFactorsCollection,
     filter

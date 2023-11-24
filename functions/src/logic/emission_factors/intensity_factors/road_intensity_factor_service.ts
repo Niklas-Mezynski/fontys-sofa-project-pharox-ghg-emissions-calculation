@@ -72,7 +72,7 @@ async function getSpecificIntensityFactor(
     );
   } else if (!(queryData.length < 1)) {
     throw new Error(
-      "The provided data does not corespond to any emission factor!"
+      "The provided data does not correspond to any emission factor!"
     );
   }
 
