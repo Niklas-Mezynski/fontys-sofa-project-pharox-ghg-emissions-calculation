@@ -337,11 +337,11 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
   },
   {
     method: "patch",
-    path: "/updateRoadEmissionIntensityFactors",
+    path: "/updateRoadEmissionIntensityFactor",
     summary: "Update a road intensity emission factor",
     description:
       "Function that updates a road intensity emission factor which matches the given ID",
-    tags: ["Fuel Emission factors"],
+    tags: ["Intensity Emission factors"],
     request: {
       params: z.object({
         id: z.string().uuid(),
@@ -360,7 +360,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
   },
   {
     method: "delete",
-    path: "/deleteRoadEmissionIntensityFactors",
+    path: "/deleteRoadEmissionIntensityFactor",
     summary: "Delete a road intensity emission factor",
     description:
       "Function that deletes a road intensity emission factor which matches the given ID",
