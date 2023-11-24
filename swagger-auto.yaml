@@ -1971,13 +1971,13 @@ paths:
                     - fuel
                     - fuelConsumption
                     - factor
-  /updateRoadEmissionIntensityFactors:
+  /updateRoadEmissionIntensityFactor:
     patch:
       summary: Update a road intensity emission factor
       description: Function that updates a road intensity emission factor which
         matches the given ID
       tags:
-        - Fuel Emission factors
+        - Intensity Emission factors
       parameters:
         - schema:
             type: string
@@ -2113,7 +2113,7 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-  /deleteRoadEmissionIntensityFactors:
+  /deleteRoadEmissionIntensityFactor:
     delete:
       summary: Delete a road intensity emission factor
       description: Function that deletes a road intensity emission factor which
