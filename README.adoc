@@ -58,3 +58,18 @@ npm run serve
 ----
 This command will build the TypeScript project and start the firebase emulator. The emulator will be available at `http://127.0.0.1:4000/`.
 The cloud functions will be available at `http://127.0.0.1:5001/pharox-sofa-project/us-central1/<function_name>`
+
+=== Run OpenAPI view locally
+First time setup
+[source,bash]
+----
+npm install -g http-server
+----
+
+To run the OpenAPI view locally, run the following command in the `root` directory of the project:
+[source,bash]
+----
+http-server --cors
+----
+
+The OpenAPI view will be available at `http://localhost:8080/`
