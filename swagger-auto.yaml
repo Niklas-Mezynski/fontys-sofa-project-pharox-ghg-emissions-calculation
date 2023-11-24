@@ -20,7 +20,7 @@ tags:
     description: Functions related to calculation of emissions
   - name: Fuel Emission factors
     description: Functions related to fuel emission factors
-  - name: Intensity Emission factors
+  - name: Intensity emission factors
     description: Functions related to intensity emission factors
   - name: Units
     description: Functions related units being used in the system
@@ -1165,7 +1165,7 @@ paths:
       summary: Create a road intensity emission factor
       description: Function that adds a road intensity emission factors to the Database
       tags:
-        - Intensity Emission factors
+        - Intensity emission factors
       requestBody:
         description: The road intensity emission factor to add
         required: true
@@ -1432,7 +1432,7 @@ paths:
       description: Function that adds multiple road intensity emission factors to the
         Database
       tags:
-        - Intensity Emission factors
+        - Intensity emission factors
       requestBody:
         description: List of road intensity emission factors to add
         required: true
@@ -1699,7 +1699,7 @@ paths:
       description: Function that fetch a road intensity emission factors which matches
         the given ID
       tags:
-        - Intensity Emission factors
+        - Intensity emission factors
       parameters:
         - schema:
             type: string
@@ -1840,7 +1840,7 @@ paths:
       summary: Fetch all road intensity emission factors
       description: Function that fetches all road intensity emission factors in the Database
       tags:
-        - Intensity Emission factors
+        - Intensity emission factors
       responses:
         "200":
           description: List of found road intensity emission factors
@@ -1977,7 +1977,7 @@ paths:
       description: Function that updates a road intensity emission factor which
         matches the given ID
       tags:
-        - Intensity Emission factors
+        - Intensity emission factors
       parameters:
         - schema:
             type: string
@@ -2119,7 +2119,7 @@ paths:
       description: Function that deletes a road intensity emission factor which
         matches the given ID
       tags:
-        - Intensity Emission factors
+        - Intensity emission factors
       parameters:
         - schema:
             type: string
