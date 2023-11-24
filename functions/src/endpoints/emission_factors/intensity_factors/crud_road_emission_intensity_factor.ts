@@ -1,9 +1,9 @@
 import { HttpStatusCode } from "axios";
-import { CRUDEmissionFactorService } from "../../../logic/emission_factors/crud_emission_factor_service";
 import { CustomError } from "../../../utils/errors";
 import { onErrorHandledRequest } from "../../../utils/request_handler";
 import { roadIntensityFactorSchema } from "../../../models/emission_factors/road_intensity_factors";
 import { validateInput } from "../../../utils/functions";
+import { CRUDEntityService } from "../../../logic/common/CRUD_entity_service";
 
 /** CREATE METHODS */
 
@@ -12,7 +12,7 @@ import { validateInput } from "../../../utils/functions";
  */
 export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactor = await CRUDEmissionFactorService.createEmissionFactor(request.body, "ROAD");
+    const createdFactor = await CRUDEntityService.createEntity(request.body, "ROAD");
     response.status(200).send(createdFactor);
   }
 );
@@ -22,7 +22,7 @@ export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
  */
 export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactors = await CRUDEmissionFactorService.createEmissionFactors(request.body, "ROAD");
+    const createdFactors = await CRUDEntityService.createEntities(request.body, "ROAD");
     response.status(200).send(createdFactors);
   }
 );
@@ -34,7 +34,7 @@ export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
  */
 export const getRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await CRUDEmissionFactorService.getEmissionFactors("ROAD");
+    const factors = await CRUDEntityService.getEntities("ROAD");
     response.json(factors);
   }
 );
@@ -57,7 +57,7 @@ export const getRoadEmissionIntensityFactorById = onErrorHandledRequest(
       });
     }
 
-    const factor = await CRUDEmissionFactorService.getEmissionFactorById(
+    const factor = await CRUDEntityService.getEntityById(
       id,
       "ROAD"
     );
@@ -85,7 +85,7 @@ export const updateRoadEmissionIntensityFactor = onErrorHandledRequest(
       });
     }
 
-    const updatedFactor = await CRUDEmissionFactorService.updateEmissionFactor(
+    const updatedFactor = await CRUDEntityService.updateEntity(
       request.body,
       id,
       "ROAD"
@@ -114,10 +114,10 @@ export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
       });
     }
 
-    await CRUDEmissionFactorService.deleteEmissionFactor(
+    await CRUDEntityService.deleteEntity(
       id,
       "ROAD"
     );
-    response.status(200).send("Road Emission Intensity Factor.");
+    response.status(200).send("Road Emission Intensity Factor deleted.");
   }
 );

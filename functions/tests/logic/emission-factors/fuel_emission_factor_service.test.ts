@@ -1,7 +1,7 @@
 import { FirestoreUtil } from "../../../src/utils/firestore";
 import { FuelEmissionFactorService } from "../../../src/logic/emission_factors/fuel_emission_factor_service";
 import { fuelEmissionFactors } from "../../helpers/test-data";
-import { CRUDEmissionFactorService } from "../../../src/logic/emission_factors/crud_emission_factor_service";
+import { CRUDEntityService } from "../../../src/logic/common/CRUD_entity_service";
 
 describe("Emission factors - Fuel emission factors", () => {
   afterEach(() => {
@@ -16,7 +16,7 @@ describe("Emission factors - Fuel emission factors", () => {
     jest.spyOn(FirestoreUtil, "getAll").mockResolvedValue(fuelEmissionFactors);
 
     expect(
-      await CRUDEmissionFactorService.getEmissionFactors("FUEL")
+      await CRUDEntityService.getEntities("FUEL")
     ).toStrictEqual(fuelEmissionFactors);
   });
 
