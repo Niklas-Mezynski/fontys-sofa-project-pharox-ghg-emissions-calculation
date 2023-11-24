@@ -33,7 +33,7 @@ export const openApiDocumentConfig = {
       description: "Functions related to fuel emission factors",
     },
     {
-      name: "Intensity Emission factors",
+      name: "Intensity emission factors",
       description: "Functions related to intensity emission factors",
     },
     {

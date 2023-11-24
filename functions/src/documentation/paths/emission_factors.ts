@@ -231,7 +231,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     path: "/createRoadEmissionIntensityFactor",
     summary: "Create a road intensity emission factor",
     description: "Function that adds a road intensity emission factors to the Database",
-    tags: ["Intensity Emission factors"],
+    tags: ["Intensity emission factors"],
     requestBody: {
       description: "The road intensity emission factor to add",
       required: true,
@@ -271,7 +271,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Create multiple road intensity emission factors",
     description:
       "Function that adds multiple road intensity emission factors to the Database",
-    tags: ["Intensity Emission factors"],
+    tags: ["Intensity emission factors"],
     request: {
       body: {
         description: "List of road intensity emission factors to add",
@@ -300,7 +300,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Fetch a road intensity emission factor by ID",
     description:
       "Function that fetch a road intensity emission factors which matches the given ID",
-    tags: ["Intensity Emission factors"],
+    tags: ["Intensity emission factors"],
     request: {
       params: z.object({
         id: z.string().uuid(),
@@ -323,7 +323,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Fetch all road intensity emission factors",
     description:
       "Function that fetches all road intensity emission factors in the Database",
-    tags: ["Intensity Emission factors"],
+    tags: ["Intensity emission factors"],
     responses: {
       "200": {
         description: "List of found road intensity emission factors",
@@ -341,7 +341,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Update a road intensity emission factor",
     description:
       "Function that updates a road intensity emission factor which matches the given ID",
-    tags: ["Intensity Emission factors"],
+    tags: ["Intensity emission factors"],
     request: {
       params: z.object({
         id: z.string().uuid(),
@@ -364,7 +364,7 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Delete a road intensity emission factor",
     description:
       "Function that deletes a road intensity emission factor which matches the given ID",
-    tags: ["Intensity Emission factors"],
+    tags: ["Intensity emission factors"],
     request: {
       params: z.object({
         id: z.string().uuid(),
