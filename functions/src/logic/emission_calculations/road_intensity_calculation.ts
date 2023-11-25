@@ -36,26 +36,6 @@ export async function handleCalculationForRoadTransport(
     });
   }
 
-  
-  const producedEmissions = {
-    tankToWheel: factorToUse.ttw
-      ? 1 * factorToUse.ttw
-      : 0,
-    wellToTank: factorToUse.wtt
-      ? 1 * factorToUse.wtt
-      : 0,
-    wellToWheel: factorToUse.wtw
-      ? 1 * factorToUse.wtw
-      : 0,
-  };
-
-  if(validatedRoadFactor.refrigerated){
-      producedEmissions.tankToWheel = producedEmissions.tankToWheel * 1.5;
-      producedEmissions.wellToTank = producedEmissions.wellToTank * 1.5;
-      producedEmissions.wellToWheel = producedEmissions.wellToWheel * 1.5;
-  }
-
-
   const km = UnitConversionService.convertUnits(
     transportPart.distance.unit,
     ACTIVITY_BASE_UNIT.DISTANCE,
@@ -69,6 +49,25 @@ export async function handleCalculationForRoadTransport(
   ).value;
 
   const tkm = tonnes * km;
+
+  const producedEmissions = {
+    tankToWheel: factorToUse.ttw
+      ? tkm * factorToUse.ttw
+      : 0,
+    wellToTank: factorToUse.wtt
+      ? tkm * factorToUse.wtt
+      : 0,
+    wellToWheel: factorToUse.wtw
+      ? tkm * factorToUse.wtw
+      : 0,
+  };
+/*
+  if(validatedRoadFactor.refrigerated){
+      producedEmissions.tankToWheel = producedEmissions.tankToWheel * 1.5;
+      producedEmissions.wellToTank = producedEmissions.wellToTank * 1.5;
+      producedEmissions.wellToWheel = producedEmissions.wellToWheel * 1.5;
+  }
+*/
   const emissionIntensity = producedEmissions.wellToWheel / tkm;
 
   return {
