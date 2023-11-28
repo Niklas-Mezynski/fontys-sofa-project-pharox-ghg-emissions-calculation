@@ -223,6 +223,9 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
       }),
     },
     responses: {
+      "200": {
+        description: "Fuel emission factor deleted",
+      },
     },
   },
   // ROAD INTENSITY EMISSION FACTORS
@@ -371,6 +374,9 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
       }),
     },
     responses: {
+      "200": {
+        description: "Road intensity emission factor deleted",
+      },
     },
   },
 ];

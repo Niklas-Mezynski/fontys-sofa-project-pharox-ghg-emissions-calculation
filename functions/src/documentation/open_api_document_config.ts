@@ -25,6 +25,10 @@ export const openApiDocumentConfig = {
   ],
   tags: [
     {
+      name: "Emission calculation reports",
+      description: "Functions related to emission calculation reports",
+    },
+    {
       name: "Emission calculations",
       description: "Functions related to calculation of emissions",
     },
@@ -38,7 +42,7 @@ export const openApiDocumentConfig = {
     },
     {
       name: "Units",
-      description: "Functions related units being used in the system",
+      description: "Functions related to units being used in the system",
     },
   ],
   security: [
