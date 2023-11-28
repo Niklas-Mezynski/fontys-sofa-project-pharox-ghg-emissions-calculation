@@ -18,18 +18,13 @@ export const db = getFirestore();
 /**
  * Function to create a document in a collection
  * @param {string} collectionName - The name of the collection to add data to
- * @param {UnknownObject} data - The data to be added
- * @returns {Promise<UnknownObject | undefined>} - The the created document object with the ID field
+ * @param {E} data - The data to be added
+ * @returns {Promise<E | undefined>} - The the created document object with the ID field
  */
-export async function create<E extends UnknownObject>(
-  collectionName: string,
-  data: E
-) {
-  data;
+export async function create<E extends UnknownObject>( collectionName: string, data: E ): Promise<E | undefined> {
   const dataToSave = stripIdFromData(data);
   const docRef = await db.collection(collectionName).add(dataToSave);
-  const documentSnapshot =
-    await getDocumentSnaphsotFromDocumentReference(docRef);
+  const documentSnapshot = await getDocumentSnaphsotFromDocumentReference(docRef);
 
   return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
 }
@@ -41,30 +36,25 @@ export async function create<E extends UnknownObject>(
  * @param {string} id - The id of the document to be created
  * @returns {Promise<UnknownObject | undefined>} - The the created document object with the ID field
  */
-export async function createWithCustomId<E extends UnknownObject>(
-  collectionName: string,
-  data: E,
-  id: string = uuid()
-) {
+export async function createWithCustomId<E extends UnknownObject>( collectionName: string, data: E, id: string = uuid()): Promise<E | undefined> {
   const dataToSave = stripIdFromData(data);
   const docRef = db.collection(collectionName).doc(id);
   await docRef.set(dataToSave);
 
-  const documentSnapshot =
-    await getDocumentSnaphsotFromDocumentReference(docRef);
+  const documentSnapshot = await getDocumentSnaphsotFromDocumentReference(docRef);
   return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
 }
 
 /**
  * Function to create multiple documents in a collection
  * @param {string} collectionName - The name of the collection to add data to
- * @param {UnknownObject[]} data - Array of data to be added
- * @returns {Promise<UnknownObject>} - Array of the created documents with their IDs
+ * @param {E[]} data - Array of data to be added
+ * @returns {Promise<E[]>} - Array of the created documents with their IDs
  */
 export async function createMany<E extends UnknownObject>(
   collectionName: string,
   data: E[]
-) {
+): Promise<E[]> {
   const docsRef = [];
   const batch = db.batch();
 
@@ -95,13 +85,13 @@ export async function createMany<E extends UnknownObject>(
 /**
  * Function to create multiple documents in a collection using custom ids
  * @param {string} collectionName - The name of the collection to add data to
- * @param {UnknownObject[]} data - Array of data to be added
- * @returns {Promise<UnknownObject[]>} - Array of the created documents with their IDs
+ * @param {E[]} data - Array of data to be added
+ * @returns {Promise<E[]>} - Array of the created documents with their IDs
  */
 export async function createManyWithCustomId<E extends UnknownObject>(
   collectionName: string,
   data: E[]
-) {
+): Promise<E[]> {
   const docsRef = [];
   const batch = db.batch();
 
@@ -135,9 +125,9 @@ export async function createManyWithCustomId<E extends UnknownObject>(
 /**
  * Function to get all documents from a collection
  * @param {string} collectionName - The name of the collection to get data from
- * @returns {UnknownObject[]} - The documents in the collection with their IDs
+ * @returns {E[]} - The documents in the collection with their IDs
  */
-export async function getAll<E extends UnknownObject>(collectionName: string) {
+export async function getAll<E extends UnknownObject>(collectionName: string): Promise<E[]> {
   const result = await db.collection(collectionName).get();
   return getDataWithIdFromQuerySnapshot<E>(result);
 }
@@ -146,12 +136,12 @@ export async function getAll<E extends UnknownObject>(collectionName: string) {
  * Function to get a document by id from a collection
  * @param {string} collectionName - The name of the collection to get data from
  * @param {string} id - The id of the document to get
- * @returns {Promise<UnknownObject | undefined>} - The fetched document in the collection with its ID
+ * @returns {Promise<E | undefined>} - The fetched document in the collection with its ID
  */
 export async function getById<E extends UnknownObject>(
   collectionName: string,
   id: string
-) {
+): Promise<E | undefined> {
   const result = await db.collection(collectionName).doc(id).get();
   return getDataWithIdFromDocumentSnapshot<E>(result);
 }
@@ -160,12 +150,12 @@ export async function getById<E extends UnknownObject>(
  * Function to get multiple documents by filter from a collection
  * @param {string} collectionName - The name of the collection to get data from
  * @param {Filter} filter - The filter to apply
- * @returns {Promise<UnknownObject[]>} - The query snapshot
+ * @returns {Promise<E[]>} - The query snapshot
  */
 export async function getByFilter<E extends UnknownObject>(
   collectionName: string,
   filter: Filter
-) {
+): Promise<E[]> {
   const result = await db.collection(collectionName).where(filter).get();
   return getDataWithIdFromQuerySnapshot<E>(result);
 }
@@ -176,14 +166,14 @@ export async function getByFilter<E extends UnknownObject>(
  * Function to update a document by id from a collection
  * @param {string} collectionName - The name of the collection to update data from
  * @param {string} id - The id of the document to update
- * @param {UnknownObject} data - The data to be updated
- * @returns {Promise<UnknownObject | undefined>} - The updated document in the collection with its ID, if succeded
+ * @param {E} data - The data to be updated
+ * @returns {Promise<E | undefined>} - The updated document in the collection with its ID, if succeded
  */
 export async function updateById<E extends UnknownObject>(
   collectionName: string,
   id: string,
   data: E
-) {
+): Promise<E | undefined> {
   const dataToUpdate = stripIdFromData(data);
 
   const docRef = db.collection(collectionName).doc(id);
@@ -225,20 +215,20 @@ export async function deleteByFilter(collectionName: string, filter: Filter) {
 
 /**
  * Helper method to merge data with an id
- * @param {UnknownObject} data - The data to be merged
+ * @param {E} data - The data to be merged
  * @param {string} id - The id to be merged
- * @returns {UnknownObject} - The merged data with id
+ * @returns {E} - The merged data with id
  */
-function mergeDataWithId<E extends UnknownObject>(data: E, id: string) {
+function mergeDataWithId<E extends UnknownObject>(data: E, id: string): E {
   return Object.assign(data, { id });
 }
 
 /**
  * Helper method to strip the id field from data
- * @param {UnknownObject} data - The data
- * @returns {UnknownObject} - The data with without the id field
+ * @param {E} data - The data
+ * @returns {E} - The data with without the id field
  */
-function stripIdFromData<E extends UnknownObject>(data: E) {
+function stripIdFromData<E extends UnknownObject>(data: E): E {
   if (data.id) {
     delete data.id;
   }
@@ -248,22 +238,22 @@ function stripIdFromData<E extends UnknownObject>(data: E) {
 /**
  * Helper method to get the document data from a document reference
  * @param {DocumentReference<DocumentData>} docRef - The document reference
- * @returns {DocumentSnapshot<DocumentData>} - The document snapshot
+ * @returns {Promise<DocumentSnapshot<DocumentData>>} - The document snapshot
  */
 async function getDocumentSnaphsotFromDocumentReference(
   docRef: DocumentReference<DocumentData>
-) {
+): Promise<DocumentSnapshot<DocumentData>> {
   return await docRef.get();
 }
 
 /**
  * Helper method to get the data from a document snapshot
  * @param {DocumentSnapshot<DocumentData>} doc - The document snapshot
- * @returns {UnknownObject | undefined} - The data of the document if present
+ * @returns {E | undefined} - The data of the document if present
  */
 function getDataWithIdFromDocumentSnapshot<E extends UnknownObject>(
   doc: DocumentSnapshot<DocumentData>
-) {
+): E | undefined {
   return isDocumentDataPresent(doc)
     ? mergeDataWithId<E>(doc.data() as E, doc.id)
     : undefined;
@@ -274,18 +264,18 @@ function getDataWithIdFromDocumentSnapshot<E extends UnknownObject>(
  * @param {DocumentSnapshot<DocumentData>} doc - The document snapshot
  * @returns {boolean} - Whether the document snapshot has data
  */
-function isDocumentDataPresent(doc: DocumentSnapshot<DocumentData>) {
+function isDocumentDataPresent(doc: DocumentSnapshot<DocumentData>): boolean {
   return doc.exists;
 }
 
 /**
  * Helper method to get all the data from a query snapshot
  * @param {QuerySnapshot<DocumentData>} querySnapshot - The query snapshot
- * @returns {UnknownObject[]} - All the data in the query snapshot with their Ids
+ * @returns {E[]} - All the data in the query snapshot with their Ids
  */
 function getDataWithIdFromQuerySnapshot<E extends UnknownObject>(
   querySnapshot: QuerySnapshot<DocumentData>
-) {
+): E[] {
   return !isQuerySnapshotEmpty(querySnapshot)
     ? querySnapshot.docs.map((doc) => mergeDataWithId(doc.data() as E, doc.id))
     : [];
@@ -296,7 +286,7 @@ function getDataWithIdFromQuerySnapshot<E extends UnknownObject>(
  * @param {QuerySnapshot<DocumentData>} querySnapshot - The query snapshot
  * @returns {boolean} - Whether the query snapshot is empty
  */
-function isQuerySnapshotEmpty(querySnapshot: QuerySnapshot<DocumentData>) {
+function isQuerySnapshotEmpty(querySnapshot: QuerySnapshot<DocumentData>): boolean {
   return querySnapshot.empty;
 }
 
