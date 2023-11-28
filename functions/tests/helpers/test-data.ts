@@ -1,4 +1,6 @@
+import { CalculationReport } from "../../src/models/emission_calculations/emission_calculation_model";
 import { FuelEmissionFactor } from "../../src/models/emission_factors/fuel_emission_factors";
+import { RoadIntensityFactor } from "../../src/models/emission_factors/road_intensity_factors";
 
 /* FUEL EMISSION FACTORS */
 
@@ -119,3 +121,12 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
     region: "EU",
   },
 ];
+
+
+/* ROAD INTENSITY FACTORS */
+
+export const roadIntensityFactors: (RoadIntensityFactor & { id: string })[] = [];
+
+/* EMISSION CALCULATION REPORTS */
+
+export const calculationReports: (CalculationReport & { id: string })[] = [];

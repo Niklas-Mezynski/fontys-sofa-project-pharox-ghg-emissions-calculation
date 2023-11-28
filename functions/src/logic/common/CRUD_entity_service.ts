@@ -201,4 +201,5 @@ export const CRUDEntityService = {
   getEntities,
   updateEntity,
   deleteEntity,
+  entitySpecificData,
 };
