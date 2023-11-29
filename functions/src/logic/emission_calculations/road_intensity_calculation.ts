@@ -62,8 +62,6 @@ export async function handleCalculationForRoadTransport(
       : 0,
   };
 
-  const emissionIntensity = producedEmissions.wellToWheel / tkm;
-
   return {
     input: transportPart,
     emissionFactor: validatedRoadFactor,
@@ -73,7 +71,7 @@ export async function handleCalculationForRoadTransport(
         producedEmissions.wellToWheel ??
         // TODO: Is it the correct fallback to add the wellToTank and tankToWheel emissions in case the wellToWheel is not provided?
         producedEmissions.wellToTank + producedEmissions.tankToWheel,
-      intensity: emissionIntensity,
+      intensity: factorToUse.wtw,
       activity: tkm,
       distance: km,
       wtt: {
