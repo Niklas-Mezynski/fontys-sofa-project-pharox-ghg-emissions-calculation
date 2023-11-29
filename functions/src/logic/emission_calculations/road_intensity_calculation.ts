@@ -61,13 +61,7 @@ export async function handleCalculationForRoadTransport(
       ? tkm * factorToUse.wtw
       : 0,
   };
-/*
-  if(validatedRoadFactor.refrigerated){
-      producedEmissions.tankToWheel = producedEmissions.tankToWheel * 1.5;
-      producedEmissions.wellToTank = producedEmissions.wellToTank * 1.5;
-      producedEmissions.wellToWheel = producedEmissions.wellToWheel * 1.5;
-  }
-*/
+
   const emissionIntensity = producedEmissions.wellToWheel / tkm;
 
   return {

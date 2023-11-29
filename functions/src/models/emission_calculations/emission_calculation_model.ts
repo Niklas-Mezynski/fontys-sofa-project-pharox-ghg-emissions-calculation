@@ -27,6 +27,7 @@ export type ConsumedFuelTransportDetails = z.infer<
 
 const roadTransportDetails = z.object({
   modeOfTransport: z.literal("ROAD"),
+  refrigerated: z.boolean().default(false),
   vehicle: z.object({
     code: z.string().nullable().optional(),
     weight: commonModels.valueWithUnitModel(weightUnits),
