@@ -65,7 +65,7 @@ export async function handleCalculationForRoadTransport(
   return {
     input: transportPart,
     emissionFactor: validatedRoadFactor,
-    mode: "ROAD",
+    mode: transportDetails.modeOfTransport,
     emissions: baseEmissionReportFactory({
       co2e:
         producedEmissions.wellToWheel ??
