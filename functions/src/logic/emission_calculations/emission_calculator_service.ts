@@ -80,7 +80,7 @@ async function performBatchEmissionCalculation(
     } catch (error) {
       throw new CustomError({
         status: HttpStatusCode.BadRequest,
-        message: `Error while calculating emission for transport part ${index}`,
+        message: `Error while calculating emission for batch calculation at index ${index}`,
         details: error,
       });
     }
