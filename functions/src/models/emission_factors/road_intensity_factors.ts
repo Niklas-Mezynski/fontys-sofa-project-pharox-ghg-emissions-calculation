@@ -10,7 +10,7 @@ import {
 
 extendZodWithOpenApi(z);
 
-const vehicleSchema = z.object({
+export const vehicleSchema = z.object({
   code: z.string(),
   name: z.string(),
   weight: z
@@ -23,7 +23,7 @@ const vehicleSchema = z.object({
   engineType: z.string().nullable(),
 });
 
-const characteristicsSchema = z.object({
+export const characteristicsSchema = z.object({
   loadFactor: z.number().nullable(),
   emptyRunning: z.number().nullable(),
   loadCharacteristic: z.string().nullable(),
@@ -41,7 +41,7 @@ export const glecIntensityFuelConsumptionUnits = [
   "L_PER_TKM",
 ] as const;
 
-const fuelConsumptionSchema = z.array(
+export const fuelConsumptionSchema = z.array(
   commonModels.valueWithUnitModel(glecIntensityFuelConsumptionUnits)
 );
 

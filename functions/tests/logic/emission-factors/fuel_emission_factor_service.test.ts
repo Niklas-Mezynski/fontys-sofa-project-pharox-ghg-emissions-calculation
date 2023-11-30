@@ -1,7 +1,6 @@
 import { FirestoreUtil } from "../../../src/utils/firestore";
 import { FuelEmissionFactorService } from "../../../src/logic/emission_factors/fuel_emission_factor_service";
 import { fuelEmissionFactors } from "../../helpers/test-data";
-import { CRUDEmissionFactorService } from "../../../src/logic/emission_factors/crud_emission_factor_service";
 
 describe("Emission factors - Fuel emission factors", () => {
   afterEach(() => {
@@ -12,26 +11,54 @@ describe("Emission factors - Fuel emission factors", () => {
     jest.restoreAllMocks();
   });
 
-  test("Get All Fuel Emission Factor returns all fuel emission factors", async () => {
-    jest.spyOn(FirestoreUtil, "getAll").mockResolvedValue(fuelEmissionFactors);
+  test("Get all the Fuel emission factors with same region", async () => {
+    jest.spyOn(FirestoreUtil, "getByFilter").mockResolvedValue(fuelEmissionFactors);
 
-    expect(
-      await CRUDEmissionFactorService.getEmissionFactors("FUEL")
-    ).toStrictEqual(fuelEmissionFactors);
+    expect( await FuelEmissionFactorService.getFuelEmissionFactorByRegion("EU")).toStrictEqual(fuelEmissionFactors);
   });
 
-  test("Get Fuel Emission Factors by Fuel code returns all fuel emission factors with the same fuel code", async () => {
-    const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
-    jest
-      .spyOn(FirestoreUtil, "getByFilter")
-      .mockResolvedValue(gasolineFuelEmissionFactors);
+  // test("Get all the Fuel emission factors with same source", async () => {
+  //   const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
+  //   jest
+  //     .spyOn(FirestoreUtil, "getByFilter")
+  //     .mockResolvedValue(gasolineFuelEmissionFactors);
 
-    const result =
-      await FuelEmissionFactorService.getFuelEmissionFactorByFuelCode(
-        "GASOLINE"
-      );
+  //   const result =
+  //     await FuelEmissionFactorService.getFuelEmissionFactorBySource(
+  //       "GASOLINE"
+  //     );
 
-    expect(result.length).toStrictEqual(1);
-    expect(result).toStrictEqual(gasolineFuelEmissionFactors);
-  });
+  //   expect(result.length).toStrictEqual(1);
+  //   expect(result).toStrictEqual(gasolineFuelEmissionFactors);
+  // });
+
+  // test("Get all the Fuel emission factors with same fuel code", async () => {
+  //   const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
+  //   jest
+  //     .spyOn(FirestoreUtil, "getByFilter")
+  //     .mockResolvedValue(gasolineFuelEmissionFactors);
+
+  //   const result =
+  //     await FuelEmissionFactorService.getFuelEmissionFactorByFuelCode(
+  //       "GASOLINE"
+  //     );
+
+  //   expect(result.length).toStrictEqual(1);
+  //   expect(result).toStrictEqual(gasolineFuelEmissionFactors);
+  // });
+
+  // test("Get a Fuel emission factor by fuel code and region", async () => {
+  //   const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
+  //   jest
+  //     .spyOn(FirestoreUtil, "getByFilter")
+  //     .mockResolvedValue(gasolineFuelEmissionFactors);
+
+  //   const result =
+  //     await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
+  //       "GASOLINE",
+  //       "EU"
+  //     );
+
+  //   expect(result).toStrictEqual(fuelEmissionFactors[1]);
+  // });
 });

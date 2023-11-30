@@ -1,5 +1,4 @@
 import { HttpStatusCode } from "axios";
-import { CRUDEmissionFactorService } from "../../../logic/emission_factors/crud_emission_factor_service";
 import { FuelEmissionFactorService } from "../../../logic/emission_factors/fuel_emission_factor_service";
 import {
   fuelEmissionFactorSchema,
@@ -8,6 +7,7 @@ import {
 import { CustomError } from "../../../utils/errors";
 import { validateInput } from "../../../utils/functions";
 import { onErrorHandledRequest } from "../../../utils/request_handler";
+import { CRUDEntityService } from "../../../logic/common/CRUD_entity_service";
 
 /** CREATE METHODS */
 
@@ -16,7 +16,7 @@ import { onErrorHandledRequest } from "../../../utils/request_handler";
  */
 export const createFuelEmissionFactor = onErrorHandledRequest(
   async (request, response) => {
-    const emissionFactor = await CRUDEmissionFactorService.createEmissionFactor(
+    const emissionFactor = await CRUDEntityService.createEntity(
       request.body,
       "FUEL"
     );
@@ -30,7 +30,7 @@ export const createFuelEmissionFactor = onErrorHandledRequest(
 export const createFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
     const emissionFactors =
-      await CRUDEmissionFactorService.createEmissionFactors(
+      await CRUDEntityService.createEntities(
         request.body,
         "FUEL"
       );
@@ -46,7 +46,7 @@ export const createFuelEmissionFactors = onErrorHandledRequest(
  */
 export const getFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await CRUDEmissionFactorService.getEmissionFactors("FUEL");
+    const factors = await CRUDEntityService.getEntities("FUEL");
     response.json(factors);
   }
 );
@@ -69,7 +69,7 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
       });
     }
 
-    const factor = await CRUDEmissionFactorService.getEmissionFactorById(
+    const factor = await CRUDEntityService.getEntityById(
       id,
       "FUEL"
     );
@@ -146,5 +146,62 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
     const factors =
       await FuelEmissionFactorService.getFuelEmissionFactorBySource(source);
     response.json(factors);
+  }
+);
+
+/** UPDATE METHODS */
+
+/**
+ * Cloud function to update a Fuel emission factor by ID
+ */
+export const updateFuelEmissionFactor = onErrorHandledRequest(
+  async (request, response) => {
+    const { id } = validateInput(
+      request.query,
+      fuelEmissionFactorSchema.partial(),
+      "Fuel Emission Factor ID not Found"
+    );
+
+    if (!id) {
+      throw new CustomError({
+        status: HttpStatusCode.NotFound,
+        message: "Fuel Emission Factor ID not Found",
+      });
+    }
+
+    const factor = await CRUDEntityService.updateEntity(
+      request.body,
+      id,
+      "FUEL"
+    );
+    response.json(factor);
+  }
+);
+
+/** DELETE METHODS */
+
+/**
+ * Cloud function to delete a Fuel emission factor by ID
+ */
+export const deleteFuelEmissionFactor = onErrorHandledRequest(
+  async (request, response) => {
+    const { id } = validateInput(
+      request.query,
+      fuelEmissionFactorSchema.partial(),
+      "Fuel Emission Factor ID not Found"
+    );
+
+    if (!id) {
+      throw new CustomError({
+        status: HttpStatusCode.NotFound,
+        message: "Fuel Emission Factor ID not Found",
+      });
+    }
+
+    await CRUDEntityService.deleteEntity(
+      id,
+      "FUEL"
+    );
+    response.status(200).send("Fuel Emission Factor deleted.");
   }
 );
