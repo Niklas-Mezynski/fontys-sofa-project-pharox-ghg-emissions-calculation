@@ -9,6 +9,8 @@ import {
 } from "firebase-admin/firestore";
 import { v4 as uuid } from "uuid";
 import { UnknownObject } from "./types";
+import { HttpStatusCode } from "axios";
+import { CustomError } from "./errors";
 
 initializeApp();
 export const db = getFirestore();
@@ -177,11 +179,17 @@ export async function updateById<E extends UnknownObject>(
   const dataToUpdate = stripIdFromData(data);
 
   const docRef = db.collection(collectionName).doc(id);
-  await docRef.update(dataToUpdate);
+  try {
+    await docRef.update(dataToUpdate);
 
-  const documentSnapshot =
-    await getDocumentSnaphsotFromDocumentReference(docRef);
-  return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
+    const documentSnapshot = await getDocumentSnaphsotFromDocumentReference(docRef);
+    return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
+  } catch (error) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: "Invalid update data provided or document to update not found.",
+    });
+  }
 }
 
 /* DELETE METHODS */
