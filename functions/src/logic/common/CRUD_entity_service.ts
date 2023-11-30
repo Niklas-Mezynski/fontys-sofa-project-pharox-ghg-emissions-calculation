@@ -42,7 +42,7 @@ type EntitySpecificReturnType<T extends EntityType> = z.infer<
  * @returns {Promise<EntitySpecificReturnType<T> | undefined>} The created entity.
  */
 async function createEntity<T extends EntityType>(
-  data: unknown,
+  data: UnknownObject,
   type: T
 ): Promise<EntitySpecificReturnType<T> | undefined> {
   const validatedInput = validateInput(
