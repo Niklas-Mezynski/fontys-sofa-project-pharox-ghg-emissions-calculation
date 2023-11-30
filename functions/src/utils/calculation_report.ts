@@ -1,11 +1,8 @@
-import { number } from "zod";
 import {
   CalculationReport,
   EmissionReportBase,
-  TotalEmissionReport,
   TransportActivityReport,
 } from "../models/emission_calculations/emission_calculation_model";
-import { DistanceUnit, WeightUnit } from "../models/units/units";
 import { GLECScope } from "../models/common";
 
 export const CO2E_WEIGHT_UNIT = "kg" as const;

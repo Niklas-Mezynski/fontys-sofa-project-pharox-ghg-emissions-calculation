@@ -45,7 +45,7 @@ export const fuelConsumptionSchema = z.array(
   commonModels.valueWithUnitModel(glecIntensityFuelConsumptionUnits)
 );
 
-export const glecIntensityFactorUnits = ["G_CO2E_PER_TKM"] as const;
+export const glecIntensityFactorUnits = ["G_CO2E_PER_TKM", "KG_CO2E_PER_TKM"] as const;
 
 export const roadIntensityFactorSchema = z.object({
   id: z.string().uuid().optional(),

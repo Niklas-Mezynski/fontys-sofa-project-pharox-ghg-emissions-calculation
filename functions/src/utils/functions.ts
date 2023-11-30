@@ -1,4 +1,4 @@
-import { ZodTypeDef, z } from "zod";
+import { z } from "zod";
 import { CustomError } from "./errors";
 import { HttpStatusCode } from "axios";
 
