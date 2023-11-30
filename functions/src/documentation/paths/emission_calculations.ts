@@ -26,6 +26,29 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
       },
     },
   },
+  {
+    method: "post",
+    path: "/emissionCalculatorBatch",
+    summary: "Calculate batch GHG emissions",
+    description: "Cloud function to perform batch emission calculations",
+    tags: ["Emission calculations"],
+    request: {
+      body: {
+        content: {
+          "application/json": {
+            schema: z.array(freightEmissionCalculationInputSchema),
+          },
+        },
+        description: "The calculation input",
+        required: true,
+      },
+    },
+    responses: {
+      "200": {
+        description: "The emission calculation overview/report",
+      },
+    },
+  },
   // EMISSION CALCULATION REPORTS
   {
     method: "get",

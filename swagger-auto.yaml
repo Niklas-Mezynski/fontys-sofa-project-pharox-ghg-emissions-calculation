@@ -362,6 +362,7 @@ components:
               type: string
               enum: &a10
                 - G_CO2E_PER_TKM
+                - KG_CO2E_PER_TKM
             wtt:
               type: number
               nullable: true
@@ -1017,6 +1018,152 @@ paths:
               required:
                 - transportParts
               example: *a9
+      responses:
+        "200":
+          description: The emission calculation overview/report
+  /emissionCalculatorBatch:
+    post:
+      summary: Calculate batch GHG emissions
+      description: Cloud function to perform batch emission calculations
+      tags:
+        - Emission calculations
+      requestBody:
+        description: The calculation input
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  metadata:
+                    type: object
+                    nullable: true
+                    additionalProperties:
+                      nullable: true
+                  date:
+                    type: string
+                    nullable: true
+                  transportParts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        scope:
+                          type: string
+                          nullable: true
+                          enum: *a6
+                        distance:
+                          type: object
+                          properties:
+                            value:
+                              type: number
+                            unit:
+                              type: string
+                              enum: *a7
+                          required:
+                            - value
+                            - unit
+                        weight:
+                          type: object
+                          properties:
+                            value:
+                              type: number
+                            unit:
+                              type: string
+                              enum: *a1
+                          required:
+                            - value
+                            - unit
+                        region:
+                          type: string
+                          enum: *a2
+                        transportDetails:
+                          anyOf:
+                            - type: object
+                              properties:
+                                consumedFuel:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                      enum: *a8
+                                  required:
+                                    - value
+                                    - unit
+                                fuelCode:
+                                  type: string
+                                  description: A unique code for the fuel used
+                              required:
+                                - consumedFuel
+                                - fuelCode
+                            - type: object
+                              properties:
+                                modeOfTransport:
+                                  type: string
+                                  enum:
+                                    - ROAD
+                                refrigerated:
+                                  type: boolean
+                                  default: false
+                                vehicle:
+                                  type: object
+                                  properties:
+                                    code:
+                                      type: string
+                                      nullable: true
+                                    weight:
+                                      type: object
+                                      properties:
+                                        value:
+                                          type: number
+                                        unit:
+                                          type: string
+                                          enum: *a1
+                                      required:
+                                        - value
+                                        - unit
+                                    engineType:
+                                      type: string
+                                      nullable: true
+                                  required:
+                                    - weight
+                                characteristics:
+                                  type: object
+                                  properties:
+                                    loadFactor:
+                                      type: number
+                                      nullable: true
+                                    emptyRunning:
+                                      type: number
+                                      nullable: true
+                                    loadCharacteristic:
+                                      type: string
+                                      nullable: true
+                                    combinedLoadFactorEmptyRunning:
+                                      type: number
+                                      nullable: true
+                                fuelCode:
+                                  type: string
+                                  nullable: true
+                              required:
+                                - modeOfTransport
+                                - vehicle
+                                - characteristics
+                      required:
+                        - distance
+                        - weight
+                        - region
+                        - transportDetails
+                    description: The different transport activities to calculate emissions for. Each
+                      has their own fuel type, fuel consumption and freight
+                      details.
+                required:
+                  - transportParts
+                example: *a9
       responses:
         "200":
           description: The emission calculation overview/report
