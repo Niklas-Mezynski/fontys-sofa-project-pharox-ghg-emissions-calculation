@@ -25,12 +25,12 @@ export const openApiDocumentConfig = {
   ],
   tags: [
     {
-      name: "Emission calculation reports",
-      description: "Functions related to emission calculation reports",
-    },
-    {
       name: "Emission calculations",
       description: "Functions related to calculation of emissions",
+    },
+    {
+      name: "Emission calculation reports",
+      description: "Functions related to emission calculation reports",
     },
     {
       name: "Fuel Emission factors",
