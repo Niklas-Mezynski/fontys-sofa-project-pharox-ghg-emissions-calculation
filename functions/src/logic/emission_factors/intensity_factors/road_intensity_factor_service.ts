@@ -9,7 +9,6 @@ import { FirestoreUtil } from "../../../utils/firestore";
 import { validateInput } from "../../../utils/functions";
 import { CustomError } from "../../../utils/errors";
 import { HttpStatusCode } from "axios";
-import { UnknownObject } from "../../../utils/types";
 
 // The Firestore collection name refering to the Road intensity factors
 const roadIntensityFactorsCollection = "intensity_factors_road";

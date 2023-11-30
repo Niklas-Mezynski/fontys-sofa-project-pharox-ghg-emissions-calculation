@@ -6,19 +6,23 @@ import {
 import { RoadIntensityFactorService } from "../emission_factors/intensity_factors/road_intensity_factor_service";
 import { validateInput } from "../../utils/functions";
 import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
-import { classifyUnitType } from "../units/unit_classification_service";
-import { EmissionFactorUtils } from "../../utils/emission_factor_utils";
 import { ACTIVITY_BASE_UNIT, baseEmissionReportFactory } from "../../utils/calculation_report";
 import { CustomError } from "../../utils/errors";
 import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../units/unit_conversion_service";
 
+/**
+ *
+ * @param transportPart
+ * @param transportDetails
+ * @returns
+ */
 export async function handleCalculationForRoadTransport(
   transportPart: FreightEmissionCalculationInput["transportParts"][number],
   transportDetails: RoadTransportDetails
 ): Promise<TransportActivityReport> {
 
-  const factor = await RoadIntensityFactorService.getSpecificIntensityFactor(transportDetails, transportPart.region) 
+  const factor = await RoadIntensityFactorService.getSpecificIntensityFactor(transportDetails, transportPart.region)
 
   console.log(factor)
 

@@ -1,7 +1,6 @@
 import { classifyUnitType } from "../../logic/units/unit_classification_service";
 import { onErrorHandledRequest } from "../../utils/request_handler";
 import { validateInput } from "../../utils/functions";
-import { z } from "zod";
 import { unitClassificationInputSchema } from "../../models/units/units";
 
 /**

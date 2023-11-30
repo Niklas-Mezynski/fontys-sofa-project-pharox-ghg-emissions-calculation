@@ -3,7 +3,6 @@ import { onErrorHandledRequest } from "../../utils/request_handler";
 import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../../logic/units/unit_conversion_service";
 import { validateInput } from "../../utils/functions";
-import { z } from "zod";
 import { CustomError } from "../../utils/errors";
 import { unitConverterInputSchema } from "../../models/units/units";
 
