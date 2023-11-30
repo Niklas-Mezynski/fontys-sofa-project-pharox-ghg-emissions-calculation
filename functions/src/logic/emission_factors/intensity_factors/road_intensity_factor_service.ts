@@ -22,44 +22,8 @@ async function getSpecificIntensityFactor(
   data: RoadTransportDetails,
   region: string
 ): Promise<RoadIntensityFactor> {
-  
-  // const filter = Filter.and(
-  //   Filter.where("refrigerated", "==", data.refrigerated),
-  //   Filter.where("fuel.code", "==", data.fuelCode ?? null),
-  //   Filter.or(
-  //     Filter.where("region", "==", region),
-  //     Filter.where("region", "==", "INTERNATIONAL")
-  //   ),
-  //   Filter.or(
-  //     Filter.where("vehicle.weight.lower", ">=", data.vehicle.weight.value),
-  //     //Filter.where("vehicle.weight.upper", "<=", data.vehicle.weight.value)
-  //   ),
-  //   Filter.where("vehicle.weight.unit", "==", data.vehicle.weight.unit),
-  //   Filter.where("vehicle.code", "==", data.vehicle.code ?? null),
-  //   Filter.where("vehicle.engineType", "==", data.vehicle.engineType ?? null),
-  //   Filter.where(
-  //     "characteristics.loadCharacteristic",
-  //     "==",
-  //     data.characteristics.loadCharacteristic ?? null
-  //   ),
-  //   Filter.where(
-  //     "characteristics.loadFactor",
-  //     "==",
-  //     data.characteristics.loadFactor ?? null
-  //   ),
-  //   Filter.where(
-  //     "characteristics.combinedLoadFactorEmptyRunning",
-  //     "==",
-  //     data.characteristics.combinedLoadFactorEmptyRunning ?? null
-  //   ),
-  //   Filter.where(
-  //     "characteristics.emptyRunning",
-  //     "==",
-  //     data.characteristics.emptyRunning ?? null
-  //   )
-  // );
-  
 
+  
   const filter = Filter.and(
     Filter.where("refrigerated", "==", data.refrigerated),
     Filter.where("region", "in", [region, "INTERNATIONAL"])
@@ -76,8 +40,6 @@ async function getSpecificIntensityFactor(
     z.array(roadIntensityFactorSchema),
     "Received unexpected Road Intensity Factors format from the database."
   );
-
-  console.log("LENGTH BEFORE: ", validatedQueryData.length);
 
   let useDefault = true;
 
@@ -132,11 +94,6 @@ async function getSpecificIntensityFactor(
     useDefault = false;
   }
 
-  console.log("LENGTH AFTER VEHICLE: ", validatedQueryData.length);
-  //console.log(validatedQueryData.length)
-
-
-
   if ((validatedQueryData.length > 1)) {
     if(useDefault && vehicle.code){
       validatedQueryData = validatedQueryData.filter( d => 
@@ -147,14 +104,6 @@ async function getSpecificIntensityFactor(
         && d.characteristics.loadFactor === null))
         && (d.fuel === null || d.fuel.code === null)
       )
-
-
-      // console.log(validatedQueryData)
-      // validatedQueryData = validatedQueryData.filter( d => 
-      //   d.characteristics === null
-      //   && d.fuel === null
-      // );
-       console.log(validatedQueryData)
     }
 
     if(validatedQueryData.length > 1){
