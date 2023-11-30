@@ -11,9 +11,9 @@ import {
 } from "../../utils/calculation_report";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
+import { CRUDEntityService } from "../common/CRUD_entity_service";
 import { handleCalculationWithGivenFuelConsumption } from "./fuel_based_calculation";
 import { handleCalculationForRoadTransport } from "./road_intensity_calculation";
-import { CRUDEntityService } from "../common/CRUD_entity_service";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -74,7 +74,7 @@ async function performBatchEmissionCalculation(
 ): Promise<CalculationReport[]> {
   const arrayOfReports = [];
 
-  for(const [index, item] of inputData.entries()) {
+  for (const [index, item] of inputData.entries()) {
     try {
       arrayOfReports.push(await performEmissionCalculation(item));
     } catch (error) {
@@ -125,10 +125,15 @@ async function calculateTransportActivity(
  * @param {CalculationReport} report - The calculation report to save.
  * @returns {Promise<CalculationReport>} - The saved calculation report.
  */
-async function saveCalculationReport(report: CalculationReport): Promise<CalculationReport> {
-  const savedCalculationReport = await CRUDEntityService.createEntity(report, "REPORT");
+async function saveCalculationReport(
+  report: CalculationReport
+): Promise<CalculationReport> {
+  const savedCalculationReport = await CRUDEntityService.createEntity(
+    report,
+    "REPORT"
+  );
 
-  if(!savedCalculationReport) {
+  if (!savedCalculationReport) {
     throw new CustomError({
       status: HttpStatusCode.InternalServerError,
       message: "Error while saving the calculation report",
@@ -143,7 +148,9 @@ async function saveCalculationReport(report: CalculationReport): Promise<Calcula
  * @param {CalculationReport[]} reports - The calculation reports to save.
  * @returns {Promise<CalculationReport>} - The saved calculation report.
  */
-async function saveCalculationReports(reports: CalculationReport[]): Promise<CalculationReport[]> {
+async function saveCalculationReports(
+  reports: CalculationReport[]
+): Promise<CalculationReport[]> {
   return await CRUDEntityService.createEntities(reports, "REPORT");
 }
 

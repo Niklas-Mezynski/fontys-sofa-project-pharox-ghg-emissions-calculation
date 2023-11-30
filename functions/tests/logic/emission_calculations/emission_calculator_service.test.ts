@@ -1,10 +1,9 @@
+import { v4 as uuid } from "uuid";
 import { EmissionCalculatorService } from "../../../src/logic/emission_calculations/emission_calculator_service";
-import { CRUDEmissionFactorService } from "../../../src/logic/emission_factors/crud_emission_factor_service";
 import { FreightEmissionCalculationInput } from "../../../src/models/emission_calculations/emission_calculation_model";
 import { FuelEmissionFactor } from "../../../src/models/emission_factors/fuel_emission_factors";
 import { FirestoreUtil } from "../../../src/utils/firestore";
 import { ObjectWithId } from "../../../src/utils/types";
-import { fuelEmissionFactors } from "../../helpers/test-data";
 
 describe("Emission calculations", () => {
   afterEach(() => {
@@ -42,7 +41,7 @@ describe("Emission calculations", () => {
 
     const factorToUse = [
       {
-        id: "mocked-id",
+        id: uuid(),
         source: "GLEC",
         fuel: {
           code: "FUEL",
@@ -62,15 +61,13 @@ describe("Emission calculations", () => {
 
     jest.spyOn(FirestoreUtil, "getByFilter").mockResolvedValue(factorToUse);
 
-    const expected = 42682;
-
     const calcResult =
       await EmissionCalculatorService.performEmissionCalculation(
         calculationInput
       );
 
     expect(calcResult.emissions.breakdown.scope3.co2e.value).toStrictEqual(
-      expected
+      42_682
     );
   });
 });

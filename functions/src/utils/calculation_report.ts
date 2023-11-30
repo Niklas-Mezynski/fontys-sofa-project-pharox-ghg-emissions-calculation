@@ -1,9 +1,9 @@
+import { GLECScope } from "../models/common";
 import {
   CalculationReport,
   EmissionReportBase,
   TransportActivityReport,
 } from "../models/emission_calculations/emission_calculation_model";
-import { GLECScope } from "../models/common";
 
 export const CO2E_WEIGHT_UNIT = "kg" as const;
 export const ACTIVITY_BASE_UNIT = {
