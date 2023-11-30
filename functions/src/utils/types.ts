@@ -14,3 +14,5 @@ export type CheckStructureOfConst<T, S> = {
 export type UnknownObject = {
   [key: string | number | symbol]: unknown;
 };
+
+export type ObjectWithId<T> = T & { id: string };
