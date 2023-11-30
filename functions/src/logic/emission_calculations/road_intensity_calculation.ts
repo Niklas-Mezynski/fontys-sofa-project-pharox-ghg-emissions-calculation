@@ -24,8 +24,6 @@ export async function handleCalculationForRoadTransport(
 
   const factor = await RoadIntensityFactorService.getSpecificIntensityFactor(transportDetails, transportPart.region)
 
-  console.log(factor)
-
   const validatedRoadFactor = validateInput(
     factor,
     roadIntensityFactorSchema,
@@ -33,12 +31,12 @@ export async function handleCalculationForRoadTransport(
   );
 
   // Get the factor with the same unit type as the provided unit type
-  const factorToUse = validatedRoadFactor.factor
+  const factorToUse = validatedRoadFactor.factor;
 
   if (!factorToUse) {
     throw new CustomError({
       status: HttpStatusCode.BadRequest,
-      message: `No emission factor was found!`,
+      message: "No emission factor was found!",
     });
   }
 
