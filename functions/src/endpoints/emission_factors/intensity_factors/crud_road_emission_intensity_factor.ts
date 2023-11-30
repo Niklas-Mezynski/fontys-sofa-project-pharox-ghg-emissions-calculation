@@ -1,26 +1,28 @@
 import { HttpStatusCode } from "axios";
-import { CRUDEmissionFactorService } from "../../../logic/emission_factors/crud_emission_factor_service";
 import { CustomError } from "../../../utils/errors";
 import { onErrorHandledRequest } from "../../../utils/request_handler";
+import { roadIntensityFactorSchema } from "../../../models/emission_factors/road_intensity_factors";
+import { validateInput } from "../../../utils/functions";
+import { CRUDEntityService } from "../../../logic/common/CRUD_entity_service";
 
 /** CREATE METHODS */
 
 /**
- * Endpoint which adds a ROAD Emission Intensity Factor.
+ * Cloud function to create a Road Emission Intensity Factor.
  */
 export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactor = await CRUDEmissionFactorService.createEmissionFactor(request.body, "ROAD");
+    const createdFactor = await CRUDEntityService.createEntity(request.body, "ROAD");
     response.status(200).send(createdFactor);
   }
 );
 
 /**
- * Endpoint which adds multiple ROAD Emission Intensity Factors.
+ * Cloud function to create multiple Road Emission Intensity Factors.
  */
 export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactors = await CRUDEmissionFactorService.createEmissionFactors(request.body, "ROAD");
+    const createdFactors = await CRUDEntityService.createEntities(request.body, "ROAD");
     response.status(200).send(createdFactors);
   }
 );
@@ -32,7 +34,7 @@ export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
  */
 export const getRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await CRUDEmissionFactorService.getEmissionFactors("ROAD");
+    const factors = await CRUDEntityService.getEntities("ROAD");
     response.json(factors);
   }
 );
@@ -42,17 +44,21 @@ export const getRoadEmissionIntensityFactors = onErrorHandledRequest(
  */
 export const getRoadEmissionIntensityFactorById = onErrorHandledRequest(
   async (request, response) => {
-    const { id } = request.query;
+    const { id } = validateInput(
+      request.query,
+      roadIntensityFactorSchema.partial(),
+      "Road Emission Intensity Factor ID not Found"
+    );
 
     if (!id) {
       throw new CustomError({
         status: HttpStatusCode.NotFound,
-        message: "Road Emission Factor ID not Found",
+        message: "Road Emission Intensity Factor ID not Found",
       });
     }
 
-    const factor = await CRUDEmissionFactorService.getEmissionFactorById(
-      id as string,
+    const factor = await CRUDEntityService.getEntityById(
+      id,
       "ROAD"
     );
     response.json(factor);
@@ -62,30 +68,56 @@ export const getRoadEmissionIntensityFactorById = onErrorHandledRequest(
 /** UPDATE METHODS */
 
 /**
- * Updates an Emission Intensity Factor by UUID
+ * Cloud function to update a Road Emission Intensity Factor by ID
  */
-export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
+export const updateRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    await CRUDEmissionFactorService.deleteEmissionFactor(
-      request.body.identifier,
+    const { id } = validateInput(
+      request.query,
+      roadIntensityFactorSchema.partial(),
+      "Road Emission Intensity Factor ID not Found"
+    );
+
+    if (!id) {
+      throw new CustomError({
+        status: HttpStatusCode.NotFound,
+        message: "Road Emission Intensity Factor ID not Found",
+      });
+    }
+
+    const updatedFactor = await CRUDEntityService.updateEntity(
+      request.body,
+      id,
       "ROAD"
     );
-    response.status(200).send("Factor Removed.");
+    response.status(200).send(updatedFactor);
   }
 );
 
 /** DELETE METHODS */
 
 /**
- * Updates an Emission Intensity Factor by UUID
+ * Cloud function to delete a Road Emission Intensity Factor by ID
  */
-export const updateRoadEmissionIntensityFactor = onErrorHandledRequest(
+export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    const updatedFactor = await CRUDEmissionFactorService.updateEmissionFactor(
-      request.body,
-      request.body.id,
+    const { id } = validateInput(
+      request.query,
+      roadIntensityFactorSchema.partial(),
+      "Road Emission Intensity Factor ID not Found"
+    );
+
+    if (!id) {
+      throw new CustomError({
+        status: HttpStatusCode.NotFound,
+        message: "Road Emission Intensity Factor ID not Found",
+      });
+    }
+
+    await CRUDEntityService.deleteEntity(
+      id,
       "ROAD"
     );
-    response.status(200).send(updatedFactor);
+    response.status(200).send("Road Emission Intensity Factor deleted.");
   }
 );

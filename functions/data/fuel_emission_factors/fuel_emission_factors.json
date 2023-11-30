@@ -1,853 +1,816 @@
 [
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "HEAVY_FUEL_OIL",
-            "name": "Heavy fuel oil"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.26,
-                "ttw": 3.15,
-                "wtw": 3.41
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.25,
-                "ttw": 3.06,
-                "wtw": 3.31
-            }
-        }],
-        "region": "INTERNATIONAL"
+  {
+    "source": "GLEC",
+    "fuel": {
+      "code": "HEAVY_FUEL_OIL",
+      "name": "Heavy fuel oil"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "AVIATION_FUEL",
-            "name": "Aviation fuel"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.70,
-                "ttw": 3.18,
-                "wtw": 3.88
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.56,
-                "ttw": 2.55,
-                "wtw": 3.10
-            }
-        }],
-        "region": "INTERNATIONAL"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.26,
+        "ttw": 3.15,
+        "wtw": 3.41
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.25,
+        "ttw": 3.06,
+        "wtw": 3.31
+      }
+    ],
+    "region": "INTERNATIONAL"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+      "code": "AVIATION_FUEL",
+      "name": "Aviation fuel"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "MARINE_DIESEL_OIL",
-            "name": "Marine diesel oil"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.68,
-                "ttw": 3.24,
-                "wtw": 3.92
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.61,
-                "ttw": 2.92,
-                "wtw": 3.53
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.70,
+        "ttw": 3.18,
+        "wtw": 3.88
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.56,
+        "ttw": 2.55,
+        "wtw": 3.10
+      }
+    ],
+    "region": "INTERNATIONAL"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+      "code": "MARINE_DIESEL_OIL",
+      "name": "Marine diesel oil"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "MARINE_GAS_OIL",
-            "name": "Marine gas oil"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.68,
-                "ttw": 3.24,
-                "wtw": 3.92
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.61,
-                "ttw": 2.88,
-                "wtw": 3.49
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.68,
+        "ttw": 3.24,
+        "wtw": 3.92
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.61,
+        "ttw": 2.92,
+        "wtw": 3.53
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+      "code": "MARINE_GAS_OIL",
+      "name": "Marine gas oil"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "GASOLINE",
-            "name": "Gasoline"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.61,
-                "ttw": 3.25,
-                "wtw": 3.86
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.45,
-                "ttw": 2.42,
-                "wtw": 2.88
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.68,
+        "ttw": 3.24,
+        "wtw": 3.92
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.61,
+        "ttw": 2.88,
+        "wtw": 3.49
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+      "code": "GASOLINE",
+      "name": "Gasoline"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIOETHANOL",
-            "name": "Bioethanol"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.56,
-                "ttw": 0.00,
-                "wtw": 1.56
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 1.24,
-                "ttw": 0.00,
-                "wtw": 1.24
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.61,
+        "ttw": 3.25,
+        "wtw": 3.86
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.45,
+        "ttw": 2.42,
+        "wtw": 2.88
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+      "code": "BIOETHANOL",
+      "name": "Bioethanol"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "GASOLINE_E5",
-            "name": "Gasoline, 5% bioethanol blend"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.66,
-                "ttw": 3.08,
-                "wtw": 3.74
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.50,
-                "ttw": 2.30,
-                "wtw": 2.80
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.56,
+        "ttw": 0.00,
+        "wtw": 1.56
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 1.24,
+        "ttw": 0.00,
+        "wtw": 1.24
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "GASOLINE_E5",
+        "name": "Gasoline, 5% bioethanol blend"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "DIESEL",
-            "name": "Diesel"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.69,
-                "ttw": 3.21,
-                "wtw": 3.90
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.57,
-                "ttw": 2.67,
-                "wtw": 3.24
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.66,
+        "ttw": 3.08,
+        "wtw": 3.74
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.50,
+        "ttw": 2.30,
+        "wtw": 2.80
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "DIESEL",
+        "name": "Diesel"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIODIESEL_B100",
-            "name": "100% biodiesel (B100)"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 2.16,
-                "ttw": 0.00,
-                "wtw": 2.16
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 1.92,
-                "ttw": 0.00,
-                "wtw": 1.92
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.69,
+        "ttw": 3.21,
+        "wtw": 3.90
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.57,
+        "ttw": 2.67,
+        "wtw": 3.24
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIODIESEL_B100",
+        "name": "100% biodiesel (B100)"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "DIESEL_B5",
-            "name": "Diesel, 5% biodiesel blend (B5)"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.76,
-                "ttw": 3.04,
-                "wtw": 3.80
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.63,
-                "ttw": 2.54,
-                "wtw": 3.17
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 2.16,
+        "ttw": 0.00,
+        "wtw": 2.16
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 1.92,
+        "ttw": 0.00,
+        "wtw": 1.92
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "DIESEL_B5",
+        "name": "Diesel, 5% biodiesel blend (B5)"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LIQUEFIED_PETROLEUM_GAS",
-            "name": "Liquefied petroleum gas"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.36,
-                "ttw": 3.10,
-                "wtw": 3.46
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.20,
-                "ttw": 1.70,
-                "wtw": 1.90
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.76,
+        "ttw": 3.04,
+        "wtw": 3.80
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.63,
+        "ttw": 2.54,
+        "wtw": 3.17
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LIQUEFIED_PETROLEUM_GAS",
+        "name": "Liquefied petroleum gas"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_SI_HDR",
-            "name": "LNG SI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.81,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.84,
-                "wtw": 3.65
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.36,
+        "ttw": 3.10,
+        "wtw": 3.46
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.20,
+        "ttw": 1.70,
+        "wtw": 1.90
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_SI_HDR",
+        "name": "LNG SI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_HPDI_HDR",
-            "name": "LNG HPDI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.81,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.87,
-                "wtw": 3.68
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.81,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.84,
+        "wtw": 3.65
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_HPDI_HDR",
+        "name": "LNG HPDI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "CNG_SI_HDR",
-            "name": "CNG SI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.75,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.84,
-                "wtw": 3.59
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.81,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.87,
+        "wtw": 3.68
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "CNG_SI_HDR",
+        "name": "CNG SI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "CNG_HPDI_HDR",
-            "name": "CNG HPDI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.75,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.87,
-                "wtw": 3.62
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.75,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.84,
+        "wtw": 3.59
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "CNG_HPDI_HDR",
+        "name": "CNG HPDI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_OTTO_MED_SPEED",
-            "name": "LNG Otto dual fuel (medium speed) ship"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.81,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 3.61,
-                "wtw": 4.42
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.75,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.87,
+        "wtw": 3.62
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_OTTO_MED_SPEED",
+        "name": "LNG Otto dual fuel (medium speed) ship"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_OTTO_LOW_SPEED",
-            "name": "LNG Otto dual fuel (slow speed) ship"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.81,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 3.23,
-                "wtw": 4.05
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.81,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 3.61,
+        "wtw": 4.42
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_OTTO_LOW_SPEED",
+        "name": "LNG Otto dual fuel (slow speed) ship"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_COMPRESSION",
-            "name": "LNG compression ignition ship"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.81,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.83,
-                "wtw": 3.65
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.81,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 3.23,
+        "wtw": 4.05
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_COMPRESSION",
+        "name": "LNG compression ignition ship"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_LNG_SI_HDR",
-            "name": "Bio-LNG SI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.10,
-                "wtw": 1.53
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.81,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.83,
+        "wtw": 3.65
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_LNG_SI_HDR",
+        "name": "Bio-LNG SI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_LNG_HPDI_HDR",
-            "name": "Bio-LNG HPDI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.13,
-                "wtw": 1.57
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.10,
+        "wtw": 1.53
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_LNG_HPDI_HDR",
+        "name": "Bio-LNG HPDI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_CNG_SI_ROAD",
-            "name": "Bio-CNG SI road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.10,
-                "wtw": 1.53
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.13,
+        "wtw": 1.57
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_CNG_SI_ROAD",
+        "name": "Bio-CNG SI road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_CNG_HPDI_HDR",
-            "name": "Bio-CNG HPDI, heavy duty road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.13,
-                "wtw": 1.57
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.10,
+        "wtw": 1.53
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_CNG_HPDI_HDR",
+        "name": "Bio-CNG HPDI, heavy duty road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_LNG_OTTO_MED_SPEED",
-            "name": "Bio-LNG Otto dual fuel (medium speed) ship"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.94,
-                "wtw": 2.35
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.13,
+        "wtw": 1.57
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_LNG_OTTO_MED_SPEED",
+        "name": "Bio-LNG Otto dual fuel (medium speed) ship"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_LNG_OTTO_LOW_SPEED",
-            "name": "Bio-LNG Otto dual fuel (slow speed) ship"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.53,
-                "wtw": 1.94
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.94,
+        "wtw": 2.35
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_LNG_OTTO_LOW_SPEED",
+        "name": "Bio-LNG Otto dual fuel (slow speed) ship"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIO_LNG_DIESEL",
-            "name": "Bio-LNG diesel ship"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 1.41,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 0.09,
-                "wtw": 1.50
-            }
-        }],
-        "region": "EU"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.53,
+        "wtw": 1.94
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIO_LNG_DIESEL",
+        "name": "Bio-LNG diesel ship"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "MARINE_DIESEL_OIL",
-            "name": "Marine diesel oil"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.55,
-                "ttw": 3.22,
-                "wtw": 3.77
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.50,
-                "ttw": 2.95,
-                "wtw": 3.45
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 1.41,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 0.09,
+        "wtw": 1.50
+      }
+    ],
+    "region": "EU"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "MARINE_DIESEL_OIL",
+        "name": "Marine diesel oil"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "CONVENTIONAL_GASOLINE",
-            "name": "Conventional gasoline"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.72,
-                "ttw": 3.04,
-                "wtw": 3.76
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.54,
-                "ttw": 2.28,
-                "wtw": 2.82
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.55,
+        "ttw": 3.22,
+        "wtw": 3.77
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.50,
+        "ttw": 2.95,
+        "wtw": 3.45
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "CONVENTIONAL_GASOLINE",
+        "name": "Conventional gasoline"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "CALIFORNIA_GASOLINE",
-            "name": "California gasoline"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.69,
-                "ttw": 3.04,
-                "wtw": 3.74
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.52,
-                "ttw": 2.28,
-                "wtw": 2.80
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.72,
+        "ttw": 3.04,
+        "wtw": 3.76
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.54,
+        "ttw": 2.28,
+        "wtw": 2.82
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "CALIFORNIA_GASOLINE",
+        "name": "California gasoline"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "GASOLINE_E10",
-            "name": "Gasoline 10% bioethanol blend"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.69,
-                "ttw": 2.93,
-                "wtw": 3.62
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.52,
-                "ttw": 2.21,
-                "wtw": 2.73
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.69,
+        "ttw": 3.04,
+        "wtw": 3.74
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.52,
+        "ttw": 2.28,
+        "wtw": 2.80
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "GASOLINE_E10",
+        "name": "Gasoline 10% bioethanol blend"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "BIOETHANOL_85",
-            "name": "Bioethanol 85%"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": -0.24,
-                "ttw": 2.09,
-                "wtw": 1.84
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": -0.19,
-                "ttw": 1.64,
-                "wtw": 1.44
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.69,
+        "ttw": 2.93,
+        "wtw": 3.62
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.52,
+        "ttw": 2.21,
+        "wtw": 2.73
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "BIOETHANOL_85",
+        "name": "Bioethanol 85%"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "METHANOL_90",
-            "name": "Methanol 90%"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.52,
-                "ttw": 1.54,
-                "wtw": 2.06
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.41,
-                "ttw": 1.22,
-                "wtw": 1.63
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": -0.24,
+        "ttw": 2.09,
+        "wtw": 1.84
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": -0.19,
+        "ttw": 1.64,
+        "wtw": 1.44
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "METHANOL_90",
+        "name": "Methanol 90%"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "DIESEL",
-            "name": "Diesel"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.66,
-                "ttw": 3.21,
-                "wtw": 3.87
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.55,
-                "ttw": 2.68,
-                "wtw": 3.24
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.52,
+        "ttw": 1.54,
+        "wtw": 2.06
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.41,
+        "ttw": 1.22,
+        "wtw": 1.63
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "DIESEL",
+        "name": "Diesel"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LIQUEFIED_PETROLEUM_GAS",
-            "name": "Liquefied petroleum gas"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.64,
-                "ttw": 3.02,
-                "wtw": 3.66
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": 0.32,
-                "ttw": 1.53,
-                "wtw": 1.86
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.66,
+        "ttw": 3.21,
+        "wtw": 3.87
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.55,
+        "ttw": 2.68,
+        "wtw": 3.24
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LIQUEFIED_PETROLEUM_GAS",
+        "name": "Liquefied petroleum gas"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_SI_ROAD",
-            "name": "LNG SI road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.93,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.81,
-                "wtw": 3.74
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.64,
+        "ttw": 3.02,
+        "wtw": 3.66
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": 0.32,
+        "ttw": 1.53,
+        "wtw": 1.86
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_SI_ROAD",
+        "name": "LNG SI road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "LNG_HPDI_ROAD",
-            "name": "LNG HPDI road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.93,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 3.08,
-                "wtw": 4.01
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.93,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.81,
+        "wtw": 3.74
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "LNG_HPDI_ROAD",
+        "name": "LNG HPDI road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "CNG_SI_ROAD",
-            "name": "CNG SI road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.80,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 2.80,
-                "wtw": 3.60
-            }
-        }],
-        "region": "NA"
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.93,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 3.08,
+        "wtw": 4.01
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "CNG_SI_ROAD",
+        "name": "CNG SI road"
     },
-    {
-        "source": "GLEC",
-        "fuel": {
-            "code": "CNG_HPDI_ROAD",
-            "name": "CNG HPDI road"
-        },
-        "factors": [{
-            "unit": "KG_CO2E_PER_KG",
-            "factor": {
-                "wtt": 0.80,
-                "ttw": null,
-                "wtw": null
-            }
-        }, {
-            "unit": "KG_CO2E_PER_L",
-            "factor": {
-                "wtt": null,
-                "ttw": 3.08,
-                "wtw": 3.88
-            }
-        }],
-        "region": "NA"
-    }
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.80,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 2.80,
+        "wtw": 3.60
+      }
+    ],
+    "region": "NA"
+  },
+  {
+    "source": "GLEC",
+    "fuel": {
+        "code": "CNG_HPDI_ROAD",
+        "name": "CNG HPDI road"
+    },
+    "factors": [
+      {
+        "unit": "KG_CO2E_PER_KG",
+        "wtt": 0.80,
+        "ttw": null,
+        "wtw": null
+      },
+      {
+        "unit": "KG_CO2E_PER_L",
+        "wtt": null,
+        "ttw": 3.08,
+        "wtw": 3.88
+      }
+    ],
+    "region": "NA"
+  }
 ]

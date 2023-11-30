@@ -60,6 +60,20 @@ async function performEmissionCalculation(
   return calculationReport;
 }
 
+// eslint-disable-next-line require-jsdoc
+async function performBatchEmissionCalculation(
+  inputData: FreightEmissionCalculationInput[]
+): Promise<CalculationReport[]> {
+  const arrayOfReports = [];
+
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
+  for (let i = 0; i < inputData.length; i++) {
+    arrayOfReports.push(await performEmissionCalculation(inputData[i]));
+  }
+
+  return arrayOfReports;
+}
+
 /**
  * Calculates the emission for a single transport activity.
  * @param transportPart The transport activity to calculate the emission for.
@@ -90,4 +104,5 @@ async function calculateTransportActivity(
 
 export const EmissionCalculatorService = {
   performEmissionCalculation,
+  performBatchEmissionCalculation,
 };

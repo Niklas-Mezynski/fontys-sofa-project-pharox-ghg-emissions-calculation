@@ -14,9 +14,9 @@ import { HttpStatusCode } from "axios";
 const roadIntensityFactorsCollection = "intensity_factors_road";
 
 /**
- *
- * @param data
- * @returns
+ * Algorithm to get the road intensity factor to be used in the emission calculation according to the data input.
+ * @param {RoadTransportDetails} data - The data input.
+ * @returns {Promise<RoadIntensityFactor>} - The found Road intensity factor.
  */
 async function getSpecificIntensityFactor(
   data: RoadTransportDetails,
