@@ -96,6 +96,7 @@ export function calculationReportFactory(): CalculationReport {
       },
     },
     transportActivities: [],
+    date: new Date(),
   };
 }
 

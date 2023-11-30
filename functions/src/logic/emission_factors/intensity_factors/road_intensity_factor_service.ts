@@ -12,9 +12,9 @@ import { validateInput } from "../../../utils/functions";
 const roadIntensityFactorsCollection = "intensity_factors_road";
 
 /**
- *
- * @param data
- * @returns
+ * Algorithm to get the road intensity factor to be used in the emission calculation according to the data input.
+ * @param {RoadTransportDetails} data - The data input.
+ * @returns {Promise<RoadIntensityFactor>} - The found Road intensity factor.
  */
 async function getSpecificIntensityFactor(
   data: RoadTransportDetails,
@@ -73,7 +73,7 @@ async function getSpecificIntensityFactor(
     );
   } else if (!(queryData.length < 1)) {
     throw new Error(
-      "The provided data does not corespond to any emission factor!"
+      "The provided data does not correspond to any emission factor!"
     );
   }
 

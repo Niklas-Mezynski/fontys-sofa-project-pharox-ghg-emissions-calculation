@@ -5,7 +5,7 @@ import {
 import * as fs from "fs";
 import * as path from "path";
 import * as YAML from "yaml";
-import { freightEmissionCalculationInputSchema } from "../models/emission_calculations/emission_calculation_model";
+import { calculationReportSchema, freightEmissionCalculationInputSchema } from "../models/emission_calculations/emission_calculation_model";
 import { openApiDocumentConfig } from "./open_api_document_config";
 import { emissionCalculationOpenApiPaths } from "./paths/emission_calculations";
 import { emissionFactorsOpenApiPaths } from "./paths/emission_factors";
@@ -17,18 +17,21 @@ import {
 import { unitsOpenApiPaths } from "./paths/units";
 import { z } from "zod";
 import { allUnits, unitTypes } from "../models/units/units";
+import { characteristicsSchema, fuelConsumptionSchema, roadIntensityFactorSchema, vehicleSchema } from "../models/emission_factors/road_intensity_factors";
 
 export function getOpenApiYaml() {
   const registry = new OpenAPIRegistry();
 
   // -- Register definitions here --
-  registry.register(
-    "EmissionCalculationInput",
-    freightEmissionCalculationInputSchema
-  );
+  registry.register("EmissionCalculationInput", freightEmissionCalculationInputSchema);
   registry.register("FuelEmissionFactor", fuelEmissionFactorSchema);
+  registry.register("RoadIntensityEmissionFactor", roadIntensityFactorSchema);
+  registry.register("EmissionCalculationReport", calculationReportSchema);
   registry.register("Fuel", fuelSchema);
   registry.register("FuelFactor", fuelFactorSchema);
+  registry.register("FuelConsumption", fuelConsumptionSchema)
+  registry.register("Vehicle", vehicleSchema);
+  registry.register("Characteristics", characteristicsSchema);
   registry.register("UnitTypes", z.enum(unitTypes));
   registry.register("Units", z.enum(allUnits));
 
