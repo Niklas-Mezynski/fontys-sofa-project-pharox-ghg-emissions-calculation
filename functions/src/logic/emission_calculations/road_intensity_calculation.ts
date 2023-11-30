@@ -20,10 +20,12 @@ export async function handleCalculationForRoadTransport(
 
   const factor = await RoadIntensityFactorService.getSpecificIntensityFactor(transportDetails, transportPart.region) 
 
+  console.log(factor)
+
   const validatedRoadFactor = validateInput(
     factor,
     roadIntensityFactorSchema,
-    "Received unexpected Fuel Emission Factor format from the database."
+    "Received unexpected Road Intensity Emission Factor format from the database."
   );
 
   // Get the factor with the same unit type as the provided unit type
