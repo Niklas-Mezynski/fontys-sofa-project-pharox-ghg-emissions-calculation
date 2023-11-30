@@ -7,7 +7,7 @@ import { CustomError } from "../../utils/errors";
 
 /** CREATE METHODS */
 
-
+// No create methods because emission calculation reports will be created after calculation (Not menat to be done by users)
 
 /** READ METHODS */
 

@@ -13,6 +13,7 @@ import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { handleCalculationWithGivenFuelConsumption } from "./fuel_based_calculation";
 import { handleCalculationForRoadTransport } from "./road_intensity_calculation";
+import { CRUDEntityService } from "../common/CRUD_entity_service";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -57,19 +58,36 @@ async function performEmissionCalculation(
     })
   );
 
+  // TODO: Save the calculation report
+  // return await saveCalculationReport(calculationReport);
+
   return calculationReport;
 }
 
-// eslint-disable-next-line require-jsdoc
+/**
+ * Calculates the emission for a batch of transport activities.
+ * @param {FreightEmissionCalculationInput[]} inputData
+ * @returns {Promise<CalculationReport[]>} - The result of the batch emission calculation.
+ */
 async function performBatchEmissionCalculation(
   inputData: FreightEmissionCalculationInput[]
 ): Promise<CalculationReport[]> {
   const arrayOfReports = [];
 
-  // eslint-disable-next-line @typescript-eslint/prefer-for-of
-  for (let i = 0; i < inputData.length; i++) {
-    arrayOfReports.push(await performEmissionCalculation(inputData[i]));
+  for(const [index, item] of inputData.entries()) {
+    try {
+      arrayOfReports.push(await performEmissionCalculation(item));
+    } catch (error) {
+      throw new CustomError({
+        status: HttpStatusCode.BadRequest,
+        message: `Error while calculating emission for batch calculation at index ${index}`,
+        details: error,
+      });
+    }
   }
+
+  // TODO: Save the calculation reports
+  // return await saveCalculationReports(arrayOfReports);
 
   return arrayOfReports;
 }
@@ -100,6 +118,33 @@ async function calculateTransportActivity(
       transportPart.transportDetails
     );
   }
+}
+
+/**
+ * Saves the calculation report to the database.
+ * @param {CalculationReport} report - The calculation report to save.
+ * @returns {Promise<CalculationReport>} - The saved calculation report.
+ */
+async function saveCalculationReport(report: CalculationReport): Promise<CalculationReport> {
+  const savedCalculationReport = await CRUDEntityService.createEntity(report, "REPORT");
+
+  if(!savedCalculationReport) {
+    throw new CustomError({
+      status: HttpStatusCode.InternalServerError,
+      message: "Error while saving the calculation report",
+    });
+  }
+
+  return savedCalculationReport;
+}
+
+/**
+ * Save multiple calculation reports to the database.
+ * @param {CalculationReport[]} reports - The calculation reports to save.
+ * @returns {Promise<CalculationReport>} - The saved calculation report.
+ */
+async function saveCalculationReports(reports: CalculationReport[]): Promise<CalculationReport[]> {
+  return await CRUDEntityService.createEntities(reports, "REPORT");
 }
 
 export const EmissionCalculatorService = {
