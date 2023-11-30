@@ -12,6 +12,7 @@ import {
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { handleCalculationWithGivenFuelConsumption } from "./fuel_based_calculation";
+import { handleCalculationForRoadTransport } from "./road_intensity_calculation";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -84,17 +85,17 @@ async function calculateTransportActivity(
   if ("modeOfTransport" in transportPart.transportDetails) {
     switch (transportPart.transportDetails.modeOfTransport) {
       case "ROAD":
-        throw new CustomError({
-          status: HttpStatusCode.BadRequest,
-          message: "Road transport is not yet supported",
-        });
+        return handleCalculationForRoadTransport(
+          transportPart,
+          transportPart.transportDetails
+        );
       default:
         throw exhaustiveMatchingGuard(
           transportPart.transportDetails.modeOfTransport
         );
     }
   } else {
-    return await handleCalculationWithGivenFuelConsumption(
+    return handleCalculationWithGivenFuelConsumption(
       transportPart,
       transportPart.transportDetails
     );

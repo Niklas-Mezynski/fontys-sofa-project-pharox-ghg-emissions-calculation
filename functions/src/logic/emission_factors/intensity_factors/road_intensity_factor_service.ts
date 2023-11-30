@@ -21,6 +21,7 @@ async function getSpecificIntensityFactor(
   region: string
 ): Promise<RoadIntensityFactor> {
   const filter = Filter.and(
+    Filter.where("refrigerated", "==", data.refrigerated),
     Filter.where("fuel.code", "==", data.fuelCode ?? null),
     Filter.or(
       Filter.where("region", "==", region),

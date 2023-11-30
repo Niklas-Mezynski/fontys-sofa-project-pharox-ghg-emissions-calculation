@@ -136,6 +136,9 @@ components:
                         type: string
                         enum:
                           - ROAD
+                      refrigerated:
+                        type: boolean
+                        default: false
                       vehicle:
                         type: object
                         properties:
@@ -401,6 +404,9 @@ paths:
                                 type: string
                                 enum:
                                   - ROAD
+                              refrigerated:
+                                type: boolean
+                                default: false
                               vehicle:
                                 type: object
                                 properties:

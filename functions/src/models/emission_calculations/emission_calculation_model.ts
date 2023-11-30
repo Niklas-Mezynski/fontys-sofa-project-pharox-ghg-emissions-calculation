@@ -27,6 +27,7 @@ export type ConsumedFuelTransportDetails = z.infer<
 
 const roadTransportDetails = z.object({
   modeOfTransport: z.literal("ROAD"),
+  refrigerated: z.boolean().default(false),
   vehicle: z.object({
     code: z.string().nullable().optional(),
     weight: commonModels.valueWithUnitModel(weightUnits),
@@ -143,11 +144,29 @@ export type TotalEmissionReport = EmissionReportBase & {
 };
 
 export type TransportActivityReport = {
+  /**
+   * The mode of transport used for the transport activity
+   */
   mode: string;
+  /**
+   * The user's input data used for the calculation
+   */
   input: unknown;
+  /**
+   * The scope of the transport activity (if provided)
+   */
   scope?: string;
+  /**
+   * Any assumptions made during the calculation
+   */
   assumptions?: string;
+  /**
+   * The emission factor from the DB used for the calculation
+   */
   emissionFactor: unknown;
+  /**
+   * The breakdown of all the emissions produced by the transport activity
+   */
   emissions: EmissionReportBase;
 };
 
