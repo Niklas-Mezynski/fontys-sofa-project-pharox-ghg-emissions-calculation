@@ -60,15 +60,26 @@ async function performEmissionCalculation(
   return calculationReport;
 }
 
-// eslint-disable-next-line require-jsdoc
+/**
+ * Calculates the emission for a batch of transport activities.
+ * @param {FreightEmissionCalculationInput[]} inputData
+ * @returns {Promise<CalculationReport[]>} - The result of the batch emission calculation.
+ */
 async function performBatchEmissionCalculation(
   inputData: FreightEmissionCalculationInput[]
 ): Promise<CalculationReport[]> {
   const arrayOfReports = [];
 
-  // eslint-disable-next-line @typescript-eslint/prefer-for-of
-  for (let i = 0; i < inputData.length; i++) {
-    arrayOfReports.push(await performEmissionCalculation(inputData[i]));
+  for(const [index, item] of inputData.entries()) {
+    try {
+      arrayOfReports.push(await performEmissionCalculation(item));
+    } catch (error) {
+      throw new CustomError({
+        status: HttpStatusCode.BadRequest,
+        message: `Error while calculating emission for transport part ${index}`,
+        details: error,
+      });
+    }
   }
 
   return arrayOfReports;
