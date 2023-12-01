@@ -103,9 +103,9 @@ function filterFactorsByVehicle(dataInput: RoadTransportDetails, factors: RoadIn
         (d.vehicle?.code === vehicle.code || vehicle.code && d.vehicle?.code.includes(vehicle.code))
         && d.vehicle?.weight?.unit === vehicle.weight.unit
         && (
-          (d.vehicle.weight.upper && vehicle.weight.value < d.vehicle.weight.upper) // Lower than upper limit
+          (!d.vehicle.weight.lower && d.vehicle.weight.upper && vehicle.weight.value < d.vehicle.weight.upper) // Lower than upper limit
           || ((d.vehicle.weight.lower && vehicle.weight.value >= d.vehicle.weight.lower && d.vehicle.weight.upper && vehicle.weight.value < d.vehicle.weight.upper) // Greater or equal to lower limit and lower than upper limit
-          || (d.vehicle.weight.lower && vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
+          || (d.vehicle.weight.lower && !d.vehicle.weight.upper && vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
         )
       );
 
