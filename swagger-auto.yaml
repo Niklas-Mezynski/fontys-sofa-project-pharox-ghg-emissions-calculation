@@ -185,7 +185,6 @@ components:
                         nullable: true
                     required:
                       - modeOfTransport
-                      - refrigerated
                       - vehicle
                       - characteristics
             required:
@@ -333,10 +332,8 @@ components:
           enum: *a2
           default: EU
       required:
-        - source
         - fuel
         - factors
-        - region
     RoadIntensityEmissionFactor:
       type: object
       properties:
@@ -465,9 +462,6 @@ components:
         - fuel
         - fuelConsumption
         - factor
-        - region
-        - source
-        - refrigerated
     EmissionCalculationReport:
       type: object
       properties:
@@ -482,229 +476,220 @@ components:
         date:
           type: string
         emissions:
-          allOf:
-            - type: object
+          type: object
+          properties:
+            co2e:
+              type: object
               properties:
-                co2e:
-                  type: object
-                  properties:
-                    value:
-                      type: number
-                    unit:
-                      type: string
-                  required:
-                    - value
-                    - unit
-                intensity:
-                  type: object
-                  properties:
-                    value:
-                      type: number
-                    unit:
-                      type: string
-                  required:
-                    - value
-                    - unit
-                activity:
-                  type: object
-                  properties:
-                    value:
-                      type: number
-                    unit:
-                      type: string
-                  required:
-                    - value
-                    - unit
-                distance:
-                  type: object
-                  properties:
-                    value:
-                      type: number
-                    unit:
-                      type: string
-                  required:
-                    - value
-                    - unit
-                breakdown:
-                  type: object
-                  properties:
-                    wtt:
-                      type: object
-                      properties:
-                        co2e:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                        intensity:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                      required:
-                        - co2e
-                        - intensity
-                    ttw:
-                      type: object
-                      properties:
-                        co2e:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                        intensity:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                      required:
-                        - co2e
-                        - intensity
-                  required:
-                    - wtt
-                    - ttw
+                value:
+                  type: number
+                unit:
+                  type: string
               required:
-                - co2e
-                - intensity
-                - activity
-                - distance
-                - breakdown
-            - type: object
+                - value
+                - unit
+            intensity:
+              type: object
               properties:
-                breakdown:
+                value:
+                  type: number
+                unit:
+                  type: string
+              required:
+                - value
+                - unit
+            activity:
+              type: object
+              properties:
+                value:
+                  type: number
+                unit:
+                  type: string
+              required:
+                - value
+                - unit
+            distance:
+              type: object
+              properties:
+                value:
+                  type: number
+                unit:
+                  type: string
+              required:
+                - value
+                - unit
+            breakdown:
+              type: object
+              properties:
+                scope1:
                   type: object
                   properties:
-                    scope1:
+                    co2e:
                       type: object
                       properties:
-                        co2e:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                        intensity:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
+                        value:
+                          type: number
+                        unit:
+                          type: string
                       required:
-                        - co2e
-                        - intensity
-                    scope2:
+                        - value
+                        - unit
+                    intensity:
                       type: object
                       properties:
-                        co2e:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                        intensity:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
+                        value:
+                          type: number
+                        unit:
+                          type: string
                       required:
-                        - co2e
-                        - intensity
-                    scope3:
-                      type: object
-                      properties:
-                        co2e:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                        intensity:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                      required:
-                        - co2e
-                        - intensity
-                    unknownScope:
-                      type: object
-                      properties:
-                        co2e:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                        intensity:
-                          type: object
-                          properties:
-                            value:
-                              type: number
-                            unit:
-                              type: string
-                          required:
-                            - value
-                            - unit
-                      required:
-                        - co2e
-                        - intensity
+                        - value
+                        - unit
                   required:
-                    - scope1
-                    - scope2
-                    - scope3
-                    - unknownScope
+                    - co2e
+                    - intensity
+                scope2:
+                  type: object
+                  properties:
+                    co2e:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                    intensity:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                  required:
+                    - co2e
+                    - intensity
+                scope3:
+                  type: object
+                  properties:
+                    co2e:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                    intensity:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                  required:
+                    - co2e
+                    - intensity
+                unknownScope:
+                  type: object
+                  properties:
+                    co2e:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                    intensity:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                  required:
+                    - co2e
+                    - intensity
+                wtt:
+                  type: object
+                  properties:
+                    co2e:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                    intensity:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                  required:
+                    - co2e
+                    - intensity
+                ttw:
+                  type: object
+                  properties:
+                    co2e:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                    intensity:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                      required:
+                        - value
+                        - unit
+                  required:
+                    - co2e
+                    - intensity
               required:
-                - breakdown
+                - scope1
+                - scope2
+                - scope3
+                - unknownScope
+                - wtt
+                - ttw
+          required:
+            - co2e
+            - intensity
+            - activity
+            - distance
+            - breakdown
         transportActivities:
           type: array
           items:
@@ -1088,7 +1073,6 @@ paths:
                                 nullable: true
                             required:
                               - modeOfTransport
-                              - refrigerated
                               - vehicle
                               - characteristics
                     required:
@@ -1691,7 +1675,6 @@ paths:
                                   nullable: true
                               required:
                                 - modeOfTransport
-                                - refrigerated
                                 - vehicle
                                 - characteristics
                       required:
@@ -1741,229 +1724,220 @@ paths:
                   date:
                     type: string
                   emissions:
-                    allOf:
-                      - type: object
+                    type: object
+                    properties:
+                      co2e:
+                        type: object
                         properties:
-                          co2e:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          intensity:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          activity:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          distance:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          breakdown:
-                            type: object
-                            properties:
-                              wtt:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
-                              ttw:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
-                            required:
-                              - wtt
-                              - ttw
+                          value:
+                            type: number
+                          unit:
+                            type: string
                         required:
-                          - co2e
-                          - intensity
-                          - activity
-                          - distance
-                          - breakdown
-                      - type: object
+                          - value
+                          - unit
+                      intensity:
+                        type: object
                         properties:
-                          breakdown:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                        required:
+                          - value
+                          - unit
+                      activity:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                        required:
+                          - value
+                          - unit
+                      distance:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                        required:
+                          - value
+                          - unit
+                      breakdown:
+                        type: object
+                        properties:
+                          scope1:
                             type: object
                             properties:
-                              scope1:
+                              co2e:
                                 type: object
                                 properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
                                 required:
-                                  - co2e
-                                  - intensity
-                              scope2:
+                                  - value
+                                  - unit
+                              intensity:
                                 type: object
                                 properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
                                 required:
-                                  - co2e
-                                  - intensity
-                              scope3:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
-                              unknownScope:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
+                                  - value
+                                  - unit
                             required:
-                              - scope1
-                              - scope2
-                              - scope3
-                              - unknownScope
+                              - co2e
+                              - intensity
+                          scope2:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          scope3:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          unknownScope:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          wtt:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          ttw:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
                         required:
-                          - breakdown
+                          - scope1
+                          - scope2
+                          - scope3
+                          - unknownScope
+                          - wtt
+                          - ttw
+                    required:
+                      - co2e
+                      - intensity
+                      - activity
+                      - distance
+                      - breakdown
                   transportActivities:
                     type: array
                     items:
@@ -2122,229 +2096,220 @@ paths:
                     date:
                       type: string
                     emissions:
-                      allOf:
-                        - type: object
+                      type: object
+                      properties:
+                        co2e:
+                          type: object
                           properties:
-                            co2e:
-                              type: object
-                              properties:
-                                value:
-                                  type: number
-                                unit:
-                                  type: string
-                              required:
-                                - value
-                                - unit
-                            intensity:
-                              type: object
-                              properties:
-                                value:
-                                  type: number
-                                unit:
-                                  type: string
-                              required:
-                                - value
-                                - unit
-                            activity:
-                              type: object
-                              properties:
-                                value:
-                                  type: number
-                                unit:
-                                  type: string
-                              required:
-                                - value
-                                - unit
-                            distance:
-                              type: object
-                              properties:
-                                value:
-                                  type: number
-                                unit:
-                                  type: string
-                              required:
-                                - value
-                                - unit
-                            breakdown:
-                              type: object
-                              properties:
-                                wtt:
-                                  type: object
-                                  properties:
-                                    co2e:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                    intensity:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                  required:
-                                    - co2e
-                                    - intensity
-                                ttw:
-                                  type: object
-                                  properties:
-                                    co2e:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                    intensity:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                  required:
-                                    - co2e
-                                    - intensity
-                              required:
-                                - wtt
-                                - ttw
+                            value:
+                              type: number
+                            unit:
+                              type: string
                           required:
-                            - co2e
-                            - intensity
-                            - activity
-                            - distance
-                            - breakdown
-                        - type: object
+                            - value
+                            - unit
+                        intensity:
+                          type: object
                           properties:
-                            breakdown:
+                            value:
+                              type: number
+                            unit:
+                              type: string
+                          required:
+                            - value
+                            - unit
+                        activity:
+                          type: object
+                          properties:
+                            value:
+                              type: number
+                            unit:
+                              type: string
+                          required:
+                            - value
+                            - unit
+                        distance:
+                          type: object
+                          properties:
+                            value:
+                              type: number
+                            unit:
+                              type: string
+                          required:
+                            - value
+                            - unit
+                        breakdown:
+                          type: object
+                          properties:
+                            scope1:
                               type: object
                               properties:
-                                scope1:
+                                co2e:
                                   type: object
                                   properties:
-                                    co2e:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                    intensity:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
                                   required:
-                                    - co2e
-                                    - intensity
-                                scope2:
+                                    - value
+                                    - unit
+                                intensity:
                                   type: object
                                   properties:
-                                    co2e:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                    intensity:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
                                   required:
-                                    - co2e
-                                    - intensity
-                                scope3:
-                                  type: object
-                                  properties:
-                                    co2e:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                    intensity:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                  required:
-                                    - co2e
-                                    - intensity
-                                unknownScope:
-                                  type: object
-                                  properties:
-                                    co2e:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                    intensity:
-                                      type: object
-                                      properties:
-                                        value:
-                                          type: number
-                                        unit:
-                                          type: string
-                                      required:
-                                        - value
-                                        - unit
-                                  required:
-                                    - co2e
-                                    - intensity
+                                    - value
+                                    - unit
                               required:
-                                - scope1
-                                - scope2
-                                - scope3
-                                - unknownScope
+                                - co2e
+                                - intensity
+                            scope2:
+                              type: object
+                              properties:
+                                co2e:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                                intensity:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                              required:
+                                - co2e
+                                - intensity
+                            scope3:
+                              type: object
+                              properties:
+                                co2e:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                                intensity:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                              required:
+                                - co2e
+                                - intensity
+                            unknownScope:
+                              type: object
+                              properties:
+                                co2e:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                                intensity:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                              required:
+                                - co2e
+                                - intensity
+                            wtt:
+                              type: object
+                              properties:
+                                co2e:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                                intensity:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                              required:
+                                - co2e
+                                - intensity
+                            ttw:
+                              type: object
+                              properties:
+                                co2e:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                                intensity:
+                                  type: object
+                                  properties:
+                                    value:
+                                      type: number
+                                    unit:
+                                      type: string
+                                  required:
+                                    - value
+                                    - unit
+                              required:
+                                - co2e
+                                - intensity
                           required:
-                            - breakdown
+                            - scope1
+                            - scope2
+                            - scope3
+                            - unknownScope
+                            - wtt
+                            - ttw
+                      required:
+                        - co2e
+                        - intensity
+                        - activity
+                        - distance
+                        - breakdown
                     transportActivities:
                       type: array
                       items:
@@ -2509,229 +2474,220 @@ paths:
                   date:
                     type: string
                   emissions:
-                    allOf:
-                      - type: object
+                    type: object
+                    properties:
+                      co2e:
+                        type: object
                         properties:
-                          co2e:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          intensity:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          activity:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          distance:
-                            type: object
-                            properties:
-                              value:
-                                type: number
-                              unit:
-                                type: string
-                            required:
-                              - value
-                              - unit
-                          breakdown:
-                            type: object
-                            properties:
-                              wtt:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
-                              ttw:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
-                            required:
-                              - wtt
-                              - ttw
+                          value:
+                            type: number
+                          unit:
+                            type: string
                         required:
-                          - co2e
-                          - intensity
-                          - activity
-                          - distance
-                          - breakdown
-                      - type: object
+                          - value
+                          - unit
+                      intensity:
+                        type: object
                         properties:
-                          breakdown:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                        required:
+                          - value
+                          - unit
+                      activity:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                        required:
+                          - value
+                          - unit
+                      distance:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                        required:
+                          - value
+                          - unit
+                      breakdown:
+                        type: object
+                        properties:
+                          scope1:
                             type: object
                             properties:
-                              scope1:
+                              co2e:
                                 type: object
                                 properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
                                 required:
-                                  - co2e
-                                  - intensity
-                              scope2:
+                                  - value
+                                  - unit
+                              intensity:
                                 type: object
                                 properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
                                 required:
-                                  - co2e
-                                  - intensity
-                              scope3:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
-                              unknownScope:
-                                type: object
-                                properties:
-                                  co2e:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                  intensity:
-                                    type: object
-                                    properties:
-                                      value:
-                                        type: number
-                                      unit:
-                                        type: string
-                                    required:
-                                      - value
-                                      - unit
-                                required:
-                                  - co2e
-                                  - intensity
+                                  - value
+                                  - unit
                             required:
-                              - scope1
-                              - scope2
-                              - scope3
-                              - unknownScope
+                              - co2e
+                              - intensity
+                          scope2:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          scope3:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          unknownScope:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          wtt:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
+                          ttw:
+                            type: object
+                            properties:
+                              co2e:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                              intensity:
+                                type: object
+                                properties:
+                                  value:
+                                    type: number
+                                  unit:
+                                    type: string
+                                required:
+                                  - value
+                                  - unit
+                            required:
+                              - co2e
+                              - intensity
                         required:
-                          - breakdown
+                          - scope1
+                          - scope2
+                          - scope3
+                          - unknownScope
+                          - wtt
+                          - ttw
+                    required:
+                      - co2e
+                      - intensity
+                      - activity
+                      - distance
+                      - breakdown
                   transportActivities:
                     type: array
                     items:
@@ -2938,10 +2894,8 @@ paths:
                   enum: *a2
                   default: EU
               required:
-                - source
                 - fuel
                 - factors
-                - region
       responses:
         "200":
           description: The added fuel emission factors
@@ -2994,10 +2948,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /createFuelEmissionFactors:
     post:
       summary: Create multiple fuel emission factors
@@ -3058,10 +3010,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
       responses:
         "200":
           description: List of added fuel emission factors
@@ -3116,10 +3066,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorByFuelCode:
     get:
       summary: Fetch fuel emission factors using fuel code
@@ -3189,10 +3137,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorById:
     get:
       summary: Fetch a fuel emission factor by ID
@@ -3258,10 +3204,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /getFuelEmissionFactorByRegion:
     get:
       summary: Fetch fuel emission factors by region
@@ -3273,7 +3217,7 @@ paths:
             type: string
             enum: *a2
             default: EU
-          required: true
+          required: false
           name: region
           in: path
       responses:
@@ -3330,10 +3274,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorBySource:
     get:
       summary: Fetch fuel emission factors by data source
@@ -3389,10 +3331,8 @@ paths:
                 enum: *a2
                 default: EU
             required:
-              - source
               - fuel
               - factors
-              - region
           required: true
           name: source
           in: path
@@ -3450,10 +3390,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactors:
     get:
       summary: Fetch all fuel emission factors
@@ -3514,10 +3452,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /updateFuelEmissionFactor:
     patch:
       summary: Update a fuel emission factor
@@ -3583,10 +3519,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /deleteFuelEmissionFactor:
     delete:
       summary: Delete a fuel emission factor
@@ -3737,9 +3671,6 @@ paths:
                 - fuel
                 - fuelConsumption
                 - factor
-                - region
-                - source
-                - refrigerated
       responses:
         "200":
           description: The added road intensity emission factor
@@ -3868,9 +3799,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /createRoadEmissionIntensityFactors:
     post:
       summary: Create multiple road intensity emission factors
@@ -4008,9 +3936,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
       responses:
         "200":
           description: List of added road intensity emission factors
@@ -4141,9 +4066,6 @@ paths:
                     - fuel
                     - fuelConsumption
                     - factor
-                    - region
-                    - source
-                    - refrigerated
   /getRoadEmissionIntensityFactorById:
     get:
       summary: Fetch a road intensity emission factor by ID
@@ -4286,9 +4208,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /getRoadEmissionIntensityFactors:
     get:
       summary: Fetch all road intensity emission factors
@@ -4425,9 +4344,6 @@ paths:
                     - fuel
                     - fuelConsumption
                     - factor
-                    - region
-                    - source
-                    - refrigerated
   /updateRoadEmissionIntensityFactor:
     patch:
       summary: Update a road intensity emission factor
@@ -4570,9 +4486,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /deleteRoadEmissionIntensityFactor:
     delete:
       summary: Delete a road intensity emission factor
