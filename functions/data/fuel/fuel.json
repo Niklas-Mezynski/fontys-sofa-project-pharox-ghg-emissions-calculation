@@ -1,0 +1,174 @@
+[
+  {
+    "name": "Diesel, 5% biodiesel blend",
+    "code": "DIESEL_B5"
+  },
+  {
+    "name": "Petrol",
+    "code": "PETROL"
+  },
+  {
+    "name": "CNG",
+    "code": "CNG"
+  },
+  {
+    "name": "LPG",
+    "code": "LPG"
+  },
+  {
+    "name": "LNG",
+    "code": "LNG"
+  },
+  {
+    "name": "Bio-LNG",
+    "code": "B_LNG"
+  },
+  {
+    "name": "LNG/Diesel",
+    "code": "LNG_DIESEL"
+  },
+  {
+    "name": "CNG/Diesel",
+    "code": "CNG_DIESEL"
+  },
+  {
+    "name": "BIO-LNG/Diesel",
+    "code": "B_LNG_DIESEL"
+  },
+  {
+    "name": "ELECTRICITY",
+    "code": "ELECTRICITY"
+  },
+  {
+    "code": "HEAVY_FUEL_OIL",
+    "name": "Heavy fuel oil"
+  },
+  {
+    "code": "AVIATION_FUEL",
+    "name": "Aviation fuel"
+  },
+  {
+    "code": "MARINE_DIESEL_OIL",
+    "name": "Marine diesel oil"
+  },
+  {
+    "code": "MARINE_GAS_OIL",
+    "name": "Marine gas oil"
+  },
+  {
+    "code": "GASOLINE",
+    "name": "Gasoline"
+  },
+  {
+    "code": "BIOETHANOL",
+    "name": "Bioethanol"
+  },
+  {
+    "code": "GASOLINE_E5",
+    "name": "Gasoline, 5% bioethanol blend"
+  },
+  {
+    "code": "DIESEL",
+    "name": "Diesel"
+  },
+  {
+    "code": "BIODIESEL_B100",
+    "name": "100% biodiesel (B100)"
+  },
+  {
+    "code": "LIQUEFIED_PETROLEUM_GAS",
+    "name": "Liquefied petroleum gas"
+  },
+  {
+    "code": "LNG_SI_HDR",
+    "name": "LNG SI, heavy duty road"
+  },
+  {
+    "code": "LNG_HPDI_HDR",
+    "name": "LNG HPDI, heavy duty road"
+  },
+  {
+    "code": "CNG_SI_HDR",
+    "name": "CNG SI, heavy duty road"
+  },
+  {
+    "code": "CNG_HPDI_HDR",
+    "name": "CNG HPDI, heavy duty road"
+  },
+  {
+    "code": "LNG_OTTO_MED_SPEED",
+    "name": "LNG Otto dual fuel (medium speed) ship"
+  },
+  {
+    "code": "LNG_OTTO_LOW_SPEED",
+    "name": "LNG Otto dual fuel (slow speed) ship"
+  },
+  {
+    "code": "LNG_COMPRESSION",
+    "name": "LNG compression ignition ship"
+  },
+  {
+    "code": "BIO_LNG_SI_HDR",
+    "name": "Bio-LNG SI, heavy duty road"
+  },
+  {
+    "code": "BIO_LNG_HPDI_HDR",
+    "name": "Bio-LNG HPDI, heavy duty road"
+  },
+  {
+    "code": "BIO_CNG_SI_ROAD",
+    "name": "Bio-CNG SI road"
+  },
+  {
+    "code": "BIO_CNG_HPDI_HDR",
+    "name": "Bio-CNG HPDI, heavy duty road"
+  },
+  {
+    "code": "BIO_LNG_OTTO_MED_SPEED",
+    "name": "Bio-LNG Otto dual fuel (medium speed) ship"
+  },
+  {
+    "code": "BIO_LNG_OTTO_LOW_SPEED",
+    "name": "Bio-LNG Otto dual fuel (slow speed) ship"
+  },
+  {
+    "code": "BIO_LNG_DIESEL",
+    "name": "Bio-LNG diesel ship"
+  },
+  {
+    "code": "CONVENTIONAL_GASOLINE",
+    "name": "Conventional gasoline"
+  },
+  {
+    "code": "CALIFORNIA_GASOLINE",
+    "name": "California gasoline"
+  },
+  {
+    "code": "GASOLINE_E10",
+    "name": "Gasoline 10% bioethanol blend"
+  },
+  {
+    "code": "BIOETHANOL_85",
+    "name": "Bioethanol 85%"
+  },
+  {
+    "code": "METHANOL_90",
+    "name": "Methanol 90%"
+  },
+  {
+    "code": "LNG_SI_ROAD",
+    "name": "LNG SI road"
+  },
+  {
+    "code": "LNG_HPDI_ROAD",
+    "name": "LNG HPDI road"
+  },
+  {
+    "code": "CNG_SI_ROAD",
+    "name": "CNG SI road"
+  },
+  {
+    "code": "CNG_HPDI_ROAD",
+    "name": "CNG HPDI road"
+  }
+]
