@@ -14,6 +14,7 @@ extendZodWithOpenApi(z);
  * Fuel model
  */
 export const fuelSchema = z.object({
+  id: z.string().uuid().optional(),
   code: z.string(),
   name: z.string().optional(),
 });

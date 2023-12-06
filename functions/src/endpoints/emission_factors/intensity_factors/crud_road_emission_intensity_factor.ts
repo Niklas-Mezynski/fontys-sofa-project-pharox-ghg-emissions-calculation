@@ -12,7 +12,7 @@ import { CRUDEntityService } from "../../../logic/common/CRUD_entity_service";
  */
 export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactor = await CRUDEntityService.createEntity(request.body, "ROAD");
+    const createdFactor = await CRUDEntityService.createEntity(request.body, "ROAD_FACTOR");
     response.status(200).send(createdFactor);
   }
 );
@@ -22,7 +22,7 @@ export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
  */
 export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactors = await CRUDEntityService.createEntities(request.body, "ROAD");
+    const createdFactors = await CRUDEntityService.createEntities(request.body, "ROAD_FACTOR");
     response.status(200).send(createdFactors);
   }
 );
@@ -34,7 +34,7 @@ export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
  */
 export const getRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await CRUDEntityService.getEntities("ROAD");
+    const factors = await CRUDEntityService.getEntities("ROAD_FACTOR");
     response.json(factors);
   }
 );
@@ -59,7 +59,7 @@ export const getRoadEmissionIntensityFactorById = onErrorHandledRequest(
 
     const factor = await CRUDEntityService.getEntityById(
       id,
-      "ROAD"
+      "ROAD_FACTOR"
     );
     response.json(factor);
   }
@@ -88,7 +88,7 @@ export const updateRoadEmissionIntensityFactor = onErrorHandledRequest(
     const updatedFactor = await CRUDEntityService.updateEntity(
       request.body,
       id,
-      "ROAD"
+      "ROAD_FACTOR"
     );
     response.status(200).send(updatedFactor);
   }
@@ -116,7 +116,7 @@ export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
 
     await CRUDEntityService.deleteEntity(
       id,
-      "ROAD"
+      "ROAD_FACTOR"
     );
     response.status(200).send("Road Emission Intensity Factor deleted.");
   }

@@ -12,17 +12,15 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Create a fuel emission factor",
     description: "Function that adds a fuel emission factors to the Database",
     tags: ["Fuel Emission factors"],
-    requestBody: {
-      description: "The fuel emission factor to add",
-      required: true,
-      content: {
-        "application/json": {
-          schema: {
-            $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml",
-          },
-        },
-      },
-    },
+    // requestBody: {
+    //   description: "The fuel emission factor to add",
+    //   required: true,
+    //   content: {
+    //     "application/json": {
+    //       schema: fuelEmissionFactorSchema,
+    //     },
+    //   },
+    // },
     request: {
       body: {
         content: {
@@ -235,17 +233,15 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     summary: "Create a road intensity emission factor",
     description: "Function that adds a road intensity emission factors to the Database",
     tags: ["Intensity emission factors"],
-    requestBody: {
-      description: "The road intensity emission factor to add",
-      required: true,
-      content: {
-        "application/json": {
-          schema: {
-            $ref: "../../schemas/emission_factors/fuel_emission_factor.yaml",
-          },
-        },
-      },
-    },
+    // requestBody: {
+    //   description: "The road intensity emission factor to add",
+    //   required: true,
+    //   content: {
+    //     "application/json": {
+    //       schema: roadIntensityFactorSchema,
+    //     },
+    //   },
+    // },
     request: {
       body: {
         content: {

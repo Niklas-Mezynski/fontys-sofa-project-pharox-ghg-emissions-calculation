@@ -18,7 +18,7 @@ export const createFuelEmissionFactor = onErrorHandledRequest(
   async (request, response) => {
     const emissionFactor = await CRUDEntityService.createEntity(
       request.body,
-      "FUEL"
+      "FUEL_FACTOR"
     );
     response.status(200).json(emissionFactor);
   }
@@ -32,7 +32,7 @@ export const createFuelEmissionFactors = onErrorHandledRequest(
     const emissionFactors =
       await CRUDEntityService.createEntities(
         request.body,
-        "FUEL"
+        "FUEL_FACTOR"
       );
 
     response.status(200).json(emissionFactors);
@@ -46,7 +46,7 @@ export const createFuelEmissionFactors = onErrorHandledRequest(
  */
 export const getFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
-    const factors = await CRUDEntityService.getEntities("FUEL");
+    const factors = await CRUDEntityService.getEntities("FUEL_FACTOR");
     response.json(factors);
   }
 );
@@ -71,7 +71,7 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
 
     const factor = await CRUDEntityService.getEntityById(
       id,
-      "FUEL"
+      "FUEL_FACTOR"
     );
     response.json(factor);
   }
@@ -172,7 +172,7 @@ export const updateFuelEmissionFactor = onErrorHandledRequest(
     const factor = await CRUDEntityService.updateEntity(
       request.body,
       id,
-      "FUEL"
+      "FUEL_FACTOR"
     );
     response.json(factor);
   }
@@ -200,7 +200,7 @@ export const deleteFuelEmissionFactor = onErrorHandledRequest(
 
     await CRUDEntityService.deleteEntity(
       id,
-      "FUEL"
+      "FUEL_FACTOR"
     );
     response.status(200).send("Fuel Emission Factor deleted.");
   }
