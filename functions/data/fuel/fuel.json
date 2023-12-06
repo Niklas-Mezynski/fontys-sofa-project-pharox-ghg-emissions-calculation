@@ -1,0 +1,174 @@
+[
+  {
+    "code": "AVIATION_FUEL",
+    "name": "Aviation fuel"
+  },
+  {
+    "name": "Bio-LNG",
+    "code": "B_LNG"
+  },
+  {
+    "name": "BIO-LNG/Diesel",
+    "code": "B_LNG_DIESEL"
+  },
+  {
+    "code": "BIO_CNG_HPDI_HDR",
+    "name": "Bio-CNG HPDI, heavy duty road"
+  },
+  {
+    "code": "BIO_CNG_SI_ROAD",
+    "name": "Bio-CNG SI road"
+  },
+  {
+    "code": "BIO_LNG_DIESEL",
+    "name": "Bio-LNG diesel ship"
+  },
+  {
+    "code": "BIO_LNG_HPDI_HDR",
+    "name": "Bio-LNG HPDI, heavy duty road"
+  },
+  {
+    "code": "BIO_LNG_OTTO_LOW_SPEED",
+    "name": "Bio-LNG Otto dual fuel (slow speed) ship"
+  },
+  {
+    "code": "BIO_LNG_OTTO_MED_SPEED",
+    "name": "Bio-LNG Otto dual fuel (medium speed) ship"
+  },
+  {
+    "code": "BIO_LNG_SI_HDR",
+    "name": "Bio-LNG SI, heavy duty road"
+  },
+  {
+    "code": "BIODIESEL_B100",
+    "name": "100% biodiesel (B100)"
+  },
+  {
+    "code": "BIOETHANOL",
+    "name": "Bioethanol"
+  },
+  {
+    "code": "BIOETHANOL_85",
+    "name": "Bioethanol 85%"
+  },
+  {
+    "code": "CALIFORNIA_GASOLINE",
+    "name": "California gasoline"
+  },
+  {
+    "name": "CNG",
+    "code": "CNG"
+  },
+  {
+    "name": "CNG/Diesel",
+    "code": "CNG_DIESEL"
+  },
+  {
+    "code": "CNG_HPDI_HDR",
+    "name": "CNG HPDI, heavy duty road"
+  },
+  {
+    "code": "CNG_HPDI_ROAD",
+    "name": "CNG HPDI road"
+  },
+  {
+    "code": "CNG_SI_HDR",
+    "name": "CNG SI, heavy duty road"
+  },
+  {
+    "code": "CNG_SI_ROAD",
+    "name": "CNG SI road"
+  },
+  {
+    "code": "CONVENTIONAL_GASOLINE",
+    "name": "Conventional gasoline"
+  },
+  {
+    "code": "DIESEL",
+    "name": "Diesel"
+  },
+  {
+    "name": "Diesel, 5% biodiesel blend",
+    "code": "DIESEL_B5"
+  },
+  {
+    "name": "ELECTRICITY",
+    "code": "ELECTRICITY"
+  },
+  {
+    "code": "GASOLINE",
+    "name": "Gasoline"
+  },
+  {
+    "code": "GASOLINE_E10",
+    "name": "Gasoline 10% bioethanol blend"
+  },
+  {
+    "code": "GASOLINE_E5",
+    "name": "Gasoline, 5% bioethanol blend"
+  },
+  {
+    "code": "HEAVY_FUEL_OIL",
+    "name": "Heavy fuel oil"
+  },
+  {
+    "code": "LIQUEFIED_PETROLEUM_GAS",
+    "name": "Liquefied petroleum gas"
+  },
+  {
+    "name": "LNG",
+    "code": "LNG"
+  },
+  {
+    "code": "LNG_COMPRESSION",
+    "name": "LNG compression ignition ship"
+  },
+  {
+    "name": "LNG/Diesel",
+    "code": "LNG_DIESEL"
+  },
+  {
+    "code": "LNG_HPDI_HDR",
+    "name": "LNG HPDI, heavy duty road"
+  },
+  {
+    "code": "LNG_HPDI_ROAD",
+    "name": "LNG HPDI road"
+  },
+  {
+    "code": "LNG_OTTO_LOW_SPEED",
+    "name": "LNG Otto dual fuel (slow speed) ship"
+  },
+  {
+    "code": "LNG_OTTO_MED_SPEED",
+    "name": "LNG Otto dual fuel (medium speed) ship"
+  },
+  {
+    "code": "LNG_SI_HDR",
+    "name": "LNG SI, heavy duty road"
+  },
+  {
+    "code": "LNG_SI_ROAD",
+    "name": "LNG SI road"
+  },
+  {
+    "name": "LPG",
+    "code": "LPG"
+  },
+  {
+    "code": "MARINE_DIESEL_OIL",
+    "name": "Marine diesel oil"
+  },
+  {
+    "code": "MARINE_GAS_OIL",
+    "name": "Marine gas oil"
+  },
+  {
+    "code": "METHANOL_90",
+    "name": "Methanol 90%"
+  },
+  {
+    "name": "Petrol",
+    "code": "PETROL"
+  }
+]

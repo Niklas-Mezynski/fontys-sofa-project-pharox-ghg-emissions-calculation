@@ -1,0 +1,122 @@
+[
+  {
+    "code": "ARTIC_TRUCK",
+    "name": "Artic truck up to 34 t GVW",
+    "weight": {
+      "lower": null,
+      "upper": 34,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "ARTIC_TRUCK_HPDI",
+    "name": "Artic truck up to 40 t GVW HDPI",
+    "weight": {
+      "lower": null,
+      "upper": 40,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "ARTIC_TRUCK_LIGHT_TRAILER",
+    "name": "Artic truck up to 40 t GVW inc light-weight trailer",
+    "weight": {
+      "lower": null,
+      "upper": 40,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "ARTIC_TRUCK_SI_ENGINE",
+    "name": "Artic truck up to 40 t GVW SI engine",
+    "weight": {
+      "lower": null,
+      "upper": 40,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "HGV_GT_20_T_GVW",
+    "name": "HGV -> 20 t GVW",
+    "weight": {
+      "lower": 20,
+      "upper": null,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "MGV_7.5_TO_20_T_GVW",
+    "name": "MGV 7.5 - 20 t GVW",
+    "weight": {
+      "lower": 7.5,
+      "upper": 20,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "RIGID_TRUCK",
+    "name": "Rigid truck 3.5-7.5 t GVW",
+    "weight": {
+      "lower": 3.5,
+      "upper": 7.5,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "RIGID_TRUCK_3.5_TO_7.5_T_GVW",
+    "name": "Rigid truck 3.5 - 7.5 t GVW",
+    "weight": {
+      "lower": 3.5,
+      "upper": 7.5,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "RIGID_TRUCK_7.5_TO_12_T_GVW",
+    "name": "Rigid truck 7.5 - 12 t GVW",
+    "weight": {
+      "lower": 7.5,
+      "upper": 12,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "URBAN_TRUCK_3.5_TO_7.5_T_GVW",
+    "name": "Urban truck 3.5 - 7.5 t GVW",
+    "weight": {
+      "lower": 3.5,
+      "upper": 7.5,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "VAN_LT_3.5_T",
+    "name": "Van (<3.5t)",
+    "weight": {
+      "lower": null,
+      "upper": 3.5,
+      "unit": "t"
+    },
+    "engineType": null
+  },
+  {
+    "code": "VAN_LT_3.5_T_GVW",
+    "name": "Van <- 3.5 t GVW",
+    "weight": {
+      "lower": null,
+      "upper": 3.5,
+      "unit": "t"
+    },
+    "engineType": null
+  }
+]

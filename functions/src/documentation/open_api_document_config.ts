@@ -41,6 +41,10 @@ export const openApiDocumentConfig = {
       description: "Functions related to intensity emission factors",
     },
     {
+      name: "Common",
+      description: "Functions related to entities used in the system",
+    },
+    {
       name: "Units",
       description: "Functions related to units being used in the system",
     },

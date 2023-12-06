@@ -1,7 +1,7 @@
 import { HttpStatusCode } from "axios";
 import { z } from "zod";
-import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
-import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
+import { fuelEmissionFactorSchema, fuelSchema } from "../../models/emission_factors/fuel_emission_factors";
+import { roadIntensityFactorSchema, vehicleSchema } from "../../models/emission_factors/road_intensity_factors";
 import { CustomError } from "../../utils/errors";
 import { FirestoreUtil } from "../../utils/firestore";
 import { validateInput } from "../../utils/functions";
@@ -10,12 +10,12 @@ import { UnknownObject } from "../../utils/types";
 
 // Data specific to each entity type to perform schema validation and Firestore operations
 const entitySpecificData = {
-  FUEL: {
+  FUEL_FACTOR: {
     entityName: "Fuel Emission Factor",
     collectionName: "fuel_emission_factors",
     validationSchema: fuelEmissionFactorSchema,
   },
-  ROAD: {
+  ROAD_FACTOR: {
     entityName: "Road Intensity Emission Factor",
     collectionName: "intensity_factors_road",
     validationSchema: roadIntensityFactorSchema,
@@ -24,6 +24,16 @@ const entitySpecificData = {
     entityName: "Emission Calculation Report",
     collectionName: "emission_calculation_reports",
     validationSchema: calculationReportSchema,
+  },
+  FUEL: {
+    entityName: "Fuel",
+    collectionName: "fuels",
+    validationSchema: fuelSchema,
+  },
+  VEHICLE: {
+    entityName: "Vehicle",
+    collectionName: "vehicles",
+    validationSchema: vehicleSchema,
   },
 } as const;
 
