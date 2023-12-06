@@ -70,26 +70,125 @@ export const freightEmissionCalculationInputSchema = z
   })
   .openapi({
     example: {
-      metadata: {
-        anything: "can go here",
-      },
       transportParts: [
         {
           distance: {
-            value: 100000,
-            unit: "m",
+            value: 286.3,
+            unit: "km",
           },
           weight: {
-            value: 1000,
-            unit: "kg",
+            value: 10,
+            unit: "tonnes",
+          },
+          region: "EU",
+          transportDetails: {
+            modeOfTransport: "ROAD",
+            refrigerated: false,
+            vehicle: {
+              code: "VAN_LT_3.5_T",
+              weight: {
+                value: 3,
+                unit: "t",
+              },
+              engineType: "",
+            },
+            characteristics: {
+              loadFactor: null,
+              emptyRunning: null,
+              loadCharacteristic: null,
+              combinedLoadFactorEmptyRunning: null,
+            },
+            fuelCode: null,
+          },
+        },
+        {
+          distance: {
+            value: 845364,
+            unit: "km",
+          },
+          weight: {
+            value: 4366,
+            unit: "tonnes",
           },
           region: "EU",
           transportDetails: {
             consumedFuel: {
-              value: 100,
-              unit: "kg",
+              value: 85364,
+              unit: "l",
             },
-            fuelCode: "HEAVY_FUEL_OIL",
+            fuelCode: "GASOLINE_E5",
+          },
+        },
+        {
+          distance: {
+            value: 2161954,
+            unit: "km",
+          },
+          weight: {
+            value: 44975,
+            unit: "tonnes",
+          },
+          region: "EU",
+          transportDetails: {
+            consumedFuel: {
+              value: 374285,
+              unit: "l",
+            },
+            fuelCode: "DIESEL_B5",
+          },
+        },
+        {
+          distance: {
+            value: 495827,
+            unit: "km",
+          },
+          weight: {
+            value: 21375,
+            unit: "tonnes",
+          },
+          region: "EU",
+          transportDetails: {
+            consumedFuel: {
+              value: 127257,
+              unit: "l",
+            },
+            fuelCode: "DIESEL_B5",
+          },
+        },
+        {
+          distance: {
+            value: 174364,
+            unit: "km",
+          },
+          weight: {
+            value: 6865,
+            unit: "tonnes",
+          },
+          region: "EU",
+          transportDetails: {
+            consumedFuel: {
+              value: 59886,
+              unit: "l",
+            },
+            fuelCode: "DIESEL_B5",
+          },
+        },
+        {
+          distance: {
+            value: 17478,
+            unit: "km",
+          },
+          weight: {
+            value: 4890,
+            unit: "tonnes",
+          },
+          region: "EU",
+          transportDetails: {
+            consumedFuel: {
+              value: 7486,
+              unit: "l",
+            },
+            fuelCode: "DIESEL_B5",
           },
         },
       ],
