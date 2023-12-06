@@ -24,6 +24,8 @@ tags:
     description: Functions related to fuel emission factors
   - name: Intensity emission factors
     description: Functions related to intensity emission factors
+  - name: Common
+    description: Functions related to entities used in the system
   - name: Units
     description: Functions related to units being used in the system
 security:
@@ -295,6 +297,9 @@ components:
         fuel:
           type: object
           properties:
+            id:
+              type: string
+              format: uuid
             code:
               type: string
             name:
@@ -344,6 +349,9 @@ components:
           type: object
           nullable: true
           properties:
+            id:
+              type: string
+              format: uuid
             code:
               type: string
             name:
@@ -824,6 +832,9 @@ components:
     Fuel:
       type: object
       properties:
+        id:
+          type: string
+          format: uuid
         code:
           type: string
         name:
@@ -866,6 +877,9 @@ components:
     Vehicle:
       type: object
       properties:
+        id:
+          type: string
+          format: uuid
         code:
           type: string
         name:
@@ -2860,6 +2874,9 @@ paths:
                 fuel:
                   type: object
                   properties:
+                    id:
+                      type: string
+                      format: uuid
                     code:
                       type: string
                     name:
@@ -2914,6 +2931,9 @@ paths:
                   fuel:
                     type: object
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -2976,6 +2996,9 @@ paths:
                   fuel:
                     type: object
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -3032,6 +3055,9 @@ paths:
                     fuel:
                       type: object
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -3103,6 +3129,9 @@ paths:
                     fuel:
                       type: object
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -3170,6 +3199,9 @@ paths:
                   fuel:
                     type: object
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -3240,6 +3272,9 @@ paths:
                     fuel:
                       type: object
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -3297,6 +3332,9 @@ paths:
               fuel:
                 type: object
                 properties:
+                  id:
+                    type: string
+                    format: uuid
                   code:
                     type: string
                   name:
@@ -3356,6 +3394,9 @@ paths:
                     fuel:
                       type: object
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -3418,6 +3459,9 @@ paths:
                     fuel:
                       type: object
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -3485,6 +3529,9 @@ paths:
                   fuel:
                     type: object
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -3558,6 +3605,9 @@ paths:
                   type: object
                   nullable: true
                   properties:
+                    id:
+                      type: string
+                      format: uuid
                     code:
                       type: string
                     name:
@@ -3686,6 +3736,9 @@ paths:
                     type: object
                     nullable: true
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -3823,6 +3876,9 @@ paths:
                     type: object
                     nullable: true
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -3953,6 +4009,9 @@ paths:
                       type: object
                       nullable: true
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -4095,6 +4154,9 @@ paths:
                     type: object
                     nullable: true
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -4231,6 +4293,9 @@ paths:
                       type: object
                       nullable: true
                       properties:
+                        id:
+                          type: string
+                          format: uuid
                         code:
                           type: string
                         name:
@@ -4373,6 +4438,9 @@ paths:
                     type: object
                     nullable: true
                     properties:
+                      id:
+                        type: string
+                        format: uuid
                       code:
                         type: string
                       name:
@@ -4503,6 +4571,537 @@ paths:
       responses:
         "200":
           description: Road intensity emission factor deleted
+  /createFuel:
+    post:
+      summary: Create a fuel
+      description: Function that adds a fuel to the Database
+      tags:
+        - Common
+      requestBody:
+        description: The fuel to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                code:
+                  type: string
+                name:
+                  type: string
+              required:
+                - code
+      responses:
+        "200":
+          description: The added fuel
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                required:
+                  - code
+  /createFuels:
+    post:
+      summary: Create multiple fuels
+      description: Function that adds multiple fuels to the Database
+      tags:
+        - Common
+      requestBody:
+        description: List of fuels to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                required:
+                  - code
+      responses:
+        "200":
+          description: List of added fuels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    code:
+                      type: string
+                    name:
+                      type: string
+                  required:
+                    - code
+  /getFuelById:
+    get:
+      summary: Fetch a fuel by ID
+      description: Function that fetch a fuel which matches the given ID
+      tags:
+        - Coomon
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The found fuel
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                required:
+                  - code
+  /getFuels:
+    get:
+      summary: Fetch all fuels
+      description: Function that fetches all fuels in the Database
+      tags:
+        - Common
+      responses:
+        "200":
+          description: List of found fuels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    code:
+                      type: string
+                    name:
+                      type: string
+                  required:
+                    - code
+  /updateFuel:
+    patch:
+      summary: Update a fuel
+      description: Function that updates a fuel which matches the given ID
+      tags:
+        - Common
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The updated fuel
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                required:
+                  - code
+  /deleteFuel:
+    delete:
+      summary: Delete a fuel
+      description: Function that deletes a fuel which matches the given ID
+      tags:
+        - Common
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: Fuel deleted
+  /createVehicle:
+    post:
+      summary: Create a vehicle
+      description: Function that adds a vehicle to the Database
+      tags:
+        - Common
+      requestBody:
+        description: The vehicle to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                code:
+                  type: string
+                name:
+                  type: string
+                weight:
+                  type: object
+                  nullable: true
+                  properties:
+                    lower:
+                      type: number
+                      nullable: true
+                    upper:
+                      type: number
+                      nullable: true
+                    unit:
+                      type: string
+                      enum: *a1
+                  required:
+                    - lower
+                    - upper
+                    - unit
+                engineType:
+                  type: string
+                  nullable: true
+              required:
+                - code
+                - name
+                - weight
+                - engineType
+      responses:
+        "200":
+          description: The added vehicle
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                  weight:
+                    type: object
+                    nullable: true
+                    properties:
+                      lower:
+                        type: number
+                        nullable: true
+                      upper:
+                        type: number
+                        nullable: true
+                      unit:
+                        type: string
+                        enum: *a1
+                    required:
+                      - lower
+                      - upper
+                      - unit
+                  engineType:
+                    type: string
+                    nullable: true
+                required:
+                  - code
+                  - name
+                  - weight
+                  - engineType
+  /createVehicles:
+    post:
+      summary: Create multiple vehicles
+      description: Function that adds multiple vehicles to the Database
+      tags:
+        - Common
+      requestBody:
+        description: List of vehicles to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                  weight:
+                    type: object
+                    nullable: true
+                    properties:
+                      lower:
+                        type: number
+                        nullable: true
+                      upper:
+                        type: number
+                        nullable: true
+                      unit:
+                        type: string
+                        enum: *a1
+                    required:
+                      - lower
+                      - upper
+                      - unit
+                  engineType:
+                    type: string
+                    nullable: true
+                required:
+                  - code
+                  - name
+                  - weight
+                  - engineType
+      responses:
+        "200":
+          description: List of added vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    code:
+                      type: string
+                    name:
+                      type: string
+                    weight:
+                      type: object
+                      nullable: true
+                      properties:
+                        lower:
+                          type: number
+                          nullable: true
+                        upper:
+                          type: number
+                          nullable: true
+                        unit:
+                          type: string
+                          enum: *a1
+                      required:
+                        - lower
+                        - upper
+                        - unit
+                    engineType:
+                      type: string
+                      nullable: true
+                  required:
+                    - code
+                    - name
+                    - weight
+                    - engineType
+  /getVehicleById:
+    get:
+      summary: Fetch a vehicle by ID
+      description: Function that fetch a vehicle which matches the given ID
+      tags:
+        - Coomon
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The found vehicle
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                  weight:
+                    type: object
+                    nullable: true
+                    properties:
+                      lower:
+                        type: number
+                        nullable: true
+                      upper:
+                        type: number
+                        nullable: true
+                      unit:
+                        type: string
+                        enum: *a1
+                    required:
+                      - lower
+                      - upper
+                      - unit
+                  engineType:
+                    type: string
+                    nullable: true
+                required:
+                  - code
+                  - name
+                  - weight
+                  - engineType
+  /getVehicles:
+    get:
+      summary: Fetch all vehicles
+      description: Function that fetches all vehicles in the Database
+      tags:
+        - Common
+      responses:
+        "200":
+          description: List of found vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    code:
+                      type: string
+                    name:
+                      type: string
+                    weight:
+                      type: object
+                      nullable: true
+                      properties:
+                        lower:
+                          type: number
+                          nullable: true
+                        upper:
+                          type: number
+                          nullable: true
+                        unit:
+                          type: string
+                          enum: *a1
+                      required:
+                        - lower
+                        - upper
+                        - unit
+                    engineType:
+                      type: string
+                      nullable: true
+                  required:
+                    - code
+                    - name
+                    - weight
+                    - engineType
+  /updateVehicle:
+    patch:
+      summary: Update a vehicle
+      description: Function that updates a vehicle which matches the given ID
+      tags:
+        - Common
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The updated vehicle
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  code:
+                    type: string
+                  name:
+                    type: string
+                  weight:
+                    type: object
+                    nullable: true
+                    properties:
+                      lower:
+                        type: number
+                        nullable: true
+                      upper:
+                        type: number
+                        nullable: true
+                      unit:
+                        type: string
+                        enum: *a1
+                    required:
+                      - lower
+                      - upper
+                      - unit
+                  engineType:
+                    type: string
+                    nullable: true
+                required:
+                  - code
+                  - name
+                  - weight
+                  - engineType
+  /deleteVehicle:
+    delete:
+      summary: Delete a vehicle
+      description: Function that deletes a vehicle which matches the given ID
+      tags:
+        - Common
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: Vehicle deleted
   /unitClassification:
     post:
       summary: Classify the given unit

@@ -18,6 +18,7 @@ import { unitsOpenApiPaths } from "./paths/units";
 import { z } from "zod";
 import { allUnits, unitTypes } from "../models/units/units";
 import { characteristicsSchema, fuelConsumptionSchema, roadIntensityFactorSchema, vehicleSchema } from "../models/emission_factors/road_intensity_factors";
+import { commonOpenApiPaths } from "./paths/common";
 
 export function getOpenApiYaml() {
   const registry = new OpenAPIRegistry();
@@ -45,6 +46,7 @@ export function getOpenApiYaml() {
     registry.registerPath(path)
   );
   emissionFactorsOpenApiPaths.forEach((path) => registry.registerPath(path));
+  commonOpenApiPaths.forEach((path) => registry.registerPath(path));
   unitsOpenApiPaths.forEach((path) => registry.registerPath(path));
 
   const generator = new OpenApiGeneratorV3(registry.definitions);
