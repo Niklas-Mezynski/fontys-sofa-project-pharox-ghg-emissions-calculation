@@ -11,6 +11,7 @@ import {
 extendZodWithOpenApi(z);
 
 export const vehicleSchema = z.object({
+  id: z.string().uuid().optional(),
   code: z.string(),
   name: z.string(),
   weight: z
