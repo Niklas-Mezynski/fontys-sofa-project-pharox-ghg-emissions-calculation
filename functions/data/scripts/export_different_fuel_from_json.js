@@ -26,5 +26,5 @@ const fuelFilePath = "../fuel/fuel.json";
   }
 
   console.log("Fuels: ", parsedFuelData);
-  fs.writeFileSync(fuelFilePath, JSON.stringify(parsedFuelData));
+  fs.writeFileSync(fuelFilePath, JSON.stringify(parsedFuelData.sort((a, b) => a.code.localeCompare(b.code))));
 })();

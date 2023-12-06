@@ -27,5 +27,5 @@ const vehicleFilePath = "../vehicle/vehicle.json";
   }
 
   console.log("Vehicles: ", parsedVehicleData);
-  fs.writeFileSync(vehicleFilePath, JSON.stringify(parsedVehicleData));
+  fs.writeFileSync(vehicleFilePath, JSON.stringify(parsedVehicleData.sort((a, b) => a.code.localeCompare(b.code))));
 })();
