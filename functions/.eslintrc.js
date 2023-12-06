@@ -26,6 +26,7 @@ module.exports = {
     ".eslintrc.js",
     "jest.config.ts",
     "docs/**/*",
+    "data/**/*",
   ],
   plugins: ["@typescript-eslint", "import"],
   rules: {
