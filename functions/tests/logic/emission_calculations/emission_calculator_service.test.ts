@@ -18,23 +18,23 @@ describe("Emission calculations", () => {
     const calculationInput: FreightEmissionCalculationInput = {
       transportParts: [
         {
+          scope: "SCOPE3",
+          distance: {
+            value: 845364,
+            unit: "km",
+          },
+          weight: {
+            value: 4366,
+            unit: "tonnes",
+          },
+          region: "EU",
           transportDetails: {
             consumedFuel: {
               value: 85364,
               unit: "l",
             },
-            fuelCode: "GASOLINE",
+            fuelCode: "GASOLINE_E5",
           },
-          distance: {
-            value: 100000,
-            unit: "m",
-          },
-          weight: {
-            value: 1000,
-            unit: "kg",
-          },
-          region: "EU",
-          scope: "SCOPE3",
         },
       ],
     };
@@ -44,18 +44,24 @@ describe("Emission calculations", () => {
         id: uuid(),
         source: "GLEC",
         fuel: {
-          code: "FUEL",
-          name: "Fuel",
+          code: "GASOLINE_E5",
+          name: "Gasoline, 5% bioethanol blend",
         },
-        region: "EU",
         factors: [
           {
             unit: "KG_CO2E_PER_KG",
-            ttw: null,
+            wtt: 0.66,
+            ttw: 3.08,
+            wtw: 3.74,
+          },
+          {
+            unit: "KG_CO2E_PER_L",
             wtt: 0.5,
-            wtw: null,
+            ttw: 2.3,
+            wtw: 2.8,
           },
         ],
+        region: "EU",
       },
     ] as ObjectWithId<FuelEmissionFactor>[];
 
@@ -66,8 +72,11 @@ describe("Emission calculations", () => {
         calculationInput
       );
 
-    expect(calcResult.emissions.breakdown.scope3.co2e.value).toStrictEqual(
-      42_682
+    expect(calcResult.emissions.breakdown.scope3.co2e.value).toBeCloseTo(
+      23_9019.2,
+      2
     );
+
+    expect(calcResult.emissions.co2e.value).toBeCloseTo(23_9019.2, 2);
   });
 });

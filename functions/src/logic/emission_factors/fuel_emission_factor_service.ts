@@ -102,8 +102,6 @@ async function getFuelEmissionFactorByFuelCodeAndRegion(
     filter
   );
 
-  console.log(factors);
-
   const validatedFactors = validateInput(
     factors,
     z.array(fuelEmissionFactorSchema),
