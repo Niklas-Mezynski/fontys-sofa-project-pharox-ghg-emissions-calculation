@@ -4660,7 +4660,7 @@ paths:
       summary: Fetch a fuel by ID
       description: Function that fetch a fuel which matches the given ID
       tags:
-        - Coomon
+        - Common
       parameters:
         - schema:
             type: string
@@ -4937,7 +4937,7 @@ paths:
       summary: Fetch a vehicle by ID
       description: Function that fetch a vehicle which matches the given ID
       tags:
-        - Coomon
+        - Common
       parameters:
         - schema:
             type: string
