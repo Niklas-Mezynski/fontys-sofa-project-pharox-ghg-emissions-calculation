@@ -77,7 +77,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     summary: "Fetch a fuel by ID",
     description:
       "Function that fetch a fuel which matches the given ID",
-    tags: ["Coomon"],
+    tags: ["Common"],
     request: {
       params: z.object({
         id: z.string().uuid(),
@@ -226,7 +226,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     summary: "Fetch a vehicle by ID",
     description:
       "Function that fetch a vehicle which matches the given ID",
-    tags: ["Coomon"],
+    tags: ["Common"],
     request: {
       params: z.object({
         id: z.string().uuid(),
