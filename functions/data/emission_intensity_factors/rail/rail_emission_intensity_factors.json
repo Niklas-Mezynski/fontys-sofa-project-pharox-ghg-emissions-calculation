@@ -1,0 +1,30 @@
+[
+  {
+    "characteristics": {
+      "loadFactor": null,
+      "emptyRunning": null,
+      "loadCharacteristic": "string",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.22,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.26,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 142,
+      "ttw": 692,
+      "wtw": 835
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  }
+]
