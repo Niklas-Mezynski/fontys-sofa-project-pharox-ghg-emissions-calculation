@@ -1,0 +1,200 @@
+[
+    {
+      "characteristics": {
+        "loadFactor": null,
+        "emptyRunning": null,
+        "loadCharacteristic": "UNKNOWN",
+        "combinedLoadFactorEmptyRunning": null
+      },
+      "tractionType": "ELECTRIC",
+      "factor": {
+        "unit": "G_CO2E_PER_TKM",
+        "wtt": 0,
+        "ttw": 0,
+        "wtw": 10
+      },
+      "refrigerated": false,
+      "region": "EU",
+      "source": "GLEC"
+    },
+    {
+        "characteristics": {
+          "loadFactor": 60,
+          "emptyRunning": 33,
+          "loadCharacteristic": "AVERAGE_MIXED",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 10
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 50,
+          "emptyRunning": 17,
+          "loadCharacteristic": "CONTAINER",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 9.1
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 85,
+          "emptyRunning": 33,
+          "loadCharacteristic": "CARS",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 22
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 100,
+          "emptyRunning": 50,
+          "loadCharacteristic": "CHEMICALS",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 8.6
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 100,
+          "emptyRunning": 50,
+          "loadCharacteristic": "COAL_AND_STEEL",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 6.7
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 100,
+          "emptyRunning": 50,
+          "loadCharacteristic": "BUILDING_MATERIALS",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 8.3
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 75,
+          "emptyRunning": 38,
+          "loadCharacteristic": "MANUFACTURED_PRODUCTS",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 8.8
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 100,
+          "emptyRunning": 38,
+          "loadCharacteristic": "CEREALS",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 6.6
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 85,
+          "emptyRunning": 33,
+          "loadCharacteristic": "TRUCK_PLUS_TRAILER_ON_TRAIN",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 48
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      },
+      {
+        "characteristics": {
+          "loadFactor": 85,
+          "emptyRunning": 33,
+          "loadCharacteristic": "TRAILER_ONLY_ON_TRAIN",
+          "combinedLoadFactorEmptyRunning": null
+        },
+        "tractionType": "ELECTRIC",
+        "factor": {
+          "unit": "G_CO2E_PER_TKM",
+          "wtt": 0,
+          "ttw": 0,
+          "wtw": 33
+        },
+        "refrigerated": false,
+        "region": "EU",
+        "source": "GLEC"
+      }
+  ]
