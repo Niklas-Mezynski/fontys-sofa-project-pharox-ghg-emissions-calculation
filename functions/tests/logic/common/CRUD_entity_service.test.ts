@@ -18,65 +18,83 @@ describe("Emission factors - CRUD operations", () => {
   });
 
   test.each([
-    {type: "FUEL", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
+    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
+    // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
+    // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
   ])("Create an entity of type $entityName", async ({type, entityName, collectionName, validationSchema, testData}) => {
     jest.spyOn(FirestoreUtil, "createWithCustomId").mockResolvedValue(testData[0]);
+    const result = await CRUDEntityService.createEntity(testData[0], type as EntityType);
 
-    const response = await CRUDEntityService.createEntity(testData[0], type as EntityType)
-    expect(response).toStrictEqual(testData[0]);
-    // expect(response).toBeInstanceOf(type as EntityType);
+    expect(result).toStrictEqual(testData[0]);
+    // expect(result).toBeInstanceOf(type as EntityType);
   });
 
-  // test.each([
-  //   ["FUEL", "Fuel Emission Factor", "fuel_emission_factors", fuelEmissionFactorSchema, fuelEmissionFactors],
-  //   ["ROAD", "Road Intensity Emission Factor", "intensity_factors_road", roadIntensityFactorSchema, roadIntensityFactors],
-  //   ["REPORT", "Emission Calculation Report", "emission_calculation_reports", calculationReportSchema, calculationReports],
-  // ])("Create multiple entities of type %s", async (type, entityName, collectionName, validationSchema, testData) => {
-  //   jest.spyOn(FirestoreUtil, "createManyWithCustomId").mockResolvedValue(testData);
+  test.each([
+    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
+    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
+    // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
+    // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
+  ])("Create multiple entities of type $entityName", async ({type, entityName, collectionName, validationSchema, testData}) => {
+    jest.spyOn(FirestoreUtil, "createManyWithCustomId").mockResolvedValue(testData);
+    const result = await CRUDEntityService.createEntities(testData, type as EntityType);
 
-  //   expect(await CRUDEntityService.createEntities(testData, type as EntityType)).toStrictEqual(testData);
-  // });
+    expect(result).toStrictEqual(testData);
+    expect(result.length).toBe(testData.length);
+  });
 
-  // test.each([
-  //   ["FUEL", "Fuel Emission Factor", "fuel_emission_factors", fuelEmissionFactorSchema, fuelEmissionFactors],
-  //   ["ROAD", "Road Intensity Emission Factor", "intensity_factors_road", roadIntensityFactorSchema, roadIntensityFactors],
-  //   ["REPORT", "Emission Calculation Report", "emission_calculation_reports", calculationReportSchema, calculationReports],
-  // ])("Get an entity of type %s by id", async (type, entityName: string, collectionName: string, validationSchema, testData) => {
-  //   jest.spyOn(FirestoreUtil, "getById").mockResolvedValue(testData[0]);
+  test.each([
+    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
+    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
+    // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
+    // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
+  ])("Get an entity of type $entityName by id", async ({type, entityName, collectionName, validationSchema, testData}) => {
+    jest.spyOn(FirestoreUtil, "getById").mockResolvedValue(testData[0]);
+    const result = await CRUDEntityService.getEntityById(testData[0].id, type as EntityType);
 
-  //   expect(await CRUDEntityService.getEntityById(testData[0].id, type as EntityType)).toStrictEqual(testData[0]);
-  // });
+    expect(result).toStrictEqual(testData[0]);
+  });
 
-  // test.each([
-  //   ["FUEL", "Fuel Emission Factor", "fuel_emission_factors", fuelEmissionFactorSchema, fuelEmissionFactors],
-  //   ["ROAD", "Road Intensity Emission Factor", "intensity_factors_road", roadIntensityFactorSchema, roadIntensityFactors],
-  //   ["REPORT", "Emission Calculation Report", "emission_calculation_reports", calculationReportSchema, calculationReports],
-  // ])("Get all entities of type %s", async (type, entityName, collectionName, validationSchema, testData) => {
-  //   jest.spyOn(FirestoreUtil, "getAll").mockResolvedValue(testData);
+  test.each([
+    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
+    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
+    // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
+    // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
+  ])("Get all entities of type $entityName", async ({type, entityName, collectionName, validationSchema, testData}) => {
+    jest.spyOn(FirestoreUtil, "getAll").mockResolvedValue(testData);
+    const result = await CRUDEntityService.getEntities(type as EntityType);
 
-  //   expect(await CRUDEntityService.getEntities(type as EntityType)).toStrictEqual(testData);
-  // });
+    expect(result).toStrictEqual(testData);
+    expect(result.length).toBe(testData.length);
+  });
 
-  // test.each([
-  //   ["FUEL", "Fuel Emission Factor", "fuel_emission_factors", fuelEmissionFactorSchema, fuelEmissionFactors],
-  //   ["ROAD", "Road Intensity Emission Factor", "intensity_factors_road", roadIntensityFactorSchema, roadIntensityFactors],
-  //   ["REPORT", "Emission Calculation Report", "emission_calculation_reports", calculationReportSchema, calculationReports],
-  // ])("Update an entity of type %s", async (type, entityName, collectionName, validationSchema, testData) => {
-  //   jest.spyOn(FirestoreUtil, "updateById").mockResolvedValue(testData[0]);
+  test.each([
+    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
+    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
+    // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
+    // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
+  ])("Update an entity of type $entityName", async ({type, entityName, collectionName, validationSchema, testData}) => {
+    jest.spyOn(FirestoreUtil, "updateById").mockResolvedValue(testData[0]);
 
-  //   expect(await CRUDEntityService.updateEntity(testData[0], testData[0].id, type as EntityType)).toStrictEqual(testData[0]);
-  // });
+    expect(await CRUDEntityService.updateEntity(testData[0], testData[0].id, type as EntityType)).toStrictEqual(testData[0]);
+  });
 
-  // test.each([
-  //   ["FUEL", "Fuel Emission Factor", "fuel_emission_factors", fuelEmissionFactorSchema, fuelEmissionFactors],
-  //   ["ROAD", "Road Intensity Emission Factor", "intensity_factors_road", roadIntensityFactorSchema, roadIntensityFactors],
-  //   ["REPORT", "Emission Calculation Report", "emission_calculation_reports", calculationReportSchema, calculationReports],
-  // ])("Delete an entity of type %s", async (type, entityName, collectionName, validationSchema, testData) => {
-  //   jest.spyOn(FirestoreUtil, "deleteById").mockResolvedValue();
+  test.each([
+    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
+    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
+    // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
+    // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
+  ])("Delete an entity of type $entityName", async ({type, entityName, collectionName, validationSchema, testData}) => {
+    jest.spyOn(FirestoreUtil, "getById").mockResolvedValue(testData[0]);
+    jest.spyOn(FirestoreUtil, "deleteById").mockResolvedValue();
 
-  //   expect(await CRUDEntityService.deleteEntity(testData[0].id, type as EntityType)).toStrictEqual(testData[0]);
-  // });
+    // expect(await CRUDEntityService.deleteEntity(testData[0].id, type as EntityType)).toBeVoid();
+  });
 
 });
