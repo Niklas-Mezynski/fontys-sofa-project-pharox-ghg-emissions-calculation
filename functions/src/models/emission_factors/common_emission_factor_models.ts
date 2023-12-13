@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { commonModels } from "../common";
 
 export const emissionFactorRegions = [
   "EU",
@@ -30,3 +31,18 @@ export function baseFactorSchema<
     wtw: z.number().nullable(),
   });
 }
+
+export const glecIntensityFuelConsumptionUnits = [
+  "KWH_PER_TKM",
+  "KG_PER_TKM",
+  "L_PER_TKM",
+] as const;
+
+export const fuelConsumptionSchema = z.array(
+  commonModels.valueWithUnitModel(glecIntensityFuelConsumptionUnits)
+);
+
+export const glecIntensityFactorUnits = [
+  "G_CO2E_PER_TKM",
+  "KG_CO2E_PER_TKM",
+] as const;

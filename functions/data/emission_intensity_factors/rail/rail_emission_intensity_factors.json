@@ -1,30 +1,293 @@
 [
   {
     "characteristics": {
-      "loadFactor": null,
-      "emptyRunning": null,
-      "loadCharacteristic": "string",
+      "loadFactor": 0.6,
+      "emptyRunning": 0.33,
+      "loadCharacteristic": "Average/mixed",
       "combinedLoadFactorEmptyRunning": null
     },
     "tractionType": "UNKNOWN",
     "fuelConsumption": [
       {
-        "value": 0.22,
+        "value": 0.0073,
         "unit": "KG_PER_TKM"
       },
       {
-        "value": 0.26,
+        "value": 0.0087,
         "unit": "L_PER_TKM"
       }
     ],
     "factor": {
       "unit": "G_CO2E_PER_TKM",
-      "wtt": 142,
-      "ttw": 692,
-      "wtw": 835
+      "wtt": 5.6,
+      "ttw": 22,
+      "wtw": 28
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 0.5,
+      "emptyRunning": 0.17,
+      "loadCharacteristic": "Container",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.0067,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.008,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 5.1,
+      "ttw": 20,
+      "wtw": 25
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 0.85,
+      "emptyRunning": 0.33,
+      "loadCharacteristic": "Cars",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.016,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.019,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 12,
+      "ttw": 48,
+      "wtw": 60
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 1,
+      "emptyRunning": 0.5,
+      "loadCharacteristic": "Chemicals",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.0063,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.0075,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 4.8,
+      "ttw": 19,
+      "wtw": 24
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 1,
+      "emptyRunning": 0.5,
+      "loadCharacteristic": "Coal & Steel",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.0049,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.0058,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 3.7,
+      "ttw": 15,
+      "wtw": 19
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 1,
+      "emptyRunning": 0.5,
+      "loadCharacteristic": "Building Materials",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.0061,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.0073,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 4.6,
+      "ttw": 19,
+      "wtw": 23
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 0.75,
+      "emptyRunning": 0.38,
+      "loadCharacteristic": "Manufactured Products",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.0064,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.0077,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 4.9,
+      "ttw": 20,
+      "wtw": 24
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 1,
+      "emptyRunning": 0.38,
+      "loadCharacteristic": "Cereals",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.0048,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.0058,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 3.7,
+      "ttw": 15,
+      "wtw": 18
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 0.85,
+      "emptyRunning": 0.33,
+      "loadCharacteristic": "Truck + trailer on train",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.035,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.042,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 27,
+      "ttw": 110,
+      "wtw": 130
+    },
+    "refrigerated": false,
+    "region": "EU",
+    "source": "GLEC"
+  },
+
+  {
+    "characteristics": {
+      "loadFactor": 0.85,
+      "emptyRunning": 0.33,
+      "loadCharacteristic": "Trailer only on train",
+      "combinedLoadFactorEmptyRunning": null
+    },
+    "tractionType": "UNKNOWN",
+    "fuelConsumption": [
+      {
+        "value": 0.024,
+        "unit": "KG_PER_TKM"
+      },
+      {
+        "value": 0.029,
+        "unit": "L_PER_TKM"
+      }
+    ],
+    "factor": {
+      "unit": "G_CO2E_PER_TKM",
+      "wtt": 18,
+      "ttw": 70,
+      "wtw": 90
     },
     "refrigerated": false,
     "region": "EU",
     "source": "GLEC"
   }
+
+
 ]

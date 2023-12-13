@@ -55,7 +55,7 @@ components:
               scope:
                 type: string
                 nullable: true
-                enum: &a6
+                enum: &a7
                   - SCOPE1
                   - SCOPE2
                   - SCOPE3
@@ -66,7 +66,7 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: &a7
+                    enum: &a8
                       - km
                       - cm
                       - m
@@ -115,7 +115,7 @@ components:
                             type: number
                           unit:
                             type: string
-                            enum: &a8
+                            enum: &a9
                               - ml
                               - l
                               - tsp
@@ -198,7 +198,7 @@ components:
             has their own fuel type, fuel consumption and freight details.
       required:
         - transportParts
-      example: &a9
+      example: &a10
         transportParts:
           - distance:
               value: 286.3
@@ -313,7 +313,7 @@ components:
             properties:
               unit:
                 type: string
-                enum: &a4
+                enum: &a6
                   - KG_CO2E_PER_KWH
                   - KG_CO2E_PER_KG
                   - KG_CO2E_PER_L
@@ -423,7 +423,7 @@ components:
                 type: number
               unit:
                 type: string
-                enum: &a5
+                enum: &a4
                   - KWH_PER_TKM
                   - KG_PER_TKM
                   - L_PER_TKM
@@ -436,7 +436,7 @@ components:
           properties:
             unit:
               type: string
-              enum: &a10
+              enum: &a5
                 - G_CO2E_PER_TKM
                 - KG_CO2E_PER_TKM
             wtt:
@@ -468,6 +468,86 @@ components:
         - vehicle
         - characteristics
         - fuel
+        - fuelConsumption
+        - factor
+    RailIntensityEmissionFactor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        characteristics:
+          type: object
+          nullable: true
+          properties:
+            loadFactor:
+              type: number
+              nullable: true
+            emptyRunning:
+              type: number
+              nullable: true
+            loadCharacteristic:
+              type: string
+              nullable: true
+          required:
+            - loadFactor
+            - emptyRunning
+            - loadCharacteristic
+        tractionType:
+          type: string
+          nullable: true
+          enum: &a11
+            - DIESEL
+            - ELECTRIC
+        fuelConsumption:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              value:
+                type: number
+              unit:
+                type: string
+                enum: *a4
+            required:
+              - value
+              - unit
+        factor:
+          type: object
+          nullable: true
+          properties:
+            unit:
+              type: string
+              enum: *a5
+            wtt:
+              type: number
+              nullable: true
+            ttw:
+              type: number
+              nullable: true
+            wtw:
+              type: number
+              nullable: true
+          required:
+            - unit
+            - wtt
+            - ttw
+            - wtw
+        region:
+          type: string
+          enum: *a2
+          default: EU
+        source:
+          type: string
+          enum: *a3
+          default: GLEC
+        refrigerated:
+          type: boolean
+          default: false
+      required:
+        - characteristics
+        - tractionType
         - fuelConsumption
         - factor
     EmissionCalculationReport:
@@ -855,7 +935,7 @@ components:
       properties:
         unit:
           type: string
-          enum: *a4
+          enum: *a6
         wtt:
           type: number
           nullable: true
@@ -879,7 +959,7 @@ components:
             type: number
           unit:
             type: string
-            enum: *a5
+            enum: *a4
         required:
           - value
           - unit
@@ -940,7 +1020,7 @@ components:
         - combinedLoadFactorEmptyRunning
     UnitTypes:
       type: string
-      enum: &a11
+      enum: &a12
         - DISTANCE
         - WEIGHT
         - VOLUME
@@ -948,7 +1028,7 @@ components:
         - UNKNOWN
     Units:
       type: string
-      enum: &a12
+      enum: &a13
         - ml
         - l
         - tsp
@@ -998,7 +1078,7 @@ paths:
                       scope:
                         type: string
                         nullable: true
-                        enum: *a6
+                        enum: *a7
                       distance:
                         type: object
                         properties:
@@ -1006,7 +1086,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a7
+                            enum: *a8
                         required:
                           - value
                           - unit
@@ -1035,7 +1115,7 @@ paths:
                                     type: number
                                   unit:
                                     type: string
-                                    enum: *a8
+                                    enum: *a9
                                 required:
                                   - value
                                   - unit
@@ -1108,7 +1188,7 @@ paths:
                     details.
               required:
                 - transportParts
-              example: *a9
+              example: *a10
       responses:
         "200":
           description: The emission calculation overview/report
@@ -1600,7 +1680,7 @@ paths:
                         scope:
                           type: string
                           nullable: true
-                          enum: *a6
+                          enum: *a7
                         distance:
                           type: object
                           properties:
@@ -1608,7 +1688,7 @@ paths:
                               type: number
                             unit:
                               type: string
-                              enum: *a7
+                              enum: *a8
                           required:
                             - value
                             - unit
@@ -1637,7 +1717,7 @@ paths:
                                       type: number
                                     unit:
                                       type: string
-                                      enum: *a8
+                                      enum: *a9
                                   required:
                                     - value
                                     - unit
@@ -1710,7 +1790,7 @@ paths:
                       details.
                 required:
                   - transportParts
-                example: *a9
+                example: *a10
       responses:
         "200":
           description: The emission calculation overview/report
@@ -2926,7 +3006,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a4
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -2983,7 +3063,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -3048,7 +3128,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -3107,7 +3187,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a6
                           wtt:
                             type: number
                             nullable: true
@@ -3181,7 +3261,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a6
                           wtt:
                             type: number
                             nullable: true
@@ -3251,7 +3331,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -3324,7 +3404,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a6
                           wtt:
                             type: number
                             nullable: true
@@ -3384,7 +3464,7 @@ paths:
                   properties:
                     unit:
                       type: string
-                      enum: *a4
+                      enum: *a6
                     wtt:
                       type: number
                       nullable: true
@@ -3446,7 +3526,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a6
                           wtt:
                             type: number
                             nullable: true
@@ -3511,7 +3591,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a6
                           wtt:
                             type: number
                             nullable: true
@@ -3581,7 +3661,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -3715,7 +3795,7 @@ paths:
                         type: number
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a4
                     required:
                       - value
                       - unit
@@ -3725,7 +3805,7 @@ paths:
                   properties:
                     unit:
                       type: string
-                      enum: *a10
+                      enum: *a5
                     wtt:
                       type: number
                       nullable: true
@@ -3846,7 +3926,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a4
                       required:
                         - value
                         - unit
@@ -3856,7 +3936,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a10
+                        enum: *a5
                       wtt:
                         type: number
                         nullable: true
@@ -3986,7 +4066,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a4
                       required:
                         - value
                         - unit
@@ -3996,7 +4076,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a10
+                        enum: *a5
                       wtt:
                         type: number
                         nullable: true
@@ -4119,7 +4199,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a5
+                            enum: *a4
                         required:
                           - value
                           - unit
@@ -4129,7 +4209,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a10
+                          enum: *a5
                         wtt:
                           type: number
                           nullable: true
@@ -4264,7 +4344,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a4
                       required:
                         - value
                         - unit
@@ -4274,7 +4354,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a10
+                        enum: *a5
                       wtt:
                         type: number
                         nullable: true
@@ -4403,7 +4483,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a5
+                            enum: *a4
                         required:
                           - value
                           - unit
@@ -4413,7 +4493,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a10
+                          enum: *a5
                         wtt:
                           type: number
                           nullable: true
@@ -4548,7 +4628,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a4
                       required:
                         - value
                         - unit
@@ -4558,7 +4638,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a10
+                        enum: *a5
                       wtt:
                         type: number
                         nullable: true
@@ -4607,6 +4687,657 @@ paths:
       responses:
         "200":
           description: Road intensity emission factor deleted
+  /createRailEmissionIntensityFactor:
+    post:
+      summary: Create a rail intensity emission factor
+      description: Function that adds a rail intensity emission factors to the Database
+      tags:
+        - Intensity emission factors
+      requestBody:
+        description: The rail intensity emission factor to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                characteristics:
+                  type: object
+                  nullable: true
+                  properties:
+                    loadFactor:
+                      type: number
+                      nullable: true
+                    emptyRunning:
+                      type: number
+                      nullable: true
+                    loadCharacteristic:
+                      type: string
+                      nullable: true
+                  required:
+                    - loadFactor
+                    - emptyRunning
+                    - loadCharacteristic
+                tractionType:
+                  type: string
+                  nullable: true
+                  enum: *a11
+                fuelConsumption:
+                  type: array
+                  nullable: true
+                  items:
+                    type: object
+                    properties:
+                      value:
+                        type: number
+                      unit:
+                        type: string
+                        enum: *a4
+                    required:
+                      - value
+                      - unit
+                factor:
+                  type: object
+                  nullable: true
+                  properties:
+                    unit:
+                      type: string
+                      enum: *a5
+                    wtt:
+                      type: number
+                      nullable: true
+                    ttw:
+                      type: number
+                      nullable: true
+                    wtw:
+                      type: number
+                      nullable: true
+                  required:
+                    - unit
+                    - wtt
+                    - ttw
+                    - wtw
+                region:
+                  type: string
+                  enum: *a2
+                  default: EU
+                source:
+                  type: string
+                  enum: *a3
+                  default: GLEC
+                refrigerated:
+                  type: boolean
+                  default: false
+              required:
+                - characteristics
+                - tractionType
+                - fuelConsumption
+                - factor
+      responses:
+        "200":
+          description: The added rail intensity emission factor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  characteristics:
+                    type: object
+                    nullable: true
+                    properties:
+                      loadFactor:
+                        type: number
+                        nullable: true
+                      emptyRunning:
+                        type: number
+                        nullable: true
+                      loadCharacteristic:
+                        type: string
+                        nullable: true
+                    required:
+                      - loadFactor
+                      - emptyRunning
+                      - loadCharacteristic
+                  tractionType:
+                    type: string
+                    nullable: true
+                    enum: *a11
+                  fuelConsumption:
+                    type: array
+                    nullable: true
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                          enum: *a4
+                      required:
+                        - value
+                        - unit
+                  factor:
+                    type: object
+                    nullable: true
+                    properties:
+                      unit:
+                        type: string
+                        enum: *a5
+                      wtt:
+                        type: number
+                        nullable: true
+                      ttw:
+                        type: number
+                        nullable: true
+                      wtw:
+                        type: number
+                        nullable: true
+                    required:
+                      - unit
+                      - wtt
+                      - ttw
+                      - wtw
+                  region:
+                    type: string
+                    enum: *a2
+                    default: EU
+                  source:
+                    type: string
+                    enum: *a3
+                    default: GLEC
+                  refrigerated:
+                    type: boolean
+                    default: false
+                required:
+                  - characteristics
+                  - tractionType
+                  - fuelConsumption
+                  - factor
+  /createRailEmissionIntensityFactors:
+    post:
+      summary: Create multiple rail intensity emission factors
+      description: Function that adds multiple rail intensity emission factors to the
+        Database
+      tags:
+        - Intensity emission factors
+      requestBody:
+        description: List of rail intensity emission factors to add
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  characteristics:
+                    type: object
+                    nullable: true
+                    properties:
+                      loadFactor:
+                        type: number
+                        nullable: true
+                      emptyRunning:
+                        type: number
+                        nullable: true
+                      loadCharacteristic:
+                        type: string
+                        nullable: true
+                    required:
+                      - loadFactor
+                      - emptyRunning
+                      - loadCharacteristic
+                  tractionType:
+                    type: string
+                    nullable: true
+                    enum: *a11
+                  fuelConsumption:
+                    type: array
+                    nullable: true
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                          enum: *a4
+                      required:
+                        - value
+                        - unit
+                  factor:
+                    type: object
+                    nullable: true
+                    properties:
+                      unit:
+                        type: string
+                        enum: *a5
+                      wtt:
+                        type: number
+                        nullable: true
+                      ttw:
+                        type: number
+                        nullable: true
+                      wtw:
+                        type: number
+                        nullable: true
+                    required:
+                      - unit
+                      - wtt
+                      - ttw
+                      - wtw
+                  region:
+                    type: string
+                    enum: *a2
+                    default: EU
+                  source:
+                    type: string
+                    enum: *a3
+                    default: GLEC
+                  refrigerated:
+                    type: boolean
+                    default: false
+                required:
+                  - characteristics
+                  - tractionType
+                  - fuelConsumption
+                  - factor
+      responses:
+        "200":
+          description: List of added rail intensity emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    characteristics:
+                      type: object
+                      nullable: true
+                      properties:
+                        loadFactor:
+                          type: number
+                          nullable: true
+                        emptyRunning:
+                          type: number
+                          nullable: true
+                        loadCharacteristic:
+                          type: string
+                          nullable: true
+                      required:
+                        - loadFactor
+                        - emptyRunning
+                        - loadCharacteristic
+                    tractionType:
+                      type: string
+                      nullable: true
+                      enum: *a11
+                    fuelConsumption:
+                      type: array
+                      nullable: true
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            enum: *a4
+                        required:
+                          - value
+                          - unit
+                    factor:
+                      type: object
+                      nullable: true
+                      properties:
+                        unit:
+                          type: string
+                          enum: *a5
+                        wtt:
+                          type: number
+                          nullable: true
+                        ttw:
+                          type: number
+                          nullable: true
+                        wtw:
+                          type: number
+                          nullable: true
+                      required:
+                        - unit
+                        - wtt
+                        - ttw
+                        - wtw
+                    region:
+                      type: string
+                      enum: *a2
+                      default: EU
+                    source:
+                      type: string
+                      enum: *a3
+                      default: GLEC
+                    refrigerated:
+                      type: boolean
+                      default: false
+                  required:
+                    - characteristics
+                    - tractionType
+                    - fuelConsumption
+                    - factor
+  /getRailEmissionIntensityFactorById:
+    get:
+      summary: Fetch a rail intensity emission factor by ID
+      description: Function that fetch a rail intensity emission factors which matches
+        the given ID
+      tags:
+        - Intensity emission factors
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The found rail intensity emission factor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  characteristics:
+                    type: object
+                    nullable: true
+                    properties:
+                      loadFactor:
+                        type: number
+                        nullable: true
+                      emptyRunning:
+                        type: number
+                        nullable: true
+                      loadCharacteristic:
+                        type: string
+                        nullable: true
+                    required:
+                      - loadFactor
+                      - emptyRunning
+                      - loadCharacteristic
+                  tractionType:
+                    type: string
+                    nullable: true
+                    enum: *a11
+                  fuelConsumption:
+                    type: array
+                    nullable: true
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                          enum: *a4
+                      required:
+                        - value
+                        - unit
+                  factor:
+                    type: object
+                    nullable: true
+                    properties:
+                      unit:
+                        type: string
+                        enum: *a5
+                      wtt:
+                        type: number
+                        nullable: true
+                      ttw:
+                        type: number
+                        nullable: true
+                      wtw:
+                        type: number
+                        nullable: true
+                    required:
+                      - unit
+                      - wtt
+                      - ttw
+                      - wtw
+                  region:
+                    type: string
+                    enum: *a2
+                    default: EU
+                  source:
+                    type: string
+                    enum: *a3
+                    default: GLEC
+                  refrigerated:
+                    type: boolean
+                    default: false
+                required:
+                  - characteristics
+                  - tractionType
+                  - fuelConsumption
+                  - factor
+  /getRailEmissionIntensityFactors:
+    get:
+      summary: Fetch all rail intensity emission factors
+      description: Function that fetches all rail intensity emission factors in the Database
+      tags:
+        - Intensity emission factors
+      responses:
+        "200":
+          description: List of found rail intensity emission factors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    characteristics:
+                      type: object
+                      nullable: true
+                      properties:
+                        loadFactor:
+                          type: number
+                          nullable: true
+                        emptyRunning:
+                          type: number
+                          nullable: true
+                        loadCharacteristic:
+                          type: string
+                          nullable: true
+                      required:
+                        - loadFactor
+                        - emptyRunning
+                        - loadCharacteristic
+                    tractionType:
+                      type: string
+                      nullable: true
+                      enum: *a11
+                    fuelConsumption:
+                      type: array
+                      nullable: true
+                      items:
+                        type: object
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            enum: *a4
+                        required:
+                          - value
+                          - unit
+                    factor:
+                      type: object
+                      nullable: true
+                      properties:
+                        unit:
+                          type: string
+                          enum: *a5
+                        wtt:
+                          type: number
+                          nullable: true
+                        ttw:
+                          type: number
+                          nullable: true
+                        wtw:
+                          type: number
+                          nullable: true
+                      required:
+                        - unit
+                        - wtt
+                        - ttw
+                        - wtw
+                    region:
+                      type: string
+                      enum: *a2
+                      default: EU
+                    source:
+                      type: string
+                      enum: *a3
+                      default: GLEC
+                    refrigerated:
+                      type: boolean
+                      default: false
+                  required:
+                    - characteristics
+                    - tractionType
+                    - fuelConsumption
+                    - factor
+  /updateRailEmissionIntensityFactor:
+    patch:
+      summary: Update a rail intensity emission factor
+      description: Function that updates a rail intensity emission factor which
+        matches the given ID
+      tags:
+        - Intensity emission factors
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: The updated rail intensity emission factor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  characteristics:
+                    type: object
+                    nullable: true
+                    properties:
+                      loadFactor:
+                        type: number
+                        nullable: true
+                      emptyRunning:
+                        type: number
+                        nullable: true
+                      loadCharacteristic:
+                        type: string
+                        nullable: true
+                    required:
+                      - loadFactor
+                      - emptyRunning
+                      - loadCharacteristic
+                  tractionType:
+                    type: string
+                    nullable: true
+                    enum: *a11
+                  fuelConsumption:
+                    type: array
+                    nullable: true
+                    items:
+                      type: object
+                      properties:
+                        value:
+                          type: number
+                        unit:
+                          type: string
+                          enum: *a4
+                      required:
+                        - value
+                        - unit
+                  factor:
+                    type: object
+                    nullable: true
+                    properties:
+                      unit:
+                        type: string
+                        enum: *a5
+                      wtt:
+                        type: number
+                        nullable: true
+                      ttw:
+                        type: number
+                        nullable: true
+                      wtw:
+                        type: number
+                        nullable: true
+                    required:
+                      - unit
+                      - wtt
+                      - ttw
+                      - wtw
+                  region:
+                    type: string
+                    enum: *a2
+                    default: EU
+                  source:
+                    type: string
+                    enum: *a3
+                    default: GLEC
+                  refrigerated:
+                    type: boolean
+                    default: false
+                required:
+                  - characteristics
+                  - tractionType
+                  - fuelConsumption
+                  - factor
+  /deleteRailEmissionIntensityFactor:
+    delete:
+      summary: Delete a rail intensity emission factor
+      description: Function that deletes a rail intensity emission factor which
+        matches the given ID
+      tags:
+        - Intensity emission factors
+      parameters:
+        - schema:
+            type: string
+            format: uuid
+          required: true
+          name: id
+          in: path
+      responses:
+        "200":
+          description: Rail intensity emission factor deleted
   /createFuel:
     post:
       summary: Create a fuel
@@ -5166,7 +5897,7 @@ paths:
                 properties:
                   unit:
                     type: string
-                    enum: *a11
+                    enum: *a12
                 required:
                   - unit
   /unitConverter:
@@ -5205,7 +5936,7 @@ paths:
                     type: number
                   unit:
                     type: string
-                    enum: *a12
+                    enum: *a13
                 required:
                   - value
                   - unit

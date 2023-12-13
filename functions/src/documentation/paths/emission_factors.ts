@@ -3,6 +3,7 @@ import { z } from "zod";
 import { fuelEmissionFactorSchema } from "../../models/emission_factors/fuel_emission_factors";
 import { regionSchema } from "../../models/emission_factors/common_emission_factor_models";
 import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
+import { railIntensityFactorSchema } from "../../models/emission_factors/rail_intensity_factors";
 
 export const emissionFactorsOpenApiPaths: RouteConfig[] = [
   // FUEL EMISSION FACTORS
@@ -231,7 +232,8 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     method: "post",
     path: "/createRoadEmissionIntensityFactor",
     summary: "Create a road intensity emission factor",
-    description: "Function that adds a road intensity emission factors to the Database",
+    description:
+      "Function that adds a road intensity emission factors to the Database",
     tags: ["Intensity emission factors"],
     // requestBody: {
     //   description: "The road intensity emission factor to add",
@@ -372,6 +374,147 @@ export const emissionFactorsOpenApiPaths: RouteConfig[] = [
     responses: {
       "200": {
         description: "Road intensity emission factor deleted",
+      },
+    },
+  },
+  // RAIL INTENSITY EMISSION FACTORS
+  {
+    method: "post",
+    path: "/createRailEmissionIntensityFactor",
+    summary: "Create a rail intensity emission factor",
+    description:
+      "Function that adds a rail intensity emission factors to the Database",
+    tags: ["Intensity emission factors"],
+    request: {
+      body: {
+        content: {
+          "application/json": {
+            schema: railIntensityFactorSchema,
+          },
+        },
+        description: "The rail intensity emission factor to add",
+        required: true,
+      },
+    },
+    responses: {
+      "200": {
+        description: "The added rail intensity emission factor",
+        content: {
+          "application/json": {
+            schema: railIntensityFactorSchema,
+          },
+        },
+      },
+    },
+  },
+  {
+    method: "post",
+    path: "/createRailEmissionIntensityFactors",
+    summary: "Create multiple rail intensity emission factors",
+    description:
+      "Function that adds multiple rail intensity emission factors to the Database",
+    tags: ["Intensity emission factors"],
+    request: {
+      body: {
+        description: "List of rail intensity emission factors to add",
+        required: true,
+        content: {
+          "application/json": {
+            schema: z.array(railIntensityFactorSchema),
+          },
+        },
+      },
+    },
+    responses: {
+      "200": {
+        description: "List of added rail intensity emission factors",
+        content: {
+          "application/json": {
+            schema: z.array(railIntensityFactorSchema),
+          },
+        },
+      },
+    },
+  },
+  {
+    method: "get",
+    path: "/getRailEmissionIntensityFactorById",
+    summary: "Fetch a rail intensity emission factor by ID",
+    description:
+      "Function that fetch a rail intensity emission factors which matches the given ID",
+    tags: ["Intensity emission factors"],
+    request: {
+      params: z.object({
+        id: z.string().uuid(),
+      }),
+    },
+    responses: {
+      "200": {
+        description: "The found rail intensity emission factor",
+        content: {
+          "application/json": {
+            schema: railIntensityFactorSchema,
+          },
+        },
+      },
+    },
+  },
+  {
+    method: "get",
+    path: "/getRailEmissionIntensityFactors",
+    summary: "Fetch all rail intensity emission factors",
+    description:
+      "Function that fetches all rail intensity emission factors in the Database",
+    tags: ["Intensity emission factors"],
+    responses: {
+      "200": {
+        description: "List of found rail intensity emission factors",
+        content: {
+          "application/json": {
+            schema: z.array(railIntensityFactorSchema),
+          },
+        },
+      },
+    },
+  },
+  {
+    method: "patch",
+    path: "/updateRailEmissionIntensityFactor",
+    summary: "Update a rail intensity emission factor",
+    description:
+      "Function that updates a rail intensity emission factor which matches the given ID",
+    tags: ["Intensity emission factors"],
+    request: {
+      params: z.object({
+        id: z.string().uuid(),
+      }),
+    },
+    responses: {
+      "200": {
+        description: "The updated rail intensity emission factor",
+        content: {
+          "application/json": {
+            schema: railIntensityFactorSchema,
+          },
+        },
+      },
+    },
+  },
+  {
+    method: "delete",
+    path: "/deleteRailEmissionIntensityFactor",
+    summary: "Delete a rail intensity emission factor",
+    description:
+      "Function that deletes a rail intensity emission factor which matches the given ID",
+    tags: ["Intensity emission factors"],
+    request: {
+      params: z.object({
+        id: z.string().uuid(),
+      }),
+    },
+    responses: {
+      "200": {
+        description: "Rail intensity emission factor deleted",
       },
     },
   },
