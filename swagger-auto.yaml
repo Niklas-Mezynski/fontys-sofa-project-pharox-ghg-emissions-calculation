@@ -55,7 +55,7 @@ components:
               scope:
                 type: string
                 nullable: true
-                enum: &a7
+                enum: &a8
                   - SCOPE1
                   - SCOPE2
                   - SCOPE3
@@ -66,7 +66,7 @@ components:
                     type: number
                   unit:
                     type: string
-                    enum: &a8
+                    enum: &a9
                       - km
                       - cm
                       - m
@@ -115,7 +115,7 @@ components:
                             type: number
                           unit:
                             type: string
-                            enum: &a9
+                            enum: &a10
                               - ml
                               - l
                               - tsp
@@ -189,6 +189,36 @@ components:
                       - modeOfTransport
                       - vehicle
                       - characteristics
+                  - type: object
+                    properties:
+                      modeOfTransport:
+                        type: string
+                        enum:
+                          - RAIL
+                      tractionType:
+                        type: string
+                        nullable: true
+                        enum: &a4
+                          - DIESEL
+                          - ELECTRIC
+                      refrigerated:
+                        type: boolean
+                        default: false
+                      characteristics:
+                        type: object
+                        properties:
+                          loadFactor:
+                            type: number
+                            nullable: true
+                          emptyRunning:
+                            type: number
+                            nullable: true
+                          loadCharacteristic:
+                            type: string
+                            nullable: true
+                    required:
+                      - modeOfTransport
+                      - characteristics
             required:
               - distance
               - weight
@@ -198,7 +228,7 @@ components:
             has their own fuel type, fuel consumption and freight details.
       required:
         - transportParts
-      example: &a10
+      example: &a11
         transportParts:
           - distance:
               value: 286.3
@@ -313,7 +343,7 @@ components:
             properties:
               unit:
                 type: string
-                enum: &a6
+                enum: &a7
                   - KG_CO2E_PER_KWH
                   - KG_CO2E_PER_KG
                   - KG_CO2E_PER_L
@@ -423,7 +453,7 @@ components:
                 type: number
               unit:
                 type: string
-                enum: &a4
+                enum: &a5
                   - KWH_PER_TKM
                   - KG_PER_TKM
                   - L_PER_TKM
@@ -436,7 +466,7 @@ components:
           properties:
             unit:
               type: string
-              enum: &a5
+              enum: &a6
                 - G_CO2E_PER_TKM
                 - KG_CO2E_PER_TKM
             wtt:
@@ -496,9 +526,7 @@ components:
         tractionType:
           type: string
           nullable: true
-          enum: &a11
-            - DIESEL
-            - ELECTRIC
+          enum: *a4
         fuelConsumption:
           type: array
           nullable: true
@@ -509,7 +537,7 @@ components:
                 type: number
               unit:
                 type: string
-                enum: *a4
+                enum: *a5
             required:
               - value
               - unit
@@ -519,7 +547,7 @@ components:
           properties:
             unit:
               type: string
-              enum: *a5
+              enum: *a6
             wtt:
               type: number
               nullable: true
@@ -935,7 +963,7 @@ components:
       properties:
         unit:
           type: string
-          enum: *a6
+          enum: *a7
         wtt:
           type: number
           nullable: true
@@ -959,7 +987,7 @@ components:
             type: number
           unit:
             type: string
-            enum: *a4
+            enum: *a5
         required:
           - value
           - unit
@@ -1078,7 +1106,7 @@ paths:
                       scope:
                         type: string
                         nullable: true
-                        enum: *a7
+                        enum: *a8
                       distance:
                         type: object
                         properties:
@@ -1086,7 +1114,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a8
+                            enum: *a9
                         required:
                           - value
                           - unit
@@ -1115,7 +1143,7 @@ paths:
                                     type: number
                                   unit:
                                     type: string
-                                    enum: *a9
+                                    enum: *a10
                                 required:
                                   - value
                                   - unit
@@ -1178,6 +1206,34 @@ paths:
                               - modeOfTransport
                               - vehicle
                               - characteristics
+                          - type: object
+                            properties:
+                              modeOfTransport:
+                                type: string
+                                enum:
+                                  - RAIL
+                              tractionType:
+                                type: string
+                                nullable: true
+                                enum: *a4
+                              refrigerated:
+                                type: boolean
+                                default: false
+                              characteristics:
+                                type: object
+                                properties:
+                                  loadFactor:
+                                    type: number
+                                    nullable: true
+                                  emptyRunning:
+                                    type: number
+                                    nullable: true
+                                  loadCharacteristic:
+                                    type: string
+                                    nullable: true
+                            required:
+                              - modeOfTransport
+                              - characteristics
                     required:
                       - distance
                       - weight
@@ -1188,7 +1244,7 @@ paths:
                     details.
               required:
                 - transportParts
-              example: *a10
+              example: *a11
       responses:
         "200":
           description: The emission calculation overview/report
@@ -1680,7 +1736,7 @@ paths:
                         scope:
                           type: string
                           nullable: true
-                          enum: *a7
+                          enum: *a8
                         distance:
                           type: object
                           properties:
@@ -1688,7 +1744,7 @@ paths:
                               type: number
                             unit:
                               type: string
-                              enum: *a8
+                              enum: *a9
                           required:
                             - value
                             - unit
@@ -1717,7 +1773,7 @@ paths:
                                       type: number
                                     unit:
                                       type: string
-                                      enum: *a9
+                                      enum: *a10
                                   required:
                                     - value
                                     - unit
@@ -1780,6 +1836,34 @@ paths:
                                 - modeOfTransport
                                 - vehicle
                                 - characteristics
+                            - type: object
+                              properties:
+                                modeOfTransport:
+                                  type: string
+                                  enum:
+                                    - RAIL
+                                tractionType:
+                                  type: string
+                                  nullable: true
+                                  enum: *a4
+                                refrigerated:
+                                  type: boolean
+                                  default: false
+                                characteristics:
+                                  type: object
+                                  properties:
+                                    loadFactor:
+                                      type: number
+                                      nullable: true
+                                    emptyRunning:
+                                      type: number
+                                      nullable: true
+                                    loadCharacteristic:
+                                      type: string
+                                      nullable: true
+                              required:
+                                - modeOfTransport
+                                - characteristics
                       required:
                         - distance
                         - weight
@@ -1790,7 +1874,7 @@ paths:
                       details.
                 required:
                   - transportParts
-                example: *a10
+                example: *a11
       responses:
         "200":
           description: The emission calculation overview/report
@@ -3006,7 +3090,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a6
+                        enum: *a7
                       wtt:
                         type: number
                         nullable: true
@@ -3063,7 +3147,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a6
+                          enum: *a7
                         wtt:
                           type: number
                           nullable: true
@@ -3128,7 +3212,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a6
+                          enum: *a7
                         wtt:
                           type: number
                           nullable: true
@@ -3187,7 +3271,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a6
+                            enum: *a7
                           wtt:
                             type: number
                             nullable: true
@@ -3261,7 +3345,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a6
+                            enum: *a7
                           wtt:
                             type: number
                             nullable: true
@@ -3331,7 +3415,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a6
+                          enum: *a7
                         wtt:
                           type: number
                           nullable: true
@@ -3404,7 +3488,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a6
+                            enum: *a7
                           wtt:
                             type: number
                             nullable: true
@@ -3464,7 +3548,7 @@ paths:
                   properties:
                     unit:
                       type: string
-                      enum: *a6
+                      enum: *a7
                     wtt:
                       type: number
                       nullable: true
@@ -3526,7 +3610,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a6
+                            enum: *a7
                           wtt:
                             type: number
                             nullable: true
@@ -3591,7 +3675,7 @@ paths:
                         properties:
                           unit:
                             type: string
-                            enum: *a6
+                            enum: *a7
                           wtt:
                             type: number
                             nullable: true
@@ -3661,7 +3745,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a6
+                          enum: *a7
                         wtt:
                           type: number
                           nullable: true
@@ -3795,7 +3879,7 @@ paths:
                         type: number
                       unit:
                         type: string
-                        enum: *a4
+                        enum: *a5
                     required:
                       - value
                       - unit
@@ -3805,7 +3889,7 @@ paths:
                   properties:
                     unit:
                       type: string
-                      enum: *a5
+                      enum: *a6
                     wtt:
                       type: number
                       nullable: true
@@ -3926,7 +4010,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -3936,7 +4020,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -4066,7 +4150,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -4076,7 +4160,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -4199,7 +4283,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a5
                         required:
                           - value
                           - unit
@@ -4209,7 +4293,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -4344,7 +4428,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -4354,7 +4438,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -4483,7 +4567,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a5
                         required:
                           - value
                           - unit
@@ -4493,7 +4577,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -4628,7 +4712,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -4638,7 +4722,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -4724,7 +4808,7 @@ paths:
                 tractionType:
                   type: string
                   nullable: true
-                  enum: *a11
+                  enum: *a4
                 fuelConsumption:
                   type: array
                   nullable: true
@@ -4735,7 +4819,7 @@ paths:
                         type: number
                       unit:
                         type: string
-                        enum: *a4
+                        enum: *a5
                     required:
                       - value
                       - unit
@@ -4745,7 +4829,7 @@ paths:
                   properties:
                     unit:
                       type: string
-                      enum: *a5
+                      enum: *a6
                     wtt:
                       type: number
                       nullable: true
@@ -4807,7 +4891,7 @@ paths:
                   tractionType:
                     type: string
                     nullable: true
-                    enum: *a11
+                    enum: *a4
                   fuelConsumption:
                     type: array
                     nullable: true
@@ -4818,7 +4902,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -4828,7 +4912,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -4899,7 +4983,7 @@ paths:
                   tractionType:
                     type: string
                     nullable: true
-                    enum: *a11
+                    enum: *a4
                   fuelConsumption:
                     type: array
                     nullable: true
@@ -4910,7 +4994,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -4920,7 +5004,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -4984,7 +5068,7 @@ paths:
                     tractionType:
                       type: string
                       nullable: true
-                      enum: *a11
+                      enum: *a4
                     fuelConsumption:
                       type: array
                       nullable: true
@@ -4995,7 +5079,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a5
                         required:
                           - value
                           - unit
@@ -5005,7 +5089,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -5081,7 +5165,7 @@ paths:
                   tractionType:
                     type: string
                     nullable: true
-                    enum: *a11
+                    enum: *a4
                   fuelConsumption:
                     type: array
                     nullable: true
@@ -5092,7 +5176,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -5102,7 +5186,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
@@ -5172,7 +5256,7 @@ paths:
                     tractionType:
                       type: string
                       nullable: true
-                      enum: *a11
+                      enum: *a4
                     fuelConsumption:
                       type: array
                       nullable: true
@@ -5183,7 +5267,7 @@ paths:
                             type: number
                           unit:
                             type: string
-                            enum: *a4
+                            enum: *a5
                         required:
                           - value
                           - unit
@@ -5193,7 +5277,7 @@ paths:
                       properties:
                         unit:
                           type: string
-                          enum: *a5
+                          enum: *a6
                         wtt:
                           type: number
                           nullable: true
@@ -5269,7 +5353,7 @@ paths:
                   tractionType:
                     type: string
                     nullable: true
-                    enum: *a11
+                    enum: *a4
                   fuelConsumption:
                     type: array
                     nullable: true
@@ -5280,7 +5364,7 @@ paths:
                           type: number
                         unit:
                           type: string
-                          enum: *a4
+                          enum: *a5
                       required:
                         - value
                         - unit
@@ -5290,7 +5374,7 @@ paths:
                     properties:
                       unit:
                         type: string
-                        enum: *a5
+                        enum: *a6
                       wtt:
                         type: number
                         nullable: true
