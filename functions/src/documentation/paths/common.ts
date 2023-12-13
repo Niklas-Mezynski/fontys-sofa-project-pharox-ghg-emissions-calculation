@@ -46,8 +46,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "post",
     path: "/createFuels",
     summary: "Create multiple fuels",
-    description:
-      "Function that adds multiple fuels to the Database",
+    description: "Function that adds multiple fuels to the Database",
     tags: ["Common"],
     request: {
       body: {
@@ -75,8 +74,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "get",
     path: "/getFuelById",
     summary: "Fetch a fuel by ID",
-    description:
-      "Function that fetch a fuel which matches the given ID",
+    description: "Function that fetch a fuel which matches the given ID",
     tags: ["Common"],
     request: {
       params: z.object({
@@ -98,8 +96,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "get",
     path: "/getFuels",
     summary: "Fetch all fuels",
-    description:
-      "Function that fetches all fuels in the Database",
+    description: "Function that fetches all fuels in the Database",
     tags: ["Common"],
     responses: {
       "200": {
@@ -116,8 +113,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "patch",
     path: "/updateFuel",
     summary: "Update a fuel",
-    description:
-      "Function that updates a fuel which matches the given ID",
+    description: "Function that updates a fuel which matches the given ID",
     tags: ["Common"],
     request: {
       params: z.object({
@@ -139,8 +135,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "delete",
     path: "/deleteFuel",
     summary: "Delete a fuel",
-    description:
-      "Function that deletes a fuel which matches the given ID",
+    description: "Function that deletes a fuel which matches the given ID",
     tags: ["Common"],
     request: {
       params: z.object({
@@ -195,8 +190,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "post",
     path: "/createVehicles",
     summary: "Create multiple vehicles",
-    description:
-      "Function that adds multiple vehicles to the Database",
+    description: "Function that adds multiple vehicles to the Database",
     tags: ["Common"],
     request: {
       body: {
@@ -224,8 +218,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "get",
     path: "/getVehicleById",
     summary: "Fetch a vehicle by ID",
-    description:
-      "Function that fetch a vehicle which matches the given ID",
+    description: "Function that fetch a vehicle which matches the given ID",
     tags: ["Common"],
     request: {
       params: z.object({
@@ -247,8 +240,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "get",
     path: "/getVehicles",
     summary: "Fetch all vehicles",
-    description:
-      "Function that fetches all vehicles in the Database",
+    description: "Function that fetches all vehicles in the Database",
     tags: ["Common"],
     responses: {
       "200": {
@@ -265,8 +257,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "patch",
     path: "/updateVehicle",
     summary: "Update a vehicle",
-    description:
-      "Function that updates a vehicle which matches the given ID",
+    description: "Function that updates a vehicle which matches the given ID",
     tags: ["Common"],
     request: {
       params: z.object({
@@ -288,8 +279,7 @@ export const commonOpenApiPaths: RouteConfig[] = [
     method: "delete",
     path: "/deleteVehicle",
     summary: "Delete a vehicle",
-    description:
-      "Function that deletes a vehicle which matches the given ID",
+    description: "Function that deletes a vehicle which matches the given ID",
     tags: ["Common"],
     request: {
       params: z.object({

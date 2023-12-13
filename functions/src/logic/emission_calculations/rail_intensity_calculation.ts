@@ -1,10 +1,9 @@
+import { HttpStatusCode } from "axios";
 import {
   FreightEmissionCalculationInput,
-  RoadTransportDetails,
+  RailTransportDetails,
   TransportActivityReport,
 } from "../../models/emission_calculations/emission_calculation_model";
-import { RoadIntensityFactorService } from "../emission_factors/intensity_factors/road_intensity_factor_service";
-import { validateInput } from "../../utils/functions";
 import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
 import {
   ACTIVITY_BASE_UNIT,
@@ -12,7 +11,8 @@ import {
   baseEmissionReportFactory,
 } from "../../utils/calculation_report";
 import { CustomError } from "../../utils/errors";
-import { HttpStatusCode } from "axios";
+import { validateInput } from "../../utils/functions";
+import { RailIntensityFactorService } from "../emission_factors/intensity_factors/rail_intensity_factor_service";
 import { UnitConversionService } from "../units/unit_conversion_service";
 import { UnitService } from "../units/unit_service";
 
@@ -22,11 +22,11 @@ import { UnitService } from "../units/unit_service";
  * @param transportDetails
  * @returns
  */
-export async function handleCalculationForRoadTransport(
+export async function handleCalculationForRailTransport(
   transportPart: FreightEmissionCalculationInput["transportParts"][number],
-  transportDetails: RoadTransportDetails
+  transportDetails: RailTransportDetails
 ): Promise<TransportActivityReport> {
-  const factor = await RoadIntensityFactorService.getSpecificIntensityFactor(
+  const factor = await RailIntensityFactorService.getSpecificIntensityFactor(
     transportDetails,
     transportPart.region
   );

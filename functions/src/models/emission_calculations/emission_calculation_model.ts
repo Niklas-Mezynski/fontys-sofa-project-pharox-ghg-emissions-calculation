@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { commonModels } from "../common";
+import { commonModels, transformUndefinedToNull } from "../common";
 import {
   distanceUnits,
   electricityUnits,
@@ -8,6 +8,7 @@ import {
 } from "../units/units";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { emissionFactorRegions } from "../emission_factors/common_emission_factor_models";
+import { railTractionTypes } from "../emission_factors/rail_intensity_factors";
 
 extendZodWithOpenApi(z);
 
@@ -43,6 +44,34 @@ const roadTransportDetails = z.object({
 });
 export type RoadTransportDetails = z.infer<typeof roadTransportDetails>;
 
+const railTransportDetails = z.object({
+  modeOfTransport: z.literal("RAIL"),
+  tractionType: z
+    .enum(railTractionTypes)
+    .nullable()
+    .optional()
+    .transform(transformUndefinedToNull),
+  refrigerated: z.boolean().default(false),
+  characteristics: z.object({
+    loadFactor: z
+      .number()
+      .optional()
+      .nullable()
+      .transform(transformUndefinedToNull),
+    emptyRunning: z
+      .number()
+      .nullable()
+      .optional()
+      .transform(transformUndefinedToNull),
+    loadCharacteristic: z
+      .string()
+      .nullable()
+      .optional()
+      .transform(transformUndefinedToNull),
+  }),
+});
+export type RailTransportDetails = z.infer<typeof railTransportDetails>;
+
 export const freightEmissionCalculationInputSchema = z
   .object({
     /**
@@ -60,6 +89,7 @@ export const freightEmissionCalculationInputSchema = z
           transportDetails: z.union([
             consumedFuelTransportDetails,
             roadTransportDetails,
+            railTransportDetails,
           ]),
         })
       )

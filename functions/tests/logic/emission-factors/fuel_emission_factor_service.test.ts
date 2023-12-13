@@ -13,9 +13,15 @@ describe("Emission factors - Fuel emission factors", () => {
 
   test("Get a Fuel emission factor by fuel code and region", async () => {
     const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
-    jest.spyOn(FirestoreUtil, "getByFilter").mockResolvedValue(gasolineFuelEmissionFactors);
+    jest
+      .spyOn(FirestoreUtil, "getByFilter")
+      .mockResolvedValue(gasolineFuelEmissionFactors);
 
-    const result = await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion("GASOLINE", "EU");
+    const result =
+      await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
+        "GASOLINE",
+        "EU"
+      );
 
     expect(result).toStrictEqual(fuelEmissionFactors[1]);
   });
