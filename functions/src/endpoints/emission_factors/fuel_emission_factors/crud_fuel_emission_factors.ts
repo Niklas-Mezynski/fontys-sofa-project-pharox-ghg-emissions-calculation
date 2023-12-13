@@ -8,6 +8,7 @@ import { CustomError } from "../../../utils/errors";
 import { validateInput } from "../../../utils/functions";
 import { onErrorHandledRequest } from "../../../utils/request_handler";
 import { CRUDEntityService } from "../../../logic/common/CRUD_entity_service";
+import { Filter } from "firebase-admin/firestore";
 
 /** CREATE METHODS */
 
@@ -95,8 +96,9 @@ export const getFuelEmissionFactorByFuelCode = onErrorHandledRequest(
       });
     }
 
-    const factors =
-      await FuelEmissionFactorService.getFuelEmissionFactorByFuelCode(code);
+    const filter = Filter.where("fuel.code", "==", code);
+    const factors = await CRUDEntityService.getEntitiesByFilter(filter, "FUEL_FACTOR");
+
     response.json(factors);
   }
 );
@@ -119,8 +121,9 @@ export const getFuelEmissionFactorByRegion = onErrorHandledRequest(
       });
     }
 
-    const factors =
-      await FuelEmissionFactorService.getFuelEmissionFactorByRegion(region);
+    const filter = Filter.where("region", "==", region);
+    const factors = await CRUDEntityService.getEntitiesByFilter(filter, "FUEL_FACTOR");
+
     response.json(factors);
   }
 );
@@ -143,8 +146,9 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
       });
     }
 
-    const factors =
-      await FuelEmissionFactorService.getFuelEmissionFactorBySource(source);
+    const filter = Filter.where("source", "==", source);
+    const factors = await CRUDEntityService.getEntitiesByFilter(filter, "FUEL_FACTOR");
+
     response.json(factors);
   }
 );

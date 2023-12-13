@@ -24,6 +24,7 @@ export const vehicleSchema = z.object({
     .nullable(),
   engineType: z.string().nullable(),
 });
+export type Vehicle = z.infer<typeof vehicleSchema>;
 
 export const characteristicsSchema = z.object({
   loadFactor: z.number().nullable(),
