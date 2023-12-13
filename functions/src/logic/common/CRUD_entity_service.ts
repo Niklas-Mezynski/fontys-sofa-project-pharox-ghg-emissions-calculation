@@ -1,12 +1,19 @@
 import { HttpStatusCode } from "axios";
 import { z } from "zod";
-import { fuelEmissionFactorSchema, fuelSchema } from "../../models/emission_factors/fuel_emission_factors";
-import { roadIntensityFactorSchema, vehicleSchema } from "../../models/emission_factors/road_intensity_factors";
+import {
+  fuelEmissionFactorSchema,
+  fuelSchema,
+} from "../../models/emission_factors/fuel_emission_factors";
+import {
+  roadIntensityFactorSchema,
+  vehicleSchema,
+} from "../../models/emission_factors/road_intensity_factors";
 import { CustomError } from "../../utils/errors";
 import { FirestoreUtil } from "../../utils/firestore";
 import { validateInput } from "../../utils/functions";
 import { calculationReportSchema } from "../../models/emission_calculations/emission_calculation_model";
 import { UnknownObject } from "../../utils/types";
+import { railIntensityFactorSchema } from "../../models/emission_factors/rail_intensity_factors";
 
 // Data specific to each entity type to perform schema validation and Firestore operations
 const entitySpecificData = {
@@ -34,6 +41,11 @@ const entitySpecificData = {
     entityName: "Vehicle",
     collectionName: "vehicles",
     validationSchema: vehicleSchema,
+  },
+  RAIL_FACTOR: {
+    entityName: "Rail Intensity Emission Factor",
+    collectionName: "intensity_factors_rail",
+    validationSchema: railIntensityFactorSchema,
   },
 } as const;
 
@@ -106,7 +118,7 @@ async function getEntityById<T extends EntityType>(
     id
   );
 
-  if(!result) {
+  if (!result) {
     throw new CustomError({
       status: HttpStatusCode.NotFound,
       message: `${entitySpecificData[type].entityName} not found with ID ${id}.`,
@@ -198,10 +210,7 @@ async function deleteEntity<T extends EntityType>(
     });
   }
 
-  await FirestoreUtil.deleteById(
-    entitySpecificData[type].collectionName,
-    id
-  );
+  await FirestoreUtil.deleteById(entitySpecificData[type].collectionName, id);
 }
 
 export const CRUDEntityService = {
