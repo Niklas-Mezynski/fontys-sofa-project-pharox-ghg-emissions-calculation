@@ -190,7 +190,7 @@ async function updateEntity<T extends EntityType>(
 ): Promise<EntitySpecificReturnType<T>> {
   const validatedInput = validateInput(
     data,
-    entitySpecificData[type].validationSchema
+    entitySpecificData[type].validationSchema.partial()
   );
 
   const updatedFactor = await FirestoreUtil.updateById(
@@ -206,7 +206,10 @@ async function updateEntity<T extends EntityType>(
     });
   }
 
-  return updatedFactor;
+  return validateInput(
+    updatedFactor,
+    entitySpecificData[type].validationSchema
+  );
 }
 
 /** DELETE METHODS */
