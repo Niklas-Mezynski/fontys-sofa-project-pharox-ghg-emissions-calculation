@@ -7,6 +7,7 @@ import { FirestoreUtil } from "../../utils/firestore";
 import { validateInput } from "../../utils/functions";
 import { calculationReportSchema } from "../../models/emission_calculations/emission_calculation_model";
 import { UnknownObject } from "../../utils/types";
+import { Filter } from "firebase-admin/firestore";
 
 // Data specific to each entity type to perform schema validation and Firestore operations
 const entitySpecificData = {
@@ -139,6 +140,28 @@ async function getEntities<T extends EntityType>(
   );
 }
 
+/**
+ * Gets all entities of a specific type that matches the filter condition given.
+ * @param {Filter} filter - The filter condition.
+ * @param {EntityType} type - The type of the entity.
+ * @returns {Promise<EntitySpecificReturnType<T>[]>} A list of all entities of the given type matching the given filter condition.
+ */
+async function getEntitiesByFilter<T extends EntityType>(
+  filter: Filter,
+  type: T
+): Promise<EntitySpecificReturnType<T>[]> {
+  const result = await FirestoreUtil.getByFilter(
+    entitySpecificData[type].collectionName,
+    filter
+  );
+
+  return validateInput(
+    result,
+    z.array(entitySpecificData[type].validationSchema),
+    `Received unexpected ${entitySpecificData[type].entityName} format from the database.`
+  );
+}
+
 /** UPDATE METHODS */
 
 /**
@@ -209,6 +232,7 @@ export const CRUDEntityService = {
   createEntities,
   getEntityById,
   getEntities,
+  getEntitiesByFilter,
   updateEntity,
   deleteEntity,
   entitySpecificData,

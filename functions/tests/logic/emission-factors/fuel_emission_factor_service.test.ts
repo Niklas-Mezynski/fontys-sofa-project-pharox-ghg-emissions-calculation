@@ -11,54 +11,12 @@ describe("Emission factors - Fuel emission factors", () => {
     jest.restoreAllMocks();
   });
 
-  test("Get all the Fuel emission factors with same region", async () => {
-    jest.spyOn(FirestoreUtil, "getByFilter").mockResolvedValue(fuelEmissionFactors);
+  test("Get a Fuel emission factor by fuel code and region", async () => {
+    const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
+    jest.spyOn(FirestoreUtil, "getByFilter").mockResolvedValue(gasolineFuelEmissionFactors);
 
-    expect( await FuelEmissionFactorService.getFuelEmissionFactorByRegion("EU")).toStrictEqual(fuelEmissionFactors);
+    const result = await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion("GASOLINE", "EU");
+
+    expect(result).toStrictEqual(fuelEmissionFactors[1]);
   });
-
-  // test("Get all the Fuel emission factors with same source", async () => {
-  //   const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
-  //   jest
-  //     .spyOn(FirestoreUtil, "getByFilter")
-  //     .mockResolvedValue(gasolineFuelEmissionFactors);
-
-  //   const result =
-  //     await FuelEmissionFactorService.getFuelEmissionFactorBySource(
-  //       "GASOLINE"
-  //     );
-
-  //   expect(result.length).toStrictEqual(1);
-  //   expect(result).toStrictEqual(gasolineFuelEmissionFactors);
-  // });
-
-  // test("Get all the Fuel emission factors with same fuel code", async () => {
-  //   const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
-  //   jest
-  //     .spyOn(FirestoreUtil, "getByFilter")
-  //     .mockResolvedValue(gasolineFuelEmissionFactors);
-
-  //   const result =
-  //     await FuelEmissionFactorService.getFuelEmissionFactorByFuelCode(
-  //       "GASOLINE"
-  //     );
-
-  //   expect(result.length).toStrictEqual(1);
-  //   expect(result).toStrictEqual(gasolineFuelEmissionFactors);
-  // });
-
-  // test("Get a Fuel emission factor by fuel code and region", async () => {
-  //   const gasolineFuelEmissionFactors = [fuelEmissionFactors[1]];
-  //   jest
-  //     .spyOn(FirestoreUtil, "getByFilter")
-  //     .mockResolvedValue(gasolineFuelEmissionFactors);
-
-  //   const result =
-  //     await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
-  //       "GASOLINE",
-  //       "EU"
-  //     );
-
-  //   expect(result).toStrictEqual(fuelEmissionFactors[1]);
-  // });
 });
