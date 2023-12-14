@@ -29,6 +29,14 @@ describe("testing_distance_unit_classification_service", () => {
   });
 });
 
+describe("testing_electricity_unit_classification_service", () => {
+  test("The unit provided should return the correct unit type", () => {
+
+    expect(classifyUnitType("kWh")).toBe("ELECTRICITY");
+
+  });
+});
+
 describe("testing_unit_classification_service_Wrong_input", () => {
   test("The unit provided should return UNKNOWN", () => {
     expect(classifyUnitType("a")).toBe("UNKNOWN");

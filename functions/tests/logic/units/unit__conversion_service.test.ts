@@ -16,6 +16,7 @@ describe("testing_unit_conversion", () => {
       1.609
     );
     expect(UnitConversionService.convertUnits("l", "l", 1).value).toBe(1);
+    expect(UnitConversionService.convertUnits("kWh", "kWh", 1).value).toBe(1);
   });
 });
 
