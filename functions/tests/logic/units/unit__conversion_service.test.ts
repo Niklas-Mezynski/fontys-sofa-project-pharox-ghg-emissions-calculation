@@ -11,6 +11,7 @@ describe("testing_unit_conversion", () => {
     expect(UnitConversionService.convertUnits("oz", "g", 1).value).toBeCloseTo(28.349);
     expect(UnitConversionService.convertUnits("mi", "km", 1).value).toBeCloseTo(1.609);
     expect(UnitConversionService.convertUnits("l", "l", 1).value).toBe(1);
+    expect(UnitConversionService.convertUnits("kWh", "kWh", 1).value).toBe(1);
   });
 });
 
