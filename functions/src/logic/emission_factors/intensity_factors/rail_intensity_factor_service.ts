@@ -48,18 +48,16 @@ async function getSpecificIntensityFactor(
 
   // In case we have more than one result, check if we can use the default rail intensity emission factor
   // Default factor -> only provides vehicle info (code and weight)
-  if (queryData.length > 1) {
-    if (useDefault) {
-      queryData = filterDefaultFactor(queryData);
-    }
+  if (queryData.length > 1 && useDefault) {
+    queryData = filterDefaultFactor(queryData);
+  }
 
-    if (queryData.length > 1) {
-      throw new CustomError({
-        message:
-          "The provided data was not enough to find the correct emission factor!",
-        status: HttpStatusCode.BadRequest,
-      });
-    }
+  if (queryData.length > 1) {
+    throw new CustomError({
+      message:
+        "The provided data was not enough to find the correct emission factor!",
+      status: HttpStatusCode.BadRequest,
+    });
   }
 
   if (queryData.length === 0) {
@@ -87,29 +85,27 @@ function filterFactorsByCharacteristics(
   const output = { factors, useDefault };
   const characteristics = dataInput.characteristics;
 
-  if (characteristics) {
-    if (characteristics.emptyRunning) {
-      output.factors = output.factors.filter(
-        (d) => d.characteristics?.emptyRunning === characteristics.emptyRunning
-      );
-      output.useDefault = false;
-    }
+  if (characteristics.emptyRunning) {
+    output.factors = output.factors.filter(
+      (d) => d.characteristics?.emptyRunning === characteristics.emptyRunning
+    );
+    output.useDefault = false;
+  }
 
-    if (characteristics.loadFactor) {
-      output.factors = output.factors.filter(
-        (d) => d.characteristics?.loadFactor === characteristics.loadFactor
-      );
-      output.useDefault = false;
-    }
+  if (characteristics.loadFactor) {
+    output.factors = output.factors.filter(
+      (d) => d.characteristics?.loadFactor === characteristics.loadFactor
+    );
+    output.useDefault = false;
+  }
 
-    if (characteristics.loadCharacteristic) {
-      output.factors = output.factors.filter(
-        (d) =>
-          d.characteristics?.loadCharacteristic ===
-          characteristics.loadCharacteristic
-      );
-      output.useDefault = false;
-    }
+  if (characteristics.loadCharacteristic) {
+    output.factors = output.factors.filter(
+      (d) =>
+        d.characteristics?.loadCharacteristic ===
+        characteristics.loadCharacteristic
+    );
+    output.useDefault = false;
   }
 
   return output;
@@ -130,12 +126,9 @@ function filterFactorsByTractionType(
   const output = { factors, useDefault };
   const tractionType = dataInput.tractionType;
 
-  if (tractionType) {
-    output.factors = output.factors.filter(
-      (d) => d.tractionType === tractionType
-    );
-    output.useDefault = false;
-  }
+  output.factors = output.factors.filter(
+    (d) => d.tractionType === tractionType
+  );
 
   return output;
 }
@@ -151,11 +144,10 @@ function filterDefaultFactor(
   // Find factor which only provides info about the vehicle
   return factors.filter(
     (d) =>
-      (d.characteristics === null ||
-        (d.characteristics.emptyRunning === null &&
-          d.characteristics.loadCharacteristic === null &&
-          d.characteristics.loadFactor === null)) &&
-      d.tractionType === null
+      d.characteristics === null ||
+      (d.characteristics.emptyRunning === null &&
+        d.characteristics.loadCharacteristic === null &&
+        d.characteristics.loadFactor === null)
   );
 }
 

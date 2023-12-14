@@ -33,6 +33,13 @@ async function getSpecificIntensityFactor(
     filter
   );
 
+  if (queryData.length === 0) {
+    throw new CustomError({
+      message: "The provided data does not corespond to any emission factor!",
+      status: HttpStatusCode.BadRequest,
+    });
+  }
+
   let validatedQueryData = validateInput(
     queryData,
     z.array(roadIntensityFactorSchema),
@@ -72,7 +79,7 @@ async function getSpecificIntensityFactor(
   // In case we have more than one result, check if we can use the default road intensity emission factor
   // Default factor -> only provides vehicle info (code and weight)
   if (validatedQueryData.length > 1) {
-    if (useDefault && data.vehicle.code) {
+    if (useDefault) {
       validatedQueryData = filterDefaultFactor(validatedQueryData);
     }
 
@@ -85,7 +92,7 @@ async function getSpecificIntensityFactor(
     }
   }
 
-  if (queryData.length === 0) {
+  if (validatedQueryData.length === 0) {
     throw new CustomError({
       message: "The provided data does not corespond to any emission factor!",
       status: HttpStatusCode.BadRequest,
@@ -102,46 +109,59 @@ async function getSpecificIntensityFactor(
  * @param {boolean} useDefault - The indicator to know if we have to look for a default road intensity emission factor
  * @returns {{factors: RoadIntensityFactor[], useDefault: boolean}} - Object containing the filtered road intensity emission factors and the use default emission factor indicator
  */
-function filterFactorsByVehicle(
+export function filterFactorsByVehicle(
   dataInput: RoadTransportDetails,
   factors: RoadIntensityFactor[],
   useDefault: boolean
 ): { factors: RoadIntensityFactor[]; useDefault: boolean } {
   const output = { factors, useDefault };
   const vehicle = dataInput.vehicle;
-  if (vehicle) {
-    // Do the filter if vehicle code and weight is provided
-    if (
-      vehicle.code &&
-      vehicle.weight &&
-      vehicle.weight.unit &&
-      vehicle.weight.value
-    ) {
-      output.factors = output.factors.filter(
-        (d) =>
-          (d.vehicle?.code === vehicle.code ||
-            (vehicle.code && d.vehicle?.code.includes(vehicle.code))) &&
-          d.vehicle?.weight?.unit === vehicle.weight.unit &&
-          ((!d.vehicle.weight.lower &&
-            d.vehicle.weight.upper &&
-            vehicle.weight.value < d.vehicle.weight.upper) || // Lower than upper limit
-            (d.vehicle.weight.lower &&
-              vehicle.weight.value >= d.vehicle.weight.lower &&
-              d.vehicle.weight.upper &&
-              vehicle.weight.value < d.vehicle.weight.upper) || // Greater or equal to lower limit and lower than upper limit
-            (d.vehicle.weight.lower &&
-              !d.vehicle.weight.upper &&
-              vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
-      );
 
-      // Extra filter in case engine type is provided
-      if (vehicle.engineType) {
-        output.factors = output.factors.filter(
-          (d) => d.vehicle?.engineType === vehicle.engineType
-        );
-        output.useDefault = false;
-      }
-    }
+  // Do the filter if vehicle code and weight is provided
+  if (vehicle.code) {
+    output.factors = output.factors.filter(
+      (d) =>
+        (d.vehicle?.code === vehicle.code ||
+          (vehicle.code && d.vehicle?.code.includes(vehicle.code))) &&
+        d.vehicle?.weight?.unit === vehicle.weight.unit &&
+        ((!d.vehicle.weight.lower &&
+          d.vehicle.weight.upper &&
+          vehicle.weight.value < d.vehicle.weight.upper) || // Lower than upper limit
+          (d.vehicle.weight.lower &&
+            vehicle.weight.value >= d.vehicle.weight.lower &&
+            d.vehicle.weight.upper &&
+            vehicle.weight.value < d.vehicle.weight.upper) || // Greater or equal to lower limit and lower than upper limit
+          (d.vehicle.weight.lower &&
+            !d.vehicle.weight.upper &&
+            vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
+    );
+  } else {
+    output.factors = output.factors.filter(
+      (d) =>
+        d.vehicle?.weight?.unit === vehicle.weight.unit &&
+        ((!d.vehicle.weight.lower &&
+          d.vehicle.weight.upper &&
+          vehicle.weight.value < d.vehicle.weight.upper) || // Lower than upper limit
+          (d.vehicle.weight.lower &&
+            vehicle.weight.value >= d.vehicle.weight.lower &&
+            d.vehicle.weight.upper &&
+            vehicle.weight.value < d.vehicle.weight.upper) || // Greater or equal to lower limit and lower than upper limit
+          (d.vehicle.weight.lower &&
+            !d.vehicle.weight.upper &&
+            vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
+    );
+  }
+
+  // Extra filter in case engine type is provided
+  if (vehicle.engineType) {
+    output.factors = output.factors.filter(
+      (d) => d.vehicle?.engineType === vehicle.engineType
+    );
+    output.useDefault = false;
+  } else {
+    output.factors = output.factors.filter(
+      (d) => d.vehicle?.engineType === null || d.vehicle?.engineType === ""
+    );
   }
 
   return output;
@@ -154,7 +174,7 @@ function filterFactorsByVehicle(
  * @param {boolean} useDefault - The indicator to know if we have to look for a default road intensity emission factor
  * @returns {{factors: RoadIntensityFactor[], useDefault: boolean}} - Object containing the filtered road intensity emission factors and the use default emission factor indicator
  */
-function filterFactorsByCharacteristics(
+export function filterFactorsByCharacteristics(
   dataInput: RoadTransportDetails,
   factors: RoadIntensityFactor[],
   useDefault: boolean
@@ -206,7 +226,7 @@ function filterFactorsByCharacteristics(
  * @param {boolean} useDefault - The indicator to know if we have to look for a default road intensity emission factor
  * @returns {{factors: RoadIntensityFactor[], useDefault: boolean}} - Object containing the filtered road intensity emission factors and the use default emission factor indicator
  */
-function filterFactorsByFuel(
+export function filterFactorsByFuel(
   dataInput: RoadTransportDetails,
   factors: RoadIntensityFactor[],
   useDefault: boolean
@@ -227,12 +247,13 @@ function filterFactorsByFuel(
  * @param {RoadIntensityFactor[]} factors - The road intensity emission factors
  * @returns {RoadIntensityFactor[]} - The filtered road intensity emission factors
  */
-function filterDefaultFactor(
+export function filterDefaultFactor(
   factors: RoadIntensityFactor[]
 ): RoadIntensityFactor[] {
   // Find factor which only provides info about the vehicle
   return factors.filter(
     (d) =>
+      (d.vehicle?.engineType === null || d.vehicle?.engineType === "") &&
       (d.characteristics === null ||
         (d.characteristics.combinedLoadFactorEmptyRunning === null &&
           d.characteristics.emptyRunning === null &&
@@ -244,4 +265,8 @@ function filterDefaultFactor(
 
 export const RoadIntensityFactorService = {
   getSpecificIntensityFactor,
+  filterFactorsByVehicle,
+  filterFactorsByCharacteristics,
+  filterFactorsByFuel,
+  filterDefaultFactor,
 };

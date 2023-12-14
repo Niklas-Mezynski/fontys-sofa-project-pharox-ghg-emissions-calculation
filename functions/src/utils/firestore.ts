@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { initializeApp } from "firebase-admin/app";
 import {
   DocumentData,
