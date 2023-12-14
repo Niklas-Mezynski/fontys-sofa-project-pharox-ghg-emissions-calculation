@@ -254,8 +254,8 @@ describe("Emission factors - Rail intensity emission factor algorithm", () => {
           ...commonFactor(1),
           characteristics: {
             loadFactor: 1,
-            emptyRunning: 2,
-            loadCharacteristic: "Car",
+            emptyRunning: null,
+            loadCharacteristic: null,
           },
           tractionType: "DIESEL",
         },
@@ -265,8 +265,36 @@ describe("Emission factors - Rail intensity emission factor algorithm", () => {
         refrigerated: false,
         characteristics: {
           loadFactor: 1,
-          emptyRunning: 2,
-          loadCharacteristic: "Car",
+          emptyRunning: null,
+          loadCharacteristic: null,
+        },
+        tractionType: "DIESEL",
+      } as RailTransportDetails,
+    },
+    {
+      factors: [
+        {
+          ...commonFactor(0),
+          characteristics: null,
+          tractionType: "DIESEL",
+        },
+        {
+          ...commonFactor(1),
+          characteristics: {
+            loadFactor: null,
+            emptyRunning: null,
+            loadCharacteristic: "car",
+          },
+          tractionType: "DIESEL",
+        },
+      ] as ObjectWithId<RailIntensityFactor>[],
+      input: {
+        modeOfTransport: "RAIL",
+        refrigerated: false,
+        characteristics: {
+          loadFactor: null,
+          emptyRunning: null,
+          loadCharacteristic: "car",
         },
         tractionType: "DIESEL",
       } as RailTransportDetails,
