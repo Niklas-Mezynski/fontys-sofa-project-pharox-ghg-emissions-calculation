@@ -382,10 +382,8 @@ components:
           enum: *a2
           default: EU
       required:
-        - source
         - fuel
         - factors
-        - region
     RoadIntensityEmissionFactor:
       type: object
       properties:
@@ -517,9 +515,6 @@ components:
         - fuel
         - fuelConsumption
         - factor
-        - region
-        - source
-        - refrigerated
     RailIntensityEmissionFactor:
       type: object
       properties:
@@ -598,9 +593,6 @@ components:
         - tractionType
         - fuelConsumption
         - factor
-        - region
-        - source
-        - refrigerated
     EmissionCalculationReport:
       type: object
       properties:
@@ -3195,10 +3187,8 @@ paths:
                   enum: *a2
                   default: EU
               required:
-                - source
                 - fuel
                 - factors
-                - region
       responses:
         "200":
           description: The added fuel emission factors
@@ -3254,10 +3244,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /createFuelEmissionFactors:
     post:
       summary: Create multiple fuel emission factors
@@ -3321,10 +3309,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
       responses:
         "200":
           description: List of added fuel emission factors
@@ -3382,10 +3368,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorByFuelCode:
     get:
       summary: Fetch fuel emission factors using fuel code
@@ -3458,10 +3442,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorById:
     get:
       summary: Fetch a fuel emission factor by ID
@@ -3530,10 +3512,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /getFuelEmissionFactorByRegion:
     get:
       summary: Fetch fuel emission factors by region
@@ -3545,7 +3525,7 @@ paths:
             type: string
             enum: *a2
             default: EU
-          required: true
+          required: false
           name: region
           in: path
       responses:
@@ -3605,10 +3585,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactorBySource:
     get:
       summary: Fetch fuel emission factors by data source
@@ -3667,10 +3645,8 @@ paths:
                 enum: *a2
                 default: EU
             required:
-              - source
               - fuel
               - factors
-              - region
           required: true
           name: source
           in: path
@@ -3731,10 +3707,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /getFuelEmissionFactors:
     get:
       summary: Fetch all fuel emission factors
@@ -3798,10 +3772,8 @@ paths:
                       enum: *a2
                       default: EU
                   required:
-                    - source
                     - fuel
                     - factors
-                    - region
   /updateFuelEmissionFactor:
     patch:
       summary: Update a fuel emission factor
@@ -3870,10 +3842,8 @@ paths:
                     enum: *a2
                     default: EU
                 required:
-                  - source
                   - fuel
                   - factors
-                  - region
   /deleteFuelEmissionFactor:
     delete:
       summary: Delete a fuel emission factor
@@ -4027,9 +3997,6 @@ paths:
                 - fuel
                 - fuelConsumption
                 - factor
-                - region
-                - source
-                - refrigerated
       responses:
         "200":
           description: The added road intensity emission factor
@@ -4161,9 +4128,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /createRoadEmissionIntensityFactors:
     post:
       summary: Create multiple road intensity emission factors
@@ -4304,9 +4268,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
       responses:
         "200":
           description: List of added road intensity emission factors
@@ -4440,9 +4401,6 @@ paths:
                     - fuel
                     - fuelConsumption
                     - factor
-                    - region
-                    - source
-                    - refrigerated
   /getRoadEmissionIntensityFactorById:
     get:
       summary: Fetch a road intensity emission factor by ID
@@ -4588,9 +4546,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /getRoadEmissionIntensityFactors:
     get:
       summary: Fetch all road intensity emission factors
@@ -4730,9 +4685,6 @@ paths:
                     - fuel
                     - fuelConsumption
                     - factor
-                    - region
-                    - source
-                    - refrigerated
   /updateRoadEmissionIntensityFactor:
     patch:
       summary: Update a road intensity emission factor
@@ -4878,9 +4830,6 @@ paths:
                   - fuel
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /deleteRoadEmissionIntensityFactor:
     delete:
       summary: Delete a road intensity emission factor
@@ -4987,9 +4936,6 @@ paths:
                 - tractionType
                 - fuelConsumption
                 - factor
-                - region
-                - source
-                - refrigerated
       responses:
         "200":
           description: The added rail intensity emission factor
@@ -5073,9 +5019,6 @@ paths:
                   - tractionType
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /createRailEmissionIntensityFactors:
     post:
       summary: Create multiple rail intensity emission factors
@@ -5168,9 +5111,6 @@ paths:
                   - tractionType
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
       responses:
         "200":
           description: List of added rail intensity emission factors
@@ -5256,9 +5196,6 @@ paths:
                     - tractionType
                     - fuelConsumption
                     - factor
-                    - region
-                    - source
-                    - refrigerated
   /getRailEmissionIntensityFactorById:
     get:
       summary: Fetch a rail intensity emission factor by ID
@@ -5356,9 +5293,6 @@ paths:
                   - tractionType
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /getRailEmissionIntensityFactors:
     get:
       summary: Fetch all rail intensity emission factors
@@ -5450,9 +5384,6 @@ paths:
                     - tractionType
                     - fuelConsumption
                     - factor
-                    - region
-                    - source
-                    - refrigerated
   /updateRailEmissionIntensityFactor:
     patch:
       summary: Update a rail intensity emission factor
@@ -5550,9 +5481,6 @@ paths:
                   - tractionType
                   - fuelConsumption
                   - factor
-                  - region
-                  - source
-                  - refrigerated
   /deleteRailEmissionIntensityFactor:
     delete:
       summary: Delete a rail intensity emission factor
