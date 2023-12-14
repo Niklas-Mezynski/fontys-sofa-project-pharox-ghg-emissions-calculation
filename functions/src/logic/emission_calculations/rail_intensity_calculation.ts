@@ -4,14 +4,12 @@ import {
   RailTransportDetails,
   TransportActivityReport,
 } from "../../models/emission_calculations/emission_calculation_model";
-import { roadIntensityFactorSchema } from "../../models/emission_factors/road_intensity_factors";
 import {
   ACTIVITY_BASE_UNIT,
   CO2E_WEIGHT_UNIT,
   baseEmissionReportFactory,
 } from "../../utils/calculation_report";
 import { CustomError } from "../../utils/errors";
-import { validateInput } from "../../utils/functions";
 import { RailIntensityFactorService } from "../emission_factors/intensity_factors/rail_intensity_factor_service";
 import { UnitConversionService } from "../units/unit_conversion_service";
 import { UnitService } from "../units/unit_service";
@@ -31,14 +29,8 @@ export async function handleCalculationForRailTransport(
     transportPart.region
   );
 
-  const validatedRoadFactor = validateInput(
-    factor,
-    roadIntensityFactorSchema,
-    "Received unexpected Road Intensity Emission Factor format from the database."
-  );
-
   // Get the factor with the same unit type as the provided unit type
-  const factorToUse = validatedRoadFactor.factor;
+  const factorToUse = factor.factor;
 
   if (!factorToUse) {
     throw new CustomError({
@@ -99,7 +91,7 @@ export async function handleCalculationForRailTransport(
 
   return {
     input: transportPart,
-    emissionFactor: validatedRoadFactor,
+    emissionFactor: factor,
     mode: transportDetails.modeOfTransport,
     emissions: baseEmissionReportFactory({
       co2e:

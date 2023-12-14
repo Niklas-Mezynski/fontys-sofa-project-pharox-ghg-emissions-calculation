@@ -28,7 +28,7 @@ export type ConsumedFuelTransportDetails = z.infer<
 
 const roadTransportDetails = z.object({
   modeOfTransport: z.literal("ROAD"),
-  refrigerated: z.boolean().default(false),
+  refrigerated: z.boolean().optional().default(false),
   vehicle: z.object({
     code: z.string().nullable().optional(),
     weight: commonModels.valueWithUnitModel(weightUnits),
@@ -51,7 +51,7 @@ const railTransportDetails = z.object({
     .nullable()
     .optional()
     .transform(transformUndefinedToNull),
-  refrigerated: z.boolean().default(false),
+  refrigerated: z.boolean().optional().default(false),
   characteristics: z.object({
     loadFactor: z
       .number()
@@ -129,6 +129,27 @@ export const freightEmissionCalculationInputSchema = z
               combinedLoadFactorEmptyRunning: null,
             },
             fuelCode: null,
+          },
+        },
+        {
+          distance: {
+            value: 286.3,
+            unit: "km",
+          },
+          weight: {
+            value: 10,
+            unit: "tonnes",
+          },
+          region: "EU",
+          transportDetails: {
+            modeOfTransport: "RAIL",
+            tractionType: null,
+            characteristics: {
+              loadFactor: null,
+              emptyRunning: null,
+              loadCharacteristic: null,
+            },
+            refrigerated: false,
           },
         },
         {
