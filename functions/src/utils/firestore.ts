@@ -23,10 +23,14 @@ export const db = getFirestore();
  * @param {E} data - The data to be added
  * @returns {Promise<E | undefined>} - The the created document object with the ID field
  */
-export async function create<E extends UnknownObject>( collectionName: string, data: E ): Promise<E | undefined> {
+export async function create<E extends UnknownObject>(
+  collectionName: string,
+  data: E
+): Promise<E | undefined> {
   const dataToSave = stripIdFromData(data);
   const docRef = await db.collection(collectionName).add(dataToSave);
-  const documentSnapshot = await getDocumentSnaphsotFromDocumentReference(docRef);
+  const documentSnapshot =
+    await getDocumentSnaphsotFromDocumentReference(docRef);
 
   return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
 }
@@ -38,12 +42,17 @@ export async function create<E extends UnknownObject>( collectionName: string, d
  * @param {string} id - The id of the document to be created
  * @returns {Promise<UnknownObject | undefined>} - The the created document object with the ID field
  */
-export async function createWithCustomId<E extends UnknownObject>( collectionName: string, data: E, id: string = uuid()): Promise<E | undefined> {
+export async function createWithCustomId<E extends UnknownObject>(
+  collectionName: string,
+  data: E,
+  id: string = uuid()
+): Promise<E | undefined> {
   const dataToSave = stripIdFromData(data);
   const docRef = db.collection(collectionName).doc(id);
   await docRef.set(dataToSave);
 
-  const documentSnapshot = await getDocumentSnaphsotFromDocumentReference(docRef);
+  const documentSnapshot =
+    await getDocumentSnaphsotFromDocumentReference(docRef);
   return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
 }
 
@@ -129,7 +138,9 @@ export async function createManyWithCustomId<E extends UnknownObject>(
  * @param {string} collectionName - The name of the collection to get data from
  * @returns {E[]} - The documents in the collection with their IDs
  */
-export async function getAll<E extends UnknownObject>(collectionName: string): Promise<E[]> {
+export async function getAll<E extends UnknownObject>(
+  collectionName: string
+): Promise<E[]> {
   const result = await db.collection(collectionName).get();
   return getDataWithIdFromQuerySnapshot<E>(result);
 }
@@ -182,7 +193,8 @@ export async function updateById<E extends UnknownObject>(
   try {
     await docRef.update(dataToUpdate);
 
-    const documentSnapshot = await getDocumentSnaphsotFromDocumentReference(docRef);
+    const documentSnapshot =
+      await getDocumentSnaphsotFromDocumentReference(docRef);
     return getDataWithIdFromDocumentSnapshot<E>(documentSnapshot);
   } catch (error) {
     throw new CustomError({
@@ -294,7 +306,9 @@ function getDataWithIdFromQuerySnapshot<E extends UnknownObject>(
  * @param {QuerySnapshot<DocumentData>} querySnapshot - The query snapshot
  * @returns {boolean} - Whether the query snapshot is empty
  */
-function isQuerySnapshotEmpty(querySnapshot: QuerySnapshot<DocumentData>): boolean {
+function isQuerySnapshotEmpty(
+  querySnapshot: QuerySnapshot<DocumentData>
+): boolean {
   return querySnapshot.empty;
 }
 

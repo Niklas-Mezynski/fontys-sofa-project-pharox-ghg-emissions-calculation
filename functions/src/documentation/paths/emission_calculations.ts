@@ -32,19 +32,19 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
             example: {
               emissions: {
                 co2e: {
-                  value: 2044423.42,
+                  value: 2044472.0910000002,
                   unit: "kg",
                 },
                 intensity: {
-                  value: 0.6805512763584911,
+                  value: 0.6975512763584911,
                   unit: "kg/tkm",
                 },
                 activity: {
-                  value: 112805521642,
+                  value: 112805524505,
                   unit: "tkm",
                 },
                 distance: {
-                  value: 3695273.3,
+                  value: 3695559.5999999996,
                   unit: "km",
                 },
                 breakdown: {
@@ -80,17 +80,17 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                   },
                   unknownScope: {
                     co2e: {
-                      value: 2044423.42,
+                      value: 2044472.0910000002,
                       unit: "kg",
                     },
                     intensity: {
-                      value: 0.6805512763584911,
+                      value: 0.6975512763584911,
                       unit: "kg/tkm",
                     },
                   },
                   wtt: {
                     co2e: {
-                      value: 401097.81999999995,
+                      value: 401097.82,
                       unit: "kg",
                     },
                     intensity: {
@@ -143,7 +143,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                     },
                   },
                   emissionFactor: {
-                    id: "2d625a9b-d500-46f7-ab02-9e8dca26aa3a",
+                    id: "8505f3d0-d962-4afd-8868-496413931510",
                     vehicle: {
                       code: "VAN_LT_3.5_T_GVW",
                       name: "Van <- 3.5 t GVW",
@@ -212,6 +212,89 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                 {
                   input: {
                     distance: {
+                      value: 286.3,
+                      unit: "km",
+                    },
+                    weight: {
+                      value: 10,
+                      unit: "tonnes",
+                    },
+                    region: "EU",
+                    transportDetails: {
+                      modeOfTransport: "RAIL",
+                      tractionType: null,
+                      refrigerated: false,
+                      characteristics: {
+                        loadFactor: null,
+                        emptyRunning: null,
+                        loadCharacteristic: null,
+                      },
+                    },
+                  },
+                  emissionFactor: {
+                    id: "07abc96a-a4fe-4963-aec7-0d677da6d576",
+                    characteristics: {
+                      loadFactor: null,
+                      emptyRunning: null,
+                      loadCharacteristic: null,
+                    },
+                    tractionType: null,
+                    fuelConsumption: null,
+                    factor: {
+                      unit: "KG_CO2E_PER_TKM",
+                      wtt: null,
+                      ttw: null,
+                      wtw: 0.017,
+                    },
+                    region: "EU",
+                    source: "GLEC",
+                    refrigerated: false,
+                  },
+                  mode: "RAIL",
+                  emissions: {
+                    co2e: {
+                      value: 48.67100000000001,
+                      unit: "kg",
+                    },
+                    intensity: {
+                      value: 0.017,
+                      unit: "kg/tkm",
+                    },
+                    activity: {
+                      value: 2863,
+                      unit: "tkm",
+                    },
+                    distance: {
+                      value: 286.3,
+                      unit: "km",
+                    },
+                    breakdown: {
+                      wtt: {
+                        co2e: {
+                          value: 0,
+                          unit: "kg",
+                        },
+                        intensity: {
+                          value: 0,
+                          unit: "kg/tkm",
+                        },
+                      },
+                      ttw: {
+                        co2e: {
+                          value: 0,
+                          unit: "kg",
+                        },
+                        intensity: {
+                          value: 0,
+                          unit: "kg/tkm",
+                        },
+                      },
+                    },
+                  },
+                },
+                {
+                  input: {
+                    distance: {
                       value: 845364,
                       unit: "km",
                     },
@@ -229,7 +312,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                     },
                   },
                   emissionFactor: {
-                    id: "5d404877-24b5-4722-aa03-a2b565f952a0",
+                    id: "1b6ae714-020c-4814-bb5c-a0aa2174228f",
                     source: "GLEC",
                     fuel: {
                       code: "GASOLINE_E5",
@@ -321,7 +404,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                     },
                   },
                   emissionFactor: {
-                    id: "53aaf72a-1e35-4079-b175-733f9ed74762",
+                    id: "a10b1e71-854e-481b-9b02-e9b7bbc568eb",
                     source: "GLEC",
                     fuel: {
                       code: "DIESEL_B5",
@@ -413,7 +496,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                     },
                   },
                   emissionFactor: {
-                    id: "53aaf72a-1e35-4079-b175-733f9ed74762",
+                    id: "a10b1e71-854e-481b-9b02-e9b7bbc568eb",
                     source: "GLEC",
                     fuel: {
                       code: "DIESEL_B5",
@@ -505,7 +588,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                     },
                   },
                   emissionFactor: {
-                    id: "53aaf72a-1e35-4079-b175-733f9ed74762",
+                    id: "a10b1e71-854e-481b-9b02-e9b7bbc568eb",
                     source: "GLEC",
                     fuel: {
                       code: "DIESEL_B5",
@@ -597,7 +680,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                     },
                   },
                   emissionFactor: {
-                    id: "53aaf72a-1e35-4079-b175-733f9ed74762",
+                    id: "a10b1e71-854e-481b-9b02-e9b7bbc568eb",
                     source: "GLEC",
                     fuel: {
                       code: "DIESEL_B5",
@@ -670,7 +753,7 @@ export const emissionCalculationOpenApiPaths: RouteConfig[] = [
                   },
                 },
               ],
-              date: "2023-12-01T09:36:33.596Z",
+              date: "2023-12-14T09:08:40.086Z",
             },
           },
         },

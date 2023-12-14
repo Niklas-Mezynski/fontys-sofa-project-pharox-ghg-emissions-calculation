@@ -12,7 +12,10 @@ import { CRUDEntityService } from "../../../logic/common/CRUD_entity_service";
  */
 export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactor = await CRUDEntityService.createEntity(request.body, "ROAD_FACTOR");
+    const createdFactor = await CRUDEntityService.createEntity(
+      request.body,
+      "ROAD_FACTOR"
+    );
     response.status(200).send(createdFactor);
   }
 );
@@ -22,7 +25,10 @@ export const createRoadEmissionIntensityFactor = onErrorHandledRequest(
  */
 export const createRoadEmissionIntensityFactors = onErrorHandledRequest(
   async (request, response) => {
-    const createdFactors = await CRUDEntityService.createEntities(request.body, "ROAD_FACTOR");
+    const createdFactors = await CRUDEntityService.createEntities(
+      request.body,
+      "ROAD_FACTOR"
+    );
     response.status(200).send(createdFactors);
   }
 );
@@ -57,10 +63,7 @@ export const getRoadEmissionIntensityFactorById = onErrorHandledRequest(
       });
     }
 
-    const factor = await CRUDEntityService.getEntityById(
-      id,
-      "ROAD_FACTOR"
-    );
+    const factor = await CRUDEntityService.getEntityById(id, "ROAD_FACTOR");
     response.json(factor);
   }
 );
@@ -114,10 +117,7 @@ export const deleteRoadEmissionIntensityFactor = onErrorHandledRequest(
       });
     }
 
-    await CRUDEntityService.deleteEntity(
-      id,
-      "ROAD_FACTOR"
-    );
+    await CRUDEntityService.deleteEntity(id, "ROAD_FACTOR");
     response.status(200).send("Road Emission Intensity Factor deleted.");
   }
 );

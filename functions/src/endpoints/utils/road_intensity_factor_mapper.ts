@@ -55,9 +55,11 @@ function mapToSpecificRegion(
     let multiplier = 1;
 
     if (conversionFactor) {
-      if (factor.vehicle.weight.upper <= 3.5) { // choose conversion multiplier for vehicles below 3.5 tonnes
+      if (factor.vehicle.weight.upper <= 3.5) {
+        // choose conversion multiplier for vehicles below 3.5 tonnes
         multiplier = conversionFactor.small;
-      } else if ( // Conversion for vehicles above 3.5 tonnes for vehicles above 3.5 tonnes
+      } else if (
+        // Conversion for vehicles above 3.5 tonnes for vehicles above 3.5 tonnes
         factor.vehicle.weight.lower >= 3.5 ||
         factor.vehicle.weight.upper >= 3.5
       ) {
@@ -105,9 +107,11 @@ export const mapRoadIntensityFactorsToRefrigerated = onErrorHandledRequest(
     const mappedFactors = body.map((factor) => {
       let multiplier = 1;
       if (["EU", "SA", "AS", "AF"].includes(factor.region)) {
-        if (factor.vehicle?.weight && factor.vehicle.weight.upper! <= 3.5) { // choose conversion multiplier for vehicles below 3.5 tonnes
+        if (factor.vehicle?.weight && factor.vehicle.weight.upper! <= 3.5) {
+          // choose conversion multiplier for vehicles below 3.5 tonnes
           multiplier = 1.15;
-        } else if ( // Conversion for vehicles above 3.5 tonnes for vehicles above 3.5 tonnes
+        } else if (
+          // Conversion for vehicles above 3.5 tonnes for vehicles above 3.5 tonnes
           (factor.vehicle?.weight && factor.vehicle.weight.lower! >= 3.5) ||
           (factor.vehicle?.weight && factor.vehicle.weight.upper! >= 3.5)
         ) {

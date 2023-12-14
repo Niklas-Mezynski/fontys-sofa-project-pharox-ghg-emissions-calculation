@@ -4,7 +4,7 @@
  * @param {string} splitter - The string to split the unit by
  * @returns {string[]} - The splitted unit
  */
-function splitComposedUnits(unit: string, splitter = "_CO2E_PER_"): string[]{
+function splitComposedUnits(unit: string, splitter = "_CO2E_PER_"): string[] {
   return unit.split(splitter);
 }
 
@@ -14,7 +14,7 @@ function splitComposedUnits(unit: string, splitter = "_CO2E_PER_"): string[]{
  * @param {string} join - The string to join the splitted the units
  * @returns {string[]} - The splitted unit
  */
-function createComposedUnits(units: string[], join = "_CO2E_PER_"): string{
+function createComposedUnits(units: string[], join = "_CO2E_PER_"): string {
   return units.join(join);
 }
 

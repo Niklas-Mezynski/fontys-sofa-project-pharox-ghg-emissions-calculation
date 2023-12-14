@@ -10,68 +10,50 @@ import { z } from "zod";
 /**
  * Cloud function to add a Fuel
  */
-export const createFuel = onErrorHandledRequest(
-  async (request, response) => {
-    const fuel = await CRUDEntityService.createEntity(
-      request.body,
-      "FUEL"
-    );
-    response.status(200).json(fuel);
-  }
-);
+export const createFuel = onErrorHandledRequest(async (request, response) => {
+  const fuel = await CRUDEntityService.createEntity(request.body, "FUEL");
+  response.status(200).json(fuel);
+});
 
 /**
  * Cloud function to add multiple Fuels
  */
-export const createFuels = onErrorHandledRequest(
-  async (request, response) => {
-    const fuels =
-      await CRUDEntityService.createEntities(
-        request.body,
-        "FUEL"
-      );
+export const createFuels = onErrorHandledRequest(async (request, response) => {
+  const fuels = await CRUDEntityService.createEntities(request.body, "FUEL");
 
-    response.status(200).json(fuels);
-  }
-);
+  response.status(200).json(fuels);
+});
 
 /** READ METHODS */
 
 /**
  * Cloud function to fetch all the Fuels
  */
-export const getFuels = onErrorHandledRequest(
-  async (request, response) => {
-    const fuels = await CRUDEntityService.getEntities("FUEL");
-    response.json(fuels);
-  }
-);
+export const getFuels = onErrorHandledRequest(async (request, response) => {
+  const fuels = await CRUDEntityService.getEntities("FUEL");
+  response.json(fuels);
+});
 
 /**
  * Cloud function to fetch a Fuel by ID
  */
-export const getFuelById = onErrorHandledRequest(
-  async (request, response) => {
-    const { id } = validateInput(
-      request.query,
-      z.object({ id: z.string() }),
-      "Fuel ID not Found"
-    );
+export const getFuelById = onErrorHandledRequest(async (request, response) => {
+  const { id } = validateInput(
+    request.query,
+    z.object({ id: z.string() }),
+    "Fuel ID not Found"
+  );
 
-    if (!id) {
-      throw new CustomError({
-        status: HttpStatusCode.NotFound,
-        message: "Fuel ID not Found",
-      });
-    }
-
-    const fuel = await CRUDEntityService.getEntityById(
-      id,
-      "FUEL"
-    );
-    response.json(fuel);
+  if (!id) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: "Fuel ID not Found",
+    });
   }
-);
+
+  const fuel = await CRUDEntityService.getEntityById(id, "FUEL");
+  response.json(fuel);
+});
 
 // /**
 //  * Cloud function to fetch all the Fuels with a certain Fuel code
@@ -102,54 +84,43 @@ export const getFuelById = onErrorHandledRequest(
 /**
  * Cloud function to update a Fuel by ID
  */
-export const updateFuel = onErrorHandledRequest(
-  async (request, response) => {
-    const { id } = validateInput(
-      request.query,
-      z.object({ id: z.string() }),
-      "Fuel ID not Found"
-    );
+export const updateFuel = onErrorHandledRequest(async (request, response) => {
+  const { id } = validateInput(
+    request.query,
+    z.object({ id: z.string() }),
+    "Fuel ID not Found"
+  );
 
-    if (!id) {
-      throw new CustomError({
-        status: HttpStatusCode.NotFound,
-        message: "Fuel ID not Found",
-      });
-    }
-
-    const fuel = await CRUDEntityService.updateEntity(
-      request.body,
-      id,
-      "FUEL"
-    );
-    response.json(fuel);
+  if (!id) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: "Fuel ID not Found",
+    });
   }
-);
+
+  const fuel = await CRUDEntityService.updateEntity(request.body, id, "FUEL");
+  response.json(fuel);
+});
 
 /** DELETE METHODS */
 
 /**
  * Cloud function to delete a Fuel by ID
  */
-export const deleteFuel = onErrorHandledRequest(
-  async (request, response) => {
-    const { id } = validateInput(
-      request.query,
-      z.object({ id: z.string() }),
-      "Fuel ID not Found"
-    );
+export const deleteFuel = onErrorHandledRequest(async (request, response) => {
+  const { id } = validateInput(
+    request.query,
+    z.object({ id: z.string() }),
+    "Fuel ID not Found"
+  );
 
-    if (!id) {
-      throw new CustomError({
-        status: HttpStatusCode.NotFound,
-        message: "Fuel ID not Found",
-      });
-    }
-
-    await CRUDEntityService.deleteEntity(
-      id,
-      "FUEL"
-    );
-    response.status(200).send("Fuel deleted.");
+  if (!id) {
+    throw new CustomError({
+      status: HttpStatusCode.NotFound,
+      message: "Fuel ID not Found",
+    });
   }
-);
+
+  await CRUDEntityService.deleteEntity(id, "FUEL");
+  response.status(200).send("Fuel deleted.");
+});

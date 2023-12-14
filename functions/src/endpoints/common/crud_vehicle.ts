@@ -25,11 +25,10 @@ export const createVehicle = onErrorHandledRequest(
  */
 export const createVehicles = onErrorHandledRequest(
   async (request, response) => {
-    const Vehicles =
-      await CRUDEntityService.createEntities(
-        request.body,
-        "VEHICLE"
-      );
+    const Vehicles = await CRUDEntityService.createEntities(
+      request.body,
+      "VEHICLE"
+    );
 
     response.status(200).json(Vehicles);
   }
@@ -40,12 +39,10 @@ export const createVehicles = onErrorHandledRequest(
 /**
  * Cloud function to fetch all the Vehicles
  */
-export const getVehicles = onErrorHandledRequest(
-  async (request, response) => {
-    const vehicles = await CRUDEntityService.getEntities("VEHICLE");
-    response.json(vehicles);
-  }
-);
+export const getVehicles = onErrorHandledRequest(async (request, response) => {
+  const vehicles = await CRUDEntityService.getEntities("VEHICLE");
+  response.json(vehicles);
+});
 
 /**
  * Cloud function to fetch a Vehicle by ID
@@ -65,10 +62,7 @@ export const getVehicleById = onErrorHandledRequest(
       });
     }
 
-    const vehicle = await CRUDEntityService.getEntityById(
-      id,
-      "VEHICLE"
-    );
+    const vehicle = await CRUDEntityService.getEntityById(id, "VEHICLE");
     response.json(vehicle);
   }
 );
@@ -146,10 +140,7 @@ export const deleteVehicle = onErrorHandledRequest(
       });
     }
 
-    await CRUDEntityService.deleteEntity(
-      id,
-      "VEHICLE"
-    );
+    await CRUDEntityService.deleteEntity(id, "VEHICLE");
     response.status(200).send("Vehicle deleted.");
   }
 );
