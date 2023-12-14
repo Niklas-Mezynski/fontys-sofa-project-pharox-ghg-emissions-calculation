@@ -14,6 +14,7 @@ import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
 import { CRUDEntityService } from "../common/CRUD_entity_service";
 import { handleCalculationWithGivenFuelConsumption } from "./fuel_based_calculation";
 import { handleCalculationForRoadTransport } from "./road_intensity_calculation";
+import { handleCalculationForRailTransport } from "./rail_intensity_calculation";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
@@ -100,22 +101,27 @@ async function performBatchEmissionCalculation(
 async function calculateTransportActivity(
   transportPart: FreightEmissionCalculationInput["transportParts"][number]
 ): Promise<TransportActivityReport> {
-  if ("modeOfTransport" in transportPart.transportDetails) {
-    switch (transportPart.transportDetails.modeOfTransport) {
+  const transportDetails = transportPart.transportDetails;
+  if ("modeOfTransport" in transportDetails) {
+    const modeOfTransport = transportDetails.modeOfTransport;
+    switch (modeOfTransport) {
       case "ROAD":
         return handleCalculationForRoadTransport(
           transportPart,
-          transportPart.transportDetails
+          transportDetails
+        );
+      case "RAIL":
+        return handleCalculationForRailTransport(
+          transportPart,
+          transportDetails
         );
       default:
-        throw exhaustiveMatchingGuard(
-          transportPart.transportDetails.modeOfTransport
-        );
+        throw exhaustiveMatchingGuard(modeOfTransport);
     }
   } else {
     return handleCalculationWithGivenFuelConsumption(
       transportPart,
-      transportPart.transportDetails
+      transportDetails
     );
   }
 }

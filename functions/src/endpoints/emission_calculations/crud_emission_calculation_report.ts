@@ -39,10 +39,7 @@ export const getEmissionCalculationReportById = onErrorHandledRequest(
       });
     }
 
-    const factor = await CRUDEntityService.getEntityById(
-      id,
-      "REPORT"
-    );
+    const factor = await CRUDEntityService.getEntityById(id, "REPORT");
     response.json(factor);
   }
 );
@@ -96,10 +93,7 @@ export const deleteEmissionCalculationReport = onErrorHandledRequest(
       });
     }
 
-    await CRUDEntityService.deleteEntity(
-      id,
-      "REPORT"
-    );
+    await CRUDEntityService.deleteEntity(id, "REPORT");
     response.status(200).send("Emission Calculation Report deleted.");
   }
 );

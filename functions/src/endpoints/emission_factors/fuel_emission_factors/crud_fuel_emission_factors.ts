@@ -30,11 +30,10 @@ export const createFuelEmissionFactor = onErrorHandledRequest(
  */
 export const createFuelEmissionFactors = onErrorHandledRequest(
   async (request, response) => {
-    const emissionFactors =
-      await CRUDEntityService.createEntities(
-        request.body,
-        "FUEL_FACTOR"
-      );
+    const emissionFactors = await CRUDEntityService.createEntities(
+      request.body,
+      "FUEL_FACTOR"
+    );
 
     response.status(200).json(emissionFactors);
   }
@@ -70,10 +69,7 @@ export const getFuelEmissionFactorById = onErrorHandledRequest(
       });
     }
 
-    const factor = await CRUDEntityService.getEntityById(
-      id,
-      "FUEL_FACTOR"
-    );
+    const factor = await CRUDEntityService.getEntityById(id, "FUEL_FACTOR");
     response.json(factor);
   }
 );
@@ -97,7 +93,10 @@ export const getFuelEmissionFactorByFuelCode = onErrorHandledRequest(
     }
 
     const filter = Filter.where("fuel.code", "==", code);
-    const factors = await CRUDEntityService.getEntitiesByFilter(filter, "FUEL_FACTOR");
+    const factors = await CRUDEntityService.getEntitiesByFilter(
+      filter,
+      "FUEL_FACTOR"
+    );
 
     response.json(factors);
   }
@@ -122,7 +121,10 @@ export const getFuelEmissionFactorByRegion = onErrorHandledRequest(
     }
 
     const filter = Filter.where("region", "==", region);
-    const factors = await CRUDEntityService.getEntitiesByFilter(filter, "FUEL_FACTOR");
+    const factors = await CRUDEntityService.getEntitiesByFilter(
+      filter,
+      "FUEL_FACTOR"
+    );
 
     response.json(factors);
   }
@@ -147,7 +149,10 @@ export const getFuelEmissionFactorBySource = onErrorHandledRequest(
     }
 
     const filter = Filter.where("source", "==", source);
-    const factors = await CRUDEntityService.getEntitiesByFilter(filter, "FUEL_FACTOR");
+    const factors = await CRUDEntityService.getEntitiesByFilter(
+      filter,
+      "FUEL_FACTOR"
+    );
 
     response.json(factors);
   }
@@ -202,10 +207,7 @@ export const deleteFuelEmissionFactor = onErrorHandledRequest(
       });
     }
 
-    await CRUDEntityService.deleteEntity(
-      id,
-      "FUEL_FACTOR"
-    );
+    await CRUDEntityService.deleteEntity(id, "FUEL_FACTOR");
     response.status(200).send("Fuel Emission Factor deleted.");
   }
 );

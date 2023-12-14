@@ -18,22 +18,60 @@ describe("Emission factors - CRUD operations", () => {
   });
 
   test.each([
-    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {
+      type: "FUEL_FACTOR",
+      entityName: "Fuel Emission Factor",
+      collectionName: "fuel_emission_factors",
+      validationSchema: fuelEmissionFactorSchema,
+      testData: fuelEmissionFactors,
+    },
+    {
+      type: "ROAD_FACTOR",
+      entityName: "Road Intensity Emission Factor",
+      collectionName: "intensity_factors_road",
+      validationSchema: roadIntensityFactorSchema,
+      testData: roadIntensityFactors,
+    },
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
     // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
     // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
-  ])("Create an entity of type $entityName", async ({type, entityName, collectionName, validationSchema, testData}) => {
-    jest.spyOn(FirestoreUtil, "createWithCustomId").mockResolvedValue(testData[0]);
-    const result = await CRUDEntityService.createEntity(testData[0], type as EntityType);
+  ])(
+    "Create an entity of type $entityName",
+    async ({
+      type,
+      entityName,
+      collectionName,
+      validationSchema,
+      testData,
+    }) => {
+      jest
+        .spyOn(FirestoreUtil, "createWithCustomId")
+        .mockResolvedValue(testData[0]);
+      const result = await CRUDEntityService.createEntity(
+        testData[0],
+        type as EntityType
+      );
 
-    expect(result).toStrictEqual(testData[0]);
-    // expect(result).toBeInstanceOf(type as EntityType);
-  });
+      expect(result).toStrictEqual(testData[0]);
+      // expect(result).toBeInstanceOf(type as EntityType);
+    }
+  );
 
   test.each([
-    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {
+      type: "FUEL_FACTOR",
+      entityName: "Fuel Emission Factor",
+      collectionName: "fuel_emission_factors",
+      validationSchema: fuelEmissionFactorSchema,
+      testData: fuelEmissionFactors,
+    },
+    {
+      type: "ROAD_FACTOR",
+      entityName: "Road Intensity Emission Factor",
+      collectionName: "intensity_factors_road",
+      validationSchema: roadIntensityFactorSchema,
+      testData: roadIntensityFactors,
+    },
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
     // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
     // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
@@ -63,8 +101,20 @@ describe("Emission factors - CRUD operations", () => {
   });
 
   test.each([
-    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {
+      type: "FUEL_FACTOR",
+      entityName: "Fuel Emission Factor",
+      collectionName: "fuel_emission_factors",
+      validationSchema: fuelEmissionFactorSchema,
+      testData: fuelEmissionFactors,
+    },
+    {
+      type: "ROAD_FACTOR",
+      entityName: "Road Intensity Emission Factor",
+      collectionName: "intensity_factors_road",
+      validationSchema: roadIntensityFactorSchema,
+      testData: roadIntensityFactors,
+    },
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
     // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
     // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
@@ -93,8 +143,20 @@ describe("Emission factors - CRUD operations", () => {
   });
 
   test.each([
-    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {
+      type: "FUEL_FACTOR",
+      entityName: "Fuel Emission Factor",
+      collectionName: "fuel_emission_factors",
+      validationSchema: fuelEmissionFactorSchema,
+      testData: fuelEmissionFactors,
+    },
+    {
+      type: "ROAD_FACTOR",
+      entityName: "Road Intensity Emission Factor",
+      collectionName: "intensity_factors_road",
+      validationSchema: roadIntensityFactorSchema,
+      testData: roadIntensityFactors,
+    },
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
     // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
     // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
@@ -135,8 +197,20 @@ describe("Emission factors - CRUD operations", () => {
   });
 
   test.each([
-    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {
+      type: "FUEL_FACTOR",
+      entityName: "Fuel Emission Factor",
+      collectionName: "fuel_emission_factors",
+      validationSchema: fuelEmissionFactorSchema,
+      testData: fuelEmissionFactors,
+    },
+    {
+      type: "ROAD_FACTOR",
+      entityName: "Road Intensity Emission Factor",
+      collectionName: "intensity_factors_road",
+      validationSchema: roadIntensityFactorSchema,
+      testData: roadIntensityFactors,
+    },
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
     // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
     // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
@@ -196,8 +270,20 @@ describe("Emission factors - CRUD operations", () => {
   });
 
   test.each([
-    {type: "FUEL_FACTOR", entityName: "Fuel Emission Factor", collectionName: "fuel_emission_factors", validationSchema: fuelEmissionFactorSchema, testData: fuelEmissionFactors},
-    {type: "ROAD_FACTOR", entityName: "Road Intensity Emission Factor", collectionName: "intensity_factors_road", validationSchema: roadIntensityFactorSchema, testData: roadIntensityFactors},
+    {
+      type: "FUEL_FACTOR",
+      entityName: "Fuel Emission Factor",
+      collectionName: "fuel_emission_factors",
+      validationSchema: fuelEmissionFactorSchema,
+      testData: fuelEmissionFactors,
+    },
+    {
+      type: "ROAD_FACTOR",
+      entityName: "Road Intensity Emission Factor",
+      collectionName: "intensity_factors_road",
+      validationSchema: roadIntensityFactorSchema,
+      testData: roadIntensityFactors,
+    },
     // {type: "REPORT", entityName: "Emission Calculation Report", collectionName: "emission_calculation_reports", validationSchema: calculationReportSchema, testData: calculationReports},
     // {type: "FUEL", entityName: "Fuel", collectionName: "fuels", validationSchema: fuelSchema, testData: fuels},
     // {type: "VEHICLE", entityName: "Vehicle", collectionName: "vehicles", validationSchema: vehicleSchema, testData: vehicles},
@@ -250,5 +336,4 @@ describe("Emission factors - CRUD operations", () => {
 
     await expect(CRUDEntityService.deleteEntity(testData[0].id, type as EntityType)).rejects.toThrow(CustomError);
   });
-
 });

@@ -1,6 +1,12 @@
 import { CalculationReport } from "../../src/models/emission_calculations/emission_calculation_model";
-import { Fuel, FuelEmissionFactor } from "../../src/models/emission_factors/fuel_emission_factors";
-import { RoadIntensityFactor, Vehicle } from "../../src/models/emission_factors/road_intensity_factors";
+import {
+  Fuel,
+  FuelEmissionFactor,
+} from "../../src/models/emission_factors/fuel_emission_factors";
+import {
+  RoadIntensityFactor,
+  Vehicle,
+} from "../../src/models/emission_factors/road_intensity_factors";
 
 /* FUEL EMISSION FACTORS */
 
@@ -122,131 +128,130 @@ export const fuelEmissionFactors: (FuelEmissionFactor & { id: string })[] = [
   },
 ];
 
-
 /* ROAD INTENSITY FACTORS */
 
 export const roadIntensityFactors: (RoadIntensityFactor & { id: string })[] = [
   {
-    "id": "7ceae7d4-1320-4a96-877b-2010916a9923",
-    "vehicle": {
-      "code": "VAN_LT_3.5_T",
-      "name": "Van <- 3.5 t",
-      "weight": {
-        "lower": null,
-        "upper": 3.5,
-        "unit": "t",
+    id: "7ceae7d4-1320-4a96-877b-2010916a9923",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 3.5,
+        unit: "t",
       },
-      "engineType": null,
+      engineType: null,
     },
-    "characteristics": {
-      "loadFactor": null,
-      "emptyRunning": null,
-      "loadCharacteristic": null,
-      "combinedLoadFactorEmptyRunning": 0.36,
+    characteristics: {
+      loadFactor: null,
+      emptyRunning: null,
+      loadCharacteristic: null,
+      combinedLoadFactorEmptyRunning: 0.36,
     },
-    "fuel": {
-      "name": "Diesel, 5% biodiesel blend",
-      "code": "DIESEL_B5",
+    fuel: {
+      name: "Diesel, 5% biodiesel blend",
+      code: "DIESEL_B5",
     },
-    "fuelConsumption": [
+    fuelConsumption: [
       {
-        "value": 0.18,
-        "unit": "KG_PER_TKM",
+        value: 0.18,
+        unit: "KG_PER_TKM",
       },
       {
-        "value": 0.215,
-        "unit": "L_PER_TKM",
+        value: 0.215,
+        unit: "L_PER_TKM",
       },
     ],
-    "factor": {
-      "unit": "G_CO2E_PER_TKM",
-      "wtt": 140,
-      "ttw": 550,
-      "wtw": 680,
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 140,
+      ttw: 550,
+      wtw: 680,
     },
-    "region": "EU",
-    "source": "GLEC",
-    "refrigerated": false,
+    region: "EU",
+    source: "GLEC",
+    refrigerated: false,
   },
   {
-    "id": "da52fa5c-211b-403a-835b-23eeaaa57f7c",
-    "vehicle": {
-      "code": "VAN_LT_3.5_T",
-      "name": "Van <- 3.5 t",
-      "weight": {
-        "lower": null,
-        "upper": 3.5,
-        "unit": "t",
+    id: "da52fa5c-211b-403a-835b-23eeaaa57f7c",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 3.5,
+        unit: "t",
       },
-      "engineType": null,
+      engineType: null,
     },
-    "characteristics": {
-      "loadFactor": null,
-      "emptyRunning": null,
-      "loadCharacteristic": null,
-      "combinedLoadFactorEmptyRunning": 0.24,
+    characteristics: {
+      loadFactor: null,
+      emptyRunning: null,
+      loadCharacteristic: null,
+      combinedLoadFactorEmptyRunning: 0.24,
     },
-    "fuel": {
-      "name": "Petrol",
-      "code": "PETROL",
+    fuel: {
+      name: "Petrol",
+      code: "PETROL",
     },
-    "fuelConsumption": [
+    fuelConsumption: [
       {
-        "value": 0.263,
-        "unit": "KG_PER_TKM",
+        value: 0.263,
+        unit: "KG_PER_TKM",
       },
       {
-        "value": 0.353,
-        "unit": "L_PER_TKM",
+        value: 0.353,
+        unit: "L_PER_TKM",
       },
     ],
-    "factor": {
-      "unit": "G_CO2E_PER_TKM",
-      "wtt": 160,
-      "ttw": 850,
-      "wtw": 1000,
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 160,
+      ttw: 850,
+      wtw: 1000,
     },
-    "region": "AS",
-    "source": "GLEC",
-    "refrigerated": false,
+    region: "AS",
+    source: "GLEC",
+    refrigerated: false,
   },
   {
-    "id": "cc273c6f-b61c-4a6d-92a1-7e9d5bd54943",
-    "vehicle": {
-      "code": "VAN_LT_3.5_T",
-      "name": "Van <- 3.5 t",
-      "weight": {
-        "lower": null,
-        "upper": 3.5,
-        "unit": "t",
+    id: "cc273c6f-b61c-4a6d-92a1-7e9d5bd54943",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 3.5,
+        unit: "t",
       },
-      "engineType": null,
+      engineType: null,
     },
-    "characteristics": {
-      "loadFactor": null,
-      "emptyRunning": null,
-      "loadCharacteristic": null,
-      "combinedLoadFactorEmptyRunning": 0.36,
+    characteristics: {
+      loadFactor: null,
+      emptyRunning: null,
+      loadCharacteristic: null,
+      combinedLoadFactorEmptyRunning: 0.36,
     },
-    "fuel": {
-      "name": "CNG",
-      "code": "CNG",
+    fuel: {
+      name: "CNG",
+      code: "CNG",
     },
-    "fuelConsumption": [
+    fuelConsumption: [
       {
-        "value": 0.2,
-        "unit": "KG_PER_TKM",
+        value: 0.2,
+        unit: "KG_PER_TKM",
       },
     ],
-    "factor": {
-      "unit": "G_CO2E_PER_TKM",
-      "wtt": 80,
-      "ttw": 540,
-      "wtw": 620,
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 80,
+      ttw: 540,
+      wtw: 620,
     },
-    "region": "NA",
-    "source": "GLEC",
-    "refrigerated": false,
+    region: "NA",
+    source: "GLEC",
+    refrigerated: false,
   },
 ];
 

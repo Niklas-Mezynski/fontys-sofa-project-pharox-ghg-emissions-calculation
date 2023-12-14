@@ -16,6 +16,9 @@ function valueWithUnitModel<U extends string, T extends Readonly<[U, ...U[]]>>(
 const glecScopeModel = z.enum(["SCOPE1", "SCOPE2", "SCOPE3"]);
 export type GLECScope = z.infer<typeof glecScopeModel>;
 
+export const transformUndefinedToNull = <T>(v: T) =>
+  v === undefined ? null : v;
+
 export const commonModels = {
   valueWithUnitModel,
   glecScopeModel,
