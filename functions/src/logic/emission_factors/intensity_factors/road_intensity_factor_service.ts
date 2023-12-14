@@ -33,6 +33,13 @@ async function getSpecificIntensityFactor(
     filter
   );
 
+  if (queryData.length === 0) {
+    throw new CustomError({
+      message: "The provided data does not corespond to any emission factor!",
+      status: HttpStatusCode.BadRequest,
+    });
+  }
+
   let validatedQueryData = validateInput(
     queryData,
     z.array(roadIntensityFactorSchema),
@@ -72,7 +79,7 @@ async function getSpecificIntensityFactor(
   // In case we have more than one result, check if we can use the default road intensity emission factor
   // Default factor -> only provides vehicle info (code and weight)
   if (validatedQueryData.length > 1) {
-    if (useDefault && data.vehicle.code) {
+    if (useDefault) {
       validatedQueryData = filterDefaultFactor(validatedQueryData);
     }
 
@@ -85,7 +92,7 @@ async function getSpecificIntensityFactor(
     }
   }
 
-  if (queryData.length === 0) {
+  if (validatedQueryData.length === 0) {
     throw new CustomError({
       message: "The provided data does not corespond to any emission factor!",
       status: HttpStatusCode.BadRequest,
@@ -111,12 +118,7 @@ export function filterFactorsByVehicle(
   const vehicle = dataInput.vehicle;
 
   // Do the filter if vehicle code and weight is provided
-  if (
-    vehicle.code &&
-    vehicle.weight &&
-    vehicle.weight.unit &&
-    vehicle.weight.value
-  ) {
+  if (vehicle.code) {
     output.factors = output.factors.filter(
       (d) =>
         (d.vehicle?.code === vehicle.code ||
@@ -133,14 +135,33 @@ export function filterFactorsByVehicle(
             !d.vehicle.weight.upper &&
             vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
     );
+  } else {
+    output.factors = output.factors.filter(
+      (d) =>
+        d.vehicle?.weight?.unit === vehicle.weight.unit &&
+        ((!d.vehicle.weight.lower &&
+          d.vehicle.weight.upper &&
+          vehicle.weight.value < d.vehicle.weight.upper) || // Lower than upper limit
+          (d.vehicle.weight.lower &&
+            vehicle.weight.value >= d.vehicle.weight.lower &&
+            d.vehicle.weight.upper &&
+            vehicle.weight.value < d.vehicle.weight.upper) || // Greater or equal to lower limit and lower than upper limit
+          (d.vehicle.weight.lower &&
+            !d.vehicle.weight.upper &&
+            vehicle.weight.value >= d.vehicle.weight.lower)) // Greater or equal to lower limit
+    );
+  }
 
-    // Extra filter in case engine type is provided
-    if (vehicle.engineType) {
-      output.factors = output.factors.filter(
-        (d) => d.vehicle?.engineType === vehicle.engineType
-      );
-      output.useDefault = false;
-    }
+  // Extra filter in case engine type is provided
+  if (vehicle.engineType) {
+    output.factors = output.factors.filter(
+      (d) => d.vehicle?.engineType === vehicle.engineType
+    );
+    output.useDefault = false;
+  } else {
+    output.factors = output.factors.filter(
+      (d) => d.vehicle?.engineType === null || d.vehicle?.engineType === ""
+    );
   }
 
   return output;
@@ -232,6 +253,7 @@ export function filterDefaultFactor(
   // Find factor which only provides info about the vehicle
   return factors.filter(
     (d) =>
+      (d.vehicle?.engineType === null || d.vehicle?.engineType === "") &&
       (d.characteristics === null ||
         (d.characteristics.combinedLoadFactorEmptyRunning === null &&
           d.characteristics.emptyRunning === null &&
