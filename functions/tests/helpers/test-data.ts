@@ -141,13 +141,13 @@ export const roadIntensityFactors: (RoadIntensityFactor & { id: string })[] = [
         upper: 3.5,
         unit: "t",
       },
-      engineType: null,
+      engineType: "TURBO_DIESEL",
     },
     characteristics: {
       loadFactor: null,
       emptyRunning: null,
       loadCharacteristic: null,
-      combinedLoadFactorEmptyRunning: 0.36,
+      combinedLoadFactorEmptyRunning: 1,
     },
     fuel: {
       name: "Diesel, 5% biodiesel blend",
@@ -179,8 +179,8 @@ export const roadIntensityFactors: (RoadIntensityFactor & { id: string })[] = [
       code: "VAN_LT_3.5_T",
       name: "Van <- 3.5 t",
       weight: {
-        lower: null,
-        upper: 3.5,
+        lower: 3.5,
+        upper: 7,
         unit: "t",
       },
       engineType: null,
@@ -221,8 +221,8 @@ export const roadIntensityFactors: (RoadIntensityFactor & { id: string })[] = [
       code: "VAN_LT_3.5_T",
       name: "Van <- 3.5 t",
       weight: {
-        lower: null,
-        upper: 3.5,
+        lower: 10,
+        upper: null,
         unit: "t",
       },
       engineType: null,
@@ -250,6 +250,171 @@ export const roadIntensityFactors: (RoadIntensityFactor & { id: string })[] = [
       wtw: 620,
     },
     region: "NA",
+    source: "GLEC",
+    refrigerated: false,
+  },
+  {
+    id: "7ceae7d4-1320-4a96-877b-2010916a9924",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 3.5,
+        unit: "kg",
+      },
+      engineType: null,
+    },
+    characteristics: {
+      loadFactor: 1,
+      emptyRunning: null,
+      loadCharacteristic: null,
+      combinedLoadFactorEmptyRunning: null,
+    },
+    fuel: {
+      name: "Diesel, 10% biodiesel blend",
+      code: "DIESEL_B10",
+    },
+    fuelConsumption: [
+      {
+        value: 0.18,
+        unit: "KG_PER_TKM",
+      },
+      {
+        value: 0.215,
+        unit: "L_PER_TKM",
+      },
+    ],
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 140,
+      ttw: 550,
+      wtw: 680,
+    },
+    region: "EU",
+    source: "GLEC",
+    refrigerated: false,
+  },
+  {
+    id: "7ceae7d4-1320-4a96-877b-2010916a9925",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 1.5,
+        unit: "t",
+      },
+      engineType: null,
+    },
+    characteristics: {
+      loadFactor: null,
+      emptyRunning: 1,
+      loadCharacteristic: null,
+      combinedLoadFactorEmptyRunning: null,
+    },
+    fuel: {
+      name: "Diesel, 10% biodiesel blend",
+      code: "DIESEL_B10",
+    },
+    fuelConsumption: [
+      {
+        value: 0.18,
+        unit: "KG_PER_TKM",
+      },
+      {
+        value: 0.215,
+        unit: "L_PER_TKM",
+      },
+    ],
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 140,
+      ttw: 550,
+      wtw: 680,
+    },
+    region: "EU",
+    source: "GLEC",
+    refrigerated: false,
+  },
+  {
+    id: "7ceae7d4-1320-4a96-877b-2010916a9926",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 0.5,
+        unit: "t",
+      },
+      engineType: null,
+    },
+    characteristics: {
+      loadFactor: null,
+      emptyRunning: null,
+      loadCharacteristic: "AVERAGE_MIXED",
+      combinedLoadFactorEmptyRunning: null,
+    },
+    fuel: {
+      name: "Diesel, 10% biodiesel blend",
+      code: "DIESEL_B10",
+    },
+    fuelConsumption: [
+      {
+        value: 0.18,
+        unit: "KG_PER_TKM",
+      },
+      {
+        value: 0.215,
+        unit: "L_PER_TKM",
+      },
+    ],
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 140,
+      ttw: 550,
+      wtw: 680,
+    },
+    region: "EU",
+    source: "GLEC",
+    refrigerated: false,
+  },
+  {
+    id: "7ceae7d4-1320-4a96-877b-2010916a9927",
+    vehicle: {
+      code: "VAN_LT_3.5_T",
+      name: "Van <- 3.5 t",
+      weight: {
+        lower: null,
+        upper: 0.5,
+        unit: "kg",
+      },
+      engineType: null,
+    },
+    characteristics: {
+      loadFactor: null,
+      emptyRunning: null,
+      loadCharacteristic: null,
+      combinedLoadFactorEmptyRunning: null,
+    },
+    fuel: null,
+    fuelConsumption: [
+      {
+        value: 0.18,
+        unit: "KG_PER_TKM",
+      },
+      {
+        value: 0.215,
+        unit: "L_PER_TKM",
+      },
+    ],
+    factor: {
+      unit: "G_CO2E_PER_TKM",
+      wtt: 140,
+      ttw: 550,
+      wtw: 680,
+    },
+    region: "EU",
     source: "GLEC",
     refrigerated: false,
   },
