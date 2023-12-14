@@ -30,7 +30,7 @@ describe("testing_distance_unit_classification_service", () => {
 });
 
 describe("testing_unit_classification_service_Wrong_input", () => {
-  test('The unit provided should return "UNKNOWN"', () => {
+  test("The unit provided should return UNKNOWN", () => {
     expect(classifyUnitType("a")).toBe("UNKNOWN");
     expect(classifyUnitType("trtrt")).toBe("UNKNOWN");
     expect(classifyUnitType("1111")).toBe("UNKNOWN");
