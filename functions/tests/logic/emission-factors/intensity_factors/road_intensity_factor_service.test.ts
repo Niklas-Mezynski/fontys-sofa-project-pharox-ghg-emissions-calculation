@@ -353,8 +353,6 @@ describe("Emission factors - Road intensity emission factor helper methods", () 
   });
 
   test("Filter default factor", async () => {
-    // expect(RoadIntensityFactorService.filterDefaultFactor(roadIntensityFactors)).toStrictEqual([roadIntensityFactors.find((factor) => factor.id === "7ceae7d4-1320-4a96-877b-2010916a9925")]);
-    console.log(RoadIntensityFactorService.filterDefaultFactor(roadIntensityFactors).map((factor) => factor.id));
     expect(RoadIntensityFactorService.filterDefaultFactor(roadIntensityFactors)).toStrictEqual(roadIntensityFactors.filter((factor) => ["7ceae7d4-1320-4a96-877b-2010916a9925", "7ceae7d4-1320-4a96-877b-2010916a9926"].includes(factor.id)));
   });
 
