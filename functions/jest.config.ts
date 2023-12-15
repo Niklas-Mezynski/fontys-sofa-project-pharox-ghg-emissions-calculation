@@ -15,6 +15,7 @@ const config: Config = {
       statements: 80,
     },
   },
+  coverageReporters: ["json-summary", "lcov"]
 };
 
 export default config;
