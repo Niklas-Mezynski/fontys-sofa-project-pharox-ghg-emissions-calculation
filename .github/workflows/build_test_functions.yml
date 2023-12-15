@@ -35,6 +35,7 @@ jobs:
               with:
                 branches: main,master,development
                 coverage-summary-path: ./functions/coverage/coverage-summary.json
+                output-folder: ./documentation/badges
 
             # - name: Jest coverage report
             #   uses: ArtiomTr/jest-coverage-report-action@v2.2.5

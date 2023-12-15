@@ -1,10 +1,10 @@
 == SoFa Assignment - Pharox GHG Emissions Calculations
 
-// image::./badges/coverage-branches.svg[Coverage branches]
-image::./badges/coverage-functions.svg[Coverage functions]
-image::./badges/coverage-lines.svg[Coverage lines]
-image::./badges/coverage-statements.svg[Coverage statements]
-image::./badges/coverage-jest%20coverage.svg[Jest coverage]
+// image::./documentation/badges/coverage-branches.svg[Coverage branches]
+image::./documentation/badges/coverage-functions.svg[Coverage functions]
+image::./documentation/badges/coverage-lines.svg[Coverage lines]
+image::./documentation/badges/coverage-statements.svg[Coverage statements]
+image::./documentation/badges/coverage-jest%20coverage.svg[Jest coverage]
 
 The assignment for this project is to build a modular application within Google Firebase that helps Pharox’s clients to:
 
