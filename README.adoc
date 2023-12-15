@@ -1,4 +1,10 @@
 == SoFa Assignment - Pharox GHG Emissions Calculations
+![Branches](./badges/coverage-branches.svg)
+![Functions](./badges/coverage-functions.svg)
+![Lines](./badges/coverage-lines.svg)
+![Statements](./badges/coverage-statements.svg)
+![Jest coverage](./badges/coverage-jest%20coverage.svg)
+
 The assignment for this project is to build a modular application within Google Firebase that helps Pharox’s clients to:
 
     -	Calculate the GHG emissions of road-, rail-, air- and ocean transport in the supply chain upfront.
