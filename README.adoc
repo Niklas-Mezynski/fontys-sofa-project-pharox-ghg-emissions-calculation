@@ -1,5 +1,6 @@
 == SoFa Assignment - Pharox GHG Emissions Calculations
-image::./badges/coverage-branches.svg[Coverage branches]
+
+// image::./badges/coverage-branches.svg[Coverage branches]
 image::./badges/coverage-functions.svg[Coverage functions]
 image::./badges/coverage-lines.svg[Coverage lines]
 image::./badges/coverage-statements.svg[Coverage statements]
