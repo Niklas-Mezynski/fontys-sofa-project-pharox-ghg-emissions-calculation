@@ -42,8 +42,9 @@ Some links to folders or files inside the repository are provided in order to fa
 
 === Implementation phase
 
-    - link:./functions[Implementation]
-    - link:https://fontysvenlo.github.io/sofa-project-pharox-ghg-emissions-calculation/[API documentation]
+    * link:./functions[Implementation]
+    * link:https://fontysvenlo.github.io/sofa-project-pharox-ghg-emissions-calculation/[API documentation]
+      ** To test the API, choose `+Online Production Server+` as server and add the access token to the Authorization field `+J7PEZAk7pR3oS3xeckiKR8mtpkesjYfxYwWnxTBeGM+`
 
 === Useful links
 
