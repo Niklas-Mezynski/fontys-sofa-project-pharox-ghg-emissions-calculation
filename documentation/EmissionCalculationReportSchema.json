@@ -1,0 +1,670 @@
+{
+    "title": "Emission Calculation Report Schema",
+    "type": "object",
+    "properties": {
+      "emissions": {
+        "type": "object",
+        "properties": {
+          "co2e": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "unit"
+            ]
+          },
+          "intensity": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "unit"
+            ]
+          },
+          "activity": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "unit"
+            ]
+          },
+          "distance": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "unit"
+            ]
+          },
+          "breakdown": {
+            "type": "object",
+            "properties": {
+              "scope1": {
+                "type": "object",
+                "properties": {
+                  "co2e": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  },
+                  "intensity": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  }
+                },
+                "required": [
+                  "co2e",
+                  "intensity"
+                ]
+              },
+              "scope2": {
+                "type": "object",
+                "properties": {
+                  "co2e": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  },
+                  "intensity": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  }
+                },
+                "required": [
+                  "co2e",
+                  "intensity"
+                ]
+              },
+              "scope3": {
+                "type": "object",
+                "properties": {
+                  "co2e": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  },
+                  "intensity": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  }
+                },
+                "required": [
+                  "co2e",
+                  "intensity"
+                ]
+              },
+              "unknownScope": {
+                "type": "object",
+                "properties": {
+                  "co2e": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  },
+                  "intensity": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  }
+                },
+                "required": [
+                  "co2e",
+                  "intensity"
+                ]
+              },
+              "wtt": {
+                "type": "object",
+                "properties": {
+                  "co2e": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  },
+                  "intensity": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  }
+                },
+                "required": [
+                  "co2e",
+                  "intensity"
+                ]
+              },
+              "ttw": {
+                "type": "object",
+                "properties": {
+                  "co2e": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  },
+                  "intensity": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "number"
+                      },
+                      "unit": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "unit"
+                    ]
+                  }
+                },
+                "required": [
+                  "co2e",
+                  "intensity"
+                ]
+              }
+            },
+            "required": [
+              "scope1",
+              "scope2",
+              "scope3",
+              "unknownScope",
+              "wtt",
+              "ttw"
+            ]
+          }
+        },
+        "required": [
+          "co2e",
+          "intensity",
+          "activity",
+          "distance",
+          "breakdown"
+        ]
+      },
+      "transportActivities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "object",
+              "properties": {
+                "distance": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "unit"
+                  ]
+                },
+                "weight": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "unit"
+                  ]
+                },
+                "region": {
+                  "type": "string"
+                },
+                "transportDetails": {
+                  "type": "object",
+                  "properties": {
+                    "consumedFuel": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "unit": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "unit"
+                      ]
+                    },
+                    "fuelCode": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "consumedFuel",
+                    "fuelCode"
+                  ]
+                }
+              },
+              "required": [
+                "distance",
+                "weight",
+                "region",
+                "transportDetails"
+              ]
+            },
+            "emissionFactor": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                },
+                "fuel": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "name"
+                  ]
+                },
+                "factors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "unit": {
+                        "type": "object",
+                        "properties": {
+                          "producedUnit": {
+                            "type": "string"
+                          },
+                          "producedProduct": {
+                            "type": "string"
+                          },
+                          "perUnit": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "producedUnit",
+                          "producedProduct",
+                          "perUnit"
+                        ]
+                      },
+                      "wtt": {
+                        "type": "number"
+                      },
+                      "ttw": {
+                        "type": "number"
+                      },
+                      "wtw": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "unit",
+                      "wtt",
+                      "ttw",
+                      "wtw"
+                    ]
+                  }
+                },
+                "region": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "source",
+                "fuel",
+                "factors",
+                "region"
+              ]
+            },
+            "mode": {
+              "type": "string"
+            },
+            "emissions": {
+              "type": "object",
+              "properties": {
+                "co2e": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "unit"
+                  ]
+                },
+                "intensity": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "unit"
+                  ]
+                },
+                "activity": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "unit"
+                  ]
+                },
+                "distance": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "unit"
+                  ]
+                },
+                "breakdown": {
+                  "type": "object",
+                  "properties": {
+                    "wtt": {
+                      "type": "object",
+                      "properties": {
+                        "co2e": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number"
+                            },
+                            "unit": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "unit"
+                          ]
+                        },
+                        "intensity": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number"
+                            },
+                            "unit": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "unit"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "co2e",
+                        "intensity"
+                      ]
+                    },
+                    "ttw": {
+                      "type": "object",
+                      "properties": {
+                        "co2e": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number"
+                            },
+                            "unit": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "unit"
+                          ]
+                        },
+                        "intensity": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "number"
+                            },
+                            "unit": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "value",
+                            "unit"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "co2e",
+                        "intensity"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "wtt",
+                    "ttw"
+                  ]
+                }
+              },
+              "required": [
+                "co2e",
+                "intensity",
+                "activity",
+                "distance",
+                "breakdown"
+              ]
+            }
+          },
+          "required": [
+            "input",
+            "emissionFactor",
+            "mode",
+            "emissions"
+          ]
+        }
+      },
+      "date": {
+        "type": "string"
+      },
+      "metadata": {
+        "type": "object",
+        "properties": {
+          "anything": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "anything"
+        ]
+      }
+    },
+    "required": [
+      "emissions",
+      "transportActivities",
+      "date",
+      "metadata"
+    ]
+  }
