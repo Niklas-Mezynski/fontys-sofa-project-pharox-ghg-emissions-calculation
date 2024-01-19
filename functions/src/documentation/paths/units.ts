@@ -1,10 +1,11 @@
 import { RouteConfig } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 import {
+  allUnits,
   unitClassificationInputSchema,
   unitConverterInputSchema,
-} from "../../endpoints";
-import { allUnits, unitTypes } from "../../models/units/units";
+  unitTypes,
+} from "../../models/units/units";
 
 export const unitsOpenApiPaths: RouteConfig[] = [
   {

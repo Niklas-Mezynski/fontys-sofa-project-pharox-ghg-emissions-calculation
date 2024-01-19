@@ -1,5 +1,10 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
+import {
+  baseFactorSchema,
+  emissionFactorSourceSchema,
+  regionSchema,
+} from "./common_emission_factor_models";
 
 extendZodWithOpenApi(z);
 
@@ -9,6 +14,7 @@ extendZodWithOpenApi(z);
  * Fuel model
  */
 export const fuelSchema = z.object({
+  id: z.string().uuid().optional(),
   code: z.string(),
   name: z.string().optional(),
 });
@@ -19,57 +25,22 @@ export const glecFuelFactorUnits = [
   "KG_CO2E_PER_KG",
   "KG_CO2E_PER_L",
 ] as const;
+
+// TODO: Refactpr this to also use the baseFactorSchema format
 /**
  * Define the different fuel factors to be able to calculate emissions
  */
-export const fuelFactorSchema = z.object({
-  unit: z.enum(glecFuelFactorUnits),
-  factor: z.object({
-    wtt: z.number().nullable(),
-    ttw: z.number().nullable(),
-    wtw: z.number().nullable(),
-  }),
-});
+export const fuelFactorSchema = baseFactorSchema(glecFuelFactorUnits);
 export type FuelFactor = z.infer<typeof fuelFactorSchema>;
 
-export const emissionFactorRegions = [
-  "EU",
-  "NA",
-  "AF",
-  "AS",
-  "SA",
-  "OC",
-  "AN",
-  "INTERNATIONAL",
-] as const;
-export const regionSchema = z.enum(emissionFactorRegions).default("EU");
-
-export const fuelEmissionFactorSourceSchema = z
-  .enum(["CUSTOM", "GLEC"])
-  .default("GLEC");
 /**
  * The fuel emission factor model containin the info to perform emission calculations
  */
 export const fuelEmissionFactorSchema = z.object({
   id: z.string().uuid().optional(),
-  source: fuelEmissionFactorSourceSchema,
+  source: emissionFactorSourceSchema,
   fuel: fuelSchema,
   factors: z.array(fuelFactorSchema).nonempty(),
   region: regionSchema, // EU, NA, AF, AS, SA, OC, AN - continent codes
 });
 export type FuelEmissionFactor = z.infer<typeof fuelEmissionFactorSchema>;
-
-/** INTENSITY EMISSION FACTOR MODELS */
-
-// TODO: define the model
-export const intensityEmissionFactorSchema = z.object({
-  id: z.string().uuid(),
-  source: z.enum(["CUSTOM", "GLEC", "ISO"]).default("GLEC"),
-  freightType: z
-    .enum(["AIR", "RAIL", "ROAD", "OCEAN", "INLAND_WATERWAY"])
-    .default("ROAD"),
-  vehicleType: z.string(),
-});
-export type IntensityEmissionFactor = z.infer<
-  typeof intensityEmissionFactorSchema
->;

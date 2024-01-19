@@ -26,6 +26,7 @@ module.exports = {
     ".eslintrc.js",
     "jest.config.ts",
     "docs/**/*",
+    "data/**/*",
   ],
   plugins: ["@typescript-eslint", "import"],
   rules: {
@@ -142,6 +143,6 @@ module.exports = {
     "quote-props": 0,
     "require-jsdoc": 1,
     "valid-jsdoc": 0,
-    indent: ["error", 2, { SwitchCase: 1 }],
+    indent: "off",
   },
 };

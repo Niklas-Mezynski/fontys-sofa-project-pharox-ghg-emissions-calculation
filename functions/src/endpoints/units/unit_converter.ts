@@ -3,14 +3,8 @@ import { onErrorHandledRequest } from "../../utils/request_handler";
 import { HttpStatusCode } from "axios";
 import { UnitConversionService } from "../../logic/units/unit_conversion_service";
 import { validateInput } from "../../utils/functions";
-import { z } from "zod";
 import { CustomError } from "../../utils/errors";
-
-export const unitConverterInputSchema = z.object({
-  originalUnitType: z.string(), // e.g. m
-  targetUnitType: z.string(), // e.g. km
-  value: z.number(), // e.g. 1000
-});
+import { unitConverterInputSchema } from "../../models/units/units";
 
 /**
     This endpoint converts a given unit to the desired one

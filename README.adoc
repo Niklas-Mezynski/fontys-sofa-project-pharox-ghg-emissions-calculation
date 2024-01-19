@@ -1,4 +1,11 @@
 == SoFa Assignment - Pharox GHG Emissions Calculations
+
+// image::./documentation/badges/coverage-branches.svg[Coverage branches]
+image::./documentation/badges/coverage-functions.svg[Coverage functions]
+image::./documentation/badges/coverage-lines.svg[Coverage lines]
+image::./documentation/badges/coverage-statements.svg[Coverage statements]
+image::./documentation/badges/coverage-jest%20coverage.svg[Jest coverage]
+
 The assignment for this project is to build a modular application within Google Firebase that helps Pharox’s clients to:
 
     -	Calculate the GHG emissions of road-, rail-, air- and ocean transport in the supply chain upfront.
@@ -35,13 +42,13 @@ Some links to folders or files inside the repository are provided in order to fa
 
 === Implementation phase
 
-    - link:./functions[Implementation]
-    - link:https://fontysvenlo.github.io/sofa-project-pharox-ghg-emissions-calculation/[API documentation]
+    * link:./functions[Implementation]
+    * link:https://fontysvenlo.github.io/sofa-project-pharox-ghg-emissions-calculation/[API documentation]
+      ** To test the API, choose `+Online Production Server+` as server and add the access token to the Authorization field `+J7PEZAk7pR3oS3xeckiKR8mtpkesjYfxYwWnxTBeGM+`
 
 === Useful links
 
     - link:https://niklas-mezynski-fontys.atlassian.net/jira/software/projects/SOFA/boards/1[Jira Project Board]
-    - link:https://trello.com/b/VWPj6okT/pharox-ghg-emissions-calculations[Trello Project Board]
 
 === Firebase instructions
 First time setup
@@ -58,3 +65,18 @@ npm run serve
 ----
 This command will build the TypeScript project and start the firebase emulator. The emulator will be available at `http://127.0.0.1:4000/`.
 The cloud functions will be available at `http://127.0.0.1:5001/pharox-sofa-project/us-central1/<function_name>`
+
+=== Run OpenAPI view locally
+First time setup
+[source,bash]
+----
+npm install -g http-server
+----
+
+To run the OpenAPI view locally, run the following command in the `root` directory of the project:
+[source,bash]
+----
+http-server --cors
+----
+
+The OpenAPI view will be available at `http://localhost:8080/`

@@ -1,25 +1,29 @@
 import { HttpStatusCode } from "axios";
 import {
   CalculationReport,
-  ConsumedFuelTransportDetails,
   FreightEmissionCalculationInput,
+  TransportActivityReport,
   freightEmissionCalculationInputSchema,
 } from "../../models/emission_calculations/emission_calculation_model";
+import {
+  addReportPartToOverallReport,
+  calculationReportFactory,
+} from "../../utils/calculation_report";
 import { CustomError } from "../../utils/errors";
 import { exhaustiveMatchingGuard, validateInput } from "../../utils/functions";
-import { EmissionFactorService } from "../emission_factors/emission_factor_service";
-import { FuelEmissionFactorService } from "../emission_factors/fuel_emission_factor_service";
-import { classifyUnitType } from "../units/unit_classification_service";
-import { UnitConversionService } from "../units/unit_conversion_service";
+import { CRUDEntityService } from "../common/CRUD_entity_service";
+import { handleCalculationWithGivenFuelConsumption } from "./fuel_based_calculation";
+import { handleCalculationForRoadTransport } from "./road_intensity_calculation";
+import { handleCalculationForRailTransport } from "./rail_intensity_calculation";
 
 /**
  * Calculates the emission based on the provided fuel and emission factor.
- * @param inputData the input object.
- * @return The response object.
+ * @param {FreightEmissionCalculationInput | unknown} inputData - the input object.
+ * @return {Promise<CalculationReport>} The result of the emission calculation.
  */
 async function performEmissionCalculation(
   inputData: FreightEmissionCalculationInput | unknown
-) {
+): Promise<CalculationReport> {
   // Validate calculation input
   const calculationInput = validateInput(
     inputData,
@@ -27,7 +31,7 @@ async function performEmissionCalculation(
   );
 
   const calculationReport: CalculationReport = {
-    transportActivities: [],
+    ...calculationReportFactory(),
     metadata: calculationInput.metadata ?? undefined,
   };
 
@@ -35,23 +39,16 @@ async function performEmissionCalculation(
     calculationInput.transportParts.map(async (transportPart, index) => {
       try {
         // Get the emission factor
-        const {
-          producedEmissions,
-          factorUsed,
-          mappedEmissionFactor,
-          emissionIntensity,
-        } = await calculateTransportActivity(transportPart);
+        const reportPart = await calculateTransportActivity(transportPart);
 
         // Add the emission to the report
-        calculationReport.transportActivities[index] = {
-          producedEmissions,
-          emissionIntensity,
-          unit: `${factorUsed.producedUnit} / ${factorUsed.perUnit}`,
-          usedEmissionFactor: {
-            ...mappedEmissionFactor,
-            factors: factorUsed,
-          },
-        };
+        calculationReport.transportActivities[index] = reportPart;
+
+        addReportPartToOverallReport(
+          calculationReport,
+          reportPart,
+          transportPart.scope
+        );
       } catch (error) {
         throw new CustomError({
           status: HttpStatusCode.BadRequest,
@@ -61,114 +58,109 @@ async function performEmissionCalculation(
       }
     })
   );
-  calculationReport.totalEmissions = -1; // TODO: Calculate total emissions
+
+  // TODO: Save the calculation report
+  // return await saveCalculationReport(calculationReport);
+
   return calculationReport;
 }
 
+/**
+ * Calculates the emission for a batch of transport activities.
+ * @param {FreightEmissionCalculationInput[]} inputData
+ * @returns {Promise<CalculationReport[]>} - The result of the batch emission calculation.
+ */
+async function performBatchEmissionCalculation(
+  inputData: FreightEmissionCalculationInput[]
+): Promise<CalculationReport[]> {
+  const arrayOfReports = [];
+
+  for (const [index, item] of inputData.entries()) {
+    try {
+      arrayOfReports.push(await performEmissionCalculation(item));
+    } catch (error) {
+      throw new CustomError({
+        status: HttpStatusCode.BadRequest,
+        message: `Error while calculating emission for batch calculation at index ${index}`,
+        details: error,
+      });
+    }
+  }
+
+  // TODO: Save the calculation reports
+  // return await saveCalculationReports(arrayOfReports);
+
+  return arrayOfReports;
+}
+
+/**
+ * Calculates the emission for a single transport activity.
+ * @param transportPart The transport activity to calculate the emission for.
+ * @returns The report part for the transport activity.
+ */
 async function calculateTransportActivity(
   transportPart: FreightEmissionCalculationInput["transportParts"][number]
-) {
-  if ("modeOfTransport" in transportPart.transportDetails) {
-    switch (transportPart.transportDetails.modeOfTransport) {
+): Promise<TransportActivityReport> {
+  const transportDetails = transportPart.transportDetails;
+  if ("modeOfTransport" in transportDetails) {
+    const modeOfTransport = transportDetails.modeOfTransport;
+    switch (modeOfTransport) {
       case "ROAD":
-        throw new CustomError({
-          status: HttpStatusCode.BadRequest,
-          message: "Road transport is not yet supported",
-        });
-      default:
-        throw exhaustiveMatchingGuard(
-          transportPart.transportDetails.modeOfTransport
+        return handleCalculationForRoadTransport(
+          transportPart,
+          transportDetails
         );
+      case "RAIL":
+        return handleCalculationForRailTransport(
+          transportPart,
+          transportDetails
+        );
+      default:
+        throw exhaustiveMatchingGuard(modeOfTransport);
     }
   } else {
-    return await handleCalculationWithGivenFuelConsumption(
+    return handleCalculationWithGivenFuelConsumption(
       transportPart,
-      transportPart.transportDetails
+      transportDetails
     );
   }
 }
 
 /**
- * Calculates the emission in case the fuel consumption is provided. Requires primary data and knowledge of the fuel consumption.
- * @returns The report part for the transport activity.
+ * Saves the calculation report to the database.
+ * @param {CalculationReport} report - The calculation report to save.
+ * @returns {Promise<CalculationReport>} - The saved calculation report.
  */
-async function handleCalculationWithGivenFuelConsumption(
-  transportPart: FreightEmissionCalculationInput["transportParts"][number],
-  transportDetails: ConsumedFuelTransportDetails
-) {
-  const emissionFactor =
-    await FuelEmissionFactorService.getFuelEmissionFactorByFuelCodeAndRegion(
-      transportDetails.fuelCode,
-      transportPart.region
-    );
-
-  // --- Unit conversion ---
-  const providedUnitType = classifyUnitType(transportDetails.consumedFuel.unit);
-
-  const mappedEmissionFactor =
-    EmissionFactorService.mapEmissionFactorWithUnits(emissionFactor);
-
-  // Get the factor with the same unit type as the provided unit type
-  const factorToUse = mappedEmissionFactor.factors.find(
-    (factor) => classifyUnitType(factor.perUnit) === providedUnitType
+async function saveCalculationReport(
+  report: CalculationReport
+): Promise<CalculationReport> {
+  const savedCalculationReport = await CRUDEntityService.createEntity(
+    report,
+    "REPORT"
   );
 
-  if (!factorToUse) {
+  if (!savedCalculationReport) {
     throw new CustomError({
-      status: HttpStatusCode.BadRequest,
-      message: `No emission factor found for unit type ${providedUnitType}`,
+      status: HttpStatusCode.InternalServerError,
+      message: "Error while saving the calculation report",
     });
   }
 
-  // Convert the consumed fuel to the unit type of the emission factor
-  const convertedConsumedFuel = UnitConversionService.convertUnits(
-    transportDetails.consumedFuel.unit,
-    factorToUse.perUnit,
-    transportDetails.consumedFuel.value
-  );
+  return savedCalculationReport;
+}
 
-  // --- Emission calculation ---
-  // Calculate the emission
-  const producedEmissions = {
-    tankToWheel: factorToUse.factor.ttw
-      ? convertedConsumedFuel.value * factorToUse.factor.ttw
-      : null,
-    wellToTank: factorToUse.factor.wtt
-      ? convertedConsumedFuel.value * factorToUse.factor.wtt
-      : null,
-    wellToWheel: factorToUse.factor.wtw
-      ? convertedConsumedFuel.value * factorToUse.factor.wtw
-      : null,
-  };
-
-  // --- Emission intensity calculation ---
-  // Calculate the tonne-kilometres (tkm) of the transport activity
-  const km = UnitConversionService.convertUnits(
-    transportPart.distance.unit,
-    "km",
-    transportPart.distance.value
-  ).value;
-  const tonnes = UnitConversionService.convertUnits(
-    transportPart.weight.unit,
-    "tonnes",
-    transportPart.weight.value
-  ).value;
-
-  const tkm = tonnes * km;
-  const emissionIntensity = (producedEmissions.wellToWheel ?? 0) / tkm;
-
-  return {
-    producedEmissions,
-    factorUsed: factorToUse,
-    mappedEmissionFactor,
-    emissionIntensity: {
-      tkm,
-      value: emissionIntensity,
-      unit: "kgCO2e/tkm",
-    },
-  };
+/**
+ * Save multiple calculation reports to the database.
+ * @param {CalculationReport[]} reports - The calculation reports to save.
+ * @returns {Promise<CalculationReport>} - The saved calculation report.
+ */
+async function saveCalculationReports(
+  reports: CalculationReport[]
+): Promise<CalculationReport[]> {
+  return await CRUDEntityService.createEntities(reports, "REPORT");
 }
 
 export const EmissionCalculatorService = {
   performEmissionCalculation,
+  performBatchEmissionCalculation,
 };

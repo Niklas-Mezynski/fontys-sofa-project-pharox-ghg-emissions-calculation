@@ -1,2 +1,2 @@
-export * from "./road_intensity_factors";
-export * from "./temp_factor_mapper";
+export * from "./crud_road_emission_intensity_factor";
+export * from "./crud_rail_emission_intensity_factor";

@@ -1,15 +1,18 @@
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 import { weightUnits } from "../units/units";
-import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
-import { commonModels } from "../common";
 import {
-  fuelEmissionFactorSourceSchema,
+  baseFactorSchema,
+  emissionFactorSourceSchema,
+  fuelConsumptionSchema,
+  glecIntensityFactorUnits,
   regionSchema,
-} from "./fuel_emission_factors";
+} from "./common_emission_factor_models";
 
 extendZodWithOpenApi(z);
 
-const vehicleSchema = z.object({
+export const vehicleSchema = z.object({
+  id: z.string().uuid().optional(),
   code: z.string(),
   name: z.string(),
   weight: z
@@ -21,8 +24,9 @@ const vehicleSchema = z.object({
     .nullable(),
   engineType: z.string().nullable(),
 });
+export type Vehicle = z.infer<typeof vehicleSchema>;
 
-const characteristicsSchema = z.object({
+export const characteristicsSchema = z.object({
   loadFactor: z.number().nullable(),
   emptyRunning: z.number().nullable(),
   loadCharacteristic: z.string().nullable(),
@@ -34,34 +38,15 @@ const fuelSchema = z.object({
   code: z.string(),
 });
 
-export const glecIntensityFuelConsumptionUnits = [
-  "KWH_PER_TKM",
-  "KG_PER_TKM",
-  "L_PER_TKM",
-] as const;
-
-const fuelConsumptionSchema = z.array(
-  commonModels.valueWithUnitModel(glecIntensityFuelConsumptionUnits)
-);
-
-export const glecIntensityFactorUnits = ["G_CO2E_PER_TKM"] as const;
-
-const factorSchema = z.object({
-  unit: z.enum(glecIntensityFactorUnits),
-  wtt: z.number().nullable(),
-  ttw: z.number().nullable(),
-  wtw: z.number().nullable(),
-});
-
 export const roadIntensityFactorSchema = z.object({
   id: z.string().uuid().optional(),
   vehicle: vehicleSchema.nullable(),
   characteristics: characteristicsSchema.nullable(),
   fuel: fuelSchema.nullable(),
   fuelConsumption: fuelConsumptionSchema.nullable(),
-  factor: factorSchema.nullable(),
+  factor: baseFactorSchema(glecIntensityFactorUnits).nullable(),
   region: regionSchema,
-  source: fuelEmissionFactorSourceSchema,
+  source: emissionFactorSourceSchema,
   refrigerated: z.boolean().default(false),
 });
 export type RoadIntensityFactor = z.infer<typeof roadIntensityFactorSchema>;

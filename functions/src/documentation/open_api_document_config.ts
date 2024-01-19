@@ -29,17 +29,29 @@ export const openApiDocumentConfig = {
       description: "Functions related to calculation of emissions",
     },
     {
-      name: "Emission factors",
-      description: "Functions related to emission factors",
+      name: "Emission calculation reports",
+      description: "Functions related to emission calculation reports",
+    },
+    {
+      name: "Fuel Emission factors",
+      description: "Functions related to fuel emission factors",
+    },
+    {
+      name: "Intensity emission factors",
+      description: "Functions related to intensity emission factors",
+    },
+    {
+      name: "Common",
+      description: "Functions related to entities used in the system",
     },
     {
       name: "Units",
-      description: "Functions related units being used in the system",
+      description: "Functions related to units being used in the system",
     },
   ],
   security: [
     {
-      authToken: [],
+      bearerAuth: [],
     },
   ],
 };

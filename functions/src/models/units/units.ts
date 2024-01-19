@@ -1,4 +1,15 @@
+import { z } from "zod";
 import { CheckStructureOfConst } from "../../utils/types";
+
+export const unitClassificationInputSchema = z.object({
+  unit: z.string(),
+});
+
+export const unitConverterInputSchema = z.object({
+  originalUnitType: z.string(), // e.g. m
+  targetUnitType: z.string(), // e.g. km
+  value: z.number(), // e.g. 1000
+});
 
 /**
  * System allowed unit types

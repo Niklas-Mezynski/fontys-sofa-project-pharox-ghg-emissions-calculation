@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+/**
+ * Creates a zod schema for a value with a unit.
+ * @param allowedUnits The allowed units for the value, must be a const array of strings.
+ */
 function valueWithUnitModel<U extends string, T extends Readonly<[U, ...U[]]>>(
   allowedUnits: T
 ) {
@@ -9,6 +13,13 @@ function valueWithUnitModel<U extends string, T extends Readonly<[U, ...U[]]>>(
   });
 }
 
+const glecScopeModel = z.enum(["SCOPE1", "SCOPE2", "SCOPE3"]);
+export type GLECScope = z.infer<typeof glecScopeModel>;
+
+export const transformUndefinedToNull = <T>(v: T) =>
+  v === undefined ? null : v;
+
 export const commonModels = {
   valueWithUnitModel,
+  glecScopeModel,
 };
